@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Spiritual Eyes</title>
+
+  <style>
+    body{
+      background:black;
+      color:white;
+      font-family:Arial;
+      text-align:center;
+      padding-top:100px;
+    }
+
+    input{
+      padding:12px;
+      width:250px;
+      border:none;
+      border-radius:8px;
+      margin-top:20px;
+    }
+
+    button{
+      padding:12px 20px;
+      border:none;
+      border-radius:8px;
+      margin-top:10px;
+      cursor:pointer;
+    }
+
+    #book{
+      display:none;
+      margin-top:40px;
+      padding:20px;
+      border:1px solid #444;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>🔐 Spiritual Eyes</h1>
+
+<p>Enter your license key</p>
+
+<input id="key" placeholder="License Key">
+
+<br>
+
+<button onclick="unlockBook()">
+Unlock Book
+</button>
+
+<p id="msg"></p>
+
+<div id="book">
+
+<h2>Spiritual Eyes</h2>
+
+<p>
+This is where your protected book content will appear.
+</p>
+
+</div>
+
+<script>
+
+async function unlockBook(){
+
+  let userKey =
+  document.getElementById("key").value;
+
+  let response =
+  await fetch("keys.json");
+
+  let data =
+  await response.json();
+
+  if(data.keys.includes(userKey)){
+
+    document.getElementById("book")
+    .style.display = "block";
+
+    document.getElementById("msg")
+    .innerHTML = "Access Granted ✔";
+
+  }else{
+
+    document.getElementById("msg")
+    .innerHTML = "Invalid Key ❌";
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>
