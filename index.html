@@ -80,10 +80,7 @@ const SUPABASE_KEY =
 "sb_publishable_mUNYUtotJGrESIeSu0HrVg_WxzGWqqvC";
 
 const client =
-supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_KEY
-);
+supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 async function unlockBook(){
 
@@ -93,62 +90,62 @@ async function unlockBook(){
   let msg =
   document.getElementById("msg");
 
-  // get license from Supabase
+  // STEP 1: TEST CONNECTION FIRST
   let { data, error } =
   await client
-  .from("licenses")
-  .select("*")
-  .eq("key", userKey)
-  .single();
+    .from("licenses")
+    .select("*")
+    .eq("key", userKey);
 
-  if(error || !data){
+  console.log("DATA:", data);
+  console.log("ERROR:", error);
 
+  // show debug info on screen
+  if(error){
+    msg.innerHTML =
+    "Supabase Error: " + error.message;
+    return;
+  }
+
+  if(!data || data.length === 0){
     msg.innerHTML =
     "Invalid License ❌";
-
     return;
   }
 
-  // blocked license
-  if(data.status !== "active"){
+  let license = data[0];
 
-    msg.innerHTML =
-    "License Blocked ❌";
-
+  // check status
+  if(license.status !== "active"){
+    msg.innerHTML = "License Blocked ❌";
     return;
   }
 
-  // local device id
+  // device ID
   let deviceID =
   localStorage.getItem("deviceID");
 
   if(!deviceID){
 
     deviceID =
-    "DEV-" +
-    Math.random().toString(36).substring(2);
+    "DEV-" + Math.random().toString(36).substring(2);
 
-    localStorage.setItem(
-      "deviceID",
-      deviceID
-    );
+    localStorage.setItem("deviceID", deviceID);
   }
 
-  // first device lock
-  if(!data.device_id){
+  // first device bind
+  if(!license.device_id){
 
     await client
     .from("licenses")
-    .update({
-      device_id: deviceID
-    })
-    .eq("id", data.id);
+    .update({ device_id: deviceID })
+    .eq("id", license.id);
 
-    data.device_id = deviceID;
+    license.device_id = deviceID;
   }
 
-  // device mismatch
-  if(data.device_id !== deviceID){
+  // device check
+  if(license.device_id !== deviceID){
 
     msg.innerHTML =
     "This license is already used on another device ❌";
@@ -156,12 +153,9 @@ async function unlockBook(){
     return;
   }
 
-  // access granted
-  document.getElementById("book")
-  .style.display = "block";
-
-  msg.innerHTML =
-  "Access Granted ✔";
+  // SUCCESS
+  document.getElementById("book").style.display = "block";
+  msg.innerHTML = "Access Granted ✔";
 
 }
 
