@@ -101,10 +101,11 @@ async function unlockBook(){
   console.log("ERROR:", error);
 
   if(error){
-    msg.innerHTML =
-    "Supabase Error: " + error.message;
-    return;
-  }
+  console.log(error);
+  msg.innerHTML =
+  "ERROR: " + JSON.stringify(error);
+  return;
+}
 
   if(!data || data.length === 0){
     msg.innerHTML =
