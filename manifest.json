@@ -1,7 +1,7 @@
 {
   "name": "Spiritual Eyes",
   "short_name": "Spiritual",
-  "start_url": "./",
+  "start_url": "/Spiritual-Word/"
   "scope": "./",
   "display": "standalone",
   "background_color": "#000000",
