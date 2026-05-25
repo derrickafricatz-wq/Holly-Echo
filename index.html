@@ -52,8 +52,6 @@
 
   <button onclick="unlockBook()">Unlock Book</button>
 
-  <button onclick="readBook()">🔊 Read Book</button>
-
   <p id="msg"></p>
 
   <div id="book"></div>
@@ -115,8 +113,27 @@
       document.getElementById("book").style.display = "block";
       msg.innerHTML = "Access Granted ✔";
 
-      document.getElementById("book").innerHTML =
-     `<iframe src="learn.pdf" width="100%" height="700px" style="border:none;"></iframe>`;
+      document.getElementById("book").innerHTML = `
+
+<button onclick="readBook()" 
+style="
+padding:12px 20px;
+margin-bottom:15px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+">
+🔊 Read Book
+</button>
+
+<iframe 
+src="learn.pdf" 
+width="100%" 
+height="700px" 
+style="border:none;">
+</iframe>
+
+`;
 
     }
 
