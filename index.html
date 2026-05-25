@@ -199,6 +199,21 @@ function prevPage() {
   pageNum--;
   renderPage(pageNum);
 }
+
+    async function getPageText(pageNumber) {
+
+  const page = await pdfDoc.getPage(pageNumber);
+
+  const textContent = await page.getTextContent();
+
+  let text = "";
+
+  textContent.items.forEach(item => {
+    text += item.str + " ";
+  });
+
+  return text;
+}
     
 
 </script>
