@@ -174,7 +174,9 @@
   let text = await getPageText(pageNum);
 
   let words = text.split(" ");
-  document.getElementById("textLayer").innerHTML = words.join(" "); 
+  words[0] = `<span style="background:yellow;color:black;">${words[0]}</span>`;
+
+  document.getElementById("textLayer").innerHTML = words.join(" ");
 
   if (!text || text.trim().length === 0) return;
 
