@@ -85,6 +85,9 @@
 
     const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
+    let pdfDoc = null;
+    let pageNum = 1;
+
     async function unlockBook() {
 
       let userKey = document.getElementById("key").value;
