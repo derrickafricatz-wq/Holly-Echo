@@ -201,12 +201,24 @@ window.speechSynthesis.speak(speech);
 }
 
     function nextPage() {
+
+  if (currentSpeech) {
+    window.speechSynthesis.cancel();
+    currentSpeech = null;
+  }
+
   if (pageNum >= pdfDoc.numPages) return;
   pageNum++;
   renderPage(pageNum);
 }
 
 function prevPage() {
+
+  if (currentSpeech) {
+    window.speechSynthesis.cancel();
+    currentSpeech = null;
+  }
+
   if (pageNum <= 1) return;
   pageNum--;
   renderPage(pageNum);
