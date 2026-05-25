@@ -224,6 +224,10 @@ window.speechSynthesis.speak(speech);
   document.getElementById("pageNum").innerText = "Page: " + num;
 }
 
+  getPageText(num).then(text => {
+  document.getElementById("textLayer").innerText = text;
+}); 
+
     function nextPage() {
 
   if (currentSpeech) {
