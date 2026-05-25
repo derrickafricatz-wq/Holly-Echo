@@ -168,7 +168,7 @@
   let speech = new SpeechSynthesisUtterance(text);
 
   speech.lang = "en-US";
-  speech.rate = 1;
+  speech.rate = speechSpeed;
 
   if (currentSpeech) {
   window.speechSynthesis.cancel();
@@ -251,6 +251,11 @@ function prevPage() {
     function pauseVoice() {
   window.speechSynthesis.pause();
 }
+
+document.getElementById("speed").addEventListener("input", function () {
+  speechSpeed = parseFloat(this.value);
+  document.getElementById("speedValue").innerText = speechSpeed;
+});  
     
 
 </script>
