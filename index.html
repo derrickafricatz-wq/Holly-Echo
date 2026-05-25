@@ -199,6 +199,21 @@ function updateHighlight() {
   window.speechSynthesis.speak(speech);
 }
 
+    updateHighlight();
+
+let highlightTimer = setInterval(() => {
+
+  currentIndex++;
+
+  if (currentIndex >= words.length) {
+    clearInterval(highlightTimer);
+    return;
+  }
+
+  updateHighlight();
+
+  }, 300);
+
     async function renderPDF() {
 
   const url = 'learn.pdf';
