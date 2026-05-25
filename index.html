@@ -44,17 +44,21 @@
 
 <body>
 
-  <h1>🔐 Spiritual Eyes</h1>
+  <div id="licenseScreen">
 
-  <p>Enter your license key</p>
+<h1>🔐 Spiritual Eyes</h1>
 
-  <input id="key" placeholder="License Key">
+<p>Enter your license key</p>
 
-  <br>
+<input id="key" placeholder="License Key">
 
-  <button onclick="unlockBook()">Unlock Book</button>
+<br>
 
-  <p id="msg"></p>
+<button onclick="unlockBook()">Unlock Book</button>
+
+<p id="msg"></p>
+
+  </div>
 
   <div id="book">
 
@@ -146,11 +150,17 @@
         return;
       }
 
-      document.getElementById("book").style.display = "block";
-
       msg.innerHTML = "Access Granted ✔";
 
-      renderPDF();
+      setTimeout(() => {
+
+     document.getElementById("licenseScreen").style.display = "none";
+
+     document.getElementById("book").style.display = "block";
+
+     renderPDF();
+
+     }, 1000);
 
       }
 
