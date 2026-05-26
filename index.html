@@ -330,8 +330,13 @@ if (screenWidth < 600) {
   rotation
 });
 
-  canvas.height = viewport.height;
-  canvas.width = viewport.width;
+      
+canvas.width = viewport.width;
+canvas.height = viewport.height;
+
+canvas.style.width = "100%";
+canvas.style.maxWidth = "900px";
+canvas.style.height = "auto";
 
   await page.render({
     canvasContext: ctx,
