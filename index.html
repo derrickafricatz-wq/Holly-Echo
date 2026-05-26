@@ -312,7 +312,19 @@ window.speechSynthesis.speak(speech);
 
   const page = await pdfDoc.getPage(num);
 
-  const scale = 1.5;
+  let screenWidth = window.innerWidth;
+
+let scale;
+
+if (screenWidth < 600) {
+
+  scale = 1.2;
+
+} else {
+
+  scale = 1.8;
+
+}
   const viewport = page.getViewport({
   scale,
   rotation
