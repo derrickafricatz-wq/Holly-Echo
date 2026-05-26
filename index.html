@@ -352,16 +352,22 @@ document.getElementById("speed").addEventListener("input", function () {
     }
 
     if ("serviceWorker" in navigator) {
+
   window.addEventListener("load", () => {
+
     navigator.serviceWorker.register("./sw.js")
-      .then((reg) => {
-        console.log("SW registered:", reg.scope);
+
+      .then(() => {
+        console.log("SW Registered");
       })
+
       .catch((err) => {
-        console.log("SW failed:", err);
+        console.log("SW Failed", err);
       });
+
   });
-    }
+
+}
 
     let deferredPrompt;
 const installBtn = document.getElementById("installBtn");
