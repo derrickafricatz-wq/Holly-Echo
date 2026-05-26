@@ -1,21 +1,28 @@
 {
-  "name": "Spiritual Eyes",
-  "short_name": "Spiritual Eyes",
+  "name": "In His Words, We Walk In Perfection",
+  "short_name": "Spiritual Word",
+
   "start_url": "./index.html",
-  "display": "standalone",
+  "scope": "./",
+
+  "display": "fullscreen",
+  "orientation": "landscape",
+
   "background_color": "#000000",
-  "theme_color": "#000000",
-  "orientation": "portrait",
+  "theme_color": "#00ffff",
+
   "icons": [
     {
-      "src": "https://i.imgur.com/InTnnjW.png",
+      "src": "https://i.imgur.com/mwkZeR2.jpeg",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
-      "src": "https://i.imgur.com/InTnnjW.png",
+      "src": "https://i.imgur.com/mwkZeR2.jpeg",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
