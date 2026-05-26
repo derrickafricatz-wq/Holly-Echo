@@ -280,7 +280,10 @@ window.speechSynthesis.speak(speech);
   const page = await pdfDoc.getPage(num);
 
   const scale = 1.5;
-  const viewport = page.getViewport({ scale });
+  const viewport = page.getViewport({
+  scale,
+  rotation
+});
 
   canvas.height = viewport.height;
   canvas.width = viewport.width;
@@ -402,6 +405,18 @@ installBtn.addEventListener("click", async () => {
 window.addEventListener("appinstalled", () => {
   installBtn.style.display = "none";
 });
+
+    function rotateBook() {
+
+  if (rotation === 0) {
+    rotation = 90;
+  } else {
+    rotation = 0;
+  }
+
+  renderPage(pageNum);
+
+    }
     
 </script>
 </body>
