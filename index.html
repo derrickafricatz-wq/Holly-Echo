@@ -376,35 +376,53 @@ document.getElementById("speed").addEventListener("input", function () {
 }
 
     let deferredPrompt;
+
 const installBtn = document.getElementById("installBtn");
 
-// Chrome says "app is installable"
+// hide button first
+installBtn.style.display = "none";
+
+// if already installed → keep hidden
+if (window.matchMedia('(display-mode: standalone)').matches) {
+  installBtn.style.display = "none";
+}
+
+// Chrome says app can install
 window.addEventListener("beforeinstallprompt", (e) => {
+
   e.preventDefault();
+
   deferredPrompt = e;
 
+  // show install button
   installBtn.style.display = "block";
 });
 
-// user clicks install
+// user presses install
 installBtn.addEventListener("click", async () => {
+
   if (!deferredPrompt) return;
 
   deferredPrompt.prompt();
 
-  const choice = await deferredPrompt.userChoice;
+  const result = await deferredPrompt.userChoice;
 
-  if (choice.outcome === "accepted") {
-    console.log("Installed");
+  if (result.outcome === "accepted") {
+
+    // hide after install
+    installBtn.style.display = "none";
+
   }
 
   deferredPrompt = null;
-  installBtn.style.display = "none";
+
 });
 
-// after install
+// app installed successfully
 window.addEventListener("appinstalled", () => {
+
   installBtn.style.display = "none";
+
 });
 
     function rotateBook() {
