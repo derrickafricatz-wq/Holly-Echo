@@ -3,7 +3,7 @@
 
 <head>
   <title>Spiritual Word</title>
-
+  
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#00ffff">
 
@@ -37,43 +37,11 @@
     }
 
     #book {
-  display: none;
-
-  width: 100%;
-  height: 100vh;
-
-  overflow: auto;
-
-  background: #000;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  flex-direction: column;
-
-  padding: 10px;
-
-  box-sizing: border-box;
+      display: none;
+      margin-top: 40px;
+      padding: 20px;
+      border: 1px solid #444;
     }
-
-    #pdf-render {
-
-  max-width: 100%;
-
-  width: auto;
-
-  height: auto;
-
-  border-radius: 15px;
-
-  box-shadow: 0 0 25px rgba(0,255,255,0.4);
-
-  background: #111;
-
-  margin-top: 20px;
-
-   }
 
     #toggleBtn {
   position: fixed;
@@ -180,8 +148,6 @@
 
   <button onclick="nextPage()">Next ➡</button>
 
-  <button onclick="rotateBook()">🔄 Rotate</button>
-
   <br><br>
 
   <span id="pageNum">Page: 1</span>
@@ -205,7 +171,6 @@
 
     let pdfDoc = null;
     let pageNum = 1;
-    let rotation = 0;
     let canvas = null;
     let ctx = null;
     let currentSpeech = null;
@@ -227,14 +192,14 @@
       }
 
       if (!data || data.length === 0) {
-        msg.innerHTML = "Invalid License ❌";
+        msg.innerHTML = "Unexpected License";
         return;
       }
 
       let license = data[0];
 
       if (license.status !== "active") {
-        msg.innerHTML = "License Blocked ❌";
+        msg.innerHTML = "secured by deka 🔐";
         return;
       }
 
@@ -253,7 +218,7 @@
       }
 
       if (license.device_id && license.device_id !== deviceID) {
-        msg.innerHTML = "Used on another device ❌";
+        msg.innerHTML = "Used on another device ";
         return;
       }
 
@@ -312,31 +277,11 @@ window.speechSynthesis.speak(speech);
 
   const page = await pdfDoc.getPage(num);
 
-  let screenWidth = window.innerWidth;
+  const scale = 1.5;
+  const viewport = page.getViewport({ scale });
 
-let scale;
-
-if (screenWidth < 600) {
-
-  scale = 1.2;
-
-} else {
-
-  scale = 1.8;
-
-}
-  const viewport = page.getViewport({
-  scale,
-  rotation
-});
-
-      
-canvas.width = viewport.width;
-canvas.height = viewport.height;
-
-canvas.style.width = "100%";
-canvas.style.maxWidth = "900px";
-canvas.style.height = "auto";
+  canvas.height = viewport.height;
+  canvas.width = viewport.width;
 
   await page.render({
     canvasContext: ctx,
@@ -405,7 +350,7 @@ document.getElementById("speed").addEventListener("input", function () {
   }
 
     }
-
+    
     if ("serviceWorker" in navigator) {
 
   window.addEventListener("load", () => {
@@ -472,24 +417,6 @@ window.addEventListener("appinstalled", () => {
 
   installBtn.style.display = "none";
 
-});
-
-    function rotateBook() {
-
-  if (rotation === 0) {
-    rotation = 90;
-  } else {
-    rotation = 0;
-  }
-
-  renderPage(pageNum);
-
-    }
-
-    window.addEventListener("resize", () => {
-  if (pdfDoc) {
-    renderPage(pageNum);
-  }
 });
     
 </script>
