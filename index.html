@@ -111,6 +111,8 @@
 
 <p id="msg"></p>
 
+<button id="installBtn"> Install App </button>
+
   </div>
 
   <div id="book">
@@ -360,6 +362,38 @@ document.getElementById("speed").addEventListener("input", function () {
       });
   });
     }
+
+    let deferredPrompt;
+const installBtn = document.getElementById("installBtn");
+
+// Chrome says "app is installable"
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+
+  installBtn.style.display = "block";
+});
+
+// user clicks install
+installBtn.addEventListener("click", async () => {
+  if (!deferredPrompt) return;
+
+  deferredPrompt.prompt();
+
+  const choice = await deferredPrompt.userChoice;
+
+  if (choice.outcome === "accepted") {
+    console.log("Installed");
+  }
+
+  deferredPrompt = null;
+  installBtn.style.display = "none";
+});
+
+// after install
+window.addEventListener("appinstalled", () => {
+  installBtn.style.display = "none";
+});
     
 </script>
 </body>
