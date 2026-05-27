@@ -5,8 +5,7 @@
   "scope": "./",
   "display": "standalone",
   "display_override": [
-    "standalone",
-    "window-controls-overlay"
+    "standalone"
   ],
   "orientation": "portrait",
   "background_color": "#544545",
