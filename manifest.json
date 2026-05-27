@@ -1,17 +1,15 @@
 {
   "name": "In His Words, We Walk In Perfection",
   "short_name": "Spiritual Word",
-  "start_url": "/index.html",
-  "scope": "./",
+  "start_url": "/Spiritual-Word/",
+  "scope": "/Spiritual-Word/",
   "display": "standalone",
-  "display_override": [
-    "standalone"
-  ],
+  "display_override": ["standalone"],
   "orientation": "portrait",
   "background_color": "#544545",
   "theme_color": "#1f2323",
-  "description": "Spiritual Word is a powerful offline-ready digital book reader with audio narration, designed for spiritual growth and daily inspiration. Read and listen to the book anytime, even without internet after installation.",
-  
+  "description": "Spiritual Word is a powerful offline-ready digital book reader with audio narration, designed for spiritual growth and daily inspiration.",
+
   "icons": [
     {
       "src": "icon-192.png",
