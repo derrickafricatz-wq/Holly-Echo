@@ -37,7 +37,7 @@
       cursor: pointer;
     }
 
-    #book {
+   #book {
   display: none;
   position: fixed;
   top: 0;
@@ -47,11 +47,11 @@
   height: 100vh;
 
   background: black;
-  padding: 0;
-  margin: 0;
 
-  overflow: hidden;
-    }
+  overflow: auto;
+
+  -webkit-overflow-scrolling: touch;
+} 
 
     #pdf-render {
   position: absolute;
@@ -317,7 +317,7 @@ window.speechSynthesis.speak(speech);
   const scaleX = screenWidth / viewport.width;
   const scaleY = screenHeight / viewport.height;
 
-  const scale = Math.min(scaleX, scaleY) * 1.1;
+  const scale = Math.min(scaleX, scaleY) * 1.2;
 
   const scaledViewport = page.getViewport({ scale });
 
