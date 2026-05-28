@@ -364,18 +364,41 @@ function prevPage() {
 }
 
     async function getPageText(pageNumber) {
-
   const page = await pdfDoc.getPage(pageNumber);
-
   const textContent = await page.getTextContent();
 
-  let text = "";
+  const linesMap = {};
 
   textContent.items.forEach(item => {
-    text += item.str + " ";
+    const y = Math.round(item.transform[5]);
+    const text = item.str;
+
+    if (!linesMap[y]) {
+      linesMap[y] = [];
+    }
+
+    linesMap[y].push(text);
   });
 
-  return text;
+  const sortedY = Object.keys(linesMap)
+    .map(Number)
+    .sort((a, b) => b - a);
+
+  let finalText = "";
+
+  sortedY.forEach(y => {
+    finalText += linesMap[y].join(" ") + " ";
+  });
+
+  // ✅ CLEANING (inside same function)
+  finalText = finalText
+    .replace(/\n/g, " ")
+    .replace(/\s+/g, " ")
+    .replace(/[_]{2,}/g, "")
+    .replace(/�/g, "")
+    .trim();
+
+  return finalText;
 }
 
     function pauseVoice() {
