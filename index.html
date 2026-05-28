@@ -96,22 +96,29 @@
 #controls {
   position: fixed;
 
-  bottom: 80px;
-  right: 20px;
+  bottom: 10px;
+  left: 50%;
+
+  transform: translateX(-50%);
 
   background: rgba(0,0,0,0.95);
 
   border: 1px solid #00ffff;
-
   border-radius: 15px;
 
-  padding: 15px;
+  padding: 10px 15px;
 
   display: none;
 
   z-index: 9998;
 
   box-shadow: 0 0 20px #00ffff;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  flex-wrap: nowrap;
 }
 
   </style>
@@ -169,8 +176,6 @@
   <button onclick="prevPage()">⬅ Prev</button>
 
   <button onclick="nextPage()">Next ➡</button>
-
-  <br><br>
 
   <span id="pageNum">Page: 1</span>
 
@@ -322,7 +327,7 @@ window.speechSynthesis.speak(speech);
   // center it properly
   canvas.style.position = "absolute";
   canvas.style.left = "50%";
-  canvas.style.top = "50%";
+  canvas.style.top = "45%";
   canvas.style.transform = "translate(-50%, -50%)";
 
   await page.render({
