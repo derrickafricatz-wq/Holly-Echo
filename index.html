@@ -265,16 +265,21 @@
 
     async function readBook() {
 
+  if (!pdfDoc) return;
+
   let text = await getPageText(pageNum);
 
-  if (!text || text.trim().length === 0) return;
+  if (!text || text.trim().length === 0) {
+    alert("No text found on this page");
+    return;
+  }
 
   let speech = new SpeechSynthesisUtterance(text);
 
   speech.lang = "en-US";
   speech.rate = speechSpeed;
 
-  window.speechSynthesis.cancel();
+  window.speechSynthesis.cancel(); // stop old audio
   window.speechSynthesis.speak(speech);
 }
   
