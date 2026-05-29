@@ -271,7 +271,6 @@
 
   try {
 
-    // stop previous voice
     window.speechSynthesis.cancel();
 
     let text = await getPageText(pageNum);
@@ -288,9 +287,8 @@
 
     currentSpeech = speech;
 
-    setTimeout(() => {
-  window.speechSynthesis.speak(speech);
-}, 500);
+    // ✅ IMPORTANT FIX: speak immediately (NO timeout)
+    window.speechSynthesis.speak(speech);
 
   } catch (e) {
     console.log(e);
