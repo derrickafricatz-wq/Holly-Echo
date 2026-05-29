@@ -276,25 +276,17 @@
 
   let speech = new SpeechSynthesisUtterance(text);
 
-  let voices = window.speechSynthesis.getVoices();
-
-  console.log(voices);
-
-  if (voices.length > 0) {
-    speech.voice = voices[0];
-  }
-
   speech.lang = "en-US";
   speech.rate = speechSpeed;
 
-  currentSpeech = speech;
-
+  if (currentSpeech) {
   window.speechSynthesis.cancel();
+}
 
-  setTimeout(() => {
-    window.speechSynthesis.speak(speech);
-  }, 200);
-    }
+currentSpeech = speech;
+
+window.speechSynthesis.speak(speech);
+}
   
   async function renderPDF() {
 
@@ -371,66 +363,18 @@ function prevPage() {
 }
 
     async function getPageText(pageNumber) {
+
   const page = await pdfDoc.getPage(pageNumber);
+
   const textContent = await page.getTextContent();
 
-  const items = textContent.items
-    .map(item => {
-      const str = item.str;
+  let text = "";
 
-      return {
-        text: str,
-        x: item.transform[4],
-        y: item.transform[5]
-      };
-    })
-
-    // 🚨 REMOVE BROKEN / GARBAGE FONT PIECES
-    .filter(item => {
-      const t = item.text.trim();
-
-      // remove empty / single weird glyphs
-      if (!t) return false;
-      if (t.length === 1 && !/[a-zA-Z0-9]/.test(t)) return false;
-
-      return true;
-    })
-
-    // 🧠 sort correct reading order
-    .sort((a, b) => {
-      if (Math.abs(b.y - a.y) > 2) return b.y - a.y;
-      return a.x - b.x;
-    });
-
-  let finalText = "";
-  let lastY = null;
-
-  items.forEach(item => {
-    // new line detection
-    if (lastY !== null && Math.abs(lastY - item.y) > 5) {
-      finalText += " ";
-    }
-
-    // 🚨 FIX: merge broken bold/styled fragments
-    if (finalText.length > 0 &&
-        !finalText.endsWith(" ") &&
-        !item.text.startsWith(" ")) {
-      finalText += " ";
-    }
-
-    finalText += item.text;
-    lastY = item.y;
+  textContent.items.forEach(item => {
+    text += item.str + " ";
   });
 
-  // 🧼 final cleanup
-  finalText = finalText
-    .replace(/\n/g, " ")
-    .replace(/\s+/g, " ")
-    .replace(/[_]{2,}/g, "")
-    .replace(/�/g, "")
-    .trim();
-
-  return finalText;
+  return text;
 }
 
     function pauseVoice() {
