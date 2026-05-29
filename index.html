@@ -259,41 +259,23 @@
 
      renderPDF();
 
-     startApologyLoop();
-
      }, 1000);
 
       }
 
     async function readBook() {
 
-  if (!pdfDoc) return;
+  let text = await getPageText(pageNum);
 
-  try {
+  if (!text || text.trim().length === 0) return;
 
-    window.speechSynthesis.cancel();
+  let speech = new SpeechSynthesisUtterance(text);
 
-    let text = await getPageText(pageNum);
+  speech.lang = "en-US";
+  speech.rate = speechSpeed;
 
-    if (!text || text.trim().length === 0) {
-      alert("No text found");
-      return;
-    }
-
-    let speech = new SpeechSynthesisUtterance(text);
-
-    speech.lang = "en-US";
-    speech.rate = speechSpeed;
-
-    currentSpeech = speech;
-
-    // ✅ IMPORTANT FIX: speak immediately (NO timeout)
-    window.speechSynthesis.speak(speech);
-
-  } catch (e) {
-    console.log(e);
-  }
-
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(speech);
 }
   
   async function renderPDF() {
