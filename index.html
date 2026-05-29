@@ -267,39 +267,26 @@
 
   if (!pdfDoc) return;
 
-  // stop old speech safely
-  if (window.speechSynthesis.speaking) {
-    window.speechSynthesis.cancel();
-
-    // small delay fixes Android Chrome speech bug
-    await new Promise(resolve => setTimeout(resolve, 200));
-  }
-
   let text = await getPageText(pageNum);
 
-  // no readable text
-  if (!text || text.trim().length < 3) {
-    alert("This page has no readable text");
+  if (!text || text.trim().length === 0) {
+    alert("No text found on this page");
     return;
   }
-
-  // clean PDF weird spacing
-  text = text.replace(/\s+/g, " ").trim();
 
   let speech = new SpeechSynthesisUtterance(text);
 
   speech.lang = "en-US";
   speech.rate = speechSpeed;
-  speech.pitch = 1;
-  speech.volume = 1;
 
-  currentSpeech = speech;
+  if (currentSpeech) {
+  window.speechSynthesis.cancel();
+}
 
-  // Android speech engine sometimes freezes
-  window.speechSynthesis.resume();
+currentSpeech = speech;
 
-  window.speechSynthesis.speak(speech);
-    }
+window.speechSynthesis.speak(speech);
+}
   
   async function renderPDF() {
 
@@ -352,19 +339,25 @@
     }
 
     function nextPage() {
+
+  if (currentSpeech) {
+    window.speechSynthesis.cancel();
+    currentSpeech = null;
+  }
+
   if (pageNum >= pdfDoc.numPages) return;
-
-  stopSpeech(); // 🔥 important: stop voice before switching
-
   pageNum++;
   renderPage(pageNum);
 }
 
 function prevPage() {
+
+  if (currentSpeech) {
+    window.speechSynthesis.cancel();
+    currentSpeech = null;
+  }
+
   if (pageNum <= 1) return;
-
-  stopSpeech(); // 🔥 important
-
   pageNum--;
   renderPage(pageNum);
 }
@@ -387,11 +380,6 @@ function prevPage() {
     function pauseVoice() {
   window.speechSynthesis.pause();
 }
-
-    function stopSpeech() {
-  window.speechSynthesis.cancel();
-  currentSpeech = null;
-    }
 
 document.getElementById("speed").addEventListener("input", function () {
   speechSpeed = parseFloat(this.value);
