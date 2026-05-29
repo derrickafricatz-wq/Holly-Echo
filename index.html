@@ -388,6 +388,21 @@ document.getElementById("speed").addEventListener("input", function () {
   document.getElementById("speedValue").innerText = speechSpeed;
 });
 
+    async function getPageTextOCR() {
+
+  const canvas = document.getElementById("pdf-render");
+
+  const result = await Tesseract.recognize(
+    canvas,
+    "eng",
+    {
+      logger: m => console.log(m)
+    }
+  );
+
+  return result.data.text;
+    }
+
     function toggleControls() {
 
   let controls = document.getElementById("controls");
