@@ -339,13 +339,10 @@ window.speechSynthesis.speak(speech);
     }
 
     function nextPage() {
-
-  if (currentSpeech) {
-    window.speechSynthesis.cancel();
-    currentSpeech = null;
-  }
-
   if (pageNum >= pdfDoc.numPages) return;
+
+  stopSpeech(); // 🔥 important: stop voice before switching
+
   pageNum++;
   renderPage(pageNum);
 }
