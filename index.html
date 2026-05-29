@@ -234,7 +234,6 @@
     let ctx = null;
     let currentSpeech = null;
     let speechSpeed = 1;
-    let isSpeaking = false;
 
     async function unlockBook() {
 
@@ -302,69 +301,45 @@
 
   if (!pdfDoc) return;
 
-  if (isSpeaking) return;
-  isSpeaking = true;
+  try {
 
-  startCountdown(async () => {
+    // stop previous voice
+    window.speechSynthesis.cancel();
 
-    try {
-      let text = await getPageText(pageNum);
+    let text = await getPageText(pageNum);
 
-      if (!text || text.trim().length === 0) {
-        isSpeaking = false;
-        return;
-      }
-
-      window.speechSynthesis.cancel();
-
-      let speech = new SpeechSynthesisUtterance(text);
-
-      speech.lang = "en-US";
-      speech.rate = speechSpeed;
-
-      speech.onend = () => {
-        isSpeaking = false;
-      };
-
-      speech.onerror = () => {
-        isSpeaking = false;
-      };
-
-      // 🔥 IMPORTANT FIX (forces start on Android/Chrome)
-      setTimeout(() => {
-        window.speechSynthesis.speak(speech);
-      }, 300);
-
-    } catch (e) {
-      console.log(e);
-      isSpeaking = false;
+    if (!text || text.trim().length === 0) {
+      alert("No text found");
+      return;
     }
 
-  });
-    }
+    // visual message
+    let box = document.getElementById("countdown");
 
-    function startCountdown(callback) {
-  let box = document.getElementById("countdown");
-  let count = 5;
+    box.style.display = "flex";
+    box.innerText = "🎙 Preparing Voice...";
 
-  box.style.display = "flex";
-  box.innerText = count;
-
-  let timer = setInterval(() => {
-    count--;
-
-    if (count <= 0) {
-      clearInterval(timer);
+    setTimeout(() => {
       box.style.display = "none";
-      callback(); // start voice here later
-    } else {
-      box.innerText = count;
-    }
-  }, 1000);
+    }, 1000);
+
+    let speech = new SpeechSynthesisUtterance(text);
+
+    speech.lang = "en-US";
+    speech.rate = speechSpeed;
+
+    currentSpeech = speech;
+
+    // start voice immediately
+    window.speechSynthesis.speak(speech);
+
+  } catch (e) {
+    console.log(e);
+  }
+
 }
   
-
-    async function renderPDF() {
+  async function renderPDF() {
 
   const url = 'holly.pdf';
 
