@@ -436,7 +436,7 @@ window.speechSynthesis.speak(speech);
   
   async function renderPDF() {
 
-  const url = 'holly.pdf';
+  const url = selectedPDF;
 
   pdfDoc = await pdfjsLib.getDocument(url).promise;
 
