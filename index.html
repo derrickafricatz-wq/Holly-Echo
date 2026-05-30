@@ -678,6 +678,42 @@ startHeaderLoop();
   { title: "Spiritual Eyes Guide", price: "$7" },
   { title: "Inner Peace Book", price: "$4" }
 ];
+
+    function renderBooks() {
+  const list = document.getElementById("bookList");
+
+  list.innerHTML = "";
+
+  books.forEach(book => {
+
+    const item = document.createElement("div");
+
+    item.style = `
+      margin:10px;
+      padding:12px;
+      border:1px solid #00ffff;
+      border-radius:10px;
+      text-align:left;
+    `;
+
+    item.innerHTML = `
+      <div style="font-weight:bold;">${book.title}</div>
+      <div style="color:#aaa;font-size:12px;">Price: ${book.price}</div>
+      <button style="
+        margin-top:8px;
+        padding:6px 10px;
+        border:none;
+        border-radius:8px;
+        background:#00ffff;
+        font-weight:bold;
+      ">
+        OPEN
+      </button>
+    `;
+
+    list.appendChild(item);
+  });
+}
     
 </script>
 </body>
