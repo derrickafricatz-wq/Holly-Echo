@@ -744,15 +744,13 @@ startHeaderLoop();
   if (book.locked) {
     alert("🔒 This book is locked.");
   } else {
-
   document.getElementById("storePanel").style.display = "none";
-
   document.getElementById("licenseScreen").style.display = "none";
-
   document.getElementById("book").style.display = "block";
 
-  renderPDF();
+  selectedPDF = book.pdf;   // 👈 IMPORTANT LINE
 
+  renderPDF();
   }
 }
     
