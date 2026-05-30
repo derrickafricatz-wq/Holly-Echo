@@ -726,7 +726,9 @@ startHeaderLoop();
   if (book.locked) {
     alert("🔒 This book is locked.");
   } else {
-    alert("📖 Opening: " + title);
+  document.getElementById("storePanel").style.display = "none";
+
+  alert("📖 Opening: " + title);
   }
 }
     
