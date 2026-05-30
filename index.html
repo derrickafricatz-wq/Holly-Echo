@@ -200,8 +200,6 @@
 
   <button onclick="pauseVoice()">⏸ Pause</button>
 
-  <button onclick="resumeVoice()">▶ Resume</button>
-
   <button onclick="prevPage()">⬅ Prev</button>
 
   <button onclick="nextPage()">Next ➡</button>
@@ -413,10 +411,6 @@ function prevPage() {
     function pauseVoice() {
   window.speechSynthesis.pause();
 }
-
-    function resumeVoice() {
-  window.speechSynthesis.resume();
-    }
 
 document.getElementById("speed").addEventListener("input", function () {
   speechSpeed = parseFloat(this.value);
