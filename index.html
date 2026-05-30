@@ -325,6 +325,12 @@
     let currentSpeech = null;
     let speechSpeed = 1;
 
+    const books = [
+  { title: "How to Hear Voice of God", price: "$5" },
+  { title: "Spiritual Eyes Guide", price: "$7" },
+  { title: "Inner Peace Book", price: "$4" }
+    ];
+
     async function unlockBook() {
 
       let userKey = document.getElementById("key").value;
@@ -672,12 +678,6 @@ startHeaderLoop();
   function closeStore() {
   document.getElementById("storePanel").style.display = "none";
     }
-
-    const books = [
-  { title: "How to Hear Voice of God", price: "$5" },
-  { title: "Spiritual Eyes Guide", price: "$7" },
-  { title: "Inner Peace Book", price: "$4" }
-];
 
     function renderBooks() {
   const list = document.getElementById("bookList");
