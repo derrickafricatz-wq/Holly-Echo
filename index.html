@@ -69,6 +69,23 @@
   -webkit-overflow-scrolling: touch;
 } 
 
+    #licenseScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+
+  background: transparent;
+    }
+
     #pdf-render {
   position: absolute;
 
@@ -295,7 +312,7 @@
   </button>
   </div>
 
-  <div id="licenseScreen" style="display:none;">
+  <div id="licenseScreen">
 
 <h1 id="licenseTitle">🔐 Book Unlock</h1>
 
