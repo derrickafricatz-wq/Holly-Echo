@@ -594,6 +594,8 @@ window.speechSynthesis.speak(speech);
 
     async function renderPage(num) {
 
+  if (!pdfDoc) return;
+
   const page = await pdfDoc.getPage(num);
 
   const canvas = document.getElementById('pdf-render');
