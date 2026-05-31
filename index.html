@@ -570,31 +570,31 @@ window.speechSynthesis.speak(speech);
 }
   
   async function renderPDF() {
+
   try {
 
-    if (!selectedPDF) {
-      console.log("No PDF selected");
-      return;
-    }
+    pageNum = 1; // always start from first page
 
-    pageNum = 1;
+    const url = selectedPDF;
 
-    pdfDoc = await pdfjsLib.getDocument(selectedPDF).promise;
+    pdfDoc = await pdfjsLib.getDocument(url).promise;
 
     canvas = document.getElementById('pdf-render');
     ctx = canvas.getContext('2d');
 
     await renderPage(pageNum);
 
-  } catch (err) {
+  } catch(err) {
+
     console.error("PDF Load Error:", err);
-    alert("Your time matters. Make a refresh.");
+
+    alert("Failed to load book.");
+
   }
+
 }
 
     async function renderPage(num) {
-
-  if (!pdfDoc) return;
 
   const page = await pdfDoc.getPage(num);
 
@@ -983,26 +983,11 @@ const ctx = canvas.getContext("2d");
 
 ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-document.getElementById("storePanel").style.display = "none";
-document.getElementById("licenseScreen").style.display = "none";
-
 document.getElementById("book").style.display = "block";
 
-// RESET EVERYTHING CLEAN
-pdfDoc = null;
-pageNum = 1;
-
-const canvas = document.getElementById("pdf-render");
-const ctx = canvas.getContext("2d");
-ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-// SET NEW BOOK
 selectedPDF = book.pdf;
 
-// SMALL DELAY FIX (VERY IMPORTANT)
-setTimeout(() => {
-  renderPDF();
-}, 50);
+renderPDF(); 
   }
 }
     
