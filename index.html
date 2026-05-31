@@ -695,6 +695,16 @@ function playSponsor() {
   };
 }
 
+document.getElementById("sponsorScreen").addEventListener("click", function () {
+
+  const video = document.getElementById("sponsorVideo");
+
+  video.muted = false;
+
+  video.play();
+
+});
+
 function skipSponsor() {
   document.getElementById("sponsorScreen").style.display = "none";
 }
