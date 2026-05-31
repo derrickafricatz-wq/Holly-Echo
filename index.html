@@ -355,9 +355,10 @@
       let msg = document.getElementById("msg");
 
       let { data, error } = await client
-        .from("licenses")
-        .select("*")
-        .eq("key", userKey);
+      .from("licenses")
+      .select("*")
+      .eq("key", userKey)
+      .eq("book_pdf", selectedBookToUnlock.pdf);
 
       if (error) {
         msg.innerHTML = "ERROR: " + JSON.stringify(error);
