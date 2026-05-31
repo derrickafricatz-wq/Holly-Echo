@@ -556,14 +556,27 @@ window.speechSynthesis.speak(speech);
   
   async function renderPDF() {
 
-  const url = selectedPDF;
+  try {
 
-  pdfDoc = await pdfjsLib.getDocument(url).promise;
+    pageNum = 1; // always start from first page
 
-  canvas = document.getElementById('pdf-render');
-  ctx = canvas.getContext('2d');
+    const url = selectedPDF;
 
-  renderPage(pageNum);
+    pdfDoc = await pdfjsLib.getDocument(url).promise;
+
+    canvas = document.getElementById('pdf-render');
+    ctx = canvas.getContext('2d');
+
+    await renderPage(pageNum);
+
+  } catch(err) {
+
+    console.error("PDF Load Error:", err);
+
+    alert("Failed to load book.");
+
+  }
+
 }
 
     async function renderPage(num) {
