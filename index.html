@@ -570,28 +570,26 @@ window.speechSynthesis.speak(speech);
 }
   
   async function renderPDF() {
-
   try {
 
-    pageNum = 1; // always start from first page
+    if (!selectedPDF) {
+      console.log("No PDF selected");
+      return;
+    }
 
-    const url = selectedPDF;
+    pageNum = 1;
 
-    pdfDoc = await pdfjsLib.getDocument(url).promise;
+    pdfDoc = await pdfjsLib.getDocument(selectedPDF).promise;
 
     canvas = document.getElementById('pdf-render');
     ctx = canvas.getContext('2d');
 
     await renderPage(pageNum);
 
-  } catch(err) {
-
+  } catch (err) {
     console.error("PDF Load Error:", err);
-
-    alert("Failed to load book.");
-
+    alert("Your time matters. Make a refresh.");
   }
-
 }
 
     async function renderPage(num) {
