@@ -907,9 +907,13 @@ startHeaderLoop();
 ">
   Price: ${book.price}
 </div>
-  <div style="margin-top:5px;">
-    ${book.locked ? "🔒 LOCKED" : "🔓 UNLOCKED"}
-  </div>
+  <div style="
+  margin-top:12px;
+  font-size:24px;
+  font-weight:bold;
+">
+  ${book.locked ? "🔒 LOCKED" : "🔓 UNLOCKED"}
+</div>
 
   <button onclick="openBook('${book.title}')" style="
     margin-top:8px;
