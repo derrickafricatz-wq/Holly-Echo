@@ -702,15 +702,16 @@ function playSponsor() {
   video.src = sponsors[sponsorIndex].video;
 
   video.onended = () => {
-  sponsorIndex++;
+    sponsorIndex++;
 
-  if (sponsorIndex < sponsors.length) {
-    playSponsor();
-  } else {
-    document.getElementById("sponsorScreen").style.display = "none";
-    document.getElementById("appBg").style.display = "block";
-  }
-};
+    if (sponsorIndex < sponsors.length) {
+      playSponsor();
+    } else {
+      document.getElementById("sponsorScreen").style.display = "none";
+      document.getElementById("appBg").style.display = "block";
+    }
+  };
+}
 
 document.getElementById("sponsorScreen").addEventListener("click", function () {
 
