@@ -63,9 +63,19 @@
 
   box-shadow: 0 0 20px #00ffff;
 
-  transform: scale(1);
-  animation: pop 0.2s ease-out;
- }
+  animation: pop 0.2s ease-out; /* 👈 add this */
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 
    #book {
   display: none;
