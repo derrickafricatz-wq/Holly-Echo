@@ -663,6 +663,34 @@ window.addEventListener("appinstalled", () => {
 
 });
 
+    let sponsorIndex = 0;
+
+function playSponsor() {
+  const screen = document.getElementById("sponsorScreen");
+  const video = document.getElementById("sponsorVideo");
+
+  if (!sponsors || sponsors.length === 0) {
+    screen.style.display = "none";
+    return;
+  }
+
+  video.src = sponsors[sponsorIndex].video;
+
+  video.onended = () => {
+    sponsorIndex++;
+
+    if (sponsorIndex < sponsors.length) {
+      playSponsor();
+    } else {
+      screen.style.display = "none";
+    }
+  };
+}
+
+function skipSponsor() {
+  document.getElementById("sponsorScreen").style.display = "none";
+}
+
 const voiceMessages = [
   "🔊 Voice reader is being improved for smoother experience. Please be patient.",
   "⚙️ We are fixing voice issues to make reading more stable. Thank you for your patience."
