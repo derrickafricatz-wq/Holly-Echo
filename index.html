@@ -749,6 +749,7 @@ function playSponsor() {
   }
 
   video.src = sponsors[sponsorIndex].video;
+  video.load();
 
   video.onended = () => {
     sponsorIndex++;
