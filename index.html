@@ -933,13 +933,22 @@ startHeaderLoop();
 
   return;
   } else {
-  document.getElementById("storePanel").style.display = "none";
-  document.getElementById("licenseScreen").style.display = "none";
-  document.getElementById("book").style.display = "block";
+ document.getElementById("storePanel").style.display = "none";
+document.getElementById("licenseScreen").style.display = "none";
 
-  selectedPDF = book.pdf;   // 👈 IMPORTANT LINE
+pdfDoc = null;
+pageNum = 1;
 
-  renderPDF();
+const canvas = document.getElementById("pdf-render");
+const ctx = canvas.getContext("2d");
+
+ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+document.getElementById("book").style.display = "block";
+
+selectedPDF = book.pdf;
+
+renderPDF(); 
   }
 }
     
