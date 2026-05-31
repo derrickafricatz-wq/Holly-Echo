@@ -325,7 +325,9 @@
     let selectedPDF = "holly.pdf";
     let selectedBookToUnlock = null;
     let pendingUnlockBook = null;
-    let unlockedBooksSet = new Set();
+    let unlockedBooksSet = new Set(
+    JSON.parse(localStorage.getItem("unlockedBooks") || "[]")
+  );
 
     const books = [
   {
