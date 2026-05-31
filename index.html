@@ -743,7 +743,16 @@ startHeaderLoop();
   const book = books.find(b => b.title === title);
 
   if (book.locked) {
-    alert("🔒 This book is locked.");
+
+  selectedBookToUnlock = book; // 👈 store which book user wants
+
+  document.getElementById("storePanel").style.display = "none";
+  document.getElementById("licenseScreen").style.display = "block";
+
+  document.getElementById("msg").innerText =
+    "Enter license key for: " + book.title;
+
+  return;
   } else {
   document.getElementById("storePanel").style.display = "none";
   document.getElementById("licenseScreen").style.display = "none";
