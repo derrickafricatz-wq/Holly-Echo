@@ -4,7 +4,7 @@
   "description": "Where Holly Words Echo Through Every Heart.",
   "start_url": "/Holly-Echo/",
   "scope": "/Holly-Echo/",
-  "display": "fullscreen",
+  "display": "portrait",
   "display_override": [
     "standalone",
     "window-controls-overlay"
