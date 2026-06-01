@@ -460,13 +460,38 @@
 }
 ];
 
-// PRELOAD PDF BOOKS FOR OFFLINE USE
+   // PRELOAD OFFLINE FILES
 
-window.addEventListener("load", () => {
+window.addEventListener("load", async () => {
 
-  fetch("./holly.pdf").catch(() => {});
+  const offlineFiles = [
 
-  fetch("./learn.pdf").catch(() => {});
+    "./holly.pdf",
+    "./learn.pdf",
+
+    "./bg.jpg",
+
+    "./sponsors.js"
+
+  ];
+
+  for (const file of offlineFiles) {
+
+    try {
+
+      await fetch(file, {
+        cache: "reload"
+      });
+
+      console.log("Cached:", file);
+
+    } catch (e) {
+
+      console.log("Failed:", file);
+
+    }
+
+  }
 
 });
 
