@@ -1,6 +1,6 @@
 // Holly Echo - Offline Service Worker (FINAL CLEAN VERSION)
 
-const CACHE_NAME = "holly-echo-v7";
+const CACHE_NAME = "holly-echo-v8";
 
 /* =========================
    FILES TO CACHE (APP SHELL)
@@ -28,6 +28,7 @@ const APP_SHELL = [
 
   /* VIDEO */
   "./video/com.mp4",
+  "./video/b1.mp4",
 
   /* SCRIPTS */
   "./sponsors.js"
