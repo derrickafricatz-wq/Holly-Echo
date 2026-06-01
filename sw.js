@@ -1,10 +1,13 @@
-// Holly Echo - Offline Service Worker (STEP 1 CORE)
+// Holly Echo - Smart Offline Service Worker (FULL VERSION)
 
-const CACHE_NAME = "holly-echo-v1";
+const CACHE_NAME = "holly-echo-v2";
+
+/* =========================
+   CORE APP SHELL (FIRST INSTALL)
+========================= */
 
 const APP_SHELL = [
 
-  /* CORE FILES */
   "./",
   "./index.html",
   "./manifest.json",
@@ -16,24 +19,34 @@ const APP_SHELL = [
   "./icon-512.png",
   "./icon-512-maskable.png",
 
-  /* 📚 PDF BOOKS */
+  /* BACKGROUND */
+  "./bg.jpg",
+
+  /* 📚 BOOKS (CRITICAL OFFLINE) */
   "./holly.pdf",
   "./learn.pdf",
 
-  /* 🎥 VIDEOS */
-  "./video/com.mp4"
+  /* 🎥 VIDEO (CRITICAL OFFLINE) */
+  "./video/com.mp4",
+
+  /* JS FILES */
+  "./sponsors.js"
 
 ];
 
 /* =========================
-   INSTALL
+   INSTALL - PRECACHE CORE
 ========================= */
 
 self.addEventListener("install", (event) => {
 
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
+
+      console.log("📦 Pre-caching Holly Echo files...");
+
       return cache.addAll(APP_SHELL);
+
     })
   );
 
@@ -41,20 +54,23 @@ self.addEventListener("install", (event) => {
 });
 
 /* =========================
-   ACTIVATE
+   ACTIVATE - CLEAN OLD CACHE
 ========================= */
 
 self.addEventListener("activate", (event) => {
 
   event.waitUntil(
     caches.keys().then((keys) => {
+
       return Promise.all(
         keys.map((key) => {
           if (key !== CACHE_NAME) {
+            console.log("🧹 Deleting old cache:", key);
             return caches.delete(key);
           }
         })
       );
+
     })
   );
 
@@ -62,52 +78,61 @@ self.addEventListener("activate", (event) => {
 });
 
 /* =========================
-   FETCH STRATEGY (SMART OFFLINE)
+   FETCH STRATEGY (AFYA STYLE SMART OFFLINE)
 ========================= */
 
 self.addEventListener("fetch", (event) => {
 
   if (event.request.method !== "GET") return;
 
-  const requestUrl = event.request.url;
+  const url = event.request.url;
 
   event.respondWith(
-
     caches.match(event.request).then((cached) => {
 
-      // 1. Return cache first if exists
+      // 1. Always serve cache first (FAST OFFLINE EXPERIENCE)
       if (cached) return cached;
 
-      // 2. Otherwise try network
-      return fetch(event.request).then((response) => {
+      // 2. Try network
+      return fetch(event.request)
+        .then((response) => {
 
-        // Save new files dynamically
-        const responseClone = response.clone();
+          // Ignore invalid responses
+          if (!response || response.status !== 200) {
+            return response;
+          }
 
-        caches.open(CACHE_NAME).then((cache) => {
-          cache.put(event.request, responseClone);
+          // Save clone to cache
+          const clone = response.clone();
+
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, clone);
+          });
+
+          return response;
+
+        })
+        .catch(() => {
+
+          // 3. Offline page fallback (ONLY for pages)
+          if (event.request.mode === "navigate") {
+            return caches.match("./offline.html");
+          }
+
+          // 4. PDF OFFLINE SAFETY
+          if (url.includes(".pdf")) {
+            return caches.match("./holly.pdf")
+              || caches.match("./learn.pdf");
+          }
+
+          // 5. VIDEO OFFLINE SAFETY
+          if (url.includes(".mp4")) {
+            return caches.match("./video/com.mp4");
+          }
+
         });
 
-        return response;
-
-      }).catch(() => {
-
-        // 3. Offline fallback for pages
-        if (event.request.mode === "navigate") {
-          return caches.match("./offline.html");
-        }
-
-        // 4. If PDF/video fails → try cache again
-        if (
-          requestUrl.includes(".pdf") ||
-          requestUrl.includes(".mp4")
-        ) {
-          return caches.match(event.request);
-        }
-
-      });
-
     })
-
   );
+
 });
