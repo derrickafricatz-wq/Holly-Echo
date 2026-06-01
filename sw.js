@@ -1,63 +1,113 @@
-// This is the service worker with the combined offline experience (Offline page + Offline copy of pages)
+// Holly Echo - Offline Service Worker (STEP 1 CORE)
 
-const CACHE = "pwabuilder-offline-page";
+const CACHE_NAME = "holly-echo-v1";
 
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
+const APP_SHELL = [
 
-// TODO: replace the following with the correct offline fallback page i.e.: const offlineFallbackPage = "offline.html";
-const offlineFallbackPage = "offline.html";
+  /* CORE FILES */
+  "./",
+  "./index.html",
+  "./manifest.json",
+  "./sw.js",
+  "./offline.html",
 
-self.addEventListener("message", (event) => {
-  if (event.data && event.data.type === "SKIP_WAITING") {
-    self.skipWaiting();
-  }
+  /* ICONS */
+  "./icon-192.png",
+  "./icon-512.png",
+  "./icon-512-maskable.png",
+
+  /* 📚 PDF BOOKS */
+  "./holly.pdf",
+  "./learn.pdf",
+
+  /* 🎥 VIDEOS */
+  "./video/com.mp4"
+
+];
+
+/* =========================
+   INSTALL
+========================= */
+
+self.addEventListener("install", (event) => {
+
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.addAll(APP_SHELL);
+    })
+  );
+
+  self.skipWaiting();
 });
 
-self.addEventListener('install', async (event) => {
- event.waitUntil(
-  caches.open(CACHE).then((cache) => {
-    return cache.addAll([
-      "./",
-      "./index.html",
-      "./voice.pdf",
-      "./offline.html",
-      "./icon-192.png",
-      "./icon-512.png",
-      "./icon-512-maskable.png"
-    ]);
-  })
-); 
+/* =========================
+   ACTIVATE
+========================= */
+
+self.addEventListener("activate", (event) => {
+
+  event.waitUntil(
+    caches.keys().then((keys) => {
+      return Promise.all(
+        keys.map((key) => {
+          if (key !== CACHE_NAME) {
+            return caches.delete(key);
+          }
+        })
+      );
+    })
+  );
+
+  self.clients.claim();
 });
 
-if (workbox.navigationPreload.isSupported()) {
-  workbox.navigationPreload.enable();
-}
+/* =========================
+   FETCH STRATEGY (SMART OFFLINE)
+========================= */
 
-workbox.routing.registerRoute(
-  new RegExp('/*'),
-  new workbox.strategies.StaleWhileRevalidate({
-    cacheName: CACHE
-  })
-);
+self.addEventListener("fetch", (event) => {
 
-self.addEventListener('fetch', (event) => {
-  if (event.request.mode === 'navigate') {
-    event.respondWith((async () => {
-      try {
-        const preloadResp = await event.preloadResponse;
+  if (event.request.method !== "GET") return;
 
-        if (preloadResp) {
-          return preloadResp;
+  const requestUrl = event.request.url;
+
+  event.respondWith(
+
+    caches.match(event.request).then((cached) => {
+
+      // 1. Return cache first if exists
+      if (cached) return cached;
+
+      // 2. Otherwise try network
+      return fetch(event.request).then((response) => {
+
+        // Save new files dynamically
+        const responseClone = response.clone();
+
+        caches.open(CACHE_NAME).then((cache) => {
+          cache.put(event.request, responseClone);
+        });
+
+        return response;
+
+      }).catch(() => {
+
+        // 3. Offline fallback for pages
+        if (event.request.mode === "navigate") {
+          return caches.match("./offline.html");
         }
 
-        const networkResp = await fetch(event.request);
-        return networkResp;
-      } catch (error) {
+        // 4. If PDF/video fails → try cache again
+        if (
+          requestUrl.includes(".pdf") ||
+          requestUrl.includes(".mp4")
+        ) {
+          return caches.match(event.request);
+        }
 
-        const cache = await caches.open(CACHE);
-        const cachedResp = await cache.match(offlineFallbackPage);
-        return cachedResp;
-      }
-    })());
-  }
+      });
+
+    })
+
+  );
 });
