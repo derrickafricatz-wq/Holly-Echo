@@ -737,7 +737,7 @@ document.getElementById("speed").addEventListener("input", function () {
 
     try {
 
-      const reg = await navigator.serviceWorker.register("./sw.js");
+      const reg = await navigator.serviceWorker.register("/Holly-Echo/sw.js");
 
       console.log("SW Registered");
 
@@ -751,7 +751,7 @@ document.getElementById("speed").addEventListener("input", function () {
 
   });
 
-}
+    }
 
     let deferredPrompt;
 
