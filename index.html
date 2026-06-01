@@ -593,11 +593,14 @@ window.speechSynthesis.speak(speech);
 
   } catch(err) {
 
-    console.error("PDF Load Error:", err);
+  console.error("PDF Load Error:", err);
 
-    alert("Failed to load book.");
+  document.getElementById("msg").innerText =
+    "Book failed to load. Tap Try Again.";
 
-  }
+  document.getElementById("retryBtn").style.display =
+    "inline-block";
+}
 
 }
 
