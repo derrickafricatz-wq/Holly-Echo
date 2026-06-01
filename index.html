@@ -694,19 +694,23 @@ document.getElementById("speed").addEventListener("input", function () {
     
     if ("serviceWorker" in navigator) {
 
-  window.addEventListener("load", () => {
+  window.addEventListener("load", async () => {
 
     playSponsor();
 
-    navigator.serviceWorker.register("./sw.js")
+    try {
 
-      .then(() => {
-        console.log("SW Registered");
-      })
+      const reg = await navigator.serviceWorker.register("./sw.js");
 
-      .catch((err) => {
-        console.log("SW Failed", err);
-      });
+      console.log("SW Registered");
+
+      reg.update();
+
+    } catch(err) {
+
+      console.log("SW Failed", err);
+
+    }
 
   });
 
