@@ -1,9 +1,9 @@
-// Holly Echo - Offline Service Worker (FULL AFYA-STYLE VERSION)
+// Holly Echo - Offline Service Worker (FINAL CLEAN VERSION)
 
 const CACHE_NAME = "holly-echo-v2";
 
 /* =========================
-   APP SHELL (CORE FILES)
+   FILES TO CACHE (APP SHELL)
 ========================= */
 
 const APP_SHELL = [
@@ -38,6 +38,7 @@ const APP_SHELL = [
 ========================= */
 
 self.addEventListener("install", (event) => {
+
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       console.log("Caching app shell...");
@@ -45,14 +46,16 @@ self.addEventListener("install", (event) => {
     })
   );
 
+  // Force new SW to activate immediately
   self.skipWaiting();
 });
 
 /* =========================
-   ACTIVATE EVENT
+   ACTIVATE EVENT (FIXED + IMPORTANT)
 ========================= */
 
 self.addEventListener("activate", (event) => {
+
   event.waitUntil(
     caches.keys().then((keys) => {
       return Promise.all(
@@ -65,11 +68,12 @@ self.addEventListener("activate", (event) => {
     })
   );
 
+  // 🔥 CRITICAL: take control immediately
   self.clients.claim();
 });
 
 /* =========================
-   FETCH STRATEGY (AFYA STYLE)
+   FETCH STRATEGY (AFYA STYLE OFFLINE)
 ========================= */
 
 self.addEventListener("fetch", (event) => {
@@ -79,15 +83,18 @@ self.addEventListener("fetch", (event) => {
   const requestUrl = event.request.url;
 
   event.respondWith(
-    caches.match(event.request).then((cached) => {
 
-      /* 1. CACHE FIRST */
-      if (cached) return cached;
+    caches.match(event.request).then((cachedResponse) => {
+
+      /* 1. CACHE FIRST (FAST OFFLINE LOAD) */
+      if (cachedResponse) {
+        return cachedResponse;
+      }
 
       /* 2. NETWORK FALLBACK */
       return fetch(event.request).then((response) => {
 
-        // ignore bad responses
+        // ignore invalid responses
         if (
           !response ||
           response.status !== 200 ||
@@ -106,12 +113,12 @@ self.addEventListener("fetch", (event) => {
 
       }).catch(() => {
 
-        /* 3. OFFLINE PAGE */
+        /* 3. OFFLINE PAGE FOR NAVIGATION */
         if (event.request.mode === "navigate") {
           return caches.match("./offline.html");
         }
 
-        /* 4. PDF + VIDEO OFFLINE SUPPORT */
+        /* 4. FORCE OFFLINE SUPPORT FOR PDF + VIDEO */
         if (
           requestUrl.includes(".pdf") ||
           requestUrl.includes(".mp4")
@@ -122,5 +129,7 @@ self.addEventListener("fetch", (event) => {
       });
 
     })
+
   );
+
 });
