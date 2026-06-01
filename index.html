@@ -604,6 +604,14 @@ window.speechSynthesis.speak(speech);
 
 }
 
+  function retryBookLoad() {
+
+  document.getElementById("retryBtn").style.display = "none";
+
+  renderPDF();
+
+}
+
     async function renderPage(num) {
 
   const page = await pdfDoc.getPage(num);
