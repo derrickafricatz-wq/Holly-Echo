@@ -460,6 +460,16 @@
 }
 ];
 
+// PRELOAD PDF BOOKS FOR OFFLINE USE
+
+window.addEventListener("load", () => {
+
+  fetch("./holly.pdf").catch(() => {});
+
+  fetch("./learn.pdf").catch(() => {});
+
+});
+
     async function unlockBook() {
 
       let userKey = document.getElementById("key").value;
