@@ -1,33 +1,24 @@
-const CACHE_NAME = "holly-echo-v10";
+const CACHE_NAME = "holly-echo-v11";
 
 /* =========================
-   CORE APP FILES
+   CORE FILES (SAFE TO CACHE)
 ========================= */
 
 const APP_FILES = [
-
-  /* ROOT */
-  "/Holly-Echo/",
   "/Holly-Echo/index.html",
   "/Holly-Echo/manifest.json",
-  "/Holly-Echo/sw.js",
   "/Holly-Echo/offline.html",
-  
-  /* DATA FILES */
+
+  "/Holly-Echo/sw.js",
   "/Holly-Echo/sponsors.js",
 
-  /* ICONS */
   "/Holly-Echo/icon-192.png",
   "/Holly-Echo/icon-512.png",
   "/Holly-Echo/icon-512-maskable.png",
 
-  /* BACKGROUND */
   "/Holly-Echo/bg.jpg",
-
-  /* BOOKS (PDF) */
   "/Holly-Echo/holly.pdf",
   "/Holly-Echo/learn.pdf"
-  
 ];
 
 /* =========================
@@ -35,23 +26,19 @@ const APP_FILES = [
 ========================= */
 
 self.addEventListener("install", (event) => {
-
   event.waitUntil(
+    caches.open(CACHE_NAME).then(async (cache) => {
+      console.log("📦 Caching app shell...");
 
-    caches.open(CACHE_NAME)
-
-      .then((cache) => {
-
-        console.log("Caching app files...");
-
-        return cache.addAll(APP_FILES);
-
-      })
-
+      try {
+        await cache.addAll(APP_FILES);
+      } catch (err) {
+        console.log("⚠️ Cache addAll failed:", err);
+      }
+    })
   );
 
   self.skipWaiting();
-
 });
 
 /* =========================
@@ -59,102 +46,81 @@ self.addEventListener("install", (event) => {
 ========================= */
 
 self.addEventListener("activate", (event) => {
-
   event.waitUntil(
-
     caches.keys().then((keys) => {
-
       return Promise.all(
-
         keys.map((key) => {
-
           if (key !== CACHE_NAME) {
-
-            console.log("Deleting old cache:", key);
-
+            console.log("🧹 Deleting old cache:", key);
             return caches.delete(key);
-
           }
-
         })
-
       );
-
     })
-
   );
 
   self.clients.claim();
-
 });
 
 /* =========================
-   FETCH
+   FETCH (SMART STRATEGY)
 ========================= */
 
 self.addEventListener("fetch", (event) => {
+  if (event.request.method !== "GET") return;
 
-  /* ONLY HANDLE GET REQUESTS */
-  if(event.request.method !== "GET") return;
+  const url = event.request.url;
 
   event.respondWith(
+    caches.match(event.request).then((cached) => {
+      if (cached) return cached;
 
-    caches.match(event.request)
+      return fetch(event.request)
+        .then((response) => {
+          if (
+            !response ||
+            response.status !== 200 ||
+            response.type !== "basic"
+          ) {
+            return response;
+          }
 
-      .then((cachedResponse) => {
+          // ❌ DO NOT CACHE THESE (important fix)
+          const skipCache =
+            url.includes("supabase") ||
+            url.includes("google") ||
+            url.includes("firebase") ||
+            url.includes("blob:") ||
+            url.includes("video");
 
-        /* RETURN CACHE IF FOUND */
-        if(cachedResponse){
+          if (skipCache) {
+            return response;
+          }
 
-          return cachedResponse;
+          const clone = response.clone();
 
-        }
-
-        /* OTHERWISE FETCH FROM INTERNET */
-        return fetch(event.request)
-
-          .then((networkResponse) => {
-
-            /* INVALID RESPONSE */
-            if(
-              !networkResponse ||
-              networkResponse.status !== 200 ||
-              networkResponse.type !== "basic"
-            ){
-
-              return networkResponse;
-
-            }
-
-            /* CLONE RESPONSE */
-            const responseClone = networkResponse.clone();
-
-            /* SAVE NEW FILES */
-            caches.open(CACHE_NAME)
-
-              .then((cache) => {
-
-                cache.put(event.request, responseClone);
-
-              });
-
-            return networkResponse;
-
-          })
-
-          .catch(() => {
-
-            /* OFFLINE FALLBACK */
-            if(event.request.destination === "document"){
-
-              return caches.match("/Holly-Echo/index.html");
-
-            }
-
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, clone);
           });
 
-      })
+          return response;
+        })
+        .catch(() => {
+          // =========================
+          // OFFLINE FALLBACK LOGIC
+          // =========================
 
+          if (event.request.destination === "document") {
+            return caches.match("/Holly-Echo/index.html")
+              .then(res => res || caches.match("/Holly-Echo/offline.html"));
+          }
+
+          if (event.request.destination === "image") {
+            return caches.match("/Holly-Echo/bg.jpg");
+          }
+
+          return new Response("Offline", { status: 503 });
+        });
+    })
   );
-
 });
