@@ -921,8 +921,32 @@ function playSponsor() {
     return;
   }
 
-  video.src = sponsors[sponsorIndex].video;
-  video.load();
+const path = sponsors[sponsorIndex].video;
+
+const id = path
+  .split("/")
+  .pop()
+  .replace(".mp4","");
+
+const blob = await getMedia(id);
+
+if(blob){
+
+  const localURL = URL.createObjectURL(blob);
+
+  video.src = localURL;
+
+  console.log("Playing offline:", id);
+
+}else{
+
+  video.src = path;
+
+  console.log("Streaming online:", id);
+
+}
+
+video.load(); 
 
   video.onended = () => {
     sponsorIndex++;
