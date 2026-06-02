@@ -912,6 +912,9 @@ window.addEventListener("appinstalled", () => {
 async function playSponsor() {
   const screen = document.getElementById("sponsorScreen");
   const video = document.getElementById("sponsorVideo");
+  
+  video.muted = true;
+  video.playsInline = true;
 
   if (typeof sponsors === "undefined" || !Array.isArray(sponsors) || sponsors.length === 0) {
     console.log("Sponsors not ready yet");
