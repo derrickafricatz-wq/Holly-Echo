@@ -543,79 +543,52 @@ async function saveMedia(id,url){
 
 }
 
-    
-  window.addEventListener("load", async () => {
+    window.addEventListener("load", async () => {
 
   try {
     await openDatabase();
     console.log("DB ready");
 
     playSponsor();
-
   } catch(e) {
     console.log("DB failed", e);
   }
 
-});
-    
+  // 🔥 MOVE THIS INSIDE HERE
   const offlineFiles = [
-
     "./holly.pdf",
     "./learn.pdf",
     "./bg.jpg",
     "./sponsors.js",
     "./video/com.mp4",
     "./video/b1.mp4"
-
   ];
 
   for (const file of offlineFiles) {
-
     try {
-
-      await fetch(file,{
-        cache:"reload"
-      });
-
-      console.log("Cached:",file);
-
-    } catch(e){
-
-      console.log("Failed:",file);
-
+      await fetch(file, { cache: "reload" });
+      console.log("Cached:", file);
+    } catch(e) {
+      console.log("Failed:", file);
     }
-
   }
 
   const videos = [
-
-    {
-      id:"com",
-      url:"video/com.mp4"
-    },
-
-    {
-      id:"b1",
-      url:"video/b1.mp4"
-    }
-
+    { id:"com", url:"video/com.mp4" },
+    { id:"b1", url:"video/b1.mp4" }
   ];
 
-  for(const item of videos){
-
+  for (const item of videos) {
     const existing = await getMedia(item.id);
 
-    if(!existing){
-
-      await saveMedia(item.id,item.url);
-
-      console.log("Saved offline:",item.id);
-
+    if (!existing) {
+      await saveMedia(item.id, item.url);
+      console.log("Saved offline:", item.id);
     }
-
   }
 
 });
+  
 
     async function unlockBook() {
 
