@@ -1,159 +1,135 @@
+// Holly Echo - Offline Service Worker (FINAL CLEAN VERSION)
+
 const CACHE_NAME = "holly-echo-v15";
 
 /* =========================
-   CORE APP FILES
+   FILES TO CACHE (APP SHELL)
 ========================= */
 
-const APP_FILES = [
+const APP_SHELL = [
 
-  /* ROOT */
-  "/Holly-Echo/",
-  "/Holly-Echo/index.html",
-  "/Holly-Echo/manifest.json",
-  "/Holly-Echo/sw.js",
-  "/Holly-Echo/offline.html",
-  
-  /* DATA FILES */
-  "/Holly-Echo/sponsors.js",
+  "./",
+  "./index.html",
+  "./manifest.json",
+  "./sw.js",
+  "./offline.html",
 
   /* ICONS */
-  "/Holly-Echo/icon-192.png",
-  "/Holly-Echo/icon-512.png",
-  "/Holly-Echo/icon-512-maskable.png",
+  "./icon-192.png",
+  "./icon-512.png",
+  "./icon-512-maskable.png",
 
   /* BACKGROUND */
-  "/Holly-Echo/bg.jpg",
+  "./bg.jpg",
 
   /* BOOKS (PDF) */
-  "/Holly-Echo/holly.pdf",
-  "/Holly-Echo/learn.pdf"
-  
+  "./holly.pdf",
+  "./learn.pdf",
+
+  /* VIDEO */
+  "./video/com.mp4",
+  "./video/b1.mp4",
+
+  /* SCRIPTS */
+  "./sponsors.js"
 ];
 
 /* =========================
-   INSTALL
+   INSTALL EVENT
 ========================= */
 
 self.addEventListener("install", (event) => {
 
   event.waitUntil(
-
-    caches.open(CACHE_NAME)
-
-      .then((cache) => {
-
-        console.log("Caching app files...");
-
-        return cache.addAll(APP_FILES);
-
-      })
-
+    caches.open(CACHE_NAME).then((cache) => {
+      console.log("Caching app shell...");
+      return cache.addAll(APP_SHELL);
+    })
   );
 
+  // Force new SW to activate immediately
   self.skipWaiting();
-
 });
 
 /* =========================
-   ACTIVATE
+   ACTIVATE EVENT (FIXED + IMPORTANT)
 ========================= */
 
 self.addEventListener("activate", (event) => {
 
   event.waitUntil(
-
     caches.keys().then((keys) => {
-
       return Promise.all(
-
         keys.map((key) => {
-
           if (key !== CACHE_NAME) {
-
-            console.log("Deleting old cache:", key);
-
             return caches.delete(key);
-
           }
-
         })
-
       );
-
     })
-
   );
 
+  // ðŸ”¥ CRITICAL: take control immediately
   self.clients.claim();
-
 });
 
 /* =========================
-   FETCH
+   FETCH STRATEGY (AFYA STYLE OFFLINE)
 ========================= */
 
 self.addEventListener("fetch", (event) => {
 
-  /* ONLY HANDLE GET REQUESTS */
-  if(event.request.method !== "GET") return;
+  if (event.request.method !== "GET") return;
+
+  const requestUrl = event.request.url;
 
   event.respondWith(
 
-    caches.match(event.request)
+    caches.match(event.request).then((cachedResponse) => {
 
-      .then((cachedResponse) => {
+      /* 1. CACHE FIRST (FAST OFFLINE LOAD) */
+      if (cachedResponse) {
+        return cachedResponse;
+      }
 
-        /* RETURN CACHE IF FOUND */
-        if(cachedResponse){
+      /* 2. NETWORK FALLBACK */
+      return fetch(event.request).then((response) => {
 
-          return cachedResponse;
-
+        // ignore invalid responses
+        if (
+          !response ||
+          response.status !== 200 ||
+          response.type === "opaque"
+        ) {
+          return response;
         }
 
-        /* OTHERWISE FETCH FROM INTERNET */
-        return fetch(event.request)
+        const clone = response.clone();
 
-          .then((networkResponse) => {
+        caches.open(CACHE_NAME).then((cache) => {
+          cache.put(event.request, clone);
+        });
 
-            /* INVALID RESPONSE */
-            if(
-              !networkResponse ||
-              networkResponse.status !== 200 ||
-              networkResponse.type !== "basic"
-            ){
+        return response;
 
-              return networkResponse;
+      }).catch(() => {
 
-            }
+        /* 3. OFFLINE PAGE FOR NAVIGATION */
+        if (event.request.mode === "navigate") {
+          return caches.match("./offline.html");
+        }
 
-            /* CLONE RESPONSE */
-            const responseClone = networkResponse.clone();
+        /* 4. FORCE OFFLINE SUPPORT FOR PDF + VIDEO */
+        if (
+          requestUrl.includes(".pdf") ||
+          requestUrl.includes(".mp4")
+        ) {
+          return caches.match(event.request);
+        }
 
-            /* SAVE NEW FILES */
-            caches.open(CACHE_NAME)
+      });
 
-              .then((cache) => {
-
-                cache.put(event.request, responseClone);
-
-              });
-
-            return networkResponse;
-
-          })
-
-          .catch(() => {
-
-            /* OFFLINE FALLBACK */
-            if(event.request.destination === "document"){
-
-              return caches.match("/Holly-Echo/index.html");
-
-            }
-
-          });
-
-      })
+    })
 
   );
 
