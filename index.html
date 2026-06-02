@@ -432,7 +432,6 @@
 
     let pdfDoc = null;
     let pageNum = 1;
-    let dbReady = false;
     let canvas = null;
     let ctx = null;
     let currentSpeech = null;
@@ -460,139 +459,43 @@
   pdf: "learn.pdf"
 }
 ];
-  
-/* =========================
-   OFFLINE VIDEO DATABASE
-========================= */
 
-const DB_NAME = "holly-media-db-v11";
-const STORE_NAME = "media-files";
+   // PRELOAD OFFLINE FILES
 
-let db;
+window.addEventListener("load", async () => {
 
-function openDatabase(){
-
-  return new Promise((resolve,reject)=>{
-
-    const request = indexedDB.open(DB_NAME,1);
-
-    request.onupgradeneeded = (e)=>{
-
-      db = e.target.result;
-
-      if(!db.objectStoreNames.contains(STORE_NAME)){
-
-        db.createObjectStore(STORE_NAME);
-
-      }
-
-    };
-
-    request.onsuccess = (e)=>{
-
-    db = e.target.result;
-
-    dbReady = true;
-
-    resolve();
-
- };
-
-    request.onerror = ()=>{
-  dbReady = false;
-  console.log("IndexedDB failed");
-  reject();
-};
-
-  });
-
-}
-
-async function saveMedia(id,url){
-
-  const response = await fetch(url);
-
-  const blob = await response.blob();
-
-  const tx = db.transaction(STORE_NAME,"readwrite");
-
-  tx.objectStore(STORE_NAME).put(blob,id);
-
-}
-
- function getMedia(id){
-
-  return new Promise((resolve)=>{
-
-  if (!db) {
-    resolve(null);
-    return;
-  }
-
-  try {
-    const tx = db.transaction(STORE_NAME,"readonly");
-    const req = tx.objectStore(STORE_NAME).get(id);
-
-    req.onsuccess = ()=> {
-      resolve(req.result);
-    };
-
-    req.onerror = ()=> {
-      resolve(null);
-    };
-
-  } catch(e) {
-    resolve(null);
-  }
-
-});
-
-    window.addEventListener("load", async () => {
-
-  try {
-    await openDatabase();
-    console.log("DB ready");
-
-    playSponsor();
-  } catch(e) {
-    console.log("DB failed", e);
-  }
-
-  // 🔥 MOVE THIS INSIDE HERE
   const offlineFiles = [
-    "./holly.pdf",
-    "./learn.pdf",
-    "./bg.jpg",
-    "./sponsors.js",
-    "./video/com.mp4",
-    "./video/b1.mp4"
-  ];
+
+  "./holly.pdf",
+  "./learn.pdf",
+
+  "./bg.jpg",
+
+  "./sponsors.js",
+
+  "./video/com.mp4"
+
+];
 
   for (const file of offlineFiles) {
+
     try {
-      await fetch(file, { cache: "reload" });
+
+      await fetch(file, {
+        cache: "reload"
+      });
+
       console.log("Cached:", file);
-    } catch(e) {
+
+    } catch (e) {
+
       console.log("Failed:", file);
+
     }
-  }
 
-  const videos = [
-    { id:"com", url:"video/com.mp4" },
-    { id:"b1", url:"video/b1.mp4" }
-  ];
-
-  for (const item of videos) {
-    const existing = await getMedia(item.id);
-
-    if (!existing) {
-      await saveMedia(item.id, item.url);
-      console.log("Saved offline:", item.id);
-    }
   }
 
 });
-  
 
     async function unlockBook() {
 
@@ -906,64 +809,19 @@ window.addEventListener("appinstalled", () => {
 
 });
 
-  let sponsorIndex = 0;
-  let dbReady = false;
+    let sponsorIndex = 0;
 
-async function playSponsor() {
+function playSponsor() {
   const screen = document.getElementById("sponsorScreen");
   const video = document.getElementById("sponsorVideo");
-  
-  video.muted = true;
-  video.playsInline = true;
-
-  if (typeof sponsors === "undefined" || !Array.isArray(sponsors) || sponsors.length === 0) {
-    console.log("Sponsors not ready yet");
-    screen.style.display = "none";
-    document.getElementById("appBg").style.display = "block";
-    return;
-  }
 
   if (!sponsors || sponsors.length === 0) {
     screen.style.display = "none";
     return;
   }
 
-const path = sponsors[sponsorIndex].video;
-
-const id = path
-  .split("/")
-  .pop()
-  .replace(".mp4","");
-
-let blob = null;
-
-try {
-  blob = await getMedia(id);
-} catch(e) {
-  console.log("DB not ready");
-}
-
-if(blob){
-
-  const localURL = URL.createObjectURL(blob);
-
-  video.src = localURL;
-
-  console.log("Playing offline:", id);
-
-}else{
-
-  video.src = path;
-
-  console.log("Streaming online:", id);
-
-}
-
-  video.load(); 
-
-  setTimeout(() => {
-  video.play().catch(()=>{});
-}, 200);
+  video.src = sponsors[sponsorIndex].video;
+  video.load();
 
   video.onended = () => {
     sponsorIndex++;
