@@ -520,9 +520,14 @@ async function saveMedia(id,url){
 
 }
 
-function getMedia(id){
+ function getMedia(id){
 
   return new Promise((resolve)=>{
+
+    if (!db) {
+      resolve(null);
+      return;
+    }
 
     const tx = db.transaction(STORE_NAME,"readonly");
 
