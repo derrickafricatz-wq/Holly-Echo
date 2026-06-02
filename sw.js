@@ -83,6 +83,30 @@ self.addEventListener("fetch", (event) => {
 
   const requestUrl = event.request.url;
 
+  // VIDEO FIX
+  if (
+    event.request.destination === "video" ||
+    requestUrl.endsWith(".mp4")
+  ) {
+
+    event.respondWith(
+
+      caches.match(event.request).then((response) => {
+
+        if (response) {
+          console.log("Video from cache:", requestUrl);
+          return response;
+        }
+
+        return fetch(event.request);
+
+      })
+
+    );
+
+    return;
+  }
+
   event.respondWith(
 
     caches.match(event.request).then((cachedResponse) => {
