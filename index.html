@@ -537,7 +537,12 @@ function getMedia(id){
 
     window.addEventListener("load", async () => {
 
+  try {
   await openDatabase();
+  console.log("DB ready");
+} catch(e) {
+  console.log("DB failed", e);
+}
 
   const offlineFiles = [
 
