@@ -933,7 +933,13 @@ const id = path
   .pop()
   .replace(".mp4","");
 
-const blob = await getMedia(id);
+let blob = null;
+
+try {
+  blob = await getMedia(id);
+} catch(e) {
+  console.log("DB not ready");
+}
 
 if(blob){
 
