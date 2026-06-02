@@ -936,6 +936,13 @@ async function playSponsor() {
   const screen = document.getElementById("sponsorScreen");
   const video = document.getElementById("sponsorVideo");
 
+  if (typeof sponsors === "undefined" || !Array.isArray(sponsors) || sponsors.length === 0) {
+    console.log("Sponsors not ready yet");
+    screen.style.display = "none";
+    document.getElementById("appBg").style.display = "block";
+    return;
+  }
+
   if (!sponsors || sponsors.length === 0) {
     screen.style.display = "none";
     return;
