@@ -915,7 +915,8 @@ window.addEventListener("appinstalled", () => {
 
 });
 
-    let sponsorIndex = 0;
+  let sponsorIndex = 0;
+  let dbReady = false;
 
 async function playSponsor() {
   const screen = document.getElementById("sponsorScreen");
