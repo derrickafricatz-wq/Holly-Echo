@@ -499,10 +499,10 @@ function openDatabase(){
  };
 
     request.onerror = ()=>{
-
-      reject();
-
-    };
+  dbReady = false;
+  console.log("IndexedDB failed");
+  reject();
+};
 
   });
 
