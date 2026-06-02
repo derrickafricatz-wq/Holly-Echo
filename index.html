@@ -489,11 +489,13 @@ function openDatabase(){
 
     request.onsuccess = (e)=>{
 
-      db = e.target.result;
+    db = e.target.result;
 
-      resolve();
+    dbReady = true;
 
-    };
+    resolve();
+
+ };
 
     request.onerror = ()=>{
 
