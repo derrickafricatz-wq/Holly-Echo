@@ -961,7 +961,9 @@ if(blob){
 
 }
 
-video.load(); 
+  video.load(); 
+
+  video.play().catch(()=>{});
 
   video.onended = () => {
     sponsorIndex++;
