@@ -969,7 +969,9 @@ if(blob){
 
   video.load(); 
 
+  setTimeout(() => {
   video.play().catch(()=>{});
+}, 200);
 
   video.onended = () => {
     sponsorIndex++;
