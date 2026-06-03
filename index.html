@@ -159,30 +159,30 @@
 #controls {
   position: fixed;
 
-  bottom: 60px;
-  right: 20px;
+  bottom: 10px;
+  left: 50%;
 
-  left: auto;
-  transform: none;
+  transform: translateX(-50%);
 
-  background: rgba(0, 0, 0, 0.92);
+  background: rgba(0,0,0,0.95);
+
   border: 1px solid #00ffff;
-  border-radius: 12px;
+  border-radius: 10px;
 
-  padding: 8px;
+  padding: 4px 9px;
 
   z-index: 9998;
 
-  box-shadow: 0 0 15px #00ffff;
+  box-shadow: 0 0 20px #00ffff;
 
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  align-items: center;
+  gap: 8px;
 
-  width: 180px;
-  max-width: 60vw;
+  flex-wrap: nowrap;
 
-  overflow: hidden;
+  max-width: 95vw;
+  overflow-x: auto;
 }
 
   #voiceNotice {
@@ -231,7 +231,7 @@
 }
 
 #promoText{
-  font-size:18px;
+  font-size:20px;
   font-weight:bold;
   color:white;
 }
@@ -242,12 +242,12 @@
   padding:12px 24px;
   border-radius:25px;
   font-weight:bold;
-  font-size:16px;
+  font-size:18px;
 }
 
 #cartCount{
   color:#ffcc00;
-  font-size:28px;
+  font-size:30px;
   font-weight:bold;
 }
 
@@ -405,7 +405,7 @@
 
   <button onclick="nextPage()">Next ➡</button>
 
-  <button onclick="rekindleView()">⚡ REKINDLE VIEW</button>
+  <button onclick="rekindleView()">⚡ Rekindle </button>
 
   <span id="pageNum">Page: 1</span>
 
