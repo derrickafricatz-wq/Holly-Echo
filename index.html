@@ -129,27 +129,27 @@
 
     #toggleBtn {
   position: fixed;
-  bottom: 80px;
-  right: 14px;
+  bottom: 20px;
+  right: 20px;
 
-  background: rgba(0, 255, 255, 0.15);
-  color: #00ffff;
+  background: linear-gradient(45deg, #00ffff, #0088ff);
 
+  color: black;
   font-weight: bold;
-  font-size: 11px;
 
-  padding: 6px 10px;
+  padding: 12px 18px;
 
-  border-radius: 20px;
-  border: 1px solid #00ffff;
+  border-radius: 50px;
 
   cursor: pointer;
 
   z-index: 9999;
 
-  box-shadow: 0 0 8px rgba(0,255,255,0.3);
+  box-shadow: 0 0 15px #00ffff;
 
-  transition: 0.2s;
+  font-size: 14px;
+
+  transition: 0.3s;
 }
 
 #toggleBtn:hover {
@@ -158,17 +158,18 @@
 
 #controls {
   position: fixed;
-  bottom: 12px;
-  right: 12px;
 
-  left: auto;
-  transform: none;
+  bottom: 10px;
+  left: 50%;
+
+  transform: translateX(-50%);
 
   background: rgba(0,0,0,0.95);
-  border: 1px solid #00ffff;
-  border-radius: 14px;
 
-  padding: 6px 8px;
+  border: 1px solid #00ffff;
+  border-radius: 10px;
+
+  padding: 6px 9px;
 
   z-index: 9998;
 
@@ -176,14 +177,12 @@
 
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 
   flex-wrap: nowrap;
 
-  max-width: 320px;
+  max-width: 95vw;
   overflow-x: auto;
-
-  white-space: nowrap;
 }
 
   #voiceNotice {
