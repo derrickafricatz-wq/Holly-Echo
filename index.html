@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+q<!DOCTYPE html>
 <html>
 
 <head>
@@ -716,6 +716,34 @@ function prevPage() {
   pageNum--;
   renderPage(pageNum);
 }
+
+    function rekindleView() {
+  if (!selectedPDF) return;
+
+  console.log("Rekindling view...");
+
+  // stop any voice if running
+  if (currentSpeech) {
+    window.speechSynthesis.cancel();
+    currentSpeech = null;
+  }
+
+  // reset canvas (fix black screen)
+  const canvas = document.getElementById("pdf-render");
+  const ctx = canvas.getContext("2d");
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // force reload current PDF page system
+  pageNum = pageNum || 1;
+
+  // small visual reset
+  canvas.style.opacity = "0";
+
+  setTimeout(() => {
+    canvas.style.opacity = "1";
+    renderPDF();
+  }, 200);
+    }
 
     async function getPageText(pageNumber) {
 
