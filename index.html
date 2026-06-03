@@ -562,6 +562,7 @@ window.addEventListener("load", async () => {
       selectedBookToUnlock.locked = false;
 
       updateCart();
+      alert(localStorage.getItem("unlockedBooks"));
 
       const bookToOpen = pendingUnlockBook || selectedBookToUnlock;
 
