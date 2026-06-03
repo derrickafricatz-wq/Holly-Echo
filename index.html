@@ -991,6 +991,20 @@ function startHeaderLoop() {
 
 startHeaderLoop(); 
 
+   window.addEventListener("load", async () => {
+
+  const cache = await caches.open("holly-echo-v44");
+
+  const keys = await cache.keys();
+
+  console.log("CACHE CONTENTS:");
+
+  keys.forEach(req => {
+    console.log(req.url);
+  });
+
+}); 
+
   document.getElementById("openStoreBtn").onclick = function () {
   document.getElementById("storePanel").style.display = "block";
   renderBooks();
