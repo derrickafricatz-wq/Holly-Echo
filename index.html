@@ -585,15 +585,22 @@ window.addEventListener("load", async () => {
       }
 
     function updateCart() {
+
+  console.log("Saving:", [...unlockedBooksSet]);
+
   document.getElementById("cartCount").innerText =
     "🛒 [" + unlockedBooksSet.size + "]";
 
-  // SAVE TO DEVICE STORAGE
   localStorage.setItem(
     "unlockedBooks",
     JSON.stringify([...unlockedBooksSet])
   );
-    }
+
+  console.log(
+    "Stored:",
+    localStorage.getItem("unlockedBooks")
+  );
+}
 
     async function readBook() {
 
