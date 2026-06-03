@@ -158,19 +158,17 @@
 
 #controls {
   position: fixed;
+  bottom: 12px;
+  right: 12px;
 
-bottom: 12px;
-right: 12px;
-
-left: auto;
-transform: none;
+  left: auto;
+  transform: none;
 
   background: rgba(0,0,0,0.95);
-
   border: 1px solid #00ffff;
-  border-radius: 10px;
+  border-radius: 14px;
 
-  padding: 6px 9px;
+  padding: 6px 8px;
 
   z-index: 9998;
 
@@ -178,12 +176,14 @@ transform: none;
 
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 
   flex-wrap: nowrap;
 
-  max-width: 95vw;
+  max-width: 320px;
   overflow-x: auto;
+
+  white-space: nowrap;
 }
 
   #voiceNotice {
