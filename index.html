@@ -460,6 +460,16 @@
 }
 ];
 
+books.forEach(book => {
+
+  if (unlockedBooksSet.has(book.title)) {
+
+    book.locked = false;
+
+  }
+
+});
+
    // PRELOAD OFFLINE FILES
 
 window.addEventListener("load", async () => {
