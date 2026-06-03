@@ -558,6 +558,9 @@ window.addEventListener("load", async () => {
       msg.innerHTML = "Access Granted ✔";
 
       unlockedBooksSet.add(selectedBookToUnlock.title);
+
+      selectedBookToUnlock.locked = false;
+
       updateCart();
 
       const bookToOpen = pendingUnlockBook || selectedBookToUnlock;
