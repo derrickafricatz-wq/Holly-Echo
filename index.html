@@ -997,13 +997,15 @@ startHeaderLoop();
 
   const keys = await cache.keys();
 
-  console.log("CACHE CONTENTS:");
+  let files = "";
 
   keys.forEach(req => {
-    console.log(req.url);
+    files += req.url + "\n";
   });
 
-}); 
+  alert(files);
+
+});
 
   document.getElementById("openStoreBtn").onclick = function () {
   document.getElementById("storePanel").style.display = "block";
