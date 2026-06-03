@@ -464,13 +464,13 @@ books.forEach(book => {
 
   if (unlockedBooksSet.has(book.title)) {
 
-    book.locked = false;
+  book.locked = false;
 
   }
 
 });
 
-   // PRELOAD OFFLINE FILES
+updateCart();
 
 window.addEventListener("load", async () => {
 
