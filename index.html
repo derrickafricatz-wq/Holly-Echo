@@ -545,6 +545,7 @@ window.addEventListener("load", async () => {
       }
 
       let license = data[0];
+      let userPackage = license.package || "starter";
 
       if (license.status !== "active") {
         msg.innerHTML = "secured by deka 🔐";
