@@ -758,12 +758,15 @@ window.speechSynthesis.speak(speech);
     maxPages = 50;
   } 
   else if (pkg === "premium") {
-    maxPages = pdfDoc.numPages;
+    maxPages = Number.MAX_SAFE_INTEGER;
+
+    // ✅ IMPORTANT: premium must never trigger upgrade screen
+    document.getElementById("upgradeBox").style.display = "none";
   } 
   else {
     maxPages = 10;
   }
-    }
+}
   
   async function renderPDF() {
 
