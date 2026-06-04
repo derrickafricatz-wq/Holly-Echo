@@ -894,6 +894,62 @@ function prevPage() {
   document.getElementById("storePanel").style.display = "block";
     }
 
+ function showUpgradePlans() {
+
+  const book = books.find(b => b.pdf === selectedPDF);
+
+  if (!book) return;
+
+  document.getElementById("upgradePlans").innerHTML = `
+
+    <div style="
+      margin:15px;
+      padding:15px;
+      border:1px solid #00ffff;
+      border-radius:12px;
+    ">
+      Starter<br>
+      TSH ${book.plans.starter.price.toLocaleString()}<br>
+      ${book.plans.starter.pages} Pages
+    </div>
+
+    <div style="
+      margin:15px;
+      padding:15px;
+      border:1px solid #00ffff;
+      border-radius:12px;
+    ">
+      Standard<br>
+      TSH ${book.plans.standard.price.toLocaleString()}<br>
+      ${book.plans.standard.pages} Pages
+    </div>
+
+    <div style="
+      margin:15px;
+      padding:15px;
+      border:2px solid gold;
+      border-radius:12px;
+    ">
+      Premium<br>
+      TSH ${book.plans.premium.price.toLocaleString()}<br>
+      Full Book Access
+    </div>
+
+    <button onclick="openStoreFromReader()" style="
+      padding:15px 25px;
+      font-size:18px;
+      border:none;
+      border-radius:10px;
+      background:#00ffff;
+      font-weight:bold;
+      margin-top:20px;
+    ">
+      💳 Continue To Store
+    </button>
+
+  `;
+}
+
     function rekindleView() {
   if (!selectedPDF) return;
 
