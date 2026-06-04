@@ -583,6 +583,18 @@ window.addEventListener("load", async () => {
 
       const bookToOpen = pendingUnlockBook || selectedBookToUnlock;
 
+if (userPackage === "starter") {
+  maxPages = 10;
+}
+
+if (userPackage === "standard") {
+  maxPages = 50;
+}
+
+if (userPackage === "premium") {
+  maxPages = 217;
+}
+
       if (!bookToOpen) {
       msg.innerHTML = "No book selected";
       return;
