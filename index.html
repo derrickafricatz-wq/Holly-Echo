@@ -492,22 +492,40 @@
     const books = [
 {
   title: "How to Hear Voice of God",
-  price: "From TSH 2,000",
   locked: true,
   pdf: "holly.pdf",
 
-  packages: {
-    starter: 10,
-    standard: 50,
-    premium: 217
+  plans: {
+    starter: {
+      price: 2500,
+      pages: 10
+    },
+    standard: {
+      price: 7000,
+      pages: 50
+    },
+    premium: {
+      price: 15000,
+      pages: null
+    }
   }
 },
 
 {
   title: "Spiritual Eyes",
-  price: "TSH 5,000",
   locked: true,
-  pdf: "learn.pdf"
+  pdf: "learn.pdf",
+
+  plans: {
+    starter: {
+      price: 2500,
+      pages: 10
+    },
+    premium: {
+      price: 5000,
+      pages: null
+    }
+  }
 }
 ];
 
