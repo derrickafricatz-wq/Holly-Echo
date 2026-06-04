@@ -727,7 +727,14 @@ window.speechSynthesis.speak(speech);
     currentSpeech = null;
   }
 
+  // 🔒 HARD LIMIT CHECK
+  if (pageNum >= maxPages) {
+    alert("🔒 You’ve reached your package limit. Upgrade to continue reading.");
+    return;
+  }
+
   if (pageNum >= pdfDoc.numPages) return;
+
   pageNum++;
   renderPage(pageNum);
 }
