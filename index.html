@@ -791,22 +791,24 @@ else if (userPackage === "premium") {
     currentSpeech = null;
   }
 
-  // 🔒 HARD LIMIT CHECK
+  // safety check: make sure maxPages exists
+  if (!maxPages || maxPages <= 0) {
+    console.log("maxPages not ready yet");
+    return;
+  }
+
+  // block access AFTER limit
   if (pageNum >= maxPages) {
 
-  if (currentSpeech) {
-    window.speechSynthesis.cancel();
-    currentSpeech = null;
+    document.getElementById("limitMessage").innerText =
+      "You reached page " + pageNum + " of " + maxPages;
+
+    document.getElementById("upgradeBox").style.display = "block";
+
+    return;
   }
 
-  document.getElementById("limitMessage").innerText =
-    "You reached page " + pageNum + " of " + maxPages;
-
-  document.getElementById("upgradeBox").style.display = "block";
-
-  return;
-  }
-
+  // normal PDF limit check
   if (pageNum >= pdfDoc.numPages) return;
 
   pageNum++;
