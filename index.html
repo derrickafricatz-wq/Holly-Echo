@@ -613,8 +613,8 @@ if (!license.package) {
       }
 
       if (license.device_id && license.device_id !== deviceID) {
-        msg.innerHTML = "Used on another device 🔐 ";
-        return;
+      msg.innerHTML = "This license is locked to another device 🔐";
+      return;
       }
 
       msg.innerHTML = "Access Granted ✔";
