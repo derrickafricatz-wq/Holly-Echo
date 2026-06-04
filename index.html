@@ -1178,13 +1178,43 @@ startHeaderLoop();
 ">
   ${book.title}
 </div>
+ 
   <div style="
-  color:#00ffff;
-  font-size:26px;
-  font-weight:bold;
-  margin-top:8px;
+  margin-top:10px;
+  border:1px solid #00ffff;
+  border-radius:12px;
+  padding:12px;
+  background:rgba(0,255,255,0.05);
 ">
-  Price: ${book.price}
+
+  <div style="color:#00ffff;font-size:20px;font-weight:bold;">
+    STARTER
+  </div>
+  <div>
+    TSH ${book.plans.starter.price.toLocaleString()}
+    • ${book.plans.starter.pages} Pages
+  </div>
+
+  <hr>
+
+  <div style="color:#00ffff;font-size:20px;font-weight:bold;">
+    STANDARD
+  </div>
+  <div>
+    TSH ${book.plans.standard.price.toLocaleString()}
+    • ${book.plans.standard.pages} Pages
+  </div>
+
+  <hr>
+
+  <div style="color:#00ffff;font-size:20px;font-weight:bold;">
+    PREMIUM
+  </div>
+  <div>
+    TSH ${book.plans.premium.price.toLocaleString()}
+    • Unlimited Access
+  </div>
+
 </div>
 
 <div style="
