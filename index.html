@@ -582,6 +582,12 @@ window.addEventListener("load", async () => {
       }
 
       let license = data;
+
+if (!license) {
+  msg.innerHTML = "License not found";
+  return;
+}
+
 let userPackage = license.package || "starter";
 
 if (license.status !== "active") {
