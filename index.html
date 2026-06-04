@@ -525,6 +525,15 @@
     JSON.parse(localStorage.getItem("unlockedBooks") || "[]")
   );
 
+    window.addEventListener("load", () => {
+  const savedLicense = localStorage.getItem("activeLicense");
+
+  if (savedLicense) {
+    activeLicense = JSON.parse(savedLicense);
+    userPackage = activeLicense.package || "starter";
+  }
+});
+
     const books = [
 {
   title: "How to Hear Voice of God",
