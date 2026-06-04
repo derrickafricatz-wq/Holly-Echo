@@ -639,14 +639,12 @@ if (!license.package) {
 
 if (userPackage === "starter") {
   maxPages = 10;
-}
-
-if (userPackage === "standard") {
+} 
+else if (userPackage === "standard") {
   maxPages = 50;
-}
-
-if (userPackage === "premium") {
-  maxPages = 217;
+} 
+else if (userPackage === "premium") {
+  maxPages = pdfDoc.numPages;
 }
 
       if (!bookToOpen) {
