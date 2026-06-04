@@ -763,7 +763,7 @@ window.speechSynthesis.speak(speech);
 
   // 🔒 HARD LIMIT CHECK
   if (pageNum >= maxPages) {
-    alert("🔒 You’ve reached your package limit. Upgrade to continue reading.");
+    document.getElementById("upgradeBox").style.display = "block";
     return;
   }
 
