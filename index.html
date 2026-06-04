@@ -580,7 +580,7 @@ window.addEventListener("load", async () => {
         return;
       }
 
-      let license = data[0];
+      let license = data;
 let userPackage = license.package || "starter";
 
 if (license.status !== "active") {
