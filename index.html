@@ -656,8 +656,6 @@ if (!license) {
   return;
 }
 
-userPackage = license.package || "starter";
-
 if (license.status !== "active") {
   msg.innerHTML = "secured by deka 🔐";
   return;
