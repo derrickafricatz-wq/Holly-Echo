@@ -637,16 +637,6 @@ if (!license.package) {
 
       const bookToOpen = pendingUnlockBook || selectedBookToUnlock;
 
-if (userPackage === "starter") {
-  maxPages = 10;
-} 
-else if (userPackage === "standard") {
-  maxPages = 50;
-} 
-else if (userPackage === "premium") {
-  maxPages = pdfDoc.numPages;
-}
-
       if (!bookToOpen) {
       msg.innerHTML = "No book selected";
       return;
