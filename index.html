@@ -637,6 +637,11 @@ window.addEventListener("load", async () => {
 
       let license = data;
 
+      activeLicense = license;
+userPackage = license.package || "starter";
+
+localStorage.setItem("activeLicense", JSON.stringify(license));
+
 if (!license) {
   msg.innerHTML = "License not found";
   return;
