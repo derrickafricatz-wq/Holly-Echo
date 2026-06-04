@@ -763,8 +763,14 @@ window.speechSynthesis.speak(speech);
 
   // 🔒 HARD LIMIT CHECK
   if (pageNum >= maxPages) {
-    document.getElementById("upgradeBox").style.display = "block";
-    return;
+  document.getElementById("upgradeBox").style.display = "block";
+
+  if (currentSpeech) {
+    window.speechSynthesis.cancel();
+    currentSpeech = null;
+  }
+
+  return;
   }
 
   if (pageNum >= pdfDoc.numPages) return;
