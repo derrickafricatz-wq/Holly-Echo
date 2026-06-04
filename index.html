@@ -639,9 +639,9 @@ window.addEventListener("load", async () => {
         return;
       }
 
-      if (!data || data.length === 0) {
-        msg.innerHTML = "Unexpected License, Contact admin";
-        return;
+      if (!data) {
+      msg.innerHTML = "Unexpected License, Contact admin";
+      return;
       }
 
       let license = data;
