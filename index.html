@@ -892,6 +892,14 @@ function prevPage() {
   document.getElementById("storePanel").style.display = "block";
     }
 
+    function retryUnlock() {
+  document.getElementById("upgradeBox").style.display = "none";
+  document.getElementById("licenseScreen").style.display = "block";
+
+  document.getElementById("msg").innerText =
+    "Re-enter license key to continue upgrade";
+  }
+
  function showUpgradePlans() {
 
   const book = books.find(b => b.pdf === selectedPDF);
