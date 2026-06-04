@@ -709,6 +709,17 @@ window.speechSynthesis.speak(speech);
 
     pdfDoc = await pdfjsLib.getDocument(url).promise;
 
+// 👇 ADD THIS HERE
+if (userPackage === "starter") {
+  maxPages = 10;
+} 
+else if (userPackage === "standard") {
+  maxPages = 50;
+} 
+else if (userPackage === "premium") {
+  maxPages = pdfDoc.numPages;
+}
+
     canvas = document.getElementById('pdf-render');
     ctx = canvas.getContext('2d');
 
