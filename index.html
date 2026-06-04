@@ -606,11 +606,20 @@ if (!license.package) {
       }
 
       if (!license.device_id) {
-        await client
-          .from("licenses")
-          .update({ device_id: deviceID })
-          .eq("id", license.id);
-      }
+
+  const { error } = await client
+    .from("licenses")
+    .update({
+      device_id: deviceID,
+      status: "active"
+    })
+    .eq("id", license.id);
+
+  if (error) {
+    msg.innerHTML = "Device binding failed";
+    return;
+  }
+}
 
       if (license.device_id && license.device_id !== deviceID) {
       msg.innerHTML = "This license is locked to another device 🔐";
