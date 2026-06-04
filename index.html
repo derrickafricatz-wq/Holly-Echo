@@ -736,6 +736,17 @@ window.speechSynthesis.speak(speech);
 
     async function renderPage(num) {
 
+      if (num > maxPages) {
+  document.getElementById("upgradeBox").style.display = "block";
+
+  if (currentSpeech) {
+    window.speechSynthesis.cancel();
+    currentSpeech = null;
+  }
+
+  return;
+}
+
   const page = await pdfDoc.getPage(num);
 
   const canvas = document.getElementById('pdf-render');
