@@ -710,7 +710,9 @@ window.speechSynthesis.speak(speech);
 
   try {
 
-    pageNum = 1; // always start from first page
+    // 🔥 RESET OLD STATE (IMPORTANT FIX)
+    pdfDoc = null;
+    pageNum = 1;
 
     const url = selectedPDF;
 
