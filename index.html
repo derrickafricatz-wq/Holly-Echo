@@ -785,6 +785,11 @@ function prevPage() {
   renderPage(pageNum);
 }
 
+    function openStoreFromReader() {
+  document.getElementById("upgradeBox").style.display = "none";
+  document.getElementById("storePanel").style.display = "block";
+    }
+
     function rekindleView() {
   if (!selectedPDF) return;
 
