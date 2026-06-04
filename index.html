@@ -1078,26 +1078,6 @@ function playSponsor() {
   };
 }
 
-function skipSponsor() {
-  document.getElementById("sponsorScreen").style.display = "none";
-  document.getElementById("appBg").style.display = "block";
-}
-
-    function toggleMute() {
-
-  const video = document.getElementById("sponsorVideo");
-  const btn = document.getElementById("muteBtn");
-
-  video.muted = !video.muted;
-
-  if (video.muted) {
-    btn.innerText = "🔇 Unmute";
-  } else {
-    btn.innerText = "🔊 Mute";
-  }
-
-}
-
 const voiceMessages = [
   "🔊 Voice reader is being improved for smoother experience. Please be patient.",
   "⚙️ We are fixing voice issues to make reading more stable. Thank you for your patience."
