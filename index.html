@@ -771,6 +771,28 @@ currentSpeech = speech;
 
 window.speechSynthesis.speak(speech);
 }
+
+    function applyLimit() {
+  if (!activeLicense) {
+    maxPages = 10;
+    return;
+  }
+
+  const pkg = activeLicense.package;
+
+  if (pkg === "starter") {
+    maxPages = 10;
+  } 
+  else if (pkg === "standard") {
+    maxPages = 50;
+  } 
+  else if (pkg === "premium") {
+    maxPages = pdfDoc.numPages;
+  } 
+  else {
+    maxPages = 10;
+  }
+    }
   
   async function renderPDF() {
 
