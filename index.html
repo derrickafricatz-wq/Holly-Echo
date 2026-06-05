@@ -731,7 +731,11 @@ window.speechSynthesis.speak(speech);
     return;
   }
 
-  const pkg = activeLicense.package;
+ const pkg = activeLicense.package;
+
+const book = books.find(b => b.pdf === selectedPDF);
+
+if (!book) return;
 
   if (pkg === "starter") {
     maxPages = 70;
