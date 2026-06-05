@@ -588,9 +588,9 @@ window.addEventListener("load", async () => {
       .eq("book_pdf", selectedBookToUnlock.pdf)
       .single();
 
-      if (error) {
-        msg.innerHTML = "ERROR: " + JSON.stringify(error);
-        return;
+     if (error) {
+     msg.innerHTML = "Unexpected License, Contact admin";
+     return; 
       }
 
       if (!data) {
