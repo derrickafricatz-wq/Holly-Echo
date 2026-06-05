@@ -738,20 +738,19 @@ const book = books.find(b => b.pdf === selectedPDF);
 if (!book) return;
 
   if (pkg === "starter") {
-    maxPages = 70;
-  } 
-  else if (pkg === "standard") {
-    maxPages = 150;
-  } 
-  else if (pkg === "premium") {
-    maxPages = Number.MAX_SAFE_INTEGER;
+  maxPages = book.plans.starter.pages;
+}
+else if (pkg === "standard") {
+  maxPages = book.plans.standard.pages;
+}
+else if (pkg === "premium") {
+  maxPages = Number.MAX_SAFE_INTEGER;
 
-    // ✅ IMPORTANT: premium must never trigger upgrade screen
-    document.getElementById("upgradeBox").style.display = "none";
-  } 
-  else {
-    maxPages = 10;
-  }
+  document.getElementById("upgradeBox").style.display = "none";
+}
+else {
+  maxPages = 10;
+}
 }
   
   async function renderPDF() {
