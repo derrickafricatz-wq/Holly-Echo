@@ -3,7 +3,9 @@ const bgImages = [
   "1b.jpg",
   "1c.jpg",
   "1d.jpg",
-  "1d.jpg",
+  "1f.jpg",
+  "1h.jpg",
+  "1i.jpg",
   "1d.jpg",
   "1d.jpg",
 ];
