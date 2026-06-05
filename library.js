@@ -5,8 +5,8 @@ const books = [
   pdf: "holly.pdf",
 
   plans: {
-    starter: { price: 3000, pages: 70 },
-    standard: { price: 8000, pages: 150 },
+    starter: { price: 1000, pages: 28 },
+    standard: { price: 5000, pages: 120 },
     premium: { price: 15000, pages: null }
   }
 },
@@ -17,8 +17,8 @@ const books = [
   pdf: "learn.pdf",
 
   plans: {
-    starter: { price: 1500, pages: 8 },
-    standard: { price: 3000, pages: 15 },
+    starter: { price: 1000, pages: 7 },
+    standard: { price: 1500, pages: 13 },
     premium: { price: 5000, pages: null }
   }
 }
