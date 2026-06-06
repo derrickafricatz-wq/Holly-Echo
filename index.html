@@ -1146,6 +1146,21 @@ startHeaderLoop();
   document.getElementById("appBg").style.display = "block";
 
   startBackgroundLoop();
+
+     try {
+
+  const res = await fetch("./banner.txt");
+
+  const text = await res.text();
+
+  document.getElementById("scrollBanner").innerHTML =
+    "<span>" + text + "</span>";
+
+} catch (err) {
+
+  console.log("Banner load failed", err);
+
+     }
 });
 
   document.getElementById("openStoreBtn").onclick = function () {
