@@ -19,7 +19,7 @@ const books = [
   plans: {
     starter: { price: 1000, pages: 7 },
     standard: { price: 1500, pages: 13 },
-    premium: { price: 5000, pages: null }
+    premium: { price: 3000, pages: null }
   }
 }
 ];
