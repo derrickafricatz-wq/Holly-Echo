@@ -873,32 +873,27 @@ function prevPage() {
 }
 
     function rekindleView() {
-  if (!selectedPDF) return;
+  if (!pdfDoc) return;
 
-  console.log("Rekindling view...");
-
-  // stop any voice if running
+  // stop voice instantly
   if (currentSpeech) {
     window.speechSynthesis.cancel();
     currentSpeech = null;
   }
 
-  // reset canvas (fix black screen)
   const canvas = document.getElementById("pdf-render");
-  const ctx = canvas.getContext("2d");
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  // force reload current PDF page system
-  pageNum = pageNum || 1;
-
-  // small visual reset
-  canvas.style.opacity = "0";
+  // smooth flash effect (like “refresh glow”)
+  canvas.style.transition = "opacity 0.15s ease";
+  canvas.style.opacity = "0.2";
 
   setTimeout(() => {
     canvas.style.opacity = "1";
-    renderPDF();
-  }, 200);
-    }
+  }, 120);
+
+  // 🔥 IMPORTANT: just re-render current page (NO full reload)
+  renderPage(pageNum);
+}
 
     async function getPageText(pageNumber) {
 
