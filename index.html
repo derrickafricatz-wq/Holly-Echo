@@ -873,60 +873,33 @@ function prevPage() {
   `;
 }
 
-    async function rekindleView() {
-  if (!pdfDoc || !selectedPDF) return;
+   function rekindleView() {
+  if (!selectedPDF) return;
 
-  const canvas = document.getElementById("pdf-render");
+  console.log("Rekindling view...");
 
-  // stop voice instantly
+  // stop any voice if running
   if (currentSpeech) {
     window.speechSynthesis.cancel();
     currentSpeech = null;
   }
 
-  canvas.style.transition = "opacity 0.15s ease";
-  canvas.style.opacity = "0.2";
+  // reset canvas (fix black screen)
+  const canvas = document.getElementById("pdf-render");
+  const ctx = canvas.getContext("2d");
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  // 🔥 SAFE WAIT WITH TIMEOUT (prevents infinite hang)
-  const waitReady = () =>
-    new Promise(resolve => {
-      let waited = 0;
+  // force reload current PDF page system
+  pageNum = pageNum || 1;
 
-      const check = setInterval(() => {
-        waited += 30;
+  // small visual reset
+  canvas.style.opacity = "0";
 
-        if ((pdfReady && !rekindleBusy && pdfDoc) || waited > 3000) {
-          clearInterval(check);
-          resolve();
-        }
-      }, 30);
-    });
-
-  await waitReady();
-
-  try {
-    await renderPage(pageNum || 1);
-
-    requestAnimationFrame(() => {
-      canvas.style.opacity = "1";
-    });
-
-  } catch (err) {
-    console.log("rekindle fallback:", err);
-
-    // emergency recovery
-    pageNum = 1;
-
-    try {
-      await renderPage(pageNum);
-    } catch (e) {
-      // last rescue: full reload
-      await renderPDF();
-    }
-
+  setTimeout(() => {
     canvas.style.opacity = "1";
-  }
-}
+    renderPDF();
+  }, 200);
+    } 
 
     async function getPageText(pageNumber) {
 
