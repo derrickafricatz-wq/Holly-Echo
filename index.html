@@ -31,17 +31,22 @@
 
   background: url("bg.jpg") center/cover no-repeat;
 
-  filter: blur(0px) brightness(0.6);
+  filter: blur(2px) brightness(0.55);
+
+  transform: scale(1.05);
 
   z-index: 0;
+
+  display: none;
 }
 
-#appBg::after {
+/* dark cinematic overlay for readability */
+#appBg::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: url("bg.jpg") center/contain no-repeat;
-  opacity: 0.25;
+
+  background: rgba(0, 0, 0, 0.35);
 }
 
     input {
