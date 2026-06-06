@@ -1112,6 +1112,31 @@ startHeaderLoop();
   renderBooks();
 };
 
+   let bgIndex = 0;
+
+function startBackgroundLoop() {
+
+  const bg = document.getElementById("appBg");
+
+  if (!bg || !bgImages || bgImages.length === 0) return;
+
+  bg.style.backgroundImage = `url('${bgImages[0]}')`;
+
+  setInterval(() => {
+
+    bgIndex++;
+
+    if (bgIndex >= bgImages.length) {
+      bgIndex = 0;
+    }
+
+    bg.style.backgroundImage =
+      `url('${bgImages[bgIndex]}')`;
+
+  }, 2000);
+
+} 
+
   function closeStore() {
   document.getElementById("storePanel").style.display = "none";
     }
