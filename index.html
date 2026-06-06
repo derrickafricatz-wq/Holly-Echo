@@ -31,10 +31,18 @@
 
   background: url("bg.jpg") center/cover no-repeat;
 
-  z-index: 0;
+  filter: blur(0px) brightness(0.6);
 
-  display: none;
-    }
+  z-index: 0;
+}
+
+#appBg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("bg.jpg") center/contain no-repeat;
+  opacity: 0.25;
+}
 
     input {
       padding: 12px;
