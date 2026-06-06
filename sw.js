@@ -12,6 +12,7 @@ const APP_SHELL = [
   "./index.html",
   "./manifest.json",
   "./sw.js",
+  "./bg.js",
   "./library.js",
   "./offline.html",
 
