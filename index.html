@@ -1140,8 +1140,20 @@ function startBackgroundLoop() {
 } 
 
   function closeStore() {
+
   document.getElementById("storePanel").style.display = "none";
-    }
+
+  document.getElementById("licenseScreen").style.display = "none";
+
+  selectedBookToUnlock = null;
+
+  pendingUnlockBook = null;
+
+  document.getElementById("msg").innerText = "";
+
+  document.getElementById("key").value = "";
+
+}
 
     function renderBooks() {
   const list = document.getElementById("bookList");
