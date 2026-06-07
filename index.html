@@ -46,8 +46,8 @@
   background: rgba(0,0,0,0.9);
   color: #00ffff;
 
-  padding: 18px 0;
-  font-size: 28px;
+  padding: 20px 0;
+  font-size: 35px;
   font-weight: bold;
 
   overflow: hidden;
@@ -1131,7 +1131,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v84");
+  const cache = await caches.open("holly-echo-v88");
 
   const keys = await cache.keys();
 
@@ -1188,7 +1188,7 @@ function startBackgroundLoop() {
     bg.style.backgroundImage =
       `url('${bgImages[bgIndex]}')`;
 
-  }, 10000);
+  }, 25000);
 
 } 
 
