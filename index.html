@@ -1134,7 +1134,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v91");
+  const cache = await caches.open("holly-echo-v92");
 
   const keys = await cache.keys();
 
@@ -1259,15 +1259,23 @@ align-items:flex-start;
 
   <div style="flex:1;">
 
-    <div style="
-      font-weight:bold;
-      font-size:22px;
-      color:white;
-    ">
-      ${book.title}
-    </div>
-
+  <div style="
+    font-weight:bold;
+    font-size:22px;
+    color:white;
+  ">
+    ${book.title}
   </div>
+
+  <div style="
+    color:${book.locked ? "#ff5555" : "#00ff88"};
+    font-size:15px;
+    margin-top:6px;
+  ">
+    ${book.locked ? "Locked" : "Ready to Read"}
+  </div>
+
+</div>
 
 </div>
  
