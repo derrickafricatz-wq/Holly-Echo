@@ -1134,7 +1134,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v95");
+  const cache = await caches.open("holly-echo-v96");
 
   const keys = await cache.keys();
 
@@ -1361,33 +1361,6 @@ align-items:flex-start;
 
 </div>
 
-<div style="
-  margin-top:12px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-">
-
-  <div style="
-    font-size:24px;
-    font-weight:bold;
-  ">
-    ${book.locked ? "🔒 LOCKED" : "🔓 UNLOCKED"}
-  </div>
-
-  <button onclick="openBook('${book.title}')" style="
-    padding:12px 20px;
-    border:none;
-    border-radius:8px;
-    background:${book.locked ? "#ff4444" : "#00ffff"};
-    font-weight:bold;
-    font-size:20px;
-    cursor:pointer;
-  ">
-    ${book.locked ? "UNLOCK" : "READ"}
-  </button>
-
-</div>
 `;
 
     list.appendChild(item);
