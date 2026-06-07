@@ -32,6 +32,10 @@ const APP_SHELL = [
    "./1i.jpg",
    "./2a.jpg",
    "./2b.jpg",
+
+  /* BOOK COVERS */
+  "./co1.jpg",
+  "./co2.jpg",
    
   /* BOOKS (PDF) */
   "./holly.pdf",
