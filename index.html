@@ -1134,7 +1134,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v89");
+  const cache = await caches.open("holly-echo-v91");
 
   const keys = await cache.keys();
 
@@ -1239,12 +1239,36 @@ function startBackgroundLoop() {
 `;
 
     item.innerHTML = `
-  <div style="
-  font-weight:bold;
-  font-size:38px;
-  color:white;
+
+<div style="
+display:flex;
+gap:15px;
+align-items:flex-start;
 ">
-  ${book.title}
+
+  <img
+    src="${book.cover}"
+    style="
+      width:120px;
+      height:180px;
+      object-fit:cover;
+      border-radius:12px;
+      border:1px solid #00ffff;
+    "
+  >
+
+  <div style="flex:1;">
+
+    <div style="
+      font-weight:bold;
+      font-size:28px;
+      color:white;
+    ">
+      ${book.title}
+    </div>
+
+  </div>
+
 </div>
  
   <div style="
