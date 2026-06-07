@@ -1134,7 +1134,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v88");
+  const cache = await caches.open("holly-echo-v89");
 
   const keys = await cache.keys();
 
@@ -1182,18 +1182,26 @@ function startBackgroundLoop() {
 
   setInterval(() => {
 
-    bgIndex++;
+    bg.style.opacity = "0";
 
-    if (bgIndex >= bgImages.length) {
-      bgIndex = 0;
-    }
+    setTimeout(() => {
 
-    bg.style.backgroundImage =
-      `url('${bgImages[bgIndex]}')`;
+      bgIndex++;
+
+      if (bgIndex >= bgImages.length) {
+        bgIndex = 0;
+      }
+
+      bg.style.backgroundImage =
+        `url('${bgImages[bgIndex]}')`;
+
+      bg.style.opacity = "1";
+
+    }, 2500);
 
   }, 25000);
 
-} 
+}
 
   function closeStore() {
 
