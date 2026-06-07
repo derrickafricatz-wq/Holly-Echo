@@ -3,6 +3,7 @@ const books = [
   title: "How to Hear Voice of God",
   locked: true,
   pdf: "holly.pdf",
+  cover: "holly-cover.jpg",
 
   plans: {
     starter: { price: 1000, pages: 28 },
@@ -15,6 +16,7 @@ const books = [
   title: "Spiritual Eyes",
   locked: true,
   pdf: "learn.pdf",
+  cover: "spiritual-eyes-cover.jpg",
 
   plans: {
     starter: { price: 1000, pages: 7 },
