@@ -1363,12 +1363,31 @@ align-items:flex-start;
 
 <div style="
   margin-top:12px;
-  font-size:24px;
-  font-weight:bold;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 ">
-  ${book.locked ? "🔒 LOCKED" : "🔓 UNLOCKED"}
-</div>
 
+  <div style="
+    font-size:24px;
+    font-weight:bold;
+  ">
+    ${book.locked ? "🔒 LOCKED" : "🔓 UNLOCKED"}
+  </div>
+
+  <button onclick="openBook('${book.title}')" style="
+    padding:12px 20px;
+    border:none;
+    border-radius:8px;
+    background:${book.locked ? "#ff4444" : "#00ffff"};
+    font-weight:bold;
+    font-size:20px;
+    cursor:pointer;
+  ">
+    ${book.locked ? "UNLOCK" : "READ"}
+  </button>
+
+</div>
 `;
 
     list.appendChild(item);
