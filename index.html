@@ -846,12 +846,17 @@ function prevPage() {
     }
 
     function retryUnlock() {
+
   document.getElementById("upgradeBox").style.display = "none";
+
   document.getElementById("licenseScreen").style.display = "block";
+
+  document.getElementById("key").value = "";
 
   document.getElementById("msg").innerText =
     "Re-enter license key to continue upgrade";
-  }
+
+    }
 
  function showUpgradePlans() {
 
