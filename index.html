@@ -1282,7 +1282,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v102");
+  const cache = await caches.open("holly-echo-v103");
 
   const keys = await cache.keys();
 
@@ -1348,6 +1348,18 @@ function startBackgroundLoop() {
     }, 2500);
 
   }, 25000);
+
+}
+
+    function openGuide() {
+
+  document.getElementById("guideBox").style.display = "block";
+
+}
+
+function closeGuide() {
+
+  document.getElementById("guideBox").style.display = "none";
 
 }
 
