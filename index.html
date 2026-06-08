@@ -636,15 +636,26 @@ if (!license.package) {
 
      selectedPDF = bookToOpen.pdf;
 
-      setTimeout(() => {
+     setTimeout(() => {
 
-     document.getElementById("licenseScreen").style.display = "none";
+  document.getElementById("licenseScreen").style.display = "none";
+  document.getElementById("upgradeBox").style.display = "none";
+  document.getElementById("storePanel").style.display = "none";
 
-     document.getElementById("book").style.display = "block"; 
+  document.getElementById("book").style.display = "block";
 
-     renderPDF();
+  // FORCE SAFE STATE BEFORE OPENING PDF
+  pageNum = 1;
 
-     }, 1000);
+  if (!selectedPDF) {
+    console.error("No selectedPDF found");
+    msg.innerHTML = "Book not selected";
+    return;
+  }
+
+  renderPDF();
+
+}, 300); 
 
       }
 
