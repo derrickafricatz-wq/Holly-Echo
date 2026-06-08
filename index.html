@@ -543,6 +543,10 @@ window.addEventListener("load", async () => {
 
     async function unlockBook() {
 
+      if (!selectedBookToUnlock && pendingUnlockBook) {
+     selectedBookToUnlock = pendingUnlockBook;
+      }
+
       let userKey = document.getElementById("key").value;
       userKey = userKey.trim();
       let msg = document.getElementById("msg");
@@ -1160,7 +1164,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v100");
+  const cache = await caches.open("holly-echo-v101");
 
   const keys = await cache.keys();
 
