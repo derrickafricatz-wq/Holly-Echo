@@ -816,6 +816,8 @@ else {
   // block access AFTER limit
   if (pageNum >= maxPages) {
 
+    pageNum = maxPages;
+
     document.getElementById("limitMessage").innerText =
       "You reached page " + pageNum + " of " + maxPages;
 
