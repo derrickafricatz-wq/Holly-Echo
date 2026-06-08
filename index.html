@@ -750,16 +750,19 @@ else {
 
     async function renderPage(num) {
 
-      if (num > maxPages) {
-  document.getElementById("upgradeBox").style.display = "block";
+  if (num > maxPages) {
 
-  if (currentSpeech) {
-    window.speechSynthesis.cancel();
-    currentSpeech = null;
+    pageNum = maxPages;
+
+    document.getElementById("upgradeBox").style.display = "block";
+
+    if (currentSpeech) {
+      window.speechSynthesis.cancel();
+      currentSpeech = null;
+    }
+
+    return;
   }
-
-  return;
-}
 
   const page = await pdfDoc.getPage(num);
 
