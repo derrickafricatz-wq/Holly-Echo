@@ -544,6 +544,7 @@ window.addEventListener("load", async () => {
     async function unlockBook() {
 
       let userKey = document.getElementById("key").value;
+      userKey = userKey.trim();
       let msg = document.getElementById("msg");
 
       let { data, error } = await client
