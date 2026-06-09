@@ -1355,7 +1355,7 @@ function startBackgroundLoop() {
 
     }, 2500);
 
-  }, 25000);
+  }, 15000);
 
 }
 
@@ -1549,6 +1549,10 @@ align-items:flex-start;
 
   document.getElementById("licenseScreen").style.display = "block";
 
+  document.getElementById("key").value = "";
+  document.getElementById("msg").innerText = "";
+  document.getElementById("key").focus();
+ 
   document.getElementById("msg").innerText =
     "Enter license key for: " + book.title;
 
