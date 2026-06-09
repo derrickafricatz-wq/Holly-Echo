@@ -673,6 +673,11 @@ window.addEventListener("load", async () => {
       userKey = userKey.trim();
       let msg = document.getElementById("msg");
 
+      if (!userKey) {
+     msg.innerHTML = "Please enter your license key";
+     return;
+      }
+
       let { data, error } = await client
       .from("licenses")
       .select("*")
