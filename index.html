@@ -39,8 +39,7 @@
   opacity: 1;
   transition: opacity 2.5s ease-in-out;
 }
-
-#scrollBannerWrapper {
+    #scrollBannerWrapper {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -111,7 +110,7 @@
 
   box-shadow: 0 0 20px #00ffff;
 
-  animation: pop 0.2s ease-out; /* ðŸ‘ˆ add this */
+  animation: pop 0.2s ease-out; /* 👈 add this */
 }
 
 @keyframes pop {
@@ -262,7 +261,7 @@
   opacity: 0;
   transition: opacity 0.5s ease;
 
-  pointer-events: none; /* ðŸ‘ˆ prevents blocking clicks */
+  pointer-events: none; /* 👈 prevents blocking clicks */
   }
 
    #storeHeader{
@@ -374,7 +373,7 @@
   <div id="appBg"></div>
 
   <button id="guideBtn" onclick="openGuide()">
-  ðŸ“– GUIDE
+  📖 GUIDE
   </button>
 
   <div id="scrollBannerWrapper">
@@ -390,7 +389,7 @@
   <div id="storeHeader">
 
   <div id="promoText">
-    âš¡ QUICK ACCESS
+    ⚡ QUICK ACCESS
   </div>
 
   <button id="openStoreBtn">
@@ -398,7 +397,7 @@
   </button>
 
   <div id="cartCount">
-    ðŸ›’ [0]
+    🛒 [0]
   </div>
 
   </div>
@@ -429,7 +428,7 @@
 ">
 
 <h2 style="color:#00ffff;">
-ðŸ“– SPIRITUAL GUIDE
+📖 SPIRITUAL GUIDE
 </h2>
 
 <p>
@@ -508,7 +507,7 @@ If a payment or key issue occurs, contact the administrator for assistance.
   text-align:center;
   padding-top:80px;
 ">
-  <h2 style="color:#00ffff;">ðŸ“š Book Store</h2>
+  <h2 style="color:#00ffff;">📚 Book Store</h2>
 
   <div id="bookList"></div>
 
@@ -528,7 +527,7 @@ If a payment or key issue occurs, contact the administrator for assistance.
 
   <div id="licenseBox">
  
-  <h1 id="licenseTitle">ðŸ” Book Unlock</h1>
+  <h1 id="licenseTitle">🔐 Book Unlock</h1>
 
   <input id="key" placeholder="License Key">
 
@@ -562,10 +561,10 @@ If a payment or key issue occurs, contact the administrator for assistance.
   padding-top: 120px;
 ">
 
-  <h1 style="color:#00ffff;">ðŸ”’ Upgrade Required</h1>
+  <h1 style="color:#00ffff;">🔒 Upgrade Required</h1>
 
   <p id="limitMessage" style="font-size:18px;">
-  Youâ€™ve reached your reading limit for this package.
+  You’ve reached your reading limit for this package.
   </p>
 
   <div id="upgradePlans"></div>
@@ -583,7 +582,7 @@ If a payment or key issue occurs, contact the administrator for assistance.
   box-shadow:0 4px 12px rgba(0,0,0,0.3);
   cursor:pointer;
 ">
-  ðŸ’³ Activate Your Upgrade
+  💳 Activate Your Upgrade
   </button>
 
 </div>
@@ -591,7 +590,7 @@ If a payment or key issue occurs, contact the administrator for assistance.
   <!-- TOGGLE BUTTON -->
 
 <div id="toggleBtn" onclick="toggleControls()">
-  ðŸ’¡ powered by deka
+  💡 powered by deka
 </div>
 
 <!-- CONTROLS PANEL -->
@@ -611,15 +610,15 @@ If a payment or key issue occurs, contact the administrator for assistance.
     <span id="speedValue">1</span>
   </div>
 
-  <button onclick="readBook()">ðŸ”Š Read Book</button>
+  <button onclick="readBook()">🔊 Read Book</button>
 
-  <button onclick="pauseVoice()">â¸ Pause</button>
+  <button onclick="pauseVoice()">⏸ Pause</button>
 
-  <button onclick="prevPage()">â¬… Prev</button>
+  <button onclick="prevPage()">⬅ Prev</button>
 
-  <button onclick="nextPage()">Next âž¡</button>
+  <button onclick="nextPage()">Next ➡</button>
 
-  <button onclick="rekindleView()">âš¡ REKINDLE VIEW</button>
+  <button onclick="rekindleView()">⚡ REKINDLE VIEW</button>
 
   <span id="pageNum">Page: 1</span>
 
@@ -628,7 +627,7 @@ If a payment or key issue occurs, contact the administrator for assistance.
   <canvas id="pdf-render"></canvas>
   
   <div id="voiceNotice">
-  ðŸ”Š Voice reader is being improved for smoother experience.
+  🔊 Voice reader is being improved for smoother experience.
     </div>
 
   </div>
@@ -725,7 +724,7 @@ window.addEventListener("load", async () => {
      unlockBtn.disabled = true;
      unlockBtn.innerText = "Checking...";
 
-   // ðŸ”¥ safety reset so it never gets stuck
+   // 🔥 safety reset so it never gets stuck
     setTimeout(() => {
      unlockBtn.disabled = false;
      unlockBtn.innerText = "Unlock Book";
@@ -785,17 +784,17 @@ if (!license) {
 }
 
 if (license.status !== "active") {
-  msg.innerHTML = "secured by deka ðŸ”";
+  msg.innerHTML = "secured by deka 🔐";
   return;
 }
 
 if (license.book_pdf !== selectedBookToUnlock.pdf) {
-  msg.innerHTML = "This license is not valid for this book ðŸ”";
+  msg.innerHTML = "This license is not valid for this book 🔐";
   return;
 }
 
 if (!license.package) {
-  msg.innerHTML = "License missing package type ðŸ”";
+  msg.innerHTML = "License missing package type 🔐";
   return;
 }
 
@@ -823,11 +822,11 @@ if (!license.package) {
 }
 
       if (license.device_id && license.device_id !== deviceID) {
-      msg.innerHTML = "This license is locked to another device ðŸ”";
+      msg.innerHTML = "This license is locked to another device 🔐";
       return;
       }
 
-      msg.innerHTML = "Access Granted âœ”";
+      msg.innerHTML = "Access Granted ✔";
 
       unlockedBooksSet.add(selectedBookToUnlock.title);
 
@@ -874,7 +873,7 @@ if (!license.package) {
   console.log("Saving:", [...unlockedBooksSet]);
 
   document.getElementById("cartCount").innerText =
-    "ðŸ›’ [" + unlockedBooksSet.size + "]";
+    "🛒 [" + unlockedBooksSet.size + "]";
 
   localStorage.setItem(
     "unlockedBooks",
@@ -944,7 +943,7 @@ window.speechSynthesis.speak(speech);
 
   try {
 
-    // ðŸ”¥ RESET OLD STATE (IMPORTANT FIX)
+    // 🔥 RESET OLD STATE (IMPORTANT FIX)
     pdfDoc = null;
     pageNum = 1;
 
@@ -990,13 +989,13 @@ window.speechSynthesis.speak(speech);
   const canvas = document.getElementById('pdf-render');
   const ctx = canvas.getContext('2d');
 
-  // ðŸ“± screen size
+  // 📱 screen size
   const screenWidth = window.innerWidth;
   const screenHeight = window.innerHeight;
 
   const viewport = page.getViewport({ scale: 1 });
 
-  // ðŸ”¥ FIT TO FULL SCREEN (width + height)
+  // 🔥 FIT TO FULL SCREEN (width + height)
   const scaleX = screenWidth / viewport.width;
   const scaleY = screenHeight / viewport.height;
 
@@ -1152,7 +1151,7 @@ if (currentBook) {
       min-width:340px;
       margin-top:20px;
     ">
-      ðŸ’³ Back To Store
+      💳 Back To Store
     </button>
 
   `;
@@ -1232,10 +1231,10 @@ document.getElementById("speed").addEventListener("input", function () {
 
       console.log("SW Registered");
 
-      // ðŸ”¥ FORCE FIRST UPDATE CHECK
+      // 🔥 FORCE FIRST UPDATE CHECK
       reg.update();
 
-      // ðŸ”¥ AUTO CHECK FOR NEW VERSION
+      // 🔥 AUTO CHECK FOR NEW VERSION
       setInterval(() => {
         reg.update();
       }, 60000); // every 60 seconds
@@ -1257,7 +1256,7 @@ const installBtn = document.getElementById("installBtn");
 // hide button first
 installBtn.style.display = "none";
 
-// if already installed â†’ keep hidden
+// if already installed → keep hidden
 if (window.matchMedia('(display-mode: standalone)').matches) {
   installBtn.style.display = "none";
 }
@@ -1301,8 +1300,8 @@ window.addEventListener("appinstalled", () => {
 });
 
 const voiceMessages = [
-  "ðŸ”Š Voice reader is being improved for smoother experience. Please be patient.",
-  "âš™ï¸ We are fixing voice issues to make reading more stable. Thank you for your patience."
+  "🔊 Voice reader is being improved for smoother experience. Please be patient.",
+  "⚙️ We are fixing voice issues to make reading more stable. Thank you for your patience."
 ];
 
 let msgIndex = 0;
@@ -1356,7 +1355,7 @@ function startHeaderLoop() {
 
     // ONLY update text + word (NO button here)
     promo.innerHTML = `
-      âš¡ ${text}
+      ⚡ ${text}
       <span style="color:#00ffff;font-weight:bold;margin-left:6px;">
         ${word}
       </span>
@@ -1379,7 +1378,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v120");
+  const cache = await caches.open("holly-echo-v121");
 
   const keys = await cache.keys();
 
@@ -1389,7 +1388,7 @@ startHeaderLoop();
     files += req.url + "\n";
   });
 
-  // âœ… FIX: show background on app start
+  // ✅ FIX: show background on app start
   document.getElementById("appBg").style.display = "block";
 
   startBackgroundLoop();
@@ -1559,7 +1558,7 @@ align-items:flex-start;
   </div>
   <div>
     TSH ${book.plans.starter.price.toLocaleString()}
-    â€¢ ${book.plans.starter.pages} Pages
+    • ${book.plans.starter.pages} Pages
   </div>
 
   <hr>
@@ -1569,7 +1568,7 @@ align-items:flex-start;
   </div>
   <div>
     TSH ${book.plans.standard.price.toLocaleString()}
-    â€¢ ${book.plans.standard.pages} Pages
+    • ${book.plans.standard.pages} Pages
   </div>
 
   <hr>
@@ -1579,7 +1578,7 @@ align-items:flex-start;
   </div>
   <div>
     TSH ${book.plans.premium.price.toLocaleString()}
-    â€¢ Unlimited Access
+    • Unlimited Access
   </div>
 
 </div>
@@ -1598,7 +1597,7 @@ align-items:flex-start;
     font-weight:bold;
     margin-bottom:8px;
   ">
-    ðŸ‡¹ðŸ‡¿ M-Pesa Payment
+    🇹🇿 M-Pesa Payment
   </div>
 
   <div style="
@@ -1669,7 +1668,7 @@ renderPDF();
   }
 }
 
-    const brandMessages = [
+const brandMessages = [
 
 "DERRICK KIPAJI OF AFRICA & CO",
 
@@ -1707,7 +1706,7 @@ renderPDF();
     brandBox.innerText =
       brandMessages[brandIndex];
 
-  }, 7000);
+  }, 8000);
 
 }  
 
