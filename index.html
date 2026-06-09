@@ -715,6 +715,9 @@ userPackage = license.package || "starter";
 
 localStorage.setItem("activeLicense", JSON.stringify(license));
 
+console.log("License package:", license.package);
+console.log("Book:", selectedBookToUnlock.title);
+
 if (!license) {
   msg.innerHTML = "License not found";
   return;
