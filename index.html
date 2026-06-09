@@ -996,6 +996,13 @@ function prevPage() {
 
   document.getElementById("licenseScreen").style.display = "block";
 
+   const currentBook = books.find(b => b.pdf === selectedPDF);
+
+if (currentBook) {
+  selectedBookToUnlock = currentBook;
+  pendingUnlockBook = currentBook;
+}   
+
   document.getElementById("key").value = "";
 
   document.getElementById("key").focus();
