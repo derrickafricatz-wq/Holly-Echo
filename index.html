@@ -668,7 +668,13 @@ window.addEventListener("load", async () => {
      if (unlockBtn.disabled) return;
 
      unlockBtn.disabled = true;
-     unlockBtn.innerText = "Checking..."; 
+     unlockBtn.innerText = "Checking...";
+
+   // 🔥 safety reset so it never gets stuck
+    setTimeout(() => {
+     unlockBtn.disabled = false;
+     unlockBtn.innerText = "Unlock Book";
+   }, 12000);
 
       if (!selectedBookToUnlock && pendingUnlockBook) {
       selectedBookToUnlock = pendingUnlockBook;
