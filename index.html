@@ -663,6 +663,13 @@ window.addEventListener("load", async () => {
 
     async function unlockBook() {
 
+     const unlockBtn = document.getElementById("unlockBtn");
+
+     if (unlockBtn.disabled) return;
+
+     unlockBtn.disabled = true;
+     unlockBtn.innerText = "Checking..."; 
+
       if (!selectedBookToUnlock && pendingUnlockBook) {
       selectedBookToUnlock = pendingUnlockBook;
      }
