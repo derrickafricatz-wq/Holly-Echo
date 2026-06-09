@@ -1680,18 +1680,18 @@ renderPDF();
 
 "deka.customercare.africa@gmail.com",
 
-"CONNECT • BUILD • GROW"
+"DEKA. IS LISTENING"
 
 ];
 
     let brandIndex = 0;
 
-    function startBrandLoop() {
+  function startBrandLoop() {
 
-  const brandText =
-    document.getElementById("brandText");
+  const brandBox =
+    document.getElementById("brandBox");
 
-  if (!brandText) return;
+  if (!brandBox) return;
 
   setInterval(() => {
 
@@ -1701,12 +1701,12 @@ renderPDF();
       brandIndex = 0;
     }
 
-    brandText.innerText =
+    brandBox.innerText =
       brandMessages[brandIndex];
 
-  }, 15000);
+  }, 7000);
 
-    }
+}  
 
     startBrandLoop();
     
