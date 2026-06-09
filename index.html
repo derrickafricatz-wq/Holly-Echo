@@ -1371,7 +1371,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v110");
+  const cache = await caches.open("holly-echo-v111");
 
   const keys = await cache.keys();
 
@@ -1702,6 +1702,8 @@ renderPDF();
   }, 3000);
 
     }
+
+    startBrandLoop();
     
 </script>
 </body>
