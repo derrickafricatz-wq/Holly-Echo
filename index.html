@@ -354,6 +354,9 @@
   overflow:hidden;
 
   white-space:normal;
+
+  word-break: break-word;
+  overflow-wrap: break-word;
     }
 
 #brandText{
@@ -1376,7 +1379,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v116");
+  const cache = await caches.open("holly-echo-v117");
 
   const keys = await cache.keys();
 
