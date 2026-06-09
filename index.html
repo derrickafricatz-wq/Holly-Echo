@@ -1680,6 +1680,28 @@ renderPDF();
 ];
 
     let brandIndex = 0;
+
+    function startBrandLoop() {
+
+  const brandText =
+    document.getElementById("brandText");
+
+  if (!brandText) return;
+
+  setInterval(() => {
+
+    brandIndex++;
+
+    if (brandIndex >= brandMessages.length) {
+      brandIndex = 0;
+    }
+
+    brandText.innerText =
+      brandMessages[brandIndex];
+
+  }, 3000);
+
+    }
     
 </script>
 </body>
