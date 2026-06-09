@@ -329,13 +329,12 @@
 
     #brandBox{
   width:260px;
-
-  height:auto;
   min-height:75px;
 
   display:flex;
   align-items:center;
-  justify-content:center;
+  justify-content:flex-start;
+  gap:10px;
 
   background:#111;
   border-right:2px solid #00ffff;
@@ -345,29 +344,39 @@
   font-size:18px;
   font-weight:bold;
 
-  text-align:center;
-
   padding:10px;
 
   box-sizing:border-box;
 
   overflow:hidden;
+}
 
-  white-space:normal;
+/* LOGO */
+#brandLogo{
+  width:45px;
+  height:45px;
+  object-fit:contain;
+  border-radius:8px;
+  flex-shrink:0;
+}
 
-  word-break: break-word;
-  overflow-wrap: break-word;
-
-  display: flex;
-  align-items: center;
-  gap: 10px;
-    }
-
+/* TEXT */
 #brandText{
-  display:block;
-  word-break: break-word;
-  line-height: 1.3em;
-  max-width: 100%;
+  flex:1;
+
+  display:flex;
+  align-items:center;
+
+  font-size:16px;
+  font-weight:bold;
+  color:white;
+
+  line-height:1.2em;
+
+  word-break:break-word;
+  overflow-wrap:break-word;
+
+  text-align:left;
 }
 
 </style>
@@ -1389,7 +1398,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v117");
+  const cache = await caches.open("holly-echo-v118");
 
   const keys = await cache.keys();
 
