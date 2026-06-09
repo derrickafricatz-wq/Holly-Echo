@@ -852,31 +852,31 @@ window.speechSynthesis.speak(speech);
 }
 
     function applyLimit() {
-  if (!activeLicense) {
-    maxPages = 10;
-    return;
-  }
+  const book = books.find(b => b.pdf === selectedPDF);
 
- const pkg = activeLicense.package;
+  if (!book || !pdfDoc) return;
 
-const book = books.find(b => b.pdf === selectedPDF);
+  const totalPages = pdfDoc.numPages;
 
-if (!book) return;
+  // DEFAULT: full book (NO fake 10 limit)
+  maxPages = totalPages;
+
+  if (!activeLicense) return;
+
+  const pkg = activeLicense.package;
 
   if (pkg === "starter") {
-  maxPages = book.plans.starter.pages;
-}
-else if (pkg === "standard") {
-  maxPages = book.plans.standard.pages;
-}
-else if (pkg === "premium") {
-  maxPages = Number.MAX_SAFE_INTEGER;
+    maxPages = Math.min(book.plans.starter.pages, totalPages);
+  }
 
-  document.getElementById("upgradeBox").style.display = "none";
-}
-else {
-  maxPages = 10;
-}
+  else if (pkg === "standard") {
+    maxPages = Math.min(book.plans.standard.pages, totalPages);
+  }
+
+  else if (pkg === "premium") {
+    maxPages = totalPages;
+    document.getElementById("upgradeBox").style.display = "none";
+  }
 }
   
   async function renderPDF() {
