@@ -662,8 +662,12 @@ window.addEventListener("load", async () => {
     async function unlockBook() {
 
       if (!selectedBookToUnlock && pendingUnlockBook) {
-     selectedBookToUnlock = pendingUnlockBook;
-      }
+      selectedBookToUnlock = pendingUnlockBook;
+     }
+
+     console.log("selectedBookToUnlock:", selectedBookToUnlock);
+     console.log("pendingUnlockBook:", pendingUnlockBook);
+     console.log("selectedPDF:", selectedPDF);
 
       let userKey = document.getElementById("key").value;
       userKey = userKey.trim();
@@ -1282,7 +1286,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v105");
+  const cache = await caches.open("holly-echo-v107");
 
   const keys = await cache.keys();
 
