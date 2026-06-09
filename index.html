@@ -111,7 +111,7 @@
 
   box-shadow: 0 0 20px #00ffff;
 
-  animation: pop 0.2s ease-out; /* 👈 add this */
+  animation: pop 0.2s ease-out; /* ðŸ‘ˆ add this */
 }
 
 @keyframes pop {
@@ -262,7 +262,7 @@
   opacity: 0;
   transition: opacity 0.5s ease;
 
-  pointer-events: none; /* 👈 prevents blocking clicks */
+  pointer-events: none; /* ðŸ‘ˆ prevents blocking clicks */
   }
 
    #storeHeader{
@@ -329,12 +329,13 @@
 
     #brandBox{
   width:260px;
+
+  height:auto;
   min-height:75px;
 
   display:flex;
   align-items:center;
-  justify-content:flex-start;
-  gap:10px;
+  justify-content:center;
 
   background:#111;
   border-right:2px solid #00ffff;
@@ -344,39 +345,25 @@
   font-size:18px;
   font-weight:bold;
 
+  text-align:center;
+
   padding:10px;
 
   box-sizing:border-box;
 
   overflow:hidden;
-}
 
-/* LOGO */
-#brandLogo{
-  width:45px;
-  height:45px;
-  object-fit:contain;
-  border-radius:8px;
-  flex-shrink:0;
-}
+  white-space:normal;
 
-/* TEXT */
+  word-break: break-word;
+  overflow-wrap: break-word;
+    }
+
 #brandText{
-  flex:1;
-
-  display:flex;
-  align-items:center;
-
-  font-size:16px;
-  font-weight:bold;
-  color:white;
-
-  line-height:1.2em;
-
-  word-break:break-word;
-  overflow-wrap:break-word;
-
-  text-align:left;
+  display:block;
+  word-break: break-word;
+  line-height: 1.3em;
+  max-width: 100%;
 }
 
 </style>
@@ -387,20 +374,14 @@
   <div id="appBg"></div>
 
   <button id="guideBtn" onclick="openGuide()">
-  📖 GUIDE
+  ðŸ“– GUIDE
   </button>
 
   <div id="scrollBannerWrapper">
 
   <div id="brandBox">
-
-  <img id="brandLogo" src="logo.png" />
-
-  <div id="brandText">
-    DERRICK KIPAJI OF AFRICA & CO
-  </div>
-
-  </div>
+  DERRICK KIPAJI OF AFRICA & CO
+  </div> 
 
   <div id="scrollBanner"></div>
 
@@ -409,7 +390,7 @@
   <div id="storeHeader">
 
   <div id="promoText">
-    ⚡ QUICK ACCESS
+    âš¡ QUICK ACCESS
   </div>
 
   <button id="openStoreBtn">
@@ -417,7 +398,7 @@
   </button>
 
   <div id="cartCount">
-    🛒 [0]
+    ðŸ›’ [0]
   </div>
 
   </div>
@@ -448,7 +429,7 @@
 ">
 
 <h2 style="color:#00ffff;">
-📖 SPIRITUAL GUIDE
+ðŸ“– SPIRITUAL GUIDE
 </h2>
 
 <p>
@@ -527,7 +508,7 @@ If a payment or key issue occurs, contact the administrator for assistance.
   text-align:center;
   padding-top:80px;
 ">
-  <h2 style="color:#00ffff;">📚 Book Store</h2>
+  <h2 style="color:#00ffff;">ðŸ“š Book Store</h2>
 
   <div id="bookList"></div>
 
@@ -547,7 +528,7 @@ If a payment or key issue occurs, contact the administrator for assistance.
 
   <div id="licenseBox">
  
-  <h1 id="licenseTitle">🔐 Book Unlock</h1>
+  <h1 id="licenseTitle">ðŸ” Book Unlock</h1>
 
   <input id="key" placeholder="License Key">
 
@@ -581,10 +562,10 @@ If a payment or key issue occurs, contact the administrator for assistance.
   padding-top: 120px;
 ">
 
-  <h1 style="color:#00ffff;">🔒 Upgrade Required</h1>
+  <h1 style="color:#00ffff;">ðŸ”’ Upgrade Required</h1>
 
   <p id="limitMessage" style="font-size:18px;">
-  You’ve reached your reading limit for this package.
+  Youâ€™ve reached your reading limit for this package.
   </p>
 
   <div id="upgradePlans"></div>
@@ -602,7 +583,7 @@ If a payment or key issue occurs, contact the administrator for assistance.
   box-shadow:0 4px 12px rgba(0,0,0,0.3);
   cursor:pointer;
 ">
-  💳 Activate Your Upgrade
+  ðŸ’³ Activate Your Upgrade
   </button>
 
 </div>
@@ -610,7 +591,7 @@ If a payment or key issue occurs, contact the administrator for assistance.
   <!-- TOGGLE BUTTON -->
 
 <div id="toggleBtn" onclick="toggleControls()">
-  💡 powered by deka
+  ðŸ’¡ powered by deka
 </div>
 
 <!-- CONTROLS PANEL -->
@@ -630,15 +611,15 @@ If a payment or key issue occurs, contact the administrator for assistance.
     <span id="speedValue">1</span>
   </div>
 
-  <button onclick="readBook()">🔊 Read Book</button>
+  <button onclick="readBook()">ðŸ”Š Read Book</button>
 
-  <button onclick="pauseVoice()">⏸ Pause</button>
+  <button onclick="pauseVoice()">â¸ Pause</button>
 
-  <button onclick="prevPage()">⬅ Prev</button>
+  <button onclick="prevPage()">â¬… Prev</button>
 
-  <button onclick="nextPage()">Next ➡</button>
+  <button onclick="nextPage()">Next âž¡</button>
 
-  <button onclick="rekindleView()">⚡ REKINDLE VIEW</button>
+  <button onclick="rekindleView()">âš¡ REKINDLE VIEW</button>
 
   <span id="pageNum">Page: 1</span>
 
@@ -647,7 +628,7 @@ If a payment or key issue occurs, contact the administrator for assistance.
   <canvas id="pdf-render"></canvas>
   
   <div id="voiceNotice">
-  🔊 Voice reader is being improved for smoother experience.
+  ðŸ”Š Voice reader is being improved for smoother experience.
     </div>
 
   </div>
@@ -744,7 +725,7 @@ window.addEventListener("load", async () => {
      unlockBtn.disabled = true;
      unlockBtn.innerText = "Checking...";
 
-   // 🔥 safety reset so it never gets stuck
+   // ðŸ”¥ safety reset so it never gets stuck
     setTimeout(() => {
      unlockBtn.disabled = false;
      unlockBtn.innerText = "Unlock Book";
@@ -804,17 +785,17 @@ if (!license) {
 }
 
 if (license.status !== "active") {
-  msg.innerHTML = "secured by deka 🔐";
+  msg.innerHTML = "secured by deka ðŸ”";
   return;
 }
 
 if (license.book_pdf !== selectedBookToUnlock.pdf) {
-  msg.innerHTML = "This license is not valid for this book 🔐";
+  msg.innerHTML = "This license is not valid for this book ðŸ”";
   return;
 }
 
 if (!license.package) {
-  msg.innerHTML = "License missing package type 🔐";
+  msg.innerHTML = "License missing package type ðŸ”";
   return;
 }
 
@@ -842,11 +823,11 @@ if (!license.package) {
 }
 
       if (license.device_id && license.device_id !== deviceID) {
-      msg.innerHTML = "This license is locked to another device 🔐";
+      msg.innerHTML = "This license is locked to another device ðŸ”";
       return;
       }
 
-      msg.innerHTML = "Access Granted ✔";
+      msg.innerHTML = "Access Granted âœ”";
 
       unlockedBooksSet.add(selectedBookToUnlock.title);
 
@@ -893,7 +874,7 @@ if (!license.package) {
   console.log("Saving:", [...unlockedBooksSet]);
 
   document.getElementById("cartCount").innerText =
-    "🛒 [" + unlockedBooksSet.size + "]";
+    "ðŸ›’ [" + unlockedBooksSet.size + "]";
 
   localStorage.setItem(
     "unlockedBooks",
@@ -963,7 +944,7 @@ window.speechSynthesis.speak(speech);
 
   try {
 
-    // 🔥 RESET OLD STATE (IMPORTANT FIX)
+    // ðŸ”¥ RESET OLD STATE (IMPORTANT FIX)
     pdfDoc = null;
     pageNum = 1;
 
@@ -1009,13 +990,13 @@ window.speechSynthesis.speak(speech);
   const canvas = document.getElementById('pdf-render');
   const ctx = canvas.getContext('2d');
 
-  // 📱 screen size
+  // ðŸ“± screen size
   const screenWidth = window.innerWidth;
   const screenHeight = window.innerHeight;
 
   const viewport = page.getViewport({ scale: 1 });
 
-  // 🔥 FIT TO FULL SCREEN (width + height)
+  // ðŸ”¥ FIT TO FULL SCREEN (width + height)
   const scaleX = screenWidth / viewport.width;
   const scaleY = screenHeight / viewport.height;
 
@@ -1171,7 +1152,7 @@ if (currentBook) {
       min-width:340px;
       margin-top:20px;
     ">
-      💳 Back To Store
+      ðŸ’³ Back To Store
     </button>
 
   `;
@@ -1251,10 +1232,10 @@ document.getElementById("speed").addEventListener("input", function () {
 
       console.log("SW Registered");
 
-      // 🔥 FORCE FIRST UPDATE CHECK
+      // ðŸ”¥ FORCE FIRST UPDATE CHECK
       reg.update();
 
-      // 🔥 AUTO CHECK FOR NEW VERSION
+      // ðŸ”¥ AUTO CHECK FOR NEW VERSION
       setInterval(() => {
         reg.update();
       }, 60000); // every 60 seconds
@@ -1276,7 +1257,7 @@ const installBtn = document.getElementById("installBtn");
 // hide button first
 installBtn.style.display = "none";
 
-// if already installed → keep hidden
+// if already installed â†’ keep hidden
 if (window.matchMedia('(display-mode: standalone)').matches) {
   installBtn.style.display = "none";
 }
@@ -1320,8 +1301,8 @@ window.addEventListener("appinstalled", () => {
 });
 
 const voiceMessages = [
-  "🔊 Voice reader is being improved for smoother experience. Please be patient.",
-  "⚙️ We are fixing voice issues to make reading more stable. Thank you for your patience."
+  "ðŸ”Š Voice reader is being improved for smoother experience. Please be patient.",
+  "âš™ï¸ We are fixing voice issues to make reading more stable. Thank you for your patience."
 ];
 
 let msgIndex = 0;
@@ -1375,7 +1356,7 @@ function startHeaderLoop() {
 
     // ONLY update text + word (NO button here)
     promo.innerHTML = `
-      ⚡ ${text}
+      âš¡ ${text}
       <span style="color:#00ffff;font-weight:bold;margin-left:6px;">
         ${word}
       </span>
@@ -1398,7 +1379,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v119");
+  const cache = await caches.open("holly-echo-v120");
 
   const keys = await cache.keys();
 
@@ -1408,7 +1389,7 @@ startHeaderLoop();
     files += req.url + "\n";
   });
 
-  // ✅ FIX: show background on app start
+  // âœ… FIX: show background on app start
   document.getElementById("appBg").style.display = "block";
 
   startBackgroundLoop();
@@ -1578,7 +1559,7 @@ align-items:flex-start;
   </div>
   <div>
     TSH ${book.plans.starter.price.toLocaleString()}
-    • ${book.plans.starter.pages} Pages
+    â€¢ ${book.plans.starter.pages} Pages
   </div>
 
   <hr>
@@ -1588,7 +1569,7 @@ align-items:flex-start;
   </div>
   <div>
     TSH ${book.plans.standard.price.toLocaleString()}
-    • ${book.plans.standard.pages} Pages
+    â€¢ ${book.plans.standard.pages} Pages
   </div>
 
   <hr>
@@ -1598,7 +1579,7 @@ align-items:flex-start;
   </div>
   <div>
     TSH ${book.plans.premium.price.toLocaleString()}
-    • Unlimited Access
+    â€¢ Unlimited Access
   </div>
 
 </div>
@@ -1617,7 +1598,7 @@ align-items:flex-start;
     font-weight:bold;
     margin-bottom:8px;
   ">
-    🇹🇿 M-Pesa Payment
+    ðŸ‡¹ðŸ‡¿ M-Pesa Payment
   </div>
 
   <div style="
