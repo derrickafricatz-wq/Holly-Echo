@@ -695,8 +695,12 @@ window.addEventListener("load", async () => {
       .single();
 
      if (error) {
-     msg.innerHTML = "Unexpected License, Contact admin";
-     return; 
+       msg.innerHTML = "Unexpected License, Contact admin";
+
+       unlockBtn.disabled = false;
+       unlockBtn.innerText = "Unlock Book";
+       
+       return; 
       }
 
       if (!data) {
