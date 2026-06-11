@@ -3,7 +3,7 @@ const books = [
   title: "How to Hear Voice of God",
   locked: true,
   pdf: "holly.pdf",
-  cover: "co1.jpg",
+  cover: "images/co1.jpg",
 
   author: {
     name: "Errick H Agustino",
@@ -26,7 +26,7 @@ const books = [
   title: "Spiritual Eyes",
   locked: true,
   pdf: "learn.pdf",
-  cover: "co2.jpg",
+  cover: "images/co2.jpg",
 
   author: {
     name: "Errick H Agustino",
