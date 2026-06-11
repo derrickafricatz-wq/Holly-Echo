@@ -1378,7 +1378,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v125");
+  const cache = await caches.open("holly-echo-v129");
 
   const keys = await cache.keys();
 
@@ -1603,9 +1603,18 @@ align-items:flex-start;
   <div style="
     font-size:18px;
     color:white;
-  ">
+">
     Number: <b>${book.author.payment.number}</b>
-  </div>
+</div>
+
+${book.author.payment.lipaNumber ? `
+<div style="
+    font-size:18px;
+    color:white;
+">
+    LIPA Number: <b>${book.author.payment.lipaNumber}</b>
+</div>
+` : ""}
 
   <div style="
     font-size:18px;
