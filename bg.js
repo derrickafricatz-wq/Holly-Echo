@@ -8,5 +8,5 @@ const bgImages = [
   "images/1h.jpg",
   "images/1i.jpg",
   "images/2a.jpg",
-  "images/2b.jpg",
+  "images/2b.jpg"
 ];
