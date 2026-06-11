@@ -1,6 +1,6 @@
 // Holly Echo - Offline Service Worker (FINAL CLEAN VERSION)
 
-const CACHE_NAME = "holly-echo-v139";
+const CACHE_NAME = "holly-echo-v138";
 
 /* =========================
    FILES TO CACHE (APP SHELL)
@@ -40,11 +40,7 @@ const APP_SHELL = [
   /* BOOKS (PDF) */
   "./holly.pdf",
   "./learn.pdf",
-  "./banner.txt",
-
- /* INTRO VIDEO + SCRIPT */
- "./intro.js",
- "./com.mp4",
+  "./banner.txt"
 
 ];
 
@@ -55,20 +51,13 @@ const APP_SHELL = [
 self.addEventListener("install", (event) => {
 
   event.waitUntil(
-    caches.open(CACHE_NAME).then(async (cache) => {
-
+    caches.open(CACHE_NAME).then((cache) => {
       console.log("Caching app shell...");
-
-      // normal cache
-      await cache.addAll(APP_SHELL);
-
-      // 🔥 FORCE VIDEO FULL CACHE (IMPORTANT FIX)
-      const videoResponse = await fetch("./com.mp4", { cache: "reload" });
-      await cache.put("./com.mp4", videoResponse.clone());
-
+      return cache.addAll(APP_SHELL);
     })
   );
 
+  // Force new SW to activate immediately
   self.skipWaiting();
 });
 
@@ -90,7 +79,7 @@ self.addEventListener("activate", (event) => {
     })
   );
 
-  // ðŸ”¥ CRITICAL: take control immediately
+  // CRITICAL: take control immediately
   self.clients.claim();
 });
 
@@ -104,36 +93,11 @@ self.addEventListener("fetch", (event) => {
 
   const requestUrl = event.request.url;
 
+  // VIDEO FIX
   if (
-  event.request.destination === "video" ||
-  requestUrl.includes(".mp4")
-) {
-
-  event.respondWith((async () => {
-
-    const cache = await caches.open(CACHE_NAME);
-
-    // 🔥 ALWAYS FORCE SAME FILE
-    const cachedVideo = await cache.match("./com.mp4");
-
-    if (cachedVideo) {
-      console.log("Serving cached video offline");
-      return cachedVideo;
-    }
-
-    // fallback network
-    try {
-      const networkVideo = await fetch("./com.mp4");
-      cache.put("./com.mp4", networkVideo.clone());
-      return networkVideo;
-    } catch (e) {
-      return cachedVideo;
-    }
-
-  })());
-
-  return;
-  }
+    event.request.destination === "video" ||
+    requestUrl.endsWith(".mp4")
+  ) {
 
     event.respondWith(
 
