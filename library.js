@@ -5,6 +5,15 @@ const books = [
   pdf: "holly.pdf",
   cover: "co1.jpg",
 
+  author: {
+    name: "Errick H Agustino",
+    payment: {
+      method: "M-Pesa",
+      number: "+255 767178000",
+      name: "Errick H Agustino"
+    }
+  },
+
   plans: {
     starter: { price: 1000, pages: 28 },
     standard: { price: 5000, pages: 120 },
@@ -17,6 +26,15 @@ const books = [
   locked: true,
   pdf: "learn.pdf",
   cover: "co2.jpg",
+
+  author: {
+    name: "Errick H Agustino",
+    payment: {
+      method: "Airtel Money",
+      number: "+255 712 000 000",
+      name: "Errick H Agustino"
+    }
+  },
 
   plans: {
     starter: { price: 1000, pages: 7 },
