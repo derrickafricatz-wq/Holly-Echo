@@ -638,6 +638,11 @@ If a payment or key issue occurs, contact the administrator for assistance.
    <script>
 
     const video = document.getElementById("brandVideo");
+
+     function playVideo(){
+  video.src = "com.mp4";
+  video.play().catch(()=>{});
+     }
      
     const SUPABASE_URL = "https://xbemkmvvbkxknuduthsg.supabase.co";
 
