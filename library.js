@@ -30,8 +30,8 @@ const books = [
   author: {
     name: "Errick H Agustino",
     payment: {
-      method: "Airtel Money",
-      number: "+255 712 000 000",
+      method: "M-Pesa",
+      number: "+255 767178000",
       name: "Errick H Agustino"
     }
   },
