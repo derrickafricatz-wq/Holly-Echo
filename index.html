@@ -1734,6 +1734,14 @@ const brandMessages = [
 }  
 
     startBrandLoop();
+
+const introVideo = document.getElementById("introVideo");
+
+introVideo.addEventListener("ended", () => {
+
+  introVideo.style.display = "none";
+
+});
     
 </script>
 </body>
