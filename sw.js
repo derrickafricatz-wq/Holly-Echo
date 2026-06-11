@@ -22,20 +22,20 @@ const APP_SHELL = [
   "./icon-512-maskable.png",
 
   /* BACKGROUND */
-   "./1b.jpg",
-   "./1c.jpg",
-   "./1d.jpg",
-   "./1e.jpg",
-   "./1f.jpg",
-   "./1g.jpg",
-   "./1h.jpg",
-   "./1i.jpg",
-   "./2a.jpg",
-   "./2b.jpg",
+"./images/1b.jpg",
+"./images/1c.jpg",
+"./images/1d.jpg",
+"./images/1e.jpg",
+"./images/1f.jpg",
+"./images/1g.jpg",
+"./images/1h.jpg",
+"./images/1i.jpg",
+"./images/2a.jpg",
+"./images/2b.jpg",
 
   /* BOOK COVERS */
-  "./co1.jpg",
-  "./co2.jpg",
+  "./images/co1.jpg",
+  "./images/co2.jpg",
    
   /* BOOKS (PDF) */
   "./holly.pdf",
