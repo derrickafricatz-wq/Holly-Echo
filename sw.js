@@ -55,13 +55,20 @@ const APP_SHELL = [
 self.addEventListener("install", (event) => {
 
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
+    caches.open(CACHE_NAME).then(async (cache) => {
+
       console.log("Caching app shell...");
-      return cache.addAll(APP_SHELL);
+
+      // normal cache
+      await cache.addAll(APP_SHELL);
+
+      // 🔥 FORCE VIDEO FULL CACHE (IMPORTANT FIX)
+      const videoResponse = await fetch("./com.mp4", { cache: "reload" });
+      await cache.put("./com.mp4", videoResponse.clone());
+
     })
   );
 
-  // Force new SW to activate immediately
   self.skipWaiting();
 });
 
