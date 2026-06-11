@@ -41,27 +41,5 @@ const books = [
     standard: { price: 1500, pages: 13 },
     premium: { price: 3000, pages: null }
   }
-},
-
-  {
-  title: "hear god",
-  locked: true,
-  pdf: "jmp.pdf",
-  cover: "co2.jpg",
-
-  author: {
-    name: "leah John",
-    payment: {
-      method: "M-Pesa",
-      number: "+255 767178000",
-      name: "Leah John"
-    }
-  },
-
-  plans: {
-    starter: { price: 1000, pages: 20 },
-    standard: { price: 1500, pages: 53 },
-    premium: { price: 3000, pages: null }
-  }
-  }
+}
 ];
