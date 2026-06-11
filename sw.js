@@ -1,6 +1,6 @@
 // Holly Echo - Offline Service Worker (FINAL CLEAN VERSION)
 
-const CACHE_NAME = "holly-echo-v138";
+const CACHE_NAME = "holly-echo-v139";
 
 /* =========================
    FILES TO CACHE (APP SHELL)
@@ -104,11 +104,36 @@ self.addEventListener("fetch", (event) => {
 
   const requestUrl = event.request.url;
 
-  // VIDEO FIX
   if (
-    event.request.destination === "video" ||
-    requestUrl.endsWith(".mp4")
-  ) {
+  event.request.destination === "video" ||
+  requestUrl.includes(".mp4")
+) {
+
+  event.respondWith((async () => {
+
+    const cache = await caches.open(CACHE_NAME);
+
+    // 🔥 ALWAYS FORCE SAME FILE
+    const cachedVideo = await cache.match("./com.mp4");
+
+    if (cachedVideo) {
+      console.log("Serving cached video offline");
+      return cachedVideo;
+    }
+
+    // fallback network
+    try {
+      const networkVideo = await fetch("./com.mp4");
+      cache.put("./com.mp4", networkVideo.clone());
+      return networkVideo;
+    } catch (e) {
+      return cachedVideo;
+    }
+
+  })());
+
+  return;
+  }
 
     event.respondWith(
 
