@@ -1,5 +1,5 @@
 const introAds = [
-  "ad1.mp4",
+  "com.mp4",
 ];
 
 let currentIndex = 0;
