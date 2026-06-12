@@ -385,7 +385,7 @@
 
 <button id="muteBtn" style="
   position:fixed;
-  top:20px;
+  top:80px;
   right:20px;
   z-index:1000000;
   padding:10px 14px;
@@ -1753,9 +1753,10 @@ const brandMessages = [
 
 const introVideo = document.getElementById("introVideo");
 
-introVideo.addEventListener("ended", () => {
-
+  introVideo.addEventListener("ended", () => {
   introVideo.style.display = "none";
+  document.getElementById("muteBtn").style.display = "none";
+});
 
 });
 
