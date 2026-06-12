@@ -385,9 +385,9 @@
 
 <button id="muteBtn" style="
   position:fixed;
-  top:80px;
+  top:90px;
   right:20px;
-  z-index:1000000;
+  z-index:999998; 
   padding:10px 14px;
   border:none;
   border-radius:20px;
@@ -1408,7 +1408,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v148");
+  const cache = await caches.open("holly-echo-v149");
 
   const keys = await cache.keys();
 
