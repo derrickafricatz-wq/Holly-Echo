@@ -6,9 +6,9 @@ const marketAds = [
   location: "Arusha, Tanzania",
 
   images: [
-    "deka1.jpg",
-    "deka2.jpg",
-    "deka3.jpg"
+    "images/logo.png",
+    "images/1c.jpg",
+    "images/1d.jpg"
   ]
 },
 
@@ -18,8 +18,8 @@ const marketAds = [
   location: "Arusha, Tanzania",
 
   images: [
-    "bulk1.jpg",
-    "bulk2.jpg"
+    "images/2a.jpg",
+    "images/2b.jpg"
   ]
 }
 
