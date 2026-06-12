@@ -110,7 +110,7 @@
 
   box-shadow: 0 0 20px #00ffff;
 
-  animation: pop 0.2s ease-out; /* ðŸ‘ˆ add this */
+  animation: pop 0.2s ease-out;
 }
 
 @keyframes pop {
@@ -261,7 +261,7 @@
   opacity: 0;
   transition: opacity 0.5s ease;
 
-  pointer-events: none; /* ðŸ‘ˆ prevents blocking clicks */
+  pointer-events: none;
   }
 
    #storeHeader{
@@ -370,39 +370,10 @@
 
 <body>
 
-<video id="introVideo" autoplay muted playsinline style="
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  background:black;
-  z-index:999999;
-">
-  <source src="com.mp4" type="video/mp4">
-</video> 
-
-<button id="muteBtn" style="
-  position:fixed;
-  top:90px;
-  right:20px;
-  z-index:1000000; 
-  padding:10px 14px;
-  border:none;
-  border-radius:20px;
-  background:#00ffff;
-  color:black;
-  font-weight:bold;
-  cursor:pointer;
-">
-🔊 Mute
-</button>  
-
   <div id="appBg"></div>
 
   <button id="guideBtn" onclick="openGuide()">
-  ðŸ“– GUIDE
+  ⚙️– GUIDE
   </button>
 
   <div id="scrollBannerWrapper">
@@ -418,7 +389,7 @@
   <div id="storeHeader">
 
   <div id="promoText">
-    ⚡ QUICK ACCESS
+   ⚡ QUICK ACCESS
   </div>
 
   <button id="openStoreBtn">
@@ -426,7 +397,7 @@
   </button>
 
   <div id="cartCount">
-    🛒 [0]
+  🛒 [0]
   </div>
 
   </div>
@@ -457,7 +428,7 @@
 ">
 
 <h2 style="color:#00ffff;">
-📖– SPIRITUAL GUIDE
+📋– SPIRITUAL GUIDE
 </h2>
 
 <p>
@@ -536,7 +507,7 @@ If a payment or key issue occurs, contact the administrator for assistance.
   text-align:center;
   padding-top:80px;
 ">
-  <h2 style="color:#00ffff;">📚 Book Store</h2>
+  <h2 style="color:#00ffff;"> Book Store</h2>
 
   <div id="bookList"></div>
 
@@ -556,7 +527,7 @@ If a payment or key issue occurs, contact the administrator for assistance.
 
   <div id="licenseBox">
  
-  <h1 id="licenseTitle">🔐 Book Unlock</h1>
+  <h1 id="licenseTitle"> Book Unlock</h1>
 
   <input id="key" placeholder="License Key">
 
@@ -590,7 +561,7 @@ If a payment or key issue occurs, contact the administrator for assistance.
   padding-top: 120px;
 ">
 
-  <h1 style="color:#00ffff;">🔒 Upgrade Required</h1>
+  <h1 style="color:#00ffff;"> Upgrade Required</h1>
 
   <p id="limitMessage" style="font-size:18px;">
   You've reached your reading limit for this package.
@@ -611,7 +582,7 @@ If a payment or key issue occurs, contact the administrator for assistance.
   box-shadow:0 4px 12px rgba(0,0,0,0.3);
   cursor:pointer;
 ">
-  💳 Activate Your Upgrade
+   Activate Your Upgrade
   </button>
 
 </div>
@@ -639,15 +610,15 @@ If a payment or key issue occurs, contact the administrator for assistance.
     <span id="speedValue">1</span>
   </div>
 
-  <button onclick="readBook()">🔊 Read Book</button>
+  <button onclick="readBook()"> Read Book</button>
 
-  <button onclick="pauseVoice()">⏸ Pause</button>
+  <button onclick="pauseVoice()"> Pause</button>
 
-  <button onclick="prevPage()">⬅ Prev</button>
+  <button onclick="prevPage()"> Prev</button>
 
-  <button onclick="nextPage()">Next ➡</button>
+  <button onclick="nextPage()">Next </button>
 
-  <button onclick="rekindleView()">⚡ REKINDLE VIEW</button>
+  <button onclick="rekindleView()"> REKINDLE VIEW</button>
 
   <span id="pageNum">Page: 1</span>
 
@@ -656,7 +627,7 @@ If a payment or key issue occurs, contact the administrator for assistance.
   <canvas id="pdf-render"></canvas>
   
   <div id="voiceNotice">
-  🔊 Voice reader is being improved for smoother experience.
+   Voice reader is being improved for smoother experience.
     </div>
 
   </div>
@@ -813,17 +784,17 @@ if (!license) {
 }
 
 if (license.status !== "active") {
-  msg.innerHTML = "secured by deka 🔐";
+  msg.innerHTML = "secured by deka ";
   return;
 }
 
 if (license.book_pdf !== selectedBookToUnlock.pdf) {
-  msg.innerHTML = "This license is not valid for this book 🔐";
+  msg.innerHTML = "This license is not valid for this book ";
   return;
 }
 
 if (!license.package) {
-  msg.innerHTML = "License missing package type 🔐";
+  msg.innerHTML = "License missing package type ";
   return;
 }
 
@@ -902,7 +873,7 @@ if (!license.package) {
   console.log("Saving:", [...unlockedBooksSet]);
 
   document.getElementById("cartCount").innerText =
-    "🛒 [" + unlockedBooksSet.size + "]";
+    " [" + unlockedBooksSet.size + "]";
 
   localStorage.setItem(
     "unlockedBooks",
@@ -1180,7 +1151,7 @@ if (currentBook) {
       min-width:340px;
       margin-top:20px;
     ">
-      💳 Back To Store
+       Back To Store
     </button>
 
   `;
@@ -1285,7 +1256,7 @@ const installBtn = document.getElementById("installBtn");
 // hide button first
 installBtn.style.display = "none";
 
-// if already installed → keep hidden
+// if already installed  keep hidden
 if (window.matchMedia('(display-mode: standalone)').matches) {
   installBtn.style.display = "none";
 }
@@ -1329,8 +1300,8 @@ window.addEventListener("appinstalled", () => {
 });
 
 const voiceMessages = [
-  "🔊 Voice reader is being improved for smoother experience. Please be patient.",
-  "⚙️ We are fixing voice issues to make reading more stable. Thank you for your patience."
+  "🔊 Voice reader is being improved for smoother experience. Please be patient.",
+  "⚙️ We are fixing voice issues to make reading more stable. Thank you for your patience."
 ];
 
 let msgIndex = 0;
@@ -1384,7 +1355,7 @@ function startHeaderLoop() {
 
     // ONLY update text + word (NO button here)
     promo.innerHTML = `
-      ⚡${text}
+       ${text}
       <span style="color:#00ffff;font-weight:bold;margin-left:6px;">
         ${word}
       </span>
@@ -1407,7 +1378,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v155");
+  const cache = await caches.open("holly-echo-v156");
 
   const keys = await cache.keys();
 
@@ -1436,17 +1407,6 @@ startHeaderLoop();
   console.log("Banner load failed", err);
 
      }
-
-     const introVideo = document.getElementById("introVideo");
-
-if (introVideo) {
-  introVideo.addEventListener("ended", () => {
-    introVideo.style.display = "none";
-
-    const muteBtn = document.getElementById("muteBtn");
-    if (muteBtn) muteBtn.style.display = "none";
-  });
-}
 });
 
   document.getElementById("openStoreBtn").onclick = function () {
@@ -1637,7 +1597,7 @@ align-items:flex-start;
     font-weight:bold;
     margin-bottom:8px;
   ">
-    🇹🇿 ${book.author.payment.method}
+      ${book.author.payment.method}
   </div>
 
   <div style="
@@ -1760,31 +1720,6 @@ const brandMessages = [
 }  
 
     startBrandLoop();
-    
-    const introVideo = document.getElementById("introVideo");
-
-  introVideo.addEventListener("ended", () => {
-  introVideo.style.display = "none";
-  document.getElementById("muteBtn").style.display = "none";
-});
-
-});
-
-     window.addEventListener("load", () => {
-
-  const muteBtn = document.getElementById("muteBtn");
-
-  muteBtn.addEventListener("click", () => {
-    introVideo.muted = !introVideo.muted;
-
-    if (introVideo.muted) {
-      muteBtn.innerText = "🔇 Unmute";
-    } else {
-      muteBtn.innerText = "🔊 Mute";
-    }
-  });
-
-});
     
 </script>
 </body>
