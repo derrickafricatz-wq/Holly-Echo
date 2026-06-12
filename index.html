@@ -1408,7 +1408,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v145");
+  const cache = await caches.open("holly-echo-v147");
 
   const keys = await cache.keys();
 
@@ -1761,7 +1761,6 @@ introVideo.addEventListener("ended", () => {
 
      window.addEventListener("load", () => {
 
-  const introVideo = document.getElementById("introVideo");
   const muteBtn = document.getElementById("muteBtn");
 
   muteBtn.addEventListener("click", () => {
