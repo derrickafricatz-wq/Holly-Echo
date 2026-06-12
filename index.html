@@ -1495,7 +1495,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v158");
+  const cache = await caches.open("holly-echo-v165");
 
   const keys = await cache.keys();
 
@@ -1534,6 +1534,8 @@ startHeaderLoop();
   document.getElementById("openMarketBtn").onclick = function () {
 
   document.getElementById("marketPanel").style.display = "block";
+
+  startMarketBillboard();
 
 };
 
@@ -1813,20 +1815,9 @@ renderPDF();
 
 const brandMessages = [
 
-"DERRICK KIPAJI OF AFRICA & CO",
-
-"ICT PROCARE",
-
-"CONNECT WITH US",
-
-"+255 742 097 868. Via Call/WhatsApp", 
-
-"P.O.box 16915 Arusha Tanzania",
-
-  "deka.customercare.africa@gmail.com",
-
-"deka. is listening.."
-
+"WORD OF THE DAY",
+  
+"BY, DERRICK"
 ];
 
     let brandIndex = 0;
