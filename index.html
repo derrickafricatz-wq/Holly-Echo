@@ -1408,7 +1408,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v147");
+  const cache = await caches.open("holly-echo-v148");
 
   const keys = await cache.keys();
 
@@ -1420,7 +1420,7 @@ startHeaderLoop();
 
   // ✅ FIX: show background on app start
   document.getElementById("appBg").style.display = "block";
-
+  document.getElementById("muteBtn").style.display = "block";
   startBackgroundLoop();
 
      try {
