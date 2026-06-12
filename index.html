@@ -399,7 +399,7 @@ BOOK STORE
 </button>
 
 <button id="openMarketBtn">
-MARKET
+MARKET SPACE 
 </button>
 
 </div>
@@ -535,6 +535,44 @@ If a payment or key issue occurs, contact the administrator for assistance.
     CLOSE
   </button>
   </div>
+
+  <div id="marketPanel" style="
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:black;
+  display:none;
+  z-index:999999;
+  color:white;
+  text-align:center;
+  padding-top:80px;
+">
+
+<h2 style="color:#00ffff;">
+🏪 MARKET PLACE
+</h2>
+
+<div id="marketAds" style="
+  width:90%;
+  max-width:900px;
+  margin:auto;
+">
+</div>
+
+<button onclick="closeMarket()" style="
+  margin-top:20px;
+  padding:10px 16px;
+  border:none;
+  border-radius:10px;
+  background:white;
+  font-weight:bold;
+">
+CLOSE
+</button>
+
+</div>
 
   <div id="licenseScreen">
 
