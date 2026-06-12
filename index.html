@@ -110,7 +110,7 @@
 
   box-shadow: 0 0 20px #00ffff;
 
-  animation: pop 0.2s ease-out; /* 👈 add this */
+  animation: pop 0.2s ease-out; /* ðŸ‘ˆ add this */
 }
 
 @keyframes pop {
@@ -261,7 +261,7 @@
   opacity: 0;
   transition: opacity 0.5s ease;
 
-  pointer-events: none; /* 👈 prevents blocking clicks */
+  pointer-events: none; /* ðŸ‘ˆ prevents blocking clicks */
   }
 
    #storeHeader{
@@ -370,7 +370,7 @@
 
 <body>
 
- <video id="introVideo" autoplay muted playsinline style="
+<video id="introVideo" autoplay muted playsinline style="
   position:fixed;
   top:0;
   left:0;
@@ -383,10 +383,26 @@
   <source src="com.mp4" type="video/mp4">
 </video> 
 
+<button id="muteBtn" style="
+  position:fixed;
+  top:90px;
+  right:20px;
+  z-index:1000000; 
+  padding:10px 14px;
+  border:none;
+  border-radius:20px;
+  background:#00ffff;
+  color:black;
+  font-weight:bold;
+  cursor:pointer;
+">
+🔊 Mute
+</button>  
+
   <div id="appBg"></div>
 
   <button id="guideBtn" onclick="openGuide()">
-  📖 GUIDE
+  ðŸ“– GUIDE
   </button>
 
   <div id="scrollBannerWrapper">
@@ -441,7 +457,7 @@
 ">
 
 <h2 style="color:#00ffff;">
-📖 SPIRITUAL GUIDE
+📖– SPIRITUAL GUIDE
 </h2>
 
 <p>
@@ -577,7 +593,7 @@ If a payment or key issue occurs, contact the administrator for assistance.
   <h1 style="color:#00ffff;">🔒 Upgrade Required</h1>
 
   <p id="limitMessage" style="font-size:18px;">
-  You’ve reached your reading limit for this package.
+  You've reached your reading limit for this package.
   </p>
 
   <div id="upgradePlans"></div>
@@ -603,7 +619,7 @@ If a payment or key issue occurs, contact the administrator for assistance.
   <!-- TOGGLE BUTTON -->
 
 <div id="toggleBtn" onclick="toggleControls()">
-  💡 powered by deka
+   powered by deka
 </div>
 
 <!-- CONTROLS PANEL -->
@@ -645,11 +661,10 @@ If a payment or key issue occurs, contact the administrator for assistance.
 
   </div>
 
-   <script src="bg.js"></script>
+   <script src="bg.js"></script> 
    <script src="library.js"></script>
 
-   <script>
-     
+  <script>
     const SUPABASE_URL = "https://xbemkmvvbkxknuduthsg.supabase.co";
 
     const SUPABASE_KEY =
@@ -738,7 +753,7 @@ window.addEventListener("load", async () => {
      unlockBtn.disabled = true;
      unlockBtn.innerText = "Checking...";
 
-   // 🔥 safety reset so it never gets stuck
+   // safety reset so it never gets stuck
     setTimeout(() => {
      unlockBtn.disabled = false;
      unlockBtn.innerText = "Unlock Book";
@@ -836,11 +851,11 @@ if (!license.package) {
 }
 
       if (license.device_id && license.device_id !== deviceID) {
-      msg.innerHTML = "This license is locked to another device 🔐";
+      msg.innerHTML = "This license is locked to another device ðŸ”";
       return;
       }
 
-      msg.innerHTML = "Access Granted ✔";
+      msg.innerHTML = "Access Granted âœ”";
 
       unlockedBooksSet.add(selectedBookToUnlock.title);
 
@@ -957,7 +972,7 @@ window.speechSynthesis.speak(speech);
 
   try {
 
-    // 🔥 RESET OLD STATE (IMPORTANT FIX)
+    // RESET OLD STATE (IMPORTANT FIX)
     pdfDoc = null;
     pageNum = 1;
 
@@ -1003,13 +1018,13 @@ window.speechSynthesis.speak(speech);
   const canvas = document.getElementById('pdf-render');
   const ctx = canvas.getContext('2d');
 
-  // 📱 screen size
+  // screen size
   const screenWidth = window.innerWidth;
   const screenHeight = window.innerHeight;
 
   const viewport = page.getViewport({ scale: 1 });
 
-  // 🔥 FIT TO FULL SCREEN (width + height)
+  // FIT TO FULL SCREEN (width + height)
   const scaleX = screenWidth / viewport.width;
   const scaleY = screenHeight / viewport.height;
 
@@ -1245,10 +1260,10 @@ document.getElementById("speed").addEventListener("input", function () {
 
       console.log("SW Registered");
 
-      // 🔥 FORCE FIRST UPDATE CHECK
+      // FORCE FIRST UPDATE CHECK
       reg.update();
 
-      // 🔥 AUTO CHECK FOR NEW VERSION
+      // AUTO CHECK FOR NEW VERSION
       setInterval(() => {
         reg.update();
       }, 60000); // every 60 seconds
@@ -1369,7 +1384,7 @@ function startHeaderLoop() {
 
     // ONLY update text + word (NO button here)
     promo.innerHTML = `
-      ⚡ ${text}
+      ⚡${text}
       <span style="color:#00ffff;font-weight:bold;margin-left:6px;">
         ${word}
       </span>
@@ -1392,7 +1407,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v153");
+  const cache = await caches.open("holly-echo-v155");
 
   const keys = await cache.keys();
 
@@ -1402,9 +1417,9 @@ startHeaderLoop();
     files += req.url + "\n";
   });
 
-  // ✅ FIX: show background on app start
+  // FIX: show background on app start
   document.getElementById("appBg").style.display = "block";
-  document.getElementById("muteBtn").style.display = "block";
+
   startBackgroundLoop();
 
      try {
@@ -1572,7 +1587,7 @@ align-items:flex-start;
   </div>
   <div>
     TSH ${book.plans.starter.price.toLocaleString()}
-    • ${book.plans.starter.pages} Pages
+    . ${book.plans.starter.pages} Pages
   </div>
 
   <hr>
@@ -1582,7 +1597,7 @@ align-items:flex-start;
   </div>
   <div>
     TSH ${book.plans.standard.price.toLocaleString()}
-    • ${book.plans.standard.pages} Pages
+    . ${book.plans.standard.pages} Pages
   </div>
 
   <hr>
@@ -1592,7 +1607,7 @@ align-items:flex-start;
   </div>
   <div>
     TSH ${book.plans.premium.price.toLocaleString()}
-    • Unlimited Access
+    . Unlimited Access
   </div>
 
 </div>
@@ -1611,7 +1626,7 @@ align-items:flex-start;
     font-weight:bold;
     margin-bottom:8px;
   ">
-    💳 ${book.author.payment.method}
+    🇹🇿 ${book.author.payment.method}
   </div>
 
   <div style="
@@ -1734,12 +1749,28 @@ const brandMessages = [
 }  
 
     startBrandLoop();
-
-const introVideo = document.getElementById("introVideo");
+    
+    const introVideo = document.getElementById("introVideo");
 
   introVideo.addEventListener("ended", () => {
   introVideo.style.display = "none";
+  document.getElementById("muteBtn").style.display = "none";
+});
 
+});
+
+     window.addEventListener("load", () => {
+
+  const muteBtn = document.getElementById("muteBtn");
+
+  muteBtn.addEventListener("click", () => {
+    introVideo.muted = !introVideo.muted;
+
+    if (introVideo.muted) {
+      muteBtn.innerText = "🔇 Unmute";
+    } else {
+      muteBtn.innerText = "🔊 Mute";
+    }
   });
 
 });
