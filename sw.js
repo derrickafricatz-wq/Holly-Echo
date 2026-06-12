@@ -1,7 +1,7 @@
 
 // Holly Echo - AFYA LEVEL OFFLINE SERVICE WORKER
 
-const CACHE_NAME = "holly-echo-v147";
+const CACHE_NAME = "holly-echo-v148";
 
 /* =========================
    APP SHELL
