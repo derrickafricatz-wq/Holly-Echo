@@ -1,10 +1,9 @@
+// Holly Echo - Offline Service Worker (FINAL CLEAN VERSION)
 
-// Holly Echo - AFYA LEVEL OFFLINE SERVICE WORKER
-
-const CACHE_NAME = "holly-echo-v156";
+const CACHE_NAME = "holly-echo-v138";
 
 /* =========================
-   APP SHELL
+   FILES TO CACHE (APP SHELL)
 ========================= */
 
 const APP_SHELL = [
@@ -17,30 +16,28 @@ const APP_SHELL = [
   "./library.js",
   "./offline.html",
 
-  "./com.mp4",
-
   /* ICONS */
   "./icon-192.png",
   "./icon-512.png",
   "./icon-512-maskable.png",
 
-  /* BACKGROUND IMAGES */
-  "./images/1b.jpg",
-  "./images/1c.jpg",
-  "./images/1d.jpg",
-  "./images/1e.jpg",
-  "./images/1f.jpg",
-  "./images/1g.jpg",
-  "./images/1h.jpg",
-  "./images/1i.jpg",
-  "./images/2a.jpg",
-  "./images/2b.jpg",
+  /* BACKGROUND */
+"./images/1b.jpg",
+"./images/1c.jpg",
+"./images/1d.jpg",
+"./images/1e.jpg",
+"./images/1f.jpg",
+"./images/1g.jpg",
+"./images/1h.jpg",
+"./images/1i.jpg",
+"./images/2a.jpg",
+"./images/2b.jpg",
 
   /* BOOK COVERS */
   "./images/co1.jpg",
   "./images/co2.jpg",
-
-  /* BOOK FILES */
+   
+  /* BOOKS (PDF) */
   "./holly.pdf",
   "./learn.pdf",
   "./banner.txt"
@@ -48,42 +45,24 @@ const APP_SHELL = [
 ];
 
 /* =========================
-   INSTALL EVENT (AFYA STYLE SAFE CACHE)
+   INSTALL EVENT
 ========================= */
 
 self.addEventListener("install", (event) => {
 
   event.waitUntil(
-    caches.open(CACHE_NAME).then(async (cache) => {
-
-      console.log("🔥 AFYA CACHE START");
-
-      for (const file of APP_SHELL) {
-        try {
-          await cache.add(file);
-          console.log("Cached:", file);
-        } catch (err) {
-          console.log("Skip failed file:", file);
-        }
-      }
-
-      // 🔥 FORCE VIDEO DOUBLE CACHE (IMPORTANT)
-      try {
-        const video = await fetch("./com.mp4", { cache: "reload" });
-        await cache.put("./com.mp4", video.clone());
-        console.log("Video force-cached");
-      } catch (e) {
-        console.log("Video cache failed");
-      }
-
+    caches.open(CACHE_NAME).then((cache) => {
+      console.log("Caching app shell...");
+      return cache.addAll(APP_SHELL);
     })
   );
 
+  // Force new SW to activate immediately
   self.skipWaiting();
 });
 
 /* =========================
-   ACTIVATE EVENT
+   ACTIVATE EVENT (FIXED + IMPORTANT)
 ========================= */
 
 self.addEventListener("activate", (event) => {
@@ -93,7 +72,6 @@ self.addEventListener("activate", (event) => {
       return Promise.all(
         keys.map((key) => {
           if (key !== CACHE_NAME) {
-            console.log("Deleting old cache:", key);
             return caches.delete(key);
           }
         })
@@ -101,28 +79,62 @@ self.addEventListener("activate", (event) => {
     })
   );
 
+  //  CRITICAL: take control immediately
   self.clients.claim();
 });
 
 /* =========================
-   FETCH EVENT (AFYA LEVEL OFFLINE ENGINE)
+   FETCH STRATEGY (AFYA STYLE OFFLINE)
 ========================= */
 
 self.addEventListener("fetch", (event) => {
 
   if (event.request.method !== "GET") return;
 
-  const url = event.request.url;
+  const requestUrl = event.request.url;
+
+  // VIDEO FIX
+  if (
+    event.request.destination === "video" ||
+    requestUrl.endsWith(".mp4")
+  ) {
+
+    event.respondWith(
+
+      caches.match(event.request).then((response) => {
+
+        if (response) {
+          console.log("Video from cache:", requestUrl);
+          return response;
+        }
+
+        return fetch(event.request);
+
+      })
+
+    );
+
+    return;
+  }
 
   event.respondWith(
 
-    caches.match(event.request).then((cached) => {
+    caches.match(event.request).then((cachedResponse) => {
 
-      if (cached) return cached;
+      /* 1. CACHE FIRST (FAST OFFLINE LOAD) */
+      if (cachedResponse) {
+        return cachedResponse;
+      }
 
+      /* 2. NETWORK FALLBACK */
       return fetch(event.request).then((response) => {
 
-        if (!response || response.status !== 200) {
+        // ignore invalid responses
+        if (
+          !response ||
+          response.status !== 200 ||
+          response.type === "opaque"
+        ) {
           return response;
         }
 
@@ -136,18 +148,17 @@ self.addEventListener("fetch", (event) => {
 
       }).catch(() => {
 
-        // OFFLINE FALLBACKS
-
-        if (event.request.destination === "document") {
+        /* 3. OFFLINE PAGE FOR NAVIGATION */
+        if (event.request.mode === "navigate") {
           return caches.match("./offline.html");
         }
 
-        // VIDEO OFFLINE FIX (VERY IMPORTANT)
+        /* 4. FORCE OFFLINE SUPPORT FOR PDF + VIDEO */
         if (
-          event.request.destination === "video" ||
-          url.endsWith(".mp4")
+          requestUrl.includes(".pdf") ||
+          requestUrl.includes(".mp4")
         ) {
-          return caches.match("./com.mp4");
+          return caches.match(event.request);
         }
 
       });
@@ -155,4 +166,5 @@ self.addEventListener("fetch", (event) => {
     })
 
   );
+
 });
