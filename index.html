@@ -716,6 +716,70 @@ CLOSE
     JSON.parse(localStorage.getItem("unlockedBooks") || "[]")
   );
 
+    let marketCompanyIndex = 0;
+    let marketImageIndex = 0;
+    let marketInterval = null;
+
+function startMarketBillboard() {
+
+  const container = document.getElementById("marketAds");
+
+  if (!container || typeof marketAds === "undefined") return;
+
+  // prevent multiple intervals (IMPORTANT FIX)
+  if (marketInterval) clearInterval(marketInterval);
+
+  marketInterval = setInterval(() => {
+
+    const company = marketAds[marketCompanyIndex];
+
+    if (!company || !company.images.length) return;
+
+    const image = company.images[marketImageIndex];
+
+    container.innerHTML = `
+      <div style="
+        background:#111;
+        border:1px solid #00ffff;
+        border-radius:15px;
+        padding:15px;
+        margin-bottom:20px;
+        transition:0.5s ease;
+      ">
+
+        <img src="${image}" style="
+          width:100%;
+          border-radius:10px;
+        ">
+
+        <h2 style="color:#00ffff;">
+          ${company.company}
+        </h2>
+
+        <p>${company.location}</p>
+        <p>${company.phone}</p>
+
+      </div>
+    `;
+
+    // rotate images inside SAME company
+    marketImageIndex++;
+
+    if (marketImageIndex >= company.images.length) {
+      marketImageIndex = 0;
+
+      // move to next company
+      marketCompanyIndex++;
+
+      if (marketCompanyIndex >= marketAds.length) {
+        marketCompanyIndex = 0; // LOOP FOREVER
+      }
+    }
+
+  }, 3000);
+
+}
+
     window.addEventListener("load", () => {
   const savedLicense = localStorage.getItem("activeLicense");
 
