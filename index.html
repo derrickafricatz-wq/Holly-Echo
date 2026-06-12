@@ -383,22 +383,6 @@
   <source src="com.mp4" type="video/mp4">
 </video> 
 
-<button id="muteBtn" style="
-  position:fixed;
-  top:20px;
-  right:20px;
-  z-index:1000000; 
-  padding:10px 14px;
-  border:none;
-  border-radius:20px;
-  background:#00ffff;
-  color:black;
-  font-weight:bold;
-  cursor:pointer;
-">
-🔊 Mute
-</button>  
-
   <div id="appBg"></div>
 
   <button id="guideBtn" onclick="openGuide()">
@@ -1755,23 +1739,7 @@ const introVideo = document.getElementById("introVideo");
 
   introVideo.addEventListener("ended", () => {
   introVideo.style.display = "none";
-  document.getElementById("muteBtn").style.display = "none";
-});
 
-});
-
-     window.addEventListener("load", () => {
-
-  const muteBtn = document.getElementById("muteBtn");
-
-  muteBtn.addEventListener("click", () => {
-    introVideo.muted = !introVideo.muted;
-
-    if (introVideo.muted) {
-      muteBtn.innerText = "🔇 Unmute";
-    } else {
-      muteBtn.innerText = "🔊 Mute";
-    }
   });
 
 });
