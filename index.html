@@ -1602,7 +1602,12 @@ function closeGuide() {
 
   document.getElementById("marketPanel").style.display = "none";
 
-    }
+  if (marketInterval) {
+    clearInterval(marketInterval);
+    marketInterval = null;
+  }
+
+}
 
     function renderBooks() {
   const list = document.getElementById("bookList");
