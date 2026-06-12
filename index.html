@@ -373,7 +373,7 @@
   <div id="appBg"></div>
 
   <button id="guideBtn" onclick="openGuide()">
-  ⚙️– GUIDE
+   🔘– GUIDE
   </button>
 
   <div id="scrollBannerWrapper">
@@ -389,7 +389,7 @@
   <div id="storeHeader">
 
   <div id="promoText">
-   ⚡ QUICK ACCESS
+   ⚡ QUICK ACCESS
   </div>
 
   <button id="openStoreBtn">
@@ -397,7 +397,7 @@
   </button>
 
   <div id="cartCount">
-  🛒 [0]
+  🛒 [0]
   </div>
 
   </div>
@@ -428,7 +428,7 @@
 ">
 
 <h2 style="color:#00ffff;">
-📋– SPIRITUAL GUIDE
+📋– SPIRITUAL GUIDE
 </h2>
 
 <p>
@@ -507,7 +507,7 @@ If a payment or key issue occurs, contact the administrator for assistance.
   text-align:center;
   padding-top:80px;
 ">
-  <h2 style="color:#00ffff;"> Book Store</h2>
+  <h2 style="color:#00ffff;">📚 Book Store</h2>
 
   <div id="bookList"></div>
 
@@ -527,7 +527,7 @@ If a payment or key issue occurs, contact the administrator for assistance.
 
   <div id="licenseBox">
  
-  <h1 id="licenseTitle"> Book Unlock</h1>
+  <h1 id="licenseTitle"> 🔐Book Unlock</h1>
 
   <input id="key" placeholder="License Key">
 
@@ -561,7 +561,7 @@ If a payment or key issue occurs, contact the administrator for assistance.
   padding-top: 120px;
 ">
 
-  <h1 style="color:#00ffff;"> Upgrade Required</h1>
+  <h1 style="color:#00ffff;">🔒 Upgrade Required</h1>
 
   <p id="limitMessage" style="font-size:18px;">
   You've reached your reading limit for this package.
@@ -582,7 +582,7 @@ If a payment or key issue occurs, contact the administrator for assistance.
   box-shadow:0 4px 12px rgba(0,0,0,0.3);
   cursor:pointer;
 ">
-   Activate Your Upgrade
+   💳 Activate Your Upgrade
   </button>
 
 </div>
@@ -610,15 +610,15 @@ If a payment or key issue occurs, contact the administrator for assistance.
     <span id="speedValue">1</span>
   </div>
 
-  <button onclick="readBook()"> Read Book</button>
+  <button onclick="readBook()">🔊 Read Book</button>
 
-  <button onclick="pauseVoice()"> Pause</button>
+  <button onclick="pauseVoice()">⏸ Pause</button>
 
-  <button onclick="prevPage()"> Prev</button>
+  <button onclick="prevPage()">⬅ Prev</button>
 
-  <button onclick="nextPage()">Next </button>
+  <button onclick="nextPage()">Next ➡</button>
 
-  <button onclick="rekindleView()"> REKINDLE VIEW</button>
+  <button onclick="rekindleView()">⚡ REKINDLE VIEW</button>
 
   <span id="pageNum">Page: 1</span>
 
@@ -627,7 +627,7 @@ If a payment or key issue occurs, contact the administrator for assistance.
   <canvas id="pdf-render"></canvas>
   
   <div id="voiceNotice">
-   Voice reader is being improved for smoother experience.
+   🔊Voice reader is being improved for smoother experience.
     </div>
 
   </div>
@@ -784,17 +784,17 @@ if (!license) {
 }
 
 if (license.status !== "active") {
-  msg.innerHTML = "secured by deka ";
+  msg.innerHTML = "secured by deka 🔐";
   return;
 }
 
 if (license.book_pdf !== selectedBookToUnlock.pdf) {
-  msg.innerHTML = "This license is not valid for this book ";
+  msg.innerHTML = "This license is not valid for this book 🔐";
   return;
 }
 
 if (!license.package) {
-  msg.innerHTML = "License missing package type ";
+  msg.innerHTML = "License missing package type 🔐";
   return;
 }
 
@@ -822,11 +822,11 @@ if (!license.package) {
 }
 
       if (license.device_id && license.device_id !== deviceID) {
-      msg.innerHTML = "This license is locked to another device ðŸ”";
+      msg.innerHTML = "This license is locked to another device 🔐";
       return;
       }
 
-      msg.innerHTML = "Access Granted âœ”";
+      msg.innerHTML = "Access Granted ";
 
       unlockedBooksSet.add(selectedBookToUnlock.title);
 
@@ -873,7 +873,7 @@ if (!license.package) {
   console.log("Saving:", [...unlockedBooksSet]);
 
   document.getElementById("cartCount").innerText =
-    " [" + unlockedBooksSet.size + "]";
+    "🛒 [" + unlockedBooksSet.size + "]";
 
   localStorage.setItem(
     "unlockedBooks",
@@ -1151,7 +1151,7 @@ if (currentBook) {
       min-width:340px;
       margin-top:20px;
     ">
-       Back To Store
+     💳 Back To Store
     </button>
 
   `;
@@ -1300,8 +1300,8 @@ window.addEventListener("appinstalled", () => {
 });
 
 const voiceMessages = [
-  "🔊 Voice reader is being improved for smoother experience. Please be patient.",
-  "⚙️ We are fixing voice issues to make reading more stable. Thank you for your patience."
+  "🔊 Voice reader is being improved for smoother experience. Please be patient.",
+  "⚙️ We are fixing voice issues to make reading more stable. Thank you for your patience."
 ];
 
 let msgIndex = 0;
@@ -1355,7 +1355,7 @@ function startHeaderLoop() {
 
     // ONLY update text + word (NO button here)
     promo.innerHTML = `
-       ${text}
+       ⚡${text}
       <span style="color:#00ffff;font-weight:bold;margin-left:6px;">
         ${word}
       </span>
@@ -1378,7 +1378,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v156");
+  const cache = await caches.open("holly-echo-v157");
 
   const keys = await cache.keys();
 
@@ -1443,7 +1443,7 @@ function startBackgroundLoop() {
 
     }, 2500);
 
-  }, 10000);
+  }, 6000);
 
 }
 
@@ -1597,7 +1597,7 @@ align-items:flex-start;
     font-weight:bold;
     margin-bottom:8px;
   ">
-      ${book.author.payment.method}
+     💳${book.author.payment.method}
   </div>
 
   <div style="
@@ -1691,7 +1691,7 @@ const brandMessages = [
 
   "deka.customercare.africa@gmail.com",
 
-"CONNECT. BUILD. GROW"
+"deka. is listening.."
 
 ];
 
