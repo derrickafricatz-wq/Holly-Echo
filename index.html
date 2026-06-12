@@ -1436,6 +1436,17 @@ startHeaderLoop();
   console.log("Banner load failed", err);
 
      }
+
+     const introVideo = document.getElementById("introVideo");
+
+if (introVideo) {
+  introVideo.addEventListener("ended", () => {
+    introVideo.style.display = "none";
+
+    const muteBtn = document.getElementById("muteBtn");
+    if (muteBtn) muteBtn.style.display = "none";
+  });
+}
 });
 
   document.getElementById("openStoreBtn").onclick = function () {
