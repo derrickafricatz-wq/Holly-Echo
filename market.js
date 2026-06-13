@@ -46,16 +46,16 @@ function renderMarket() {
         margin-bottom:20px;
       ">
 
-     <img
-    id="billboard-${index}"
-    src="${company.images[0]}"
-    style="
-    width:100%;
-    border-radius:10px;
-    opacity:1;
-    transition:opacity 1.5s ease-in-out;
-  "
->
+        <img
+          id="billboard-${index}"
+          src="${company.ads?.[0]?.[0] || ''}"
+          style="
+            width:100%;
+            border-radius:10px;
+            opacity:1;
+            transition:opacity 1.5s ease-in-out;
+          "
+        >
 
         <h2 style="color:#00ffff;">
           ${company.company}
@@ -63,7 +63,19 @@ function renderMarket() {
 
         <p>${company.location}</p>
 
-        <p>${company.phone}</p>
+        <!-- CLICKABLE CALL -->
+        <p> 
+          <a href="tel:${company.phone}" style="color:#00ffff;text-decoration:none;">
+            ${company.phone}
+          </a>
+        </p>
+
+        <!-- CLICKABLE WHATSAPP -->
+        <p> 
+          <a href="https://wa.me/${company.whatsapp}" target="_blank" style="color:#00ff88;text-decoration:none;">
+            WhatsApp Chat
+          </a>
+        </p>
 
       </div>
 
