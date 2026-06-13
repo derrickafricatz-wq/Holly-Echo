@@ -23,6 +23,18 @@ const marketAds = [
     "images/2a.jpg",
     "images/2b.jpg"
   ]
+},
+
+  {
+  company: "NAANZNEN LOGISTICS",
+  phone: "+255700000000",
+  whatsapp: "255700000000",
+  location: "Tabora, Tanzania",
+
+  images: [
+    "images/1e.jpg",
+    "images/1i.jpg"
+  ]
 }
 
 ];
