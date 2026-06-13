@@ -55,7 +55,7 @@ function renderMarket() {
       width:100%;
       border-radius:10px;
       opacity:1;
-      transform:scale(1.05);
+      transform:scale(1);
       transition: opacity 1.5s ease-in-out, transform 3.5s ease-in-out;
     "
    >
