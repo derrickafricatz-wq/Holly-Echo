@@ -46,14 +46,16 @@ function renderMarket() {
         margin-bottom:20px;
       ">
 
-        <img
-          id="billboard-${index}"
-          src="${company.images[0]}"
-          style="
-            width:100%;
-            border-radius:10px;
-          "
-        >
+     <img
+    id="billboard-${index}"
+    src="${company.images[0]}"
+    style="
+    width:100%;
+    border-radius:10px;
+    opacity:1;
+    transition:opacity 1.5s ease-in-out;
+  "
+>
 
         <h2 style="color:#00ffff;">
           ${company.company}
