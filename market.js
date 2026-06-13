@@ -53,7 +53,7 @@ function renderMarket() {
     width:100%;
     border-radius:10px;
     opacity:1;
-    transition:opacity 0.8s ease;
+    transition:opacity 1.5s ease-in-out;
    "
   >
 
@@ -102,14 +102,18 @@ marketStarted = true;
 
   billboard.style.opacity = "0";
 
-  setTimeout(() => {
+setTimeout(() => {
 
-    billboard.src =
-      company.images[imageIndex];
+  billboard.src =
+    company.images[imageIndex];
+
+  setTimeout(() => {
 
     billboard.style.opacity = "1";
 
-  }, 400);
+  }, 100);
+
+}, 800);
 
       }
 
