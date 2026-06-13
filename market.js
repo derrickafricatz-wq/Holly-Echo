@@ -71,7 +71,13 @@ function renderMarket() {
 
 }
 
+let marketStarted = false;
+
 function startMarketRotations() {
+
+if (marketStarted) return;
+
+marketStarted = true;
 
   marketAds.forEach((company, index) => {
 
