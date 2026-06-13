@@ -1,8 +1,9 @@
 const marketAds = [
 
 {
-  company: "DEKA TECHNOLOGIES",
+  company: "deka",
   phone: "+255742097868",
+  whatsapp: "255742097868",
   location: "Arusha, Tanzania",
 
   images: [
@@ -15,6 +16,7 @@ const marketAds = [
 {
   company: "BULK TRADERS",
   phone: "+255700000000",
+  whatsapp: "255700000000",
   location: "Arusha, Tanzania",
 
   images: [
