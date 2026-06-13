@@ -70,3 +70,33 @@ function renderMarket() {
   });
 
 }
+
+function startMarketRotations() {
+
+  marketAds.forEach((company, index) => {
+
+    let imageIndex = 0;
+
+    setInterval(() => {
+
+      imageIndex++;
+
+      if (imageIndex >= company.images.length) {
+        imageIndex = 0;
+      }
+
+      const billboard =
+        document.getElementById(
+          `billboard-${index}`
+        );
+
+      if (billboard) {
+        billboard.src =
+          company.images[imageIndex];
+      }
+
+    }, 3000);
+
+  });
+
+}
