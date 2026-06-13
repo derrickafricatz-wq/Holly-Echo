@@ -48,16 +48,17 @@ function renderMarket() {
         margin-bottom:20px;
       ">
 
-        <img
-          id="billboard-${index}"
-          src="${company.ads?.[0]?.[0] || ''}"
-          style="
-            width:100%;
-            border-radius:10px;
-            opacity:1;
-            transition:opacity 1.5s ease-in-out;
-          "
-        >
+      <img
+      id="billboard-${index}"
+      src="${company.images[0]}"
+      style="
+      width:100%;
+      border-radius:10px;
+      opacity:1;
+      transform:scale(1.05);
+      transition: opacity 1.5s ease-in-out, transform 3.5s ease-in-out;
+    "
+   >
 
         <h2 style="color:#00ffff;">
           ${company.company}
@@ -91,48 +92,38 @@ let marketStarted = false;
 
 function startMarketRotations() {
 
-if (marketStarted) return;
-
-marketStarted = true;
+  if (marketStarted) return;
+  marketStarted = true;
 
   marketAds.forEach((company, index) => {
 
-    let imageIndex = 0;
+    let i = 0;
+
+    const img = document.getElementById(`billboard-${index}`);
+    if (!img) return;
 
     setInterval(() => {
 
-      imageIndex++;
+      // START FADE OUT + ZOOM OUT
+      img.style.opacity = "0";
+      img.style.transform = "scale(1.1)";
 
-      if (imageIndex >= company.images.length) {
-        imageIndex = 0;
-      }
+      setTimeout(() => {
 
-      const billboard =
-        document.getElementById(
-          `billboard-${index}`
-        );
+        // change image
+        i = (i + 1) % company.images.length;
+        img.src = company.images[i];
 
-      if (billboard) {
+        // force reflow (important for smooth transition)
+        void img.offsetWidth;
 
-  billboard.style.opacity = "0";
+        // FADE IN + SLOW ZOOM IN (premium effect)
+        img.style.opacity = "1";
+        img.style.transform = "scale(1.05)";
 
-setTimeout(() => {
+      }, 1200); // fade-out duration
 
-  billboard.src =
-    company.images[imageIndex];
-
-  setTimeout(() => {
-
-    billboard.style.opacity = "1";
-
-  }, 100);
-
-}, 800);
-
-      }
-
-    }, 3000);
+    }, 4000); // total cycle per image
 
   });
-
 }
