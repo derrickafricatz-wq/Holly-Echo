@@ -113,7 +113,7 @@ function startMarketRotations() {
 
       // START FADE OUT + ZOOM OUT
       img.style.opacity = "0";
-      img.style.transform = "scale(1.1)";
+      img.style.transform = "scale(1)";
 
       setTimeout(() => {
 
@@ -126,7 +126,7 @@ function startMarketRotations() {
 
         // FADE IN + SLOW ZOOM IN (premium effect)
         img.style.opacity = "1";
-        img.style.transform = "scale(1.05)";
+        img.style.transform = "scale(1)";
 
       }, 1200); // fade-out duration
 
