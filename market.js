@@ -130,7 +130,7 @@ function startMarketRotations() {
 
       }, 1200); // fade-out duration
 
-    }, 4000); // total cycle per image
+    }, 7000); // total cycle per image
 
   });
 }
