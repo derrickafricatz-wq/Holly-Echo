@@ -3,23 +3,27 @@ const marketAds = [
 {
   company: "DEKA TECHNOLOGIES",
   phone: "+255742097868",
-  location: "Arusha, Tanzania",
+  location: "Arusha",
 
-  images: [
-    "images/logo.png",
-    "images/1c.jpg",
-    "images/1d.jpg"
+  whatsapp: "255742097868",
+
+  ads: [
+    ["images/logo.png", "Brand", "Contact"],
+    ["images/1c.jpg", "CCTV Install", "120K"],
+    ["images/1d.jpg", "Network Support", "80K"]
   ]
 },
 
 {
   company: "BULK TRADERS",
   phone: "+255700000000",
-  location: "Arusha, Tanzania",
+  location: "Arusha",
 
-  images: [
-    "images/2a.jpg",
-    "images/2b.jpg"
+  whatsapp: "255700000000",
+
+  ads: [
+    ["images/2a.jpg", "Materials", "Quote"],
+    ["images/2b.jpg", "Tools", "50K"]
   ]
 }
 
