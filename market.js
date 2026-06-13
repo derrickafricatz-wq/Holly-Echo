@@ -60,25 +60,32 @@ function renderMarket() {
     "
    >
 
-        <h2 style="color:#00ffff;">
-          ${company.company}
-        </h2>
+        <div style="
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  align-items:center;
+  margin-top:10px;
+  font-size:16px;
+">
 
-        <p>${company.location}</p>
+  <span style="color:#00ffff;font-weight:bold;">
+    ${company.company}
+  </span>
 
-        <!-- CLICKABLE CALL -->
-        <p> 
-          <a href="tel:${company.phone}" style="color:#00ffff;text-decoration:none;">
-            ${company.phone}
-          </a>
-        </p>
+  <span style="color:#aaa;">
+    ${company.location}
+  </span>
 
-        <!-- CLICKABLE WHATSAPP -->
-        <p> 
-          <a href="https://wa.me/${company.whatsapp}" target="_blank" style="color:#00ff88;text-decoration:none;">
-            WhatsApp Chat
-          </a>
-        </p>
+  <a href="tel:${company.phone}" style="color:#00ffff;text-decoration:none;">
+    Call
+  </a>
+
+  <a href="https://wa.me/${company.whatsapp}" target="_blank" style="color:#00ff88;text-decoration:none;">
+    WhatsApp
+  </a>
+
+</div>
 
       </div>
 
