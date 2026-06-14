@@ -553,28 +553,44 @@ If a payment or key issue occurs, contact the administrator for assistance.
   padding-bottom:120px;
 ">
 
-<h2 style="color:#00ffff;">
-🏪 MARKET PLACE
-</h2>
+<div id="marketHeader" style="
+  position:sticky;
+  top:0;
+  background:#111;
+  padding:15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #00ffff;
+  z-index:999999;
+">
 
-  <div id="marketAds" style="
+  <h2 style="
+    color:#00ffff;
+    margin:0;
+  ">
+    🏪 MARKET STORE
+  </h2>
+
+  <button onclick="closeMarket()" style="
+    background:#ff4444;
+    color:white;
+    border:none;
+    border-radius:8px;
+    padding:10px 15px;
+    font-weight:bold;
+  ">
+    CLOSE
+  </button>
+
+</div>
+
+<div id="marketAds" style="
   width:90%;
   max-width:900px;
   margin:auto;
-">
-</div>
-
-
-<button onclick="closeMarket()" style="
-  margin-top:20px;
-  padding:10px 16px;
-  border:none;
-  border-radius:10px;
-  background:white;
-  font-weight:bold;
-">
-CLOSE
-</button>
+  padding-top:15px;
+"></div>
 
 </div>
 
