@@ -20,7 +20,7 @@ const marketAds = [
   location: "Dodoma, Tanzania",
 
   images: [
-    "images/o1.jpg",
+    "images/o1.png",
     "images/o2.jpg"
   ]
 }
