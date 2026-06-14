@@ -7,6 +7,20 @@
   <link rel="manifest" href="/Holly-Echo/manifest.json">
   <meta name="theme-color" content="#1f2323">
 
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+  <script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "c636d212-476c-46fe-979c-d1ec42c5677d",
+      safari_web_id: "web.onesignal.auto.28be2e0f-48c0-43fd-877a-95cc3c6fc0d9",
+      notifyButton: {
+        enable: true,
+      },
+    });
+  });
+  </script>
+
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
