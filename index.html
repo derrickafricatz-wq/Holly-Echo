@@ -365,6 +365,22 @@
   max-width: 100%;
 }
 
+    #openMarketBtn{
+  background:linear-gradient(45deg,#00ffff,#0088ff);
+  color:white;
+  padding:16px 28px;
+  border:none;
+  border-radius:30px;
+  font-weight:bold;
+  font-size:18px;
+  box-shadow:0 0 15px rgba(0,255,255,.6);
+  transition:.3s;
+}
+
+#openMarketBtn:hover{
+  transform:scale(1.05);
+}
+
 </style>
 </head>
 
@@ -399,8 +415,9 @@ BOOK STORE
 </button>
 
 <button id="openMarketBtn">
-SOKONI 
+🛍️ SOKONI
 </button>
+
 
 </div>
 
@@ -1514,7 +1531,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v165");
+  const cache = await caches.open("holly-echo-v174");
 
   const keys = await cache.keys();
 
