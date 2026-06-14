@@ -13,6 +13,7 @@ const APP_SHELL = [
   "./manifest.json",
   "./sw.js",
   "./bg.js",
+  "./market.js",
   "./library.js",
   "./offline.html",
 
@@ -36,6 +37,11 @@ const APP_SHELL = [
   /* BOOK COVERS */
   "./images/co1.jpg",
   "./images/co2.jpg",
+
+   /* BRAND LOGO*/
+  "./images/logo.png",
+  "./images/co2.jpg",
+   
    
   /* BOOKS (PDF) */
   "./holly.pdf",
