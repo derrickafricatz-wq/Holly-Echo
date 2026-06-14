@@ -14,14 +14,14 @@ const marketAds = [
 },
 
 {
-  company: "BULK TRADERS",
-  phone: "+255700000000",
-  whatsapp: "255700000000",
-  location: "Arusha, Tanzania",
+  company: "AFRIVIBE PRINTS|EVENTS",
+  phone: "+255746644223",
+  whatsapp: "255752434777",
+  location: "Dodoma, Tanzania",
 
   images: [
-    "images/2a.jpg",
-    "images/2b.jpg"
+    "images/o1.jpg",
+    "images/o2.jpg"
   ]
 }
 
