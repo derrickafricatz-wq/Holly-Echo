@@ -8,13 +8,18 @@
   <meta name="theme-color" content="#1f2323">
 
   <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
- v<script>
-  window.OneSignalDeferred = window.OneSignalDeferred || [];
-  OneSignalDeferred.push(async function(OneSignal) {
-    await OneSignal.init({
-      appId: "359598d6-4961-4e38-8a2c-368d1b589a6c",
-    });
+
+<script>
+window.OneSignalDeferred = window.OneSignalDeferred || [];
+
+OneSignalDeferred.push(async function(OneSignal) {
+  await OneSignal.init({
+    appId: "359598d6-4961-4e38-8a2c-368d1b589a6c",
+
+    serviceWorkerPath: "/Holly-Echo/OneSignalSDKWorker.js",
+    serviceWorkerUpdaterPath: "/Holly-Echo/OneSignalSDKUpdaterWorker.js"
   });
+});
 </script>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
@@ -1551,7 +1556,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v184");
+  const cache = await caches.open("holly-echo-v189");
 
   const keys = await cache.keys();
 
