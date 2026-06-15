@@ -14,13 +14,19 @@ window.OneSignalDeferred = window.OneSignalDeferred || [];
 
 OneSignalDeferred.push(async function(OneSignal) {
   await OneSignal.init({
-    appId: "359598d6-4961-4e38-8a2c-368d1b589a6c",
+    appId: "36d8b9ce-26c2-46f9-a341-6a0ecc4c1881",
+
+    safari_web_id: "web.onesignal.auto.6a2e4cfc-4f7f-4e0a-b787-2d0bd3e78806",
 
     serviceWorkerPath: "/Holly-Echo/OneSignalSDKWorker.js",
-    serviceWorkerUpdaterPath: "/Holly-Echo/OneSignalSDKUpdaterWorker.js"
+    serviceWorkerUpdaterPath: "/Holly-Echo/OneSignalSDKUpdaterWorker.js",
+
+    notifyButton: {
+      enable: true,
+    },
   });
 });
-</script>
+</script>q
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 
@@ -1556,7 +1562,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v189");
+  const cache = await caches.open("holly-echo-v190");
 
   const keys = await cache.keys();
 
