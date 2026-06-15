@@ -28,6 +28,33 @@
   const messaging = firebase.messaging();
   </script>
 
+  <script>
+  const messaging = firebase.messaging();
+
+  async function requestPermission() {
+    try {
+      const permission = await Notification.requestPermission();
+
+      if (permission !== "granted") {
+        alert("Notifications blocked");
+        return;
+      }
+
+      console.log("Permission granted");
+
+      const token = await messaging.getToken({
+        vapidKey: "BHgSQS_OxDBnzLzuoJmIfsxjQvgOAaWbF_NjYktSCbWMRgwzoO7t2RsQchie2qN9Z1mHkdZFLJY8YvG8QK91fV8"
+      });
+
+      console.log("FCM TOKEN:", token);
+
+      alert("Notifications enabled!");
+    } catch (err) {
+      console.error("Error:", err);
+    }
+  }
+</script>
+
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
