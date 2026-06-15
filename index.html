@@ -434,6 +434,17 @@
 
 <body>
 
+  <button onclick="requestPermission()" style="
+  padding:10px 20px;
+  font-size:16px;
+  background:#1f2323;
+  color:white;
+  border:none;
+  border-radius:8px;
+">
+  Enable Notifications
+</button>
+
   <div id="appBg"></div>
 
   <button id="guideBtn" onclick="openGuide()">
@@ -1589,7 +1600,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v191");
+  const cache = await caches.open("holly-echo-v195");
 
   const keys = await cache.keys();
 
