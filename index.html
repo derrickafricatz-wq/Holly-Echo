@@ -35,31 +35,14 @@
 
   // 5. Request permission function
   async function requestPermission() {
-    try {
-      const permission = await Notification.requestPermission();
 
-      if (permission !== "granted") {
-        alert("Notifications blocked");
-        return;
-      }
+  alert("Current permission: " + Notification.permission);
 
-      const token = await messaging.getToken({
-        vapidKey: "BHgSQS_OxDBnzLzuoJmIfsxjQvgOAaWbF_NjYktSCbWMRgwzoO7t2RsQchie2qN9Z1mHkdZFLJY8YvG8QK91fV8"
-      });
+  const permission = await Notification.requestPermission();
 
-      console.log("FCM TOKEN:", token);
+  alert("After request: " + permission);
 
-      if (!token) {
-        alert("Failed to get token");
-        return;
-      }
-
-      alert("Notifications enabled!");
-    } catch (err) {
-      console.error(err);
-      alert("Notification error");
-    }
-  }
+}
   </script> 
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
