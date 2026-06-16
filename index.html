@@ -45,6 +45,13 @@
 }
   </script> 
 
+  <script>
+navigator.serviceWorker.getRegistrations().then(regs => {
+  alert("Service Workers: " + regs.length);
+  console.log(regs);
+});
+  </script>
+
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
