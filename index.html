@@ -594,7 +594,25 @@ If a payment or key issue occurs, contact the administrator for assistance.
   text-align:center;
   padding-top:80px;
 ">
-  <h2 style="color:#00ffff;">📚 Book Store</h2>
+  <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 20px;">
+  
+  <h2 style="color:#00ffff;margin:0;">📚 Book Store</h2>
+
+  <button onclick="openGuide()" style="
+    background:#00ffff;
+    color:black;
+    border:none;
+    border-radius:20px;
+    padding:6px 12px;
+    font-size:12px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 0 10px #00ffff;
+  ">
+   📋 GUIDE
+  </button>
+
+  </div>
 
   <div id="bookList"></div>
 
@@ -762,8 +780,6 @@ If a payment or key issue occurs, contact the administrator for assistance.
     <span id="speedValue">1</span>
   </div>
 
-  <button onclick="toggleGuide()">📋 Guide</button>
-  
   <button onclick="readBook()">🔊 Read Book</button>
 
   <button onclick="pauseVoice()">⏸ Pause</button>
@@ -1284,11 +1300,6 @@ function prevPage() {
   pageNum--;
   renderPage(pageNum);
 }
-
-    function toggleGuide() {
-  const box = document.getElementById("guideBox");
-  box.style.display = (box.style.display === "block") ? "none" : "block";
-    }
 
     function openStoreFromReader() {
   document.getElementById("upgradeBox").style.display = "none";
