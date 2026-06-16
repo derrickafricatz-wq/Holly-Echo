@@ -381,6 +381,67 @@
   transform:scale(1.05);
 }
 
+    #marketTitle{
+  display:inline-block;
+
+  font-size:32px;
+  font-weight:900;
+
+  background:linear-gradient(
+    45deg,
+    #00ffff,
+    #ffffff,
+    #00aaff,
+    #00ffff
+  );
+
+  background-size:300% 300%;
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+  text-shadow:
+    0 2px 0 #0088aa,
+    0 4px 0 #007799,
+    0 6px 15px rgba(0,255,255,.7);
+
+  animation:
+    marketGlow 4s linear infinite,
+    marketFloat 3s ease-in-out infinite;
+}
+
+@keyframes marketGlow{
+
+  0%{
+    background-position:0% 50%;
+  }
+
+  50%{
+    background-position:100% 50%;
+  }
+
+  100%{
+    background-position:0% 50%;
+  }
+
+}
+
+@keyframes marketFloat{
+
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-4px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+
+}
+
 </style>
 </head>
 
