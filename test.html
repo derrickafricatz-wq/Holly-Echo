@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button onclick="test()">Test Notification</button>
+
+<script>
+async function test(){
+
+  alert("Before: " + Notification.permission);
+
+  const p = await Notification.requestPermission();
+
+  alert("After: " + p);
+
+}
+</script>
+
+</body>
+</html>
