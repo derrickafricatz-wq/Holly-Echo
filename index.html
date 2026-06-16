@@ -449,10 +449,6 @@
 
   <div id="appBg"></div>
 
-  <button id="guideBtn" onclick="openGuide()">
-   GUIDE
-  </button>
-
   <div id="scrollBannerWrapper">
 
   <div id="brandBox">
@@ -1286,6 +1282,11 @@ function prevPage() {
   pageNum--;
   renderPage(pageNum);
 }
+
+    function toggleGuide() {
+  const box = document.getElementById("guideBox");
+  box.style.display = (box.style.display === "block") ? "none" : "block";
+    }
 
     function openStoreFromReader() {
   document.getElementById("upgradeBox").style.display = "none";
