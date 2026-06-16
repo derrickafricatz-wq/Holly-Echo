@@ -30,9 +30,6 @@
     .then(() => console.log("SW registered"))
     .catch(err => console.log("SW error", err));
 
-  // 4. Messaging (ONLY ONCE)
-  const messaging = firebase.messaging();
-
   // 5. Request permission function
   <script>
 async function requestPermission() {
