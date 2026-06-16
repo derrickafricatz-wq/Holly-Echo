@@ -7,39 +7,6 @@
   <link rel="manifest" href="/Holly-Echo/manifest.json">
   <meta name="theme-color" content="#1f2323">
 
- <!-- Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-messaging-compat.js"></script>
-
-<script>
-const firebaseConfig = {
-  apiKey: "...",
-  authDomain: "holly-echo.firebaseapp.com",
-  projectId: "holly-echo",
-  storageBucket: "holly-echo.firebasestorage.app",
-  messagingSenderId: "1084649454187",
-  appId: "1:1084649454187:web:4d69048a7bbe1a38204f2e"
-};
-
-firebase.initializeApp(firebaseConfig);
-
-const messaging = firebase.messaging();
-
-async function requestPermission() {
-
-  if (Notification.permission === "denied") {
-    alert("Notifications are blocked.");
-    return;
-  }
-
-  const permission = await Notification.requestPermission();
-
-  alert(
-    "BEFORE/AFTER RESULT: " + permission
-  );
-}
-</script>
-
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
@@ -418,21 +385,6 @@ async function requestPermission() {
 </head>
 
 <body>
-
-<button onclick="requestPermission()" style="
-position:fixed;
-top:180px;
-right:20px;
-z-index:9999999;
-padding:12px 20px;
-background:#00ffff;
-color:black;
-font-weight:bold;
-border:none;
-border-radius:10px;
-">
-🔔 Enable Notifications
-  </button>
 
   <div id="appBg"></div>
 
