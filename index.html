@@ -12,9 +12,8 @@
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-messaging-compat.js"></script>
 
 <script>
-/* Firebase Config */
 const firebaseConfig = {
-  apiKey: "AIzaSyAhKWmOxd_I16u_seOQ-Or976o2eclxokw",
+  apiKey: "...",
   authDomain: "holly-echo.firebaseapp.com",
   projectId: "holly-echo",
   storageBucket: "holly-echo.firebasestorage.app",
@@ -22,43 +21,22 @@ const firebaseConfig = {
   appId: "1:1084649454187:web:4d69048a7bbe1a38204f2e"
 };
 
-/* Initialize Firebase */
 firebase.initializeApp(firebaseConfig);
 
-/* Create messaging object */
 const messaging = firebase.messaging();
 
-/* Register Firebase messaging service worker */
-.then(function(registration) {
-
-  console.log("Firebase SW registered");
-
-  messaging.useServiceWorker(registration);
-
-})
-.catch(function(error) {
-
-  console.log("SW registration failed:", error);
-
-});
-
-
-/* Button function */
 async function requestPermission() {
 
   if (Notification.permission === "denied") {
-    alert("Notifications are blocked. Reset site permissions in Chrome settings.");
+    alert("Notifications are blocked.");
     return;
   }
 
   const permission = await Notification.requestPermission();
 
-  if (permission !== "granted") {
-    alert("Permission not granted");
-    return;
-  }
-
-  alert("Permission granted!");
+  alert(
+    "BEFORE/AFTER RESULT: " + permission
+  );
 }
 </script>
 
@@ -1611,7 +1589,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v207");
+  const cache = await caches.open("holly-echo-v208");
 
   const keys = await cache.keys();
 
@@ -1883,10 +1861,6 @@ ${book.author.payment.lipaNumber ? `
 
     list.appendChild(item);
   });
-}
-
-    function requestPermission() {
-  alert("BUTTON IS WORKING");
 }
 
   function openBook(title) {
