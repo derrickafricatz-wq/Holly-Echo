@@ -34,13 +34,24 @@
   const messaging = firebase.messaging();
 
   // 5. Request permission function
-  async function requestPermission() {
+  <script>
+async function requestPermission() {
 
-  alert("Current permission: " + Notification.permission);
+  alert("Before: " + Notification.permission);
 
   const permission = await Notification.requestPermission();
 
-  alert("After request: " + permission);
+  alert("After: " + permission);
+
+  if (permission === "granted") {
+
+    const token = await messaging.getToken({
+      vapidKey: "BHgSQS_OxDBnzLzuoJmIfsxjQvgOAaWbF_NjYktSCbWMRgwzoO7t2RsQchie2qN9Z1mHkdZFLJY8YvG8QK91fV8"
+    });
+
+    alert(token);
+    console.log(token);
+  }
 
 }
   </script> 
