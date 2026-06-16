@@ -1918,6 +1918,49 @@ renderPDF();
   }
 }
 
+  const marketTitles = [
+  "MARKET STORE",
+  "SOKONI HUB",
+  "AFRICA MARKET",
+  "SMART SHOP",
+  "DIGITAL BAZAAR",
+  "TRADE ZONE"
+];
+
+let marketTitleIndex = 0;
+
+function startMarketTitleLoop() {
+  const title = document.getElementById("marketTitle");
+
+  if (!title) return;
+
+  setInterval(() => {
+
+    // fade out
+    title.style.opacity = "0";
+    title.style.transform = "scale(0.8) rotateX(30deg)";
+
+    setTimeout(() => {
+
+      marketTitleIndex++;
+
+      if (marketTitleIndex >= marketTitles.length) {
+        marketTitleIndex = 0;
+      }
+
+      title.innerText = marketTitles[marketTitleIndex];
+
+      // fade in with 3D pop
+      title.style.opacity = "1";
+      title.style.transform = "scale(1.05) rotateX(0deg)";
+
+    }, 250);
+
+  }, 2500);
+}
+
+startMarketTitleLoop();  
+
 const brandMessages = [
 
 "WORD OF THE DAY",
