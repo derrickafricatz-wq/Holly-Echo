@@ -47,32 +47,25 @@ navigator.serviceWorker.register("/Holly-Echo/firebase-messaging-sw.js")
 /* Button function */
 async function requestPermission() {
 
-  alert("Before: " + Notification.permission);
+  if (Notification.permission === "denied") {
+    alert("Notifications are blocked. Reset site permissions in Chrome settings.");
+    return;
+  }
 
   const permission = await Notification.requestPermission();
 
-  alert("After: " + permission);
-
   if (permission !== "granted") {
-
-    alert("Notifications blocked");
-
+    alert("Permission not granted");
     return;
   }
 
   const token = await messaging.getToken({
-
-    vapidKey:
-    "BHgSQS_OxDBnzLzuoJmIfsxjQvgOAaWbF_NjYktSCbWMRgwzoO7t2RsQchie2qN9Z1mHkdZFLJY8YvG8QK91fV8"
-
+    vapidKey: "BHgSQS_OxDBnzLzuoJmIfsxjQvgOAaWbF_NjYktSCbWMRgwzoO7t2RsQchie2qN9Z1mHkdZFLJY8YvG8QK91fV8"
   });
 
-  alert("Token generated!");
-
-  console.log(token);
-
+  console.log("FCM Token:", token);
+  alert("Notifications enabled!");
 }
-
 
 /* Check service workers */
 navigator.serviceWorker.getRegistrations()
