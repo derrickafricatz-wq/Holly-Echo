@@ -32,76 +32,88 @@ function renderMarket() {
   const container = document.getElementById("marketAds");
   if (!container) return;
 
+  // get search input
   const search =
     document.getElementById("marketSearch")?.value.toLowerCase() || "";
 
+  // reset HTML
   container.innerHTML = "";
 
-  marketAds
-    .filter(company => {
+  // reset looping indexes so animation restarts correctly
+  marketCompanyIndex = 0;
+  marketImageIndex = 0;
 
-      return (
-        (company.company || "").toLowerCase().includes(search) ||
-        (company.location || "").toLowerCase().includes(search) ||
-        (company.phone || "").toLowerCase().includes(search) ||
-        (company.whatsapp || "").toLowerCase().includes(search)
-      );
+  // filter + render
+  const filtered = marketAds.filter(company => {
 
-    })
-    .forEach((company, index) => {
+    return (
+      (company.company || "").toLowerCase().includes(search) ||
+      (company.location || "").toLowerCase().includes(search) ||
+      (company.phone || "").toLowerCase().includes(search) ||
+      (company.whatsapp || "").toLowerCase().includes(search)
+    );
 
-      container.innerHTML += `
-        <div class="marketCard" id="company-${index}" style="
-          background:#111;
-          border:1px solid #00ffff;
-          border-radius:15px;
-          padding:15px;
-          margin-bottom:20px;
+  });
+
+  // render filtered results
+  filtered.forEach((company, index) => {
+
+    container.innerHTML += `
+      <div class="marketCard" id="company-${index}" style="
+        background:#111;
+        border:1px solid #00ffff;
+        border-radius:15px;
+        padding:15px;
+        margin-bottom:20px;
+      ">
+
+        <img
+          id="billboard-${index}"
+          src="${company.images?.[0] || ''}"
+          style="
+            width:100%;
+            border-radius:10px;
+            opacity:1;
+            transform:scale(1);
+            transition: opacity 1.5s ease-in-out, transform 3.5s ease-in-out;
+          "
+        >
+
+        <div style="
+          display:flex;
+          flex-wrap:wrap;
+          gap:10px;
+          align-items:center;
+          margin-top:10px;
+          font-size:16px;
         ">
 
-          <img
-            id="billboard-${index}"
-            src="${company.images[0]}"
-            style="
-              width:100%;
-              border-radius:10px;
-              opacity:1;
-              transform:scale(1);
-              transition: opacity 1.5s ease-in-out, transform 3.5s ease-in-out;
-            "
-          >
+          <span style="color:#00ffff;font-weight:bold;">
+            ${company.company}
+          </span>
 
-          <div style="
-            display:flex;
-            flex-wrap:wrap;
-            gap:10px;
-            align-items:center;
-            margin-top:10px;
-            font-size:16px;
-          ">
+          <span style="color:#aaa;">
+            ${company.location}
+          </span>
 
-            <span style="color:#00ffff;font-weight:bold;">
-              ${company.company}
-            </span>
+          <a href="tel:${company.phone}" style="color:#00ffff;text-decoration:none;">
+            Call
+          </a>
 
-            <span style="color:#aaa;">
-              ${company.location}
-            </span>
-
-            <a href="tel:${company.phone}" style="color:#00ffff;text-decoration:none;">
-              Call
-            </a>
-
-            <a href="https://wa.me/${company.whatsapp}" target="_blank" style="color:#00ff88;text-decoration:none;">
-              WhatsApp
-            </a>
-
-          </div>
+          <a href="https://wa.me/${company.whatsapp}" target="_blank" style="color:#00ff88;text-decoration:none;">
+            WhatsApp
+          </a>
 
         </div>
-      `;
 
-    });
+      </div>
+    `;
+  });
+
+  // restart animation loop so ads start moving again after search
+  if (typeof startMarketBillboard === "function") {
+    startMarketBillboard();
+  }
 }
 
 let marketStarted = false;
