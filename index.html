@@ -1258,8 +1258,15 @@ window.speechSynthesis.speak(speech);
 
     pageNum = maxPages;
 
-    document.getElementById("limitMessage").innerText =
-      "You reached page " + pageNum + " of " + maxPages;
+const book = books.find(b => b.pdf === selectedPDF);
+
+const actualRead =
+pageNum - book.startReadingPage + 1;
+
+document.getElementById("limitMessage").innerText =
+"You have read " +
+actualRead +
+" pages in your package.";
 
     showUpgradePlans();
     document.getElementById("upgradeBox").style.display = "block";
