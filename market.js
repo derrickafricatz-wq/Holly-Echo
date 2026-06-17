@@ -27,8 +27,8 @@ const marketAds = [
 
 {
   company: "Yeriko Home Of Arts",
-  phone: "+255746644223",
-  whatsapp: "255752434777",
+  phone: "255767178000",
+  whatsapp: "255767178000",
   location: "Arusha, Tanzania",
 
   images: [
