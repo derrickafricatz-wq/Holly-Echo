@@ -860,33 +860,33 @@ function startMarketBillboard() {
 
   marketInterval = setInterval(() => {
 
-    const cards = document.querySelectorAll(".marketCard");
+    const billboards = document.querySelectorAll(".marketBillboard");
 
-    if (!cards.length) return;
+    billboards.forEach(img => {
 
-    cards.forEach(card => {
+      try {
 
-      const img = card.querySelector("img");
+        const images = JSON.parse(
+          decodeURIComponent(img.dataset.images || "[]")
+        );
 
-      if (!img) return;
+        if (!images.length) return;
 
-      const images = img.dataset.images
-        ? JSON.parse(img.dataset.images)
-        : null;
+        let index = parseInt(img.dataset.index || "0");
 
-      if (!images || images.length === 0) return;
+        index = (index + 1) % images.length;
 
-      let index = img.dataset.index
-        ? parseInt(img.dataset.index)
-        : 0;
+        img.style.opacity = "0.4";
 
-      index++;
+        setTimeout(() => {
+          img.src = images[index];
+          img.dataset.index = index;
+          img.style.opacity = "1";
+        }, 300);
 
-      if (index >= images.length) index = 0;
-
-      img.src = images[index];
-
-      img.dataset.index = index;
+      } catch (e) {
+        console.log("Billboard error:", e);
+      }
 
     });
 
