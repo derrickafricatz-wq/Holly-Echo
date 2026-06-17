@@ -32,18 +32,11 @@ function renderMarket() {
   const container = document.getElementById("marketAds");
   if (!container) return;
 
-  // get search input
   const search =
     document.getElementById("marketSearch")?.value.toLowerCase() || "";
 
-  // reset HTML
   container.innerHTML = "";
 
-  // reset looping indexes so animation restarts correctly
-  marketCompanyIndex = 0;
-  marketImageIndex = 0;
-
-  // filter + render
   const filtered = marketAds.filter(company => {
 
     return (
@@ -55,7 +48,6 @@ function renderMarket() {
 
   });
 
-  // render filtered results
   filtered.forEach((company, index) => {
 
     container.innerHTML += `
@@ -69,7 +61,7 @@ function renderMarket() {
 
         <img
           id="billboard-${index}"
-          src="${company.images?.[0] || ''}"
+          src="${company.images[0]}"
           style="
             width:100%;
             border-radius:10px;
@@ -108,12 +100,9 @@ function renderMarket() {
 
       </div>
     `;
+
   });
 
-  // restart animation loop so ads start moving again after search
-  if (typeof startMarketBillboard === "function") {
-    startMarketBillboard();
-  }
 }
 
 let marketStarted = false;
