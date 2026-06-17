@@ -856,10 +856,6 @@ style="
 
 function startMarketBillboard() {
 
-  const container = document.getElementById("marketAds");
-  if (!container) return;
-
-  // prevent multiple intervals
   if (marketInterval) clearInterval(marketInterval);
 
   marketInterval = setInterval(() => {
@@ -868,48 +864,31 @@ function startMarketBillboard() {
 
     if (!cards.length) return;
 
-    // loop index safely within visible cards only
-    if (marketCompanyIndex >= cards.length) {
-      marketCompanyIndex = 0;
-    }
+    cards.forEach(card => {
 
-    const card = cards[marketCompanyIndex];
-    if (!card) return;
+      const img = card.querySelector("img");
 
-    // get company name from DOM (IMPORTANT for search sync)
-    const nameEl = card.querySelector("span");
-    const companyName = nameEl ? nameEl.textContent.trim() : null;
+      if (!img) return;
 
-    const company = marketAds.find(c =>
-      c.company === companyName
-    );
+      const images = img.dataset.images
+        ? JSON.parse(img.dataset.images)
+        : null;
 
-    if (!company || !company.images || !company.images.length) return;
+      if (!images || images.length === 0) return;
 
-    const img = card.querySelector("img");
+      let index = img.dataset.index
+        ? parseInt(img.dataset.index)
+        : 0;
 
-    if (img) {
+      index++;
 
-      // rotate image inside same company
-      img.style.opacity = "0.3";
+      if (index >= images.length) index = 0;
 
-      setTimeout(() => {
+      img.src = images[index];
 
-        img.src = company.images[marketImageIndex];
+      img.dataset.index = index;
 
-        img.style.opacity = "1";
-
-      }, 300);
-
-    }
-
-    // IMAGE LOOP
-    marketImageIndex++;
-
-    if (marketImageIndex >= company.images.length) {
-      marketImageIndex = 0;
-      marketCompanyIndex++;
-    }
+    });
 
   }, 3000);
 }
