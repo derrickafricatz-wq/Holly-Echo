@@ -4,6 +4,7 @@ const books = [
   locked: true,
   pdf: "holly.pdf",
   cover: "images/co1.jpg",
+  startReadingPage: 9,
 
   author: {
     name: "Errick H Agustino",
@@ -27,6 +28,7 @@ const books = [
   locked: true,
   pdf: "learn.pdf",
   cover: "images/co2.jpg",
+  startReadingPage: 3,
 
   author: {
     name: "Errick H Agustino",
