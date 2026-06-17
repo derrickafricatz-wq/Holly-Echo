@@ -1152,7 +1152,9 @@ window.speechSynthesis.speak(speech);
   }
 
   else if (pkg === "standard") {
-    maxPages = Math.min(book.plans.standard.pages, totalPages);
+    maxPages =
+  book.startReadingPage +
+  book.plans.standard.pages - 1;
   }
 
   else if (pkg === "premium") {
