@@ -876,13 +876,17 @@ function startMarketBillboard() {
 
         index = (index + 1) % images.length;
 
-        img.style.opacity = "0.4";
+        img.style.opacity = "0";
 
-        setTimeout(() => {
-          img.src = images[index];
-          img.dataset.index = index;
-          img.style.opacity = "1";
-        }, 300);
+       setTimeout(() => {
+
+       img.src = images[index];
+
+       img.style.opacity = "1";
+
+       img.dataset.index = index;
+
+    }, 800);
 
       } catch (e) {
         console.log("Billboard error:", e);
@@ -890,7 +894,7 @@ function startMarketBillboard() {
 
     });
 
-  }, 7000);
+  }, 5000);
 }
 
     window.addEventListener("load", () => {
