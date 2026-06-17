@@ -11,8 +11,10 @@ const books = [
     payment: {
       method: "M-Pesa",
       number: "+255 767178000",
-      lipaNumber: "pending..",
-      name: "Errick H Agustino"
+      name: "Errick H Agustino",
+
+      lipaNumber: "ing..",
+      lipaName: "ing.."
     }
   },
 
@@ -35,8 +37,10 @@ const books = [
     payment: {
       method: "M-Pesa",
       number: "+255 767178000",
-      lipaNumber: "pending..", 
-      name: "Errick H Agustino"
+      name: "Errick H Agustino",
+
+      lipaNumber: "ing..",
+      lipaName: "ing.."
     }
   },
 
