@@ -857,61 +857,61 @@ style="
 function startMarketBillboard() {
 
   const container = document.getElementById("marketAds");
+  if (!container) return;
 
-  if (!container || typeof marketAds === "undefined") return;
-
-  // prevent multiple intervals (IMPORTANT FIX)
+  // prevent multiple intervals
   if (marketInterval) clearInterval(marketInterval);
 
   marketInterval = setInterval(() => {
 
-    const company = marketAds[marketCompanyIndex];
+    const cards = document.querySelectorAll(".marketCard");
 
-    if (!company || !company.images.length) return;
+    if (!cards.length) return;
 
-    const image = company.images[marketImageIndex];
+    // loop index safely within visible cards only
+    if (marketCompanyIndex >= cards.length) {
+      marketCompanyIndex = 0;
+    }
 
-    container.innerHTML = `
-      <div style="
-        background:#111;
-        border:1px solid #00ffff;
-        border-radius:15px;
-        padding:15px;
-        margin-bottom:20px;
-        transition:0.5s ease;
-      ">
+    const card = cards[marketCompanyIndex];
+    if (!card) return;
 
-        <img src="${image}" style="
-          width:100%;
-          border-radius:10px;
-        ">
+    // get company name from DOM (IMPORTANT for search sync)
+    const nameEl = card.querySelector("span");
+    const companyName = nameEl ? nameEl.textContent.trim() : null;
 
-        <h2 style="color:#00ffff;">
-          ${company.company}
-        </h2>
+    const company = marketAds.find(c =>
+      c.company === companyName
+    );
 
-        <p>${company.location}</p>
-        <p>${company.phone}</p>
+    if (!company || !company.images || !company.images.length) return;
 
-      </div>
-    `;
+    const img = card.querySelector("img");
 
-    // rotate images inside SAME company
+    if (img) {
+
+      // rotate image inside same company
+      img.style.opacity = "0.3";
+
+      setTimeout(() => {
+
+        img.src = company.images[marketImageIndex];
+
+        img.style.opacity = "1";
+
+      }, 300);
+
+    }
+
+    // IMAGE LOOP
     marketImageIndex++;
 
     if (marketImageIndex >= company.images.length) {
       marketImageIndex = 0;
-
-      // move to next company
       marketCompanyIndex++;
-
-      if (marketCompanyIndex >= marketAds.length) {
-        marketCompanyIndex = 0; // LOOP FOREVER
-      }
     }
 
   }, 3000);
-
 }
 
     window.addEventListener("load", () => {
