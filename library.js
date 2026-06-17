@@ -4,7 +4,7 @@ const books = [
   language: "en-US",
   locked: true,
   pdf: "holly.pdf",
-  cover: "images/co1.jpg",
+  cover: "images/er2.jpg",
   startReadingPage: 9,
 
   author: {
@@ -31,7 +31,7 @@ const books = [
   language: "en-US",
   locked: true,
   pdf: "learn.pdf",
-  cover: "images/co2.jpg",
+  cover: "images/er1.jpg",
   startReadingPage: 3,
 
   author: {
