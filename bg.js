@@ -1,4 +1,4 @@
 const bgImages = [
-  "images/t1.jpg",
+  "images/t1.png",
   "images/t2.png"
 ];
