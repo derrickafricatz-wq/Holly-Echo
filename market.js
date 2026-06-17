@@ -29,70 +29,79 @@ const marketAds = [
 
 function renderMarket() {
 
-  const container =
-    document.getElementById("marketAds");
-
+  const container = document.getElementById("marketAds");
   if (!container) return;
+
+  const search =
+    document.getElementById("marketSearch")?.value.toLowerCase() || "";
 
   container.innerHTML = "";
 
-  marketAds.forEach((company, index) => {
+  marketAds
+    .filter(company => {
 
-    container.innerHTML += `
+      return (
+        (company.company || "").toLowerCase().includes(search) ||
+        (company.location || "").toLowerCase().includes(search) ||
+        (company.phone || "").toLowerCase().includes(search) ||
+        (company.whatsapp || "").toLowerCase().includes(search)
+      );
 
-      <div class="marketCard" id="company-${index}" style="
-        background:#111;
-        border:1px solid #00ffff;
-        border-radius:15px;
-        padding:15px;
-        margin-bottom:20px;
-      ">
+    })
+    .forEach((company, index) => {
 
-      <img
-      id="billboard-${index}"
-      src="${company.images[0]}"
-      style="
-      width:100%;
-      border-radius:10px;
-      opacity:1;
-      transform:scale(1);
-      transition: opacity 1.5s ease-in-out, transform 3.5s ease-in-out;
-    "
-   >
+      container.innerHTML += `
+        <div class="marketCard" id="company-${index}" style="
+          background:#111;
+          border:1px solid #00ffff;
+          border-radius:15px;
+          padding:15px;
+          margin-bottom:20px;
+        ">
 
-        <div style="
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  align-items:center;
-  margin-top:10px;
-  font-size:16px;
-">
+          <img
+            id="billboard-${index}"
+            src="${company.images[0]}"
+            style="
+              width:100%;
+              border-radius:10px;
+              opacity:1;
+              transform:scale(1);
+              transition: opacity 1.5s ease-in-out, transform 3.5s ease-in-out;
+            "
+          >
 
-  <span style="color:#00ffff;font-weight:bold;">
-    ${company.company}
-  </span>
+          <div style="
+            display:flex;
+            flex-wrap:wrap;
+            gap:10px;
+            align-items:center;
+            margin-top:10px;
+            font-size:16px;
+          ">
 
-  <span style="color:#aaa;">
-    ${company.location}
-  </span>
+            <span style="color:#00ffff;font-weight:bold;">
+              ${company.company}
+            </span>
 
-  <a href="tel:${company.phone}" style="color:#00ffff;text-decoration:none;">
-    Call
-  </a>
+            <span style="color:#aaa;">
+              ${company.location}
+            </span>
 
-  <a href="https://wa.me/${company.whatsapp}" target="_blank" style="color:#00ff88;text-decoration:none;">
-    WhatsApp
-  </a>
+            <a href="tel:${company.phone}" style="color:#00ffff;text-decoration:none;">
+              Call
+            </a>
 
-</div>
+            <a href="https://wa.me/${company.whatsapp}" target="_blank" style="color:#00ff88;text-decoration:none;">
+              WhatsApp
+            </a>
 
-      </div>
+          </div>
 
-    `;
+        </div>
+      `;
 
-  });
-
+    });
 }
 
 let marketStarted = false;
