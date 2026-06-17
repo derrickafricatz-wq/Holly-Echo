@@ -58,7 +58,7 @@ const books = [
   language: "sw-TZ",
   locked: true,
   pdf: "b26.pdf",
-  cover: "images/co2.jpg",
+  cover: "images/b20.jpg",
   startReadingPage: 12,
 
   author: {
