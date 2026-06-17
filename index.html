@@ -1749,6 +1749,10 @@ function closeGuide() {
     function renderBooks() {
   const list = document.getElementById("bookList");
 
+      const search =
+document.getElementById("bookSearch")
+?.value.toLowerCase() || "";
+
   list.innerHTML = "";
 
   books.forEach(book => {
