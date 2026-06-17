@@ -1755,7 +1755,11 @@ document.getElementById("bookSearch")
 
   list.innerHTML = "";
 
-  books.forEach(book => {
+  books
+.filter(book =>
+book.title.toLowerCase().includes(search)
+)
+.forEach(book => {
 
     const item = document.createElement("div");
 
