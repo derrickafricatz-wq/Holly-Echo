@@ -597,6 +597,21 @@ If a payment or key issue occurs, contact the administrator for assistance.
   
   <h2 style="color:#00ffff;">📚 Book Store</h2> 
 
+    <input
+id="bookSearch"
+type="text"
+placeholder="Search books..."
+oninput="renderBooks()"
+style="
+width:90%;
+max-width:500px;
+padding:12px;
+border:none;
+border-radius:25px;
+margin-bottom:20px;
+font-size:16px;
+">
+
   <div id="bookList"></div>
 
   <button onclick="closeStore()" style="
