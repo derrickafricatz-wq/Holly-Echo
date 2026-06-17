@@ -1131,19 +1131,25 @@ if (!license.package) {
     return;
   }
 
+  const currentBook =
+    books.find(b => b.pdf === selectedPDF);
+
   let speech = new SpeechSynthesisUtterance(text);
 
-  speech.lang = "en-US";
+  speech.lang =
+    currentBook?.language || "en-US";
+
   speech.rate = speechSpeed;
 
   if (currentSpeech) {
-  window.speechSynthesis.cancel();
-}
+    window.speechSynthesis.cancel();
+  }
 
-currentSpeech = speech;
+  currentSpeech = speech;
 
-window.speechSynthesis.speak(speech);
-}
+  window.speechSynthesis.speak(speech);
+
+    }
 
     function applyLimit() {
   const book = books.find(b => b.pdf === selectedPDF);
