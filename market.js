@@ -50,6 +50,8 @@ function renderMarket() {
 
   filtered.forEach((company, index) => {
 
+    const imagesSafe = encodeURIComponent(JSON.stringify(company.images || []));
+
     container.innerHTML += `
       <div class="marketCard" id="company-${index}" style="
         background:#111;
@@ -60,18 +62,17 @@ function renderMarket() {
       ">
 
         <img
-  class="marketBillboard"
-  src="${company.images[0]}"
-  data-images='${JSON.stringify(company.images)}'
-  data-index="0"
-  style="
-    width:100%;
-    border-radius:10px;
-    opacity:1;
-    transform:scale(1);
-    transition: opacity 1s ease-in-out, transform 2s ease-in-out;
-  "
->
+          class="marketBillboard"
+          src="${company.images?.[0] || ''}"
+          data-images="${imagesSafe}"
+          data-index="0"
+          style="
+            width:100%;
+            border-radius:10px;
+            opacity:1;
+            transition: opacity 0.8s ease-in-out;
+          "
+        >
 
         <div style="
           display:flex;
@@ -104,6 +105,11 @@ function renderMarket() {
     `;
 
   });
+
+  // IMPORTANT: restart billboard AFTER render
+  setTimeout(() => {
+    startMarketBillboard();
+  }, 100);
 
 }
 
