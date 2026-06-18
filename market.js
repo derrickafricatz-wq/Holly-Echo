@@ -33,6 +33,7 @@ const marketAds = [
 
   images: [
     "images/y1.png",
+    "images/y2.png"
   ]
 }
 
