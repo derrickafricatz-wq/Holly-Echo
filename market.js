@@ -6,6 +6,8 @@ const marketAds = [
   whatsapp: "255742097868",
   location: "Arusha, Tanzania",
 
+  expiresAt: "2026-06-21 20:59",  
+
   images: [
     "images/logo.png",
     "images/logo1.jpg",
@@ -19,6 +21,8 @@ const marketAds = [
   whatsapp: "255752434777",
   location: "Dodoma, Tanzania",
 
+  expiresAt: "2026-06-20 23:59",
+
   images: [
     "images/o1.png",
     "images/o2.jpg"
@@ -30,6 +34,8 @@ const marketAds = [
   phone: "255767178000",
   whatsapp: "255767178000",
   location: "Arusha, Tanzania",
+
+  expiresAt: "2026-06-20 22:42",
 
   images: [
     "images/y1.png",
@@ -49,16 +55,26 @@ function renderMarket() {
 
   container.innerHTML = "";
 
-  const filtered = marketAds.filter(company => {
+  const now = new Date();
 
-    return (
-      (company.company || "").toLowerCase().includes(search) ||
-      (company.location || "").toLowerCase().includes(search) ||
-      (company.phone || "").toLowerCase().includes(search) ||
-      (company.whatsapp || "").toLowerCase().includes(search)
-    );
+const filtered = marketAds.filter(company => {
 
-  });
+  // Remove expired ads
+  if (
+    company.expiresAt &&
+    new Date(company.expiresAt) <= now
+  ) {
+    return false;
+  }
+
+  return (
+    (company.company || "").toLowerCase().includes(search) ||
+    (company.location || "").toLowerCase().includes(search) ||
+    (company.phone || "").toLowerCase().includes(search) ||
+    (company.whatsapp || "").toLowerCase().includes(search)
+  );
+
+});
 
   filtered.forEach((company, index) => {
 
