@@ -119,6 +119,16 @@ const filtered = marketAds.filter(company => {
     return false;
   }
 
+  // Category filter
+  if (
+    selectedCategory !== "All" &&
+    (!company.categories ||
+     !company.categories.includes(selectedCategory))
+  ) {
+    return false;
+  }
+
+  // Search filter
   return (
     (company.company || "").toLowerCase().includes(search) ||
     (company.location || "").toLowerCase().includes(search) ||
