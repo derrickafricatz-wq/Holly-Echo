@@ -1,6 +1,6 @@
 // Holly Echo - Offline Service Worker (FINAL CLEAN VERSION)
 
-const CACHE_NAME = "holly-echo-v12";
+const CACHE_NAME = "holly-echo-v13";
 
 /* =========================
    FILES TO CACHE (APP SHELL)
@@ -13,6 +13,7 @@ const APP_SHELL = [
   "./manifest.json",
   "./sw.js",
   "./bg.js",
+  "./verse.js",
   "./market.js",
   "./library.js",
   "./offline.html",
