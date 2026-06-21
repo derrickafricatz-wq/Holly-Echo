@@ -174,3 +174,40 @@ ${book.author.payment.lipaName ? `
   showRandomVerse();
 
     }
+
+function showRandomVerse() {
+
+  const verseBox = document.getElementById("dailyVerse");
+
+  if (!verseBox) return;
+
+  const randomVerse =
+    bibleVerses[Math.floor(Math.random() * bibleVerses.length)];
+
+  verseBox.innerHTML = `
+    <div style="
+      color:#00ffff;
+      font-size:18px;
+      font-weight:bold;
+      margin-bottom:10px;
+    ">
+      🕊 Daily Encouragement
+    </div>
+
+    <div style="
+      color:white;
+      font-style:italic;
+      margin-bottom:10px;
+    ">
+      "${randomVerse.verse}"
+    </div>
+
+    <div style="
+      color:#aaa;
+      font-size:14px;
+    ">
+      — ${randomVerse.reference}
+    </div>
+  `;
+
+} 
