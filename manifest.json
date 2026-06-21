@@ -44,5 +44,8 @@
     "action": "/Holly-Echo/",
     "method": "GET",
     "enctype": "application/x-www-form-urlencoded"
-  }
+  },
+  
+  "screenshots": [
+  ]
 }
