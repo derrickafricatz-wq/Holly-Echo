@@ -21,7 +21,7 @@ const marketAds = [
   whatsapp: "255752434777",
   location: "Dodoma, Tanzania",
 
-  expiresAt: "2026-06-20 23:59",
+  expiresAt: "2026-06-25 23:59",
 
   images: [
     "images/o1.png",
@@ -35,7 +35,7 @@ const marketAds = [
   whatsapp: "255767178000",
   location: "Arusha, Tanzania",
 
-  expiresAt: "2026-06-20 22:42",
+  expiresAt: "2026-06-22 22:42",
 
   images: [
     "images/y1.png",
