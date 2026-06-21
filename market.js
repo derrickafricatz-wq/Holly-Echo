@@ -45,6 +45,22 @@ const marketAds = [
 
 ];
 
+let selectedCategory = "All";
+
+const marketCategories = [
+  "All",
+  "Technology",
+  "Food",
+  "Fashion",
+  "Health",
+  "Education",
+  "Transport",
+  "Tourism",
+  "Arts",
+  "Events",
+  "Services"
+];
+
 function renderMarket() {
 
   const container = document.getElementById("marketAds");
