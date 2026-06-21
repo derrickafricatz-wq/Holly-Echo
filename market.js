@@ -186,6 +186,14 @@ const filtered = marketAds.filter(company => {
 
 }
 
+function selectCategory(category) {
+
+  selectedCategory = category;
+
+  renderMarket();
+
+}
+
 let marketStarted = false;
 
 function startMarketRotations() {
