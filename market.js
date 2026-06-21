@@ -6,6 +6,8 @@ const marketAds = [
   whatsapp: "255742097868",
   location: "Arusha, Tanzania",
 
+  categories: ["Technology", "Services"],
+
   expiresAt: "2026-06-21 20:59",  
 
   images: [
@@ -21,6 +23,8 @@ const marketAds = [
   whatsapp: "255752434777",
   location: "Dodoma, Tanzania",
 
+  categories: ["Printing", "Events"],
+
   expiresAt: "2026-06-25 23:59",
 
   images: [
@@ -34,6 +38,8 @@ const marketAds = [
   phone: "255767178000",
   whatsapp: "255767178000",
   location: "Arusha, Tanzania",
+
+  categories: ["Arts",],
 
   expiresAt: "2026-06-22 22:42",
 
@@ -57,6 +63,7 @@ const marketCategories = [
   "Transport",
   "Tourism",
   "Arts",
+  "Printing",
   "Events",
   "Services"
 ];
