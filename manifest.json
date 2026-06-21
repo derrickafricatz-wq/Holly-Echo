@@ -47,5 +47,25 @@
   },
   
   "screenshots": [
+  {
+    "src": "screenshots/homepage.jpg",
+    "type": "image/jpeg"
+  },
+  {
+    "src": "screenshots/bookstore.jpg",
+    "type": "image/jpeg"
+  },
+  {
+    "src": "screenshots/market.jpg",
+    "type": "image/jpeg"
+  },
+  {
+    "src": "screenshots/reader.jpg",
+    "type": "image/jpeg"
+  },
+  {
+    "src": "screenshots/sponsor.jpg",
+    "type": "image/jpeg"
+  }
   ]
 }
