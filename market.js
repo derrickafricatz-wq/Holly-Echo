@@ -85,14 +85,19 @@ if (categoryBox) {
       <button
         onclick="selectCategory('${category}')"
         style="
-          background:#111;
-          color:#00ffff;
-          border:1px solid #00ffff;
-          border-radius:20px;
-          padding:8px 15px;
-          cursor:pointer;
-          white-space:nowrap;
-        "
+  background:${selectedCategory === category ? '#00ffff' : '#111'};
+  color:${selectedCategory === category ? '#000' : '#00ffff'};
+  border:1px solid #00ffff;
+  border-radius:20px;
+  padding:10px 18px;
+  font-weight:bold;
+
+  box-shadow:
+    0 4px 0 #008b8b,
+    0 8px 15px rgba(0,255,255,.35);
+
+  transition:all .2s ease;
+"
       >
         ${category}
       </button>
