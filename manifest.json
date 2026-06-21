@@ -48,23 +48,23 @@
   
   "screenshots": [
   {
-    "src": "screenshots/homepage.jpg",
+    "src": "home.jpg",
     "type": "image/jpeg"
   },
   {
-    "src": "screenshots/bookstore.jpg",
+    "src": "sponsor.jpg",
     "type": "image/jpeg"
   },
   {
-    "src": "screenshots/market.jpg",
+    "src": "market.jpg",
     "type": "image/jpeg"
   },
   {
-    "src": "screenshots/reader.jpg",
+    "src": "bookstore.jpg",
     "type": "image/jpeg"
   },
   {
-    "src": "screenshots/sponsor.jpg",
+    "src": "reader.jpg",
     "type": "image/jpeg"
   }
   ]
