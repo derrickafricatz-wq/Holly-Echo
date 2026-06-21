@@ -452,7 +452,7 @@
   <div id="scrollBannerWrapper">
 
   <div id="brandBox">
-  TESTIMONY FOUNDATION
+  powered by deka
   </div> 
 
   <div id="scrollBanner"></div>
@@ -703,8 +703,18 @@ style="
   display:flex;
   gap:10px;
   overflow-x:auto;
-  padding:10px;
+  padding:12px;
   margin:10px;
+
+  background:#111;
+  border:1px solid #00ffff;
+  border-radius:15px;
+
+  box-shadow:
+    0 4px 10px rgba(0,255,255,.3),
+    inset 0 1px 0 rgba(255,255,255,.15),
+    inset 0 -2px 5px rgba(0,0,0,.6);
+
   white-space:nowrap;
 ">
     </div>
@@ -1657,7 +1667,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v9");
+  const cache = await caches.open("holly-echo-v15");
 
   const keys = await cache.keys();
 
@@ -2075,8 +2085,7 @@ startMarketTitleLoop();
 
 const brandMessages = [
 
-"TOA TUMAINI",
-"BADILI MAISHA"
+"DAY'S WORD",
 ];
 
     let brandIndex = 0;
