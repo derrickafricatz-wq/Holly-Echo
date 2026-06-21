@@ -66,6 +66,35 @@ function renderMarket() {
   const container = document.getElementById("marketAds");
   if (!container) return;
 
+  const categoryBox = document.getElementById("marketCategories");
+
+if (categoryBox) {
+
+  categoryBox.innerHTML = "";
+
+  marketCategories.forEach(category => {
+
+    categoryBox.innerHTML += `
+      <button
+        onclick="selectCategory('${category}')"
+        style="
+          background:#111;
+          color:#00ffff;
+          border:1px solid #00ffff;
+          border-radius:20px;
+          padding:8px 15px;
+          cursor:pointer;
+          white-space:nowrap;
+        "
+      >
+        ${category}
+      </button>
+    `;
+
+  });
+
+}
+
   const search =
     document.getElementById("marketSearch")?.value.toLowerCase() || "";
 
