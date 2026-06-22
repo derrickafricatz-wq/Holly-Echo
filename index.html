@@ -367,27 +367,33 @@
   max-width: 100%;
 }
 
-    #brandBall{
+#brandBall{
   position:absolute;
+
+  width:18px;
+  height:18px;
+
+  border-radius:50%;
+
+  left:-25px;
   top:50%;
+
   transform:translateY(-50%);
-  left:-40px;
-  font-size:28px;
 
-  animation:brandBallMove 5s linear infinite;
+  background:
+  radial-gradient(circle at 30% 30%,
+  #ffffff,
+  #00ffff,
+  #7a00ff);
+
+  box-shadow:
+  0 0 10px #00ffff,
+  0 0 20px #7a00ff,
+  0 0 30px #00ffff;
+
+  z-index:4;
 }
-
-@keyframes brandBallMove{
-
-  0%{
-    left:-40px;
-  }
-
-  100%{
-    left:300px;
-  }
-
-}
+    
     #goalKeeper{
   position:absolute;
   right:5px;
