@@ -461,6 +461,29 @@
 
 }
 
+    #catchFlash{
+  position:absolute;
+
+  left:170px;
+  top:50%;
+
+  width:45px;
+  height:45px;
+
+  transform:translateY(-50%);
+
+  opacity:0;
+
+  z-index:6;
+
+  filter:
+    drop-shadow(0 0 8px #00ffff)
+    drop-shadow(0 0 20px #00ffff)
+    drop-shadow(0 0 35px #7a00ff);
+
+  animation:catchFlash 4s linear infinite;
+    }
+
     @keyframes catchFlash{
 
   0%{
