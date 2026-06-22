@@ -3,7 +3,7 @@ const books = [
   title: "How to Hear Voice of God",
   language: "en-US",
   locked: true,
-  pdf: "pdfs/holly.pdf",
+  pdf: "holly.pdf",
   cover: "images/er2.jpg",
   startReadingPage: 9,
 
@@ -30,7 +30,7 @@ const books = [
   title: "Spiritual Eyes",
   language: "en-US",
   locked: true,
-  pdf: "pdfs/learn.pdf",
+  pdf: "learn.pdf",
   cover: "images/er1.jpg",
   startReadingPage: 3,
 
@@ -57,7 +57,7 @@ const books = [
   title: "Wito Wa Kumtumikia Mungu",
   language: "sw-TZ",
   locked: true,
-  pdf: "pdfs/b26.pdf",
+  pdf: "b26.pdf",
   cover: "images/b20.jpg",
   startReadingPage: 12,
 
