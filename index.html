@@ -1508,15 +1508,23 @@ startMarketRotations();
 
 };
 
-   let bgIndex = 0;
+   let campaignIndex = 0;
+let imageIndex = 0;
 
 function startBackgroundLoop() {
 
   const bg = document.getElementById("appBg");
 
-  if (!bg || !bgImages || bgImages.length === 0) return;
+  if (!bg || campaigns.length === 0) return;
 
-  bg.style.backgroundImage = `url('${bgImages[0]}')`;
+  bg.style.transition =
+    "opacity 1.5s ease-in-out";
+
+  bg.style.backgroundSize = "cover";
+  bg.style.backgroundPosition = "center";
+
+  bg.style.backgroundImage =
+    `url('${campaigns[0].images[0]}')`;
 
   setInterval(() => {
 
@@ -1524,20 +1532,50 @@ function startBackgroundLoop() {
 
     setTimeout(() => {
 
-      bgIndex++;
+      const currentCampaign =
+        campaigns[campaignIndex];
 
-      if (bgIndex >= bgImages.length) {
-        bgIndex = 0;
+      imageIndex++;
+
+      // Next campaign after last image
+      if (
+        imageIndex >= currentCampaign.images.length
+      ) {
+
+        imageIndex = 0;
+
+        campaignIndex++;
+
+        if (
+          campaignIndex >= campaigns.length
+        ) {
+          campaignIndex = 0;
+        }
+
       }
 
+      const nextCampaign =
+        campaigns[campaignIndex];
+
       bg.style.backgroundImage =
-        `url('${bgImages[bgIndex]}')`;
+        `url('${nextCampaign.images[imageIndex]}')`;
+
+      const sponsorLabel =
+document.getElementById("campaignName");
+
+if (sponsorLabel) {
+
+  sponsorLabel.innerHTML =
+    "Featured Sponsor<br>" +
+    nextCampaign.company;
+
+}
 
       bg.style.opacity = "1";
 
-    }, 2500);
+    }, 1500);
 
-  }, 6000);
+  }, 8000);
 
 }
 
