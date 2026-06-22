@@ -370,28 +370,19 @@
 #brandBall{
   position:absolute;
 
-  width:18px;
-  height:18px;
-
-  border-radius:50%;
-
-  left:-25px;
+  left:10px;
   top:50%;
 
   transform:translateY(-50%);
 
-  background:
-  radial-gradient(circle at 30% 30%,
-  #ffffff,
-  #00ffff,
-  #7a00ff);
+  width:32px;
+  height:32px;
 
-  box-shadow:
-  0 0 10px #00ffff,
-  0 0 20px #7a00ff,
-  0 0 30px #00ffff;
+  object-fit:contain;
 
   z-index:4;
+
+  pointer-events:none;
 }
     
     #goalKeeper{
