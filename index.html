@@ -369,20 +369,37 @@
 
 #brandBall{
   position:absolute;
-
-  left:10px;
+  left:-40px;
   top:50%;
-
-  transform:translateY(-50%);
 
   width:32px;
   height:32px;
 
   object-fit:contain;
 
+  transform:translateY(-50%);
+
   z-index:4;
 
-  pointer-events:none;
+  animation:ballKick 4s linear infinite;
+}
+
+@keyframes ballKick{
+
+  0%{
+    left:-40px;
+    transform:
+      translateY(-50%)
+      rotate(0deg);
+  }
+
+  100%{
+    left:190px;
+    transform:
+      translateY(-50%)
+      rotate(720deg);
+  }
+
 }
     
     #goalKeeper{
