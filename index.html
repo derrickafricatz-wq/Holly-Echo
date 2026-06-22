@@ -415,44 +415,6 @@
   }
 
 }
-    
-    #goalKeeper{
-  position:absolute;
-  right:5px;
-  bottom:0;
-
-  width:60px;
-  height:auto;
-
-  z-index:5;
-    
-  animation:keeperDive 4s linear infinite;
-    }
-
-    @keyframes keeperDive{
-
-  0%,70%{
-    transform:
-      translateX(0)
-      translateY(0)
-      rotate(0deg);
-  }
-
-  85%,95%{
-    transform:
-      translateX(-120px)
-      translateY(-40px)
-      rotate(-90deg);
-  }
-
-  100%{
-    transform:
-      translateX(0)
-      translateY(0)
-      rotate(0deg);
-  }
-
-}
 
     #catchFlash{
   position:absolute;
@@ -597,8 +559,6 @@
   <span id="brandText">
     FEATURED SPONSOR
   </span>
-
-  <img id="goalKeeper" src="keeper.png">
 
   <img id="brandBall" src="ball.png">
 
