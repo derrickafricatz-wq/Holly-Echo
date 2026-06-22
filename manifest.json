@@ -47,24 +47,29 @@
   },
   
   "screenshots": [
+ {
+    "src": "screenshots/home1.jpg",
+    "type": "image/jpeg"
+  },
+    
   {
-    "src": "home.jpg",
+    "src": "screenshots/home.jpg",
     "type": "image/jpeg"
   },
   {
-    "src": "sponsor.jpg",
+    "src": "screenshots/sponsor.jpg",
     "type": "image/jpeg"
   },
   {
-    "src": "market.jpg",
+    "src": "screenshots/market.jpg",
     "type": "image/jpeg"
   },
   {
-    "src": "bookstore.jpg",
+    "src": "screenshots/bookstore.jpg",
     "type": "image/jpeg"
   },
   {
-    "src": "reader.jpg",
+    "src": "screenshots/reader.jpg",
     "type": "image/jpeg"
   }
   ]
