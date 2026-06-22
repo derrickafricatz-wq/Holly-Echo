@@ -367,6 +367,28 @@
   max-width: 100%;
 }
 
+    #brandBall{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  left:-40px;
+  font-size:28px;
+
+  animation:brandBallMove 5s linear infinite;
+}
+
+@keyframes brandBallMove{
+
+  0%{
+    left:-40px;
+  }
+
+  100%{
+    left:300px;
+  }
+
+}
+
     #openMarketBtn{
   background:linear-gradient(45deg,#00ffff,#0088ff);
   color:white;
