@@ -1463,7 +1463,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v2");
+  const cache = await caches.open("holly-echo-v3");
 
   const keys = await cache.keys();
 
@@ -1508,23 +1508,36 @@ startMarketRotations();
 
 };
 
-   let campaignIndex = 0;
-let imageIndex = 0;
+   let let campaignIndex = 0;
+   let imageIndex = 0;
 
 function startBackgroundLoop() {
 
   const bg = document.getElementById("appBg");
+  const sponsorLabel =
+    document.getElementById("campaignName");
 
   if (!bg || campaigns.length === 0) return;
 
-  bg.style.transition =
-    "opacity 1.5s ease-in-out";
-
-  bg.style.backgroundSize = "contain"; 
-  bg.style.backgroundPosition = "center";
-
   bg.style.backgroundImage =
     `url('${campaigns[0].images[0]}')`;
+
+  bg.style.backgroundSize = "contain";
+  bg.style.backgroundPosition = "center";
+  bg.style.backgroundRepeat = "no-repeat";
+
+  bg.style.transition =
+    "opacity 1.5s ease, transform 12s linear";
+
+  if (sponsorLabel) {
+
+    sponsorLabel.innerHTML = `
+      FEATURED SPONSOR
+      <br>
+      ${campaigns[0].company}
+    `;
+
+  }
 
   setInterval(() => {
 
@@ -1532,20 +1545,19 @@ function startBackgroundLoop() {
 
     setTimeout(() => {
 
-      const currentCampaign =
+      const campaign =
         campaigns[campaignIndex];
 
       imageIndex++;
 
-      // Next campaign after last image
-      if (
-        imageIndex >= currentCampaign.images.length
-      ) {
+      // Finished all images of this sponsor
+      if (imageIndex >= campaign.images.length) {
 
         imageIndex = 0;
 
         campaignIndex++;
 
+        // Go back to first sponsor
         if (
           campaignIndex >= campaigns.length
         ) {
@@ -1554,24 +1566,30 @@ function startBackgroundLoop() {
 
       }
 
-      const nextCampaign =
+      const currentCampaign =
         campaigns[campaignIndex];
 
+      bg.style.transform = "scale(1.08)";
+
       bg.style.backgroundImage =
-        `url('${nextCampaign.images[imageIndex]}')`;
+        `url('${currentCampaign.images[imageIndex]}')`;
 
-      const sponsorLabel =
-document.getElementById("campaignName");
+      if (sponsorLabel) {
 
-if (sponsorLabel) {
+        sponsorLabel.innerHTML = `
+          FEATURED SPONSOR
+          <br>
+          ${currentCampaign.company}
+        `;
 
-  sponsorLabel.innerHTML =
-    "Featured Sponsor<br>" +
-    nextCampaign.company;
+      }
 
-}
+      requestAnimationFrame(() => {
 
-      bg.style.opacity = "1";
+        bg.style.opacity = "1";
+        bg.style.transform = "scale(1)";
+
+      });
 
     }, 1500);
 
