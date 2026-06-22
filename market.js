@@ -1,14 +1,14 @@
 const marketAds = [
 
 {
-  company: "deka",
+  company: "deka africa",
   phone: "+255742097868",
   whatsapp: "255742097868",
   location: "Arusha, Tanzania",
 
   categories: ["Technology", "Services"],
 
-  expiresAt: "2026-06-21 20:59",  
+  expiresAt: "2026-07-22 00:59",  
 
   images: [
     "images/logo.png",
@@ -25,7 +25,7 @@ const marketAds = [
 
   categories: ["Printing", "Events"],
 
-  expiresAt: "2026-06-25 23:59",
+  expiresAt: "2026-07-22 23:59",
 
   images: [
     "images/o1.png",
@@ -41,7 +41,7 @@ const marketAds = [
 
   categories: ["Arts",],
 
-  expiresAt: "2026-06-22 22:42",
+  expiresAt: "2026-07-01 20:00",
 
   images: [
     "images/y1.png",
