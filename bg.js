@@ -1,8 +1,15 @@
-const bgImages = [
-  "images/d1.jpg",
-  "images/d2.png",
-  "images/d3.png",
-  "images/d4.png",
-  "images/d5.jpg",
-  "images/d6.png"
+const campaigns = [
+
+{
+  company: "Testimony Foundation",
+  images: [
+    "images/d1.jpg",
+    "images/d2.png",
+    "images/d3.png",
+    "images/d4.png",
+    "images/d5.jpg",
+    "images/d6.png"
+  ]
+}
+
 ];
