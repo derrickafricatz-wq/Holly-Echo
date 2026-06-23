@@ -71,7 +71,7 @@
 
   padding-left: 100%;
 
-  animation: scrollBanner 20s linear infinite;
+  animation:scrollBanner 20s linear 1;
 }
 
 @keyframes scrollBanner{
@@ -1618,7 +1618,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v3");
+  const cache = await caches.open("holly-echo-v4");
 
   const keys = await cache.keys();
 
@@ -1665,7 +1665,7 @@ function showBanner(){
 
 showBanner();
 
-setInterval(showBanner, 28000);
+setInterval(showBanner, 20000);
 
 } catch (err) {
 
