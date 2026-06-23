@@ -1618,7 +1618,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v16");
+  const cache = await caches.open("holly-echo-v1");
 
   const keys = await cache.keys();
 
@@ -1637,10 +1637,35 @@ startHeaderLoop();
 
   const res = await fetch("./banner.txt");
 
-  const text = await res.text();
+const text = await res.text();
 
-  document.getElementById("scrollBanner").innerHTML =
-    "<span>" + text + "</span>";
+const messages = text
+  .split("\n")
+  .filter(m => m.trim() !== "");
+
+let bannerIndex = 0;
+
+const banner =
+  document.getElementById("scrollBanner");
+
+function showBanner(){
+
+  banner.innerHTML =
+    "<span>" +
+    messages[bannerIndex] +
+    "</span>";
+
+  bannerIndex++;
+
+  if(bannerIndex >= messages.length){
+    bannerIndex = 0;
+  }
+
+}
+
+showBanner();
+
+setInterval(showBanner, 10000);
 
 } catch (err) {
 
