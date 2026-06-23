@@ -10,6 +10,14 @@ const campaigns = [
     "images/d5.jpg",
     "images/d6.png"
   ]
+},
+
+  {
+  company: "Testimony Foundation",
+  images: [
+    "images/logo.png",
+    "images/logo1.jpg"
+  ]
 }
 
 ];
