@@ -1601,14 +1601,23 @@ window.addEventListener("appinstalled", async () => {
 
     }
 
-    await client
-      .from("app_installs")
-      .insert([
-        {
-          device_id: deviceId,
-          install_source: "Voice Of God"
-        }
-      ]);
+    const { data } = await client
+  .from("app_installs")
+  .select("id")
+  .eq("device_id", deviceId);
+
+if (!data || data.length === 0) {
+
+  await client
+    .from("app_installs")
+    .insert([
+      {
+        device_id: deviceId,
+        install_source: "Voice Of God"
+      }
+    ]);
+
+}
 
     console.log(
       "Install tracked successfully"
@@ -1704,7 +1713,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v1");
+  const cache = await caches.open("holly-echo-v2");
 
   const keys = await cache.keys();
 
