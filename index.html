@@ -1580,9 +1580,48 @@ installBtn.addEventListener("click", async () => {
 });
 
 // app installed successfully
-window.addEventListener("appinstalled", () => {
+window.addEventListener("appinstalled", async () => {
 
   installBtn.style.display = "none";
+
+  try {
+
+    let deviceId =
+      localStorage.getItem("vog_device_id");
+
+    if (!deviceId) {
+
+      deviceId =
+        crypto.randomUUID();
+
+      localStorage.setItem(
+        "vog_device_id",
+        deviceId
+      );
+
+    }
+
+    await client
+      .from("app_installs")
+      .insert([
+        {
+          device_id: deviceId,
+          install_source: "Voice Of God"
+        }
+      ]);
+
+    console.log(
+      "Install tracked successfully"
+    );
+
+  } catch (err) {
+
+    console.error(
+      "Install tracking failed",
+      err
+    );
+
+  }
 
 });
 
@@ -1665,7 +1704,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v6");
+  const cache = await caches.open("holly-echo-v1");
 
   const keys = await cache.keys();
 
