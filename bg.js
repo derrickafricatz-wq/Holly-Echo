@@ -13,7 +13,7 @@ const campaigns = [
 },
 
   {
-  company: "Testimony Foundation",
+  company: "deka africa",
   images: [
     "images/logo.png",
     "images/logo1.jpg"
