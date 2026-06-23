@@ -1618,7 +1618,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v1");
+  const cache = await caches.open("holly-echo-v2");
 
   const keys = await cache.keys();
 
@@ -1665,7 +1665,7 @@ function showBanner(){
 
 showBanner();
 
-setInterval(showBanner, 10000);
+setInterval(showBanner, 30000);
 
 } catch (err) {
 
