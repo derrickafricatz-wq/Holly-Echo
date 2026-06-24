@@ -1627,13 +1627,14 @@ try {
 } 
 
   await client
-    .from("app_installs")
-    .insert([
-      {
-        device_id: deviceId,
-        install_source: "Voice Of God"
-      }
-    ]);
+  .from("app_installs")
+  .insert([
+    {
+      device_id: deviceId,
+      install_source: "Voice Of God",
+      country: country
+    }
+  ]);
 
 }
 
@@ -1731,7 +1732,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v2");
+  const cache = await caches.open("holly-echo-v3");
 
   const keys = await cache.keys();
 
