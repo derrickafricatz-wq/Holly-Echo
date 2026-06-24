@@ -217,14 +217,28 @@ ${buttons}
 
 `;
 
-    document
-.getElementById("sendWhatsapp")
-.addEventListener("click", () => {
+    if (
+  buyerWhatsapp &&
+  document.getElementById(
+    "sendWhatsapp"
+  )
+) {
 
-const phone =
-buyerWhatsapp.replace(/\D/g,"");
+  document
+  .getElementById(
+    "sendWhatsapp"
+  )
+  .addEventListener(
+    "click",
+    () => {
 
-const message =
+      const phone =
+      buyerWhatsapp.replace(
+        /\D/g,
+        ""
+      );
+
+      const message =
 
 `Hello ${buyerName},
 
@@ -238,15 +252,61 @@ Package: ${packageName}
 
 Thank you.`;
 
-window.open(
+      window.open(
 
 `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
 
 "_blank"
 
-);
+      );
 
-});
+    }
+
+  );
+
+}
+
+if (
+  buyerEmail &&
+  document.getElementById(
+    "sendEmail"
+  )
+) {
+
+  document
+  .getElementById(
+    "sendEmail"
+  )
+  .addEventListener(
+    "click",
+    () => {
+
+      const subject =
+      "Voice Of God License";
+
+      const body =
+
+`Hello ${buyerName},
+
+Your Voice Of God license is:
+
+${license}
+
+Book: ${bookPdf}
+
+Package: ${packageName}
+
+Thank you.`;
+
+      window.location.href =
+
+`mailto:${buyerEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    }
+
+  );
+
+}
 
   } catch(err) {
 
