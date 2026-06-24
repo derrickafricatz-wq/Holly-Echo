@@ -212,9 +212,21 @@ document.getElementById("authorWhatsapp").value.trim();
 
 const authorEmail =
 document.getElementById("authorEmail").value.trim();
-    
-    const license =
-    generateLicense();
+
+const price =
+document.getElementById("price").value.trim();
+
+const priceValue =
+Number(price || 0);
+
+const vogShare =
+(priceValue * 0.20).toFixed(2);
+
+const authorShare =
+(priceValue * 0.80).toFixed(2);
+
+const license =
+generateLicense();
 
     const { error } =
     await client
