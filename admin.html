@@ -355,11 +355,14 @@ else if (buyerEmail) {
 
   if (error) {
 
-    alert("Login Failed");
+alert(
+"Login Failed: " +
+error.message
+);
 
-    return;
+return;
 
-  }
+}
 
   document.getElementById(
     "loginBox"
