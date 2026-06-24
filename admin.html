@@ -197,6 +197,37 @@ Send To WhatsApp
 
 `;
 
+    document
+.getElementById("sendWhatsapp")
+.addEventListener("click", () => {
+
+const phone =
+buyerWhatsapp.replace(/\D/g,"");
+
+const message =
+
+`Hello ${buyerName},
+
+Your Voice Of God license is:
+
+${license}
+
+Book: ${bookPdf}
+
+Package: ${packageName}
+
+Thank you.`;
+
+window.open(
+
+`https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
+
+"_blank"
+
+);
+
+});
+
   } catch(err) {
 
     alert(
