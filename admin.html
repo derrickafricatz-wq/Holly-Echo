@@ -275,6 +275,42 @@ else if (buyerEmail) {
 
 });
 
+  document
+.getElementById("loginBtn")
+.addEventListener("click", async () => {
+
+  const email =
+  document.getElementById("email").value;
+
+  const password =
+  document.getElementById("password").value;
+
+  const { error } =
+  await client.auth.signInWithPassword({
+
+    email,
+    password
+
+  });
+
+  if (error) {
+
+    alert("Login Failed");
+
+    return;
+
+  }
+
+  document.getElementById(
+    "loginBox"
+  ).style.display = "none";
+
+  document.getElementById(
+    "adminPanel"
+  ).style.display = "block";
+
+});
+
 </script>
 
 </body>
