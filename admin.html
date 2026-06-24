@@ -276,37 +276,33 @@ Thank you.`;
 
 if (buyerWhatsapp) {
 
-const phone =
-buyerWhatsapp.replace(/\D/g,"");
+  const phone =
+  buyerWhatsapp.replace(/\D/g,"");
 
-setTimeout(() => {
+  setTimeout(() => {
 
-```
-window.open(
-  `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
-  "_blank"
-);
-```
+    window.open(
+      `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
+      "_blank"
+    );
 
-}, 1000);
+  }, 1000);
 
-if(authorWhatsapp){
+  if(authorWhatsapp){
 
-```
-const authorPhone =
-authorWhatsapp.replace(/\D/g,"");
+    const authorPhone =
+    authorWhatsapp.replace(/\D/g,"");
 
-setTimeout(() => {
+    setTimeout(() => {
 
-  window.open(
-    `https://wa.me/${authorPhone}?text=${encodeURIComponent(authorMessage)}`,
-    "_blank"
-  );
+      window.open(
+        `https://wa.me/${authorPhone}?text=${encodeURIComponent(authorMessage)}`,
+        "_blank"
+      );
 
-}, 3000);
-```
+    }, 3000);
 
-}
+  }
 
 }
 
