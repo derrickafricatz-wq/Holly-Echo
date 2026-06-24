@@ -179,21 +179,23 @@ document
     }
 
     document.getElementById("result")
-    .innerHTML = `
+.innerHTML = `
 
-      <p>
-      License Generated Successfully
-      </p>
+<p>License Generated Successfully</p>
 
-      <div id="licenseKey">
-        ${license}
-      </div>
+<div id="licenseKey">
+${license}
+</div>
 
-      <p>
-      Buyer: ${buyerName}
-      </p>
+<p>
+Buyer: ${buyerName}
+</p>
 
-    `;
+<button id="sendWhatsapp">
+Send To WhatsApp
+</button>
+
+`;
 
   } catch(err) {
 
