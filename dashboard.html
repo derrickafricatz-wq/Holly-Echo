@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>Voice Of God Analytics</title>
 
@@ -53,34 +53,16 @@ h2{
 }
 
 .country-count{
-  font-size:20px;
+  font-size:24px;
   color:#0a7cff;
-  margin-top:5px;
-}
-
-.bar-container{
-  width:100%;
-  height:20px;
-  background:#e0e0e0;
-  border-radius:20px;
-  overflow:hidden;
-  margin-top:10px;
-}
-
-.bar{
-  height:100%;
-  background:#0a7cff;
-  border-radius:20px;
-  transition:width .5s ease;
 }
 
 </style>
-
 </head>
 
 <body>
 
-<h1> Voice Of God Analytics</h1>
+<h1>🌍 Voice Of God Analytics</h1>
 
 <div class="summary-card">
   <h2>Total Installs</h2>
@@ -106,7 +88,7 @@ const SUPABASE_URL =
 "https://xbemkmvvbkxknuduthsg.supabase.co";
 
 const SUPABASE_KEY =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhiZW1rbXZ2Ymt4a251ZHV0aHNnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk0OTUyOTgsImV4cCI6MjA5NTA3MTI5OH0.tKtlJ89jdPyeFSAaQs02Vet3SOl2LVatl4psSG9RxPI";
+"PASTE_YOUR_ANON_KEY_HERE";
 
 const client =
 supabase.createClient(
@@ -114,7 +96,7 @@ supabase.createClient(
   SUPABASE_KEY
 );
 
-async function loadStats(){
+async function loadStats() {
 
   const { data, error } =
   await client
@@ -146,63 +128,42 @@ async function loadStats(){
 
   document.getElementById(
     "totalInstalls"
-  ).textContent =
-  data.length;
+  ).textContent = data.length;
 
-  const sortedCountries =
-  Object.entries(counts)
-  .sort((a,b)=>b[1]-a[1]);
-
-  let topCountry =
-  "No Data";
-
+  let topCountry = "None";
   let topCount = 0;
-
-  if(sortedCountries.length){
-
-    topCountry =
-    sortedCountries[0][0] +
-    " (" +
-    sortedCountries[0][1] +
-    ")";
-
-    topCount =
-    sortedCountries[0][1];
-
-  }
-
-  document.getElementById(
-    "topCountry"
-  ).textContent =
-  topCountry;
 
   let html = "";
 
-  sortedCountries.forEach(
-  ([country,count],index)=>{
+  Object.entries(counts)
 
-    const percentage =
-    topCount > 0
-    ? (count / topCount) * 100
-    : 0;
+  .sort((a,b)=>b[1]-a[1])
+
+  .forEach(([country,count],index) => {
+
+    if(count > topCount){
+
+      topCount = count;
+
+      topCountry =
+      `${country} (${count})`;
+
+    }
 
     html += `
 
     <div class="country-card">
 
       <div class="country-name">
-        #${index+1} ${country}
+
+        #${index + 1} ${country}
+
       </div>
 
       <div class="country-count">
-        ${count} installs
-      </div>
 
-      <div class="bar-container">
-        <div
-          class="bar"
-          style="width:${percentage}%">
-        </div>
+        ${count} installs
+
       </div>
 
     </div>
@@ -212,6 +173,11 @@ async function loadStats(){
   });
 
   document.getElementById(
+    "topCountry"
+  ).textContent =
+  topCountry;
+
+  document.getElementById(
     "stats"
   ).innerHTML =
   html;
@@ -219,6 +185,8 @@ async function loadStats(){
 }
 
 loadStats();
+
+/* Auto refresh every 30 seconds */
 
 setInterval(
   loadStats,
