@@ -200,13 +200,19 @@ document.getElementById("authorEmail").value.trim();
     .from("licenses")
     .insert([
       {
-        key: license,
-        status: "active",
-        buyer_name: buyerName,
-        book_pdf: bookPdf,
-        package: packageName,
-        buyer_whatsapp: buyerWhatsapp,
-        buyer_email: buyerEmail
+key: license,
+status: "active",
+
+buyer_name: buyerName,
+buyer_whatsapp: buyerWhatsapp,
+buyer_email: buyerEmail,
+
+book_pdf: bookPdf,
+package: packageName,
+
+author_name: authorName,
+author_whatsapp: authorWhatsapp,
+author_email: authorEmail
       }
     ]);
 
