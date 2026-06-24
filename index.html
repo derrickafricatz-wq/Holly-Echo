@@ -1608,6 +1608,24 @@ window.addEventListener("appinstalled", async () => {
 
 if (!data || data.length === 0) {
 
+ let country = "Unknown";
+
+try {
+
+  const res = await fetch(
+    "https://ipapi.co/json/"
+  );
+
+  const info = await res.json();
+
+  country = info.country_name || "Unknown";
+
+} catch (err) {
+
+  console.log("Country lookup failed");
+
+} 
+
   await client
     .from("app_installs")
     .insert([
