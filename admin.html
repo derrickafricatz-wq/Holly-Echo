@@ -276,20 +276,37 @@ Thank you.`;
 
 if (buyerWhatsapp) {
 
-  const phone =
-  buyerWhatsapp.replace(/\D/g,"");
+const phone =
+buyerWhatsapp.replace(/\D/g,"");
 
-  setTimeout(() => {
+setTimeout(() => {
 
-    window.open(
+```
+window.open(
+  `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
+  "_blank"
+);
+```
 
-`https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
+}, 1000);
 
-"_blank"
+if(authorWhatsapp){
 
-    );
+```
+const authorPhone =
+authorWhatsapp.replace(/\D/g,"");
 
-  }, 1000);
+setTimeout(() => {
+
+  window.open(
+    `https://wa.me/${authorPhone}?text=${encodeURIComponent(authorMessage)}`,
+    "_blank"
+  );
+
+}, 3000);
+```
+
+}
 
 }
 
