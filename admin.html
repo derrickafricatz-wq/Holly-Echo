@@ -178,27 +178,7 @@ document
 
     }
 
-    let buttons = "";
-
-if (buyerWhatsapp) {
-
-  buttons +=
-  `<button id="sendWhatsapp">
-     Send To WhatsApp
-   </button><br><br>`;
-
-}
-
-if (buyerEmail) {
-
-  buttons +=
-  `<button id="sendEmail">
-     Send To Email
-   </button>`;
-
-}
-
-document.getElementById("result")
+   document.getElementById("result")
 .innerHTML = `
 
 <p>
@@ -213,32 +193,9 @@ ${license}
 Buyer: ${buyerName}
 </p>
 
-${buttons}
-
 `;
 
-    if (
-  buyerWhatsapp &&
-  document.getElementById(
-    "sendWhatsapp"
-  )
-) {
-
-  document
-  .getElementById(
-    "sendWhatsapp"
-  )
-  .addEventListener(
-    "click",
-    () => {
-
-      const phone =
-      buyerWhatsapp.replace(
-        /\D/g,
-        ""
-      );
-
-      const message =
+const message =
 
 `Hello ${buyerName},
 
@@ -252,61 +209,39 @@ Package: ${packageName}
 
 Thank you.`;
 
-      window.open(
+if (buyerWhatsapp) {
+
+  const phone =
+  buyerWhatsapp.replace(/\D/g,"");
+
+  setTimeout(() => {
+
+    window.open(
 
 `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
 
 "_blank"
 
-      );
+    );
 
-    }
-
-  );
+  }, 1000);
 
 }
 
-if (
-  buyerEmail &&
-  document.getElementById(
-    "sendEmail"
-  )
-) {
+else if (buyerEmail) {
 
-  document
-  .getElementById(
-    "sendEmail"
-  )
-  .addEventListener(
-    "click",
-    () => {
+  const subject =
+  "Voice Of God License";
 
-      const subject =
-      "Voice Of God License";
+  setTimeout(() => {
 
-      const body =
+    window.location.href =
 
-`Hello ${buyerName},
+`mailto:${buyerEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
 
-Your Voice Of God license is:
+  }, 1000);
 
-${license}
-
-Book: ${bookPdf}
-
-Package: ${packageName}
-
-Thank you.`;
-
-      window.location.href =
-
-`mailto:${buyerEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-    }
-
-  );
-
-}
+} 
 
   } catch(err) {
 
