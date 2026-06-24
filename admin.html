@@ -85,7 +85,21 @@ GENERATE LICENSE
 
 <div id="result"></div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
+
+const SUPABASE_URL =
+"https://xbemkmvvbkxknuduthsg.supabase.co";
+
+const SUPABASE_KEY =
+"PASTE_YOUR_ANON_KEY_HERE";
+
+const client =
+supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
 
 function generateLicense() {
 
@@ -116,40 +130,78 @@ function generateLicense() {
 
 document
 .getElementById("generateBtn")
-.addEventListener("click", () => {
+.addEventListener("click", async () => {
 
-  const buyerName =
-  document.getElementById("buyerName").value;
+  try {
 
-  const buyerWhatsapp =
-  document.getElementById("buyerWhatsapp").value;
+    const buyerName =
+    document.getElementById("buyerName").value.trim();
 
-  const buyerEmail =
-  document.getElementById("buyerEmail").value;
+    const buyerWhatsapp =
+    document.getElementById("buyerWhatsapp").value.trim();
 
-  const bookPdf =
-  document.getElementById("bookPdf").value;
+    const buyerEmail =
+    document.getElementById("buyerEmail").value.trim();
 
-  const packageName =
-  document.getElementById("package").value;
+    const bookPdf =
+    document.getElementById("bookPdf").value.trim();
 
-  const license =
-  generateLicense();
+    const packageName =
+    document.getElementById("package").value.trim();
 
-  document.getElementById("result")
-  .innerHTML = `
+    const license =
+    generateLicense();
 
-    <p>License Generated Successfully</p>
+    const { error } =
+    await client
+    .from("licenses")
+    .insert([
+      {
+        key: license,
+        status: "active",
+        buyer_name: buyerName,
+        book_pdf: bookPdf,
+        package: packageName,
+        buyer_whatsapp: buyerWhatsapp,
+        buyer_email: buyerEmail
+      }
+    ]);
 
-    <div id="licenseKey">
-      ${license}
-    </div>
+    if(error) {
 
-    <p>
+      alert(
+        "Supabase Error: " +
+        error.message
+      );
+
+      return;
+
+    }
+
+    document.getElementById("result")
+    .innerHTML = `
+
+      <p>
+      License Generated Successfully
+      </p>
+
+      <div id="licenseKey">
+        ${license}
+      </div>
+
+      <p>
       Buyer: ${buyerName}
-    </p>
+      </p>
 
-  `;
+    `;
+
+  } catch(err) {
+
+    alert(
+      "Error: " + err.message
+    );
+
+  }
 
 });
 
