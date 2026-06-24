@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Voice Of God Analytics</title>
+
+<style>
+
+body{
+  font-family:Arial,sans-serif;
+  background:#f5f5f5;
+  padding:20px;
+  margin:0;
+}
+
+h1{
+  text-align:center;
+}
+
+h2{
+  margin-top:30px;
+}
+
+.summary-card{
+  background:white;
+  padding:20px;
+  margin:15px 0;
+  border-radius:12px;
+  text-align:center;
+  box-shadow:0 2px 5px rgba(0,0,0,.1);
+}
+
+.summary-card div{
+  font-size:32px;
+  font-weight:bold;
+  color:#0a7cff;
+}
+
+.country-card{
+  background:white;
+  padding:15px;
+  margin:10px 0;
+  border-radius:10px;
+  box-shadow:0 2px 5px rgba(0,0,0,.1);
+}
+
+.country-name{
+  font-size:18px;
+  font-weight:bold;
+}
+
+.country-count{
+  font-size:20px;
+  color:#0a7cff;
+  margin-top:5px;
+}
+
+.bar-container{
+  width:100%;
+  height:20px;
+  background:#e0e0e0;
+  border-radius:20px;
+  overflow:hidden;
+  margin-top:10px;
+}
+
+.bar{
+  height:100%;
+  background:#0a7cff;
+  border-radius:20px;
+  transition:width .5s ease;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1> Voice Of God Analytics</h1>
+
+<div class="summary-card">
+  <h2>Total Installs</h2>
+  <div id="totalInstalls">0</div>
+</div>
+
+<div class="summary-card">
+  <h2>Top Country</h2>
+  <div id="topCountry">Loading...</div>
+</div>
+
+<h2>Country Rankings</h2>
+
+<div id="stats">
+Loading...
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+
+const SUPABASE_URL =
+"https://xbemkmvvbkxknuduthsg.supabase.co";
+
+const SUPABASE_KEY =
+"PASTE_YOUR_ANON_KEY_HERE";
+
+const client =
+supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+
+async function loadStats(){
+
+  const { data, error } =
+  await client
+  .from("app_installs")
+  .select("country");
+
+  if(error){
+
+    document.getElementById(
+      "stats"
+    ).innerHTML =
+    "Failed to load data";
+
+    return;
+
+  }
+
+  const counts = {};
+
+  data.forEach(row => {
+
+    const country =
+    row.country || "Unknown";
+
+    counts[country] =
+    (counts[country] || 0) + 1;
+
+  });
+
+  document.getElementById(
+    "totalInstalls"
+  ).textContent =
+  data.length;
+
+  const sortedCountries =
+  Object.entries(counts)
+  .sort((a,b)=>b[1]-a[1]);
+
+  let topCountry =
+  "No Data";
+
+  let topCount = 0;
+
+  if(sortedCountries.length){
+
+    topCountry =
+    sortedCountries[0][0] +
+    " (" +
+    sortedCountries[0][1] +
+    ")";
+
+    topCount =
+    sortedCountries[0][1];
+
+  }
+
+  document.getElementById(
+    "topCountry"
+  ).textContent =
+  topCountry;
+
+  let html = "";
+
+  sortedCountries.forEach(
+  ([country,count],index)=>{
+
+    const percentage =
+    topCount > 0
+    ? (count / topCount) * 100
+    : 0;
+
+    html += `
+
+    <div class="country-card">
+
+      <div class="country-name">
+        #${index+1} ${country}
+      </div>
+
+      <div class="country-count">
+        ${count} installs
+      </div>
+
+      <div class="bar-container">
+        <div
+          class="bar"
+          style="width:${percentage}%">
+        </div>
+      </div>
+
+    </div>
+
+    `;
+
+  });
+
+  document.getElementById(
+    "stats"
+  ).innerHTML =
+  html;
+
+}
+
+loadStats();
+
+setInterval(
+  loadStats,
+  30000
+);
+
+</script>
+
+</body>
+</html>
