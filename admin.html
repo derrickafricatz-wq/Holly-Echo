@@ -178,10 +178,32 @@ document
 
     }
 
-    document.getElementById("result")
+    let buttons = "";
+
+if (buyerWhatsapp) {
+
+  buttons +=
+  `<button id="sendWhatsapp">
+     Send To WhatsApp
+   </button><br><br>`;
+
+}
+
+if (buyerEmail) {
+
+  buttons +=
+  `<button id="sendEmail">
+     Send To Email
+   </button>`;
+
+}
+
+document.getElementById("result")
 .innerHTML = `
 
-<p>License Generated Successfully</p>
+<p>
+License Generated Successfully
+</p>
 
 <div id="licenseKey">
 ${license}
@@ -191,9 +213,7 @@ ${license}
 Buyer: ${buyerName}
 </p>
 
-<button id="sendWhatsapp">
-Send To WhatsApp
-</button>
+${buttons}
 
 `;
 
