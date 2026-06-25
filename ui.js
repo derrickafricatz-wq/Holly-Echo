@@ -179,11 +179,14 @@ color:#00ff88;
 </div>
 
 <div style="
-font-size:16px;
-color:#ffcc00;
-margin-top:5px;
+font-size:22px;
+font-weight:bold;
+color:#ffd700;
+margin-top:8px;
+text-shadow:0 0 10px rgba(255,215,0,.6);
+letter-spacing:1px;
 ">
-Voice Of God
+VOICE OF GOD
 </div>
 
 </div>
