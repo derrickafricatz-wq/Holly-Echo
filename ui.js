@@ -55,6 +55,14 @@ align-items:flex-start;
   </div>
 
   <div style="
+    color:#ffcc00;
+    font-size:15px;
+    margin-top:4px;
+">
+     Author: ${book.author.name}
+</div>
+
+  <div style="
     color:${book.locked ? "#ff5555" : "#00ff88"};
     font-size:15px;
     margin-top:6px;
