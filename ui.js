@@ -145,7 +145,7 @@ font-size:18px;
 color:white;
 margin-bottom:5px;
 ">
- Via|Momo
+ Via|Momo|M.pesa
 </div>
 
 <div style="
@@ -167,7 +167,7 @@ font-size:18px;
 color:white;
 margin-bottom:5px;
 ">
- Via|Merchant
+ Via|Merchant|M.pesa
 </div>
 
 <div style="
