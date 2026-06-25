@@ -291,21 +291,33 @@ Package: ${packageName}
 
 Thank you.`;
 
-    const authorMessage =
+   const authorMessage =
 
-`Hello ${authorName},
+`VOICE OF GOD SALE REPORT
 
-Your book has been sold on Voice Of God.
+Book:
+${bookPdf}
 
-Book: ${bookPdf}
+Package:
+${packageName}
 
-Buyer: ${buyerName}
+Price Paid:
+$${priceValue}
 
-Package: ${packageName}
+━━━━━━━━━━━━━━
 
-License: ${license}
+Your Earnings (80%):
+$${authorShare}
 
-Thank you.`;
+Voice Of God Fee (20%):
+$${vogShare}
+
+━━━━━━━━━━━━━━
+
+Status:
+Confirmed Sale
+
+Thank you for publishing with Voice Of God.`; 
 
 if (buyerWhatsapp) {
 
