@@ -342,12 +342,25 @@ const filtered = marketAds.filter(company => {
 
     container.innerHTML += `
       <div class="marketCard" id="company-${index}" style="
-        background:#111;
-        border:1px solid #00ffff;
-        border-radius:15px;
-        padding:15px;
-        margin-bottom:20px;
-      ">
+  background:linear-gradient(
+    145deg,
+    #161616,
+    #080808
+  );
+
+  border:1px solid rgba(0,255,255,.4);
+
+  border-radius:20px;
+
+  padding:18px;
+
+  margin-bottom:25px;
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,.6),
+    0 20px 50px rgba(0,0,0,.8),
+    inset 0 1px 0 rgba(255,255,255,.08);
+">
 
         <img
   class="marketBillboard"
