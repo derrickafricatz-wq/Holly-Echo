@@ -356,30 +356,9 @@ const filtered = marketAds.filter(company => {
   data-index="0"
   style="
     width:100%;
-    height:220px;
-    object-fit:contain;
-
-    border-radius:16px;
-
-    border:3px solid rgba(255,255,255,.12);
-
+    border-radius:10px;
     opacity:1;
-
-    transition:
-      opacity 1.2s ease-in-out,
-      transform .4s ease,
-      box-shadow .4s ease;
-
-    box-shadow:
-      0 6px 12px rgba(0,0,0,.5),
-      0 18px 35px rgba(0,0,0,.7),
-      inset 0 2px 2px rgba(255,255,255,.25);
-
-    transform:
-      perspective(1200px)
-      rotateX(4deg);
-
-    background:#000;
+    transition: opacity 1.2s ease-in-out;
   "
 >
 
