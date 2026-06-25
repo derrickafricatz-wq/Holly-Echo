@@ -115,56 +115,70 @@ align-items:flex-start;
 </div>
 
 <div style="
-  margin-top:15px;
-  padding:15px;
-  border:1px solid #00ffff;
-  border-radius:12px;
-  background:rgba(0,255,255,0.08);
+margin-top:15px;
+padding:15px;
+border:1px solid #00ffff;
+border-radius:12px;
+background:rgba(0,255,255,0.08);
 ">
 
-  <div style="
-    color:#00ffff;
-    font-size:20px;
-    font-weight:bold;
-    margin-bottom:8px;
-  ">
-     💳${book.author.payment.method}
-  </div>
-
-  <div style="
-    font-size:18px;
-    color:white;
-">
-    Number: <b>${book.author.payment.number}</b>
-</div>
-
-${book.author.payment.lipaNumber ? `
 <div style="
-    font-size:18px;
-    color:white;
+color:#00ffff;
+font-size:22px;
+font-weight:bold;
+margin-bottom:12px;
 ">
-    LIPA Number: <b>${book.author.payment.lipaNumber}</b>
+💳 PAYMENT DETAILS
 </div>
-` : ""}
 
-${book.author.payment.lipaName ? `
 <div style="
-    font-size:18px;
-    color:white;
+font-size:18px;
+color:white;
+margin-bottom:5px;
 ">
-    LIPA Name: <b>${book.author.payment.lipaName}</b>
+ Payment Number
 </div>
-` : ""}
 
-  <div style="
-    font-size:18px;
-    color:#ffcc00;
-    margin-top:5px;
-  ">
-    Name: <b>${book.author.payment.name}</b>
-  </div>
+<div style="
+font-size:22px;
+font-weight:bold;
+color:#00ff88;
+">
++255 763907868
+</div>
+
+<hr style="
+border:none;
+border-top:1px solid #333;
+margin:15px 0;
+">
+
+<div style="
+font-size:18px;
+color:white;
+margin-bottom:5px;
+">
+ Business / Merchant Number
+</div>
+
+<div style="
+font-size:22px;
+font-weight:bold;
+color:#00ff88;
+">
+36121630
+</div>
+
+<div style="
+font-size:16px;
+color:#ffcc00;
+margin-top:5px;
+">
+Voice Of God
+</div>
 
 </div>
+
 
 `;
 
