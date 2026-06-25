@@ -28,24 +28,37 @@ const marketAds = [
   expiresAt: "2026-07-22 23:59",
 
   images: [
-    "images/o1.png",
-    "images/o2.jpg"
+    "images/1.png",
+    "images/2.jpg"
   ]
 },
 
 {
-  company: "Yeriko Home Of Arts",
-  phone: "255767178000",
-  whatsapp: "255767178000",
-  location: "Arusha, Tanzania",
+  company: "Ruere Arts",
+  phone: "255746727716",
+  whatsapp: "255746727716",
+  location: "Arusha, Tanzania|Rd 15.Kinana, Themi",
 
   categories: ["Arts",],
 
-  expiresAt: "2026-07-01 20:00",
+  expiresAt: "2026-07-25 18:00",
 
   images: [
-    "images/y1.png",
-    "images/y2.jpg"
+    "images/1.png",
+    "images/2.jpg",
+    "images/3.jpg",
+    "images/6.jpg",
+    "images/8.jpg",
+    "images/10.jpg",
+    "images/11.jpg",
+   "images/13.jpg",
+   "images/15.jpg",
+   "images/218.jpg",
+   "images/23.jpg",
+   "images/19.jpg",
+   "images/21.jpg",
+   "images/20.jpg",
+   "images/24.jpg"   
   ]
 }
 
