@@ -179,6 +179,32 @@ Voice Of God
 
 </div>
 
+<div style="
+font-size:14px;
+color:#aaa;
+margin-top:12px;
+line-height:1.5;
+">
+After payment, tap the button below and send your payment confirmation to receive your license key.
+</div>
+
+<a
+href="https://wa.me/255763907868?text=Hello%20Voice%20Of%20God,%0A%0AI%20have%20paid%20for%20the%20book:%20${encodeURIComponent(book.title)}%0A%0APayer%20Name:%20_____________%0A%0APlease%20verify%20my%20payment%20and%20send%20my%20license."
+target="_blank"
+style="
+display:block;
+margin-top:15px;
+background:#25D366;
+color:white;
+text-align:center;
+padding:14px;
+border-radius:10px;
+font-size:16px;
+font-weight:bold;
+text-decoration:none;
+">
+ VERIFY </a>
+
 
 `;
 
