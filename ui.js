@@ -341,26 +341,26 @@ const filtered = marketAds.filter(company => {
     const imagesSafe = encodeURIComponent(JSON.stringify(company.images || []));
 
     container.innerHTML += `
-     <div class="marketCard" id="company-${index}" style="
-  background:#111;
-  border:1px solid #00ffff;
-  border-radius:15px;
-  padding:15px;
-  margin-bottom:20px;
-"> 
+      <div class="marketCard" id="company-${index}" style="
+        background:#111;
+        border:1px solid #00ffff;
+        border-radius:15px;
+        padding:15px;
+        margin-bottom:20px;
+      ">
 
         <img
-  class="marketBillboard"
-  src="${company.images?.[0] || ''}"
-  data-images="${imagesSafe}"
-  data-index="0"
-  style="
-    width:100%;
-    border-radius:10px;
-    opacity:1;
-    transition: opacity 1.2s ease-in-out;
-  "
->
+          class="marketBillboard"
+          src="${company.images?.[0] || ''}"
+          data-images="${imagesSafe}"
+          data-index="0"
+          style="
+            width:100%;
+            border-radius:10px;
+            opacity:1;
+            transition: opacity 1.2s ease-in-out;
+          "
+        >
 
         <div style="
           display:flex;
@@ -399,4 +399,4 @@ const filtered = marketAds.filter(company => {
     startMarketBillboard();
   }, 100);
 
-}
+} 
