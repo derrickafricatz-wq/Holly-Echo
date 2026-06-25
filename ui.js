@@ -128,6 +128,7 @@ padding:15px;
 border:1px solid #00ffff;
 border-radius:12px;
 background:rgba(0,255,255,0.08);
+align-self:flex-start;
 ">
 
 <div style="
@@ -136,7 +137,7 @@ font-size:22px;
 font-weight:bold;
 margin-bottom:12px;
 ">
-💳 PAYMENT DETAILS
+💳 PAY TO
 </div>
 
 <div style="
@@ -144,7 +145,7 @@ font-size:18px;
 color:white;
 margin-bottom:5px;
 ">
- Payment Number
+ Via|Momo
 </div>
 
 <div style="
@@ -166,7 +167,7 @@ font-size:18px;
 color:white;
 margin-bottom:5px;
 ">
- Business / Merchant Number
+ Via|Merchant
 </div>
 
 <div style="
