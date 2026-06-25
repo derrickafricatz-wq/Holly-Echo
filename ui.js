@@ -193,7 +193,7 @@ color:#aaa;
 margin-top:12px;
 line-height:1.5;
 ">
-After payment, tap the button below and send your payment confirmation to receive your license key.
+Instant access. Pay, confirm, and receive your license key.
 </div>
 
 <a
