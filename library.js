@@ -8,15 +8,7 @@ const books = [
   startReadingPage: 9,
 
   author: {
-    name: "Errick H Agustino",
-    payment: {
-      method: "M-Pesa",
-      number: "+255 767178000",
-      name: "Errick H Agustino",
-
-      lipaNumber: "ing..",
-      lipaName: "ing.."
-    }
+    author: "Errick H Agustino"
   },
 
   plans: {
@@ -35,15 +27,7 @@ const books = [
   startReadingPage: 3,
 
   author: {
-    name: "Errick H Agustino",
-    payment: {
-      method: "M-Pesa",
-      number: "+255 767178000",
-      name: "Errick H Agustino",
-
-      lipaNumber: "ing..",
-      lipaName: "ing.."
-    }
+    author: "Errick H Agustino"
   },
 
   plans: {
@@ -62,15 +46,7 @@ const books = [
   startReadingPage: 12,
 
   author: {
-    name: "Abubakar Sheshe",
-    payment: {
-      method: "M-Pesa",
-      number: "+255 765723161",
-      name: "Abubakar Sheshe",
-
-      lipaNumber: "36121630 [M.pesa]",
-      lipaName: "Testimony Counseling Center"
-    }
+    author: "Abubakar Sheshe"
   },
 
   plans: {
