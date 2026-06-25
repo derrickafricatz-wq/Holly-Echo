@@ -59,7 +59,7 @@ align-items:flex-start;
     font-size:15px;
     margin-top:4px;
 ">
-     Author: ${book.author.name}
+     Author: ${book.author.author}
 </div>
 
   <div style="
