@@ -143,57 +143,118 @@ inset 0 0 20px rgba(255,255,255,.03);
 ">
 
 <div style="
-text-align:center;
-font-size:24px;
-font-weight:bold;
-color:#00ffff;
-letter-spacing:2px;
-margin-bottom:6px;
+background:linear-gradient(145deg,#0f1c1f,#122b30);
+border:1px solid #00eaff;
+border-radius:18px;
+padding:18px;
+box-shadow:0 0 18px rgba(0,255,255,.15);
+font-family:Arial,sans-serif;
 ">
-SECURE PAYMENT
-</div>
 
+<!-- Header -->
 <div style="
-text-align:center;
-font-size:15px;
-color:#bbb;
-margin-bottom:18px;
-">
-Managed by
-</div>
-
-<div style="
-text-align:center;
-font-size:24px;
-font-weight:bold;
-color:#ffd700;
-text-shadow:0 0 10px rgba(255,215,0,.6);
-line-height:1.4;
-margin-bottom:22px;
-">
-DERRICK KIPAJI OF AFRIKA & CO
-</div>
-
-<div style="
-padding:12px;
-background:#111;
-border-left:4px solid #00ff88;
-border-radius:10px;
+display:flex;
+justify-content:space-between;
+align-items:center;
 margin-bottom:15px;
 ">
 
+<div>
 <div style="
-font-size:15px;
-color:#aaa;
+color:#00ffff;
+font-size:22px;
+font-weight:bold;
+letter-spacing:1px;
 ">
-Via Momo
+Secure Payment
 </div>
 
 <div style="
-font-size:24px;
+color:#9aa;
+font-size:13px;
+margin-top:3px;
+">
+Managed by Afrika & Co
+</div>
+</div>
+
+<div style="
+background:#00ff88;
+color:#000;
+padding:5px 12px;
+border-radius:30px;
+font-size:12px;
+font-weight:bold;
+">
+VERIFIED
+</div>
+
+</div>
+
+<!-- Owner -->
+<div style="
+background:rgba(255,215,0,.08);
+border:1px solid rgba(255,215,0,.3);
+padding:12px;
+border-radius:12px;
+margin-bottom:14px;
+text-align:center;
+">
+
+<div style="
+font-size:13px;
+color:#bbb;
+">
+Payment Receiver
+</div>
+
+<div style="
+margin-top:6px;
+font-size:22px;
+font-weight:bold;
+color:#ffd700;
+text-shadow:0 0 8px rgba(255,215,0,.5);
+">
+DERRICK KIPAJI
+</div>
+
+<div style="
+font-size:14px;
+color:#00ffff;
+margin-top:2px;
+">
+AFRIKA & CO
+</div>
+
+</div>
+
+<!-- Payment Options -->
+<div style="
+display:flex;
+gap:10px;
+margin-bottom:14px;
+">
+
+<div style="
+flex:1;
+background:#111;
+padding:12px;
+border-radius:12px;
+border-left:4px solid #00ff88;
+">
+
+<div style="
+color:#888;
+font-size:12px;
+">
+MoMo
+</div>
+
+<div style="
+margin-top:6px;
+font-size:21px;
 font-weight:bold;
 color:#00ff88;
-margin-top:5px;
 ">
 +255 763 907 868
 </div>
@@ -201,45 +262,43 @@ margin-top:5px;
 </div>
 
 <div style="
-padding:12px;
+flex:1;
 background:#111;
-border-left:4px solid #ffd700;
-border-radius:10px;
+padding:12px;
+border-radius:12px;
+border-left:4px solid gold;
 ">
 
 <div style="
-font-size:15px;
-color:#aaa;
+color:#888;
+font-size:12px;
 ">
-Via Merchant
+Merchant
 </div>
 
 <div style="
-font-size:24px;
+margin-top:6px;
+font-size:21px;
 font-weight:bold;
 color:#ffd700;
-margin-top:5px;
 ">
 36121630
 </div>
 
 </div>
 
+</div>
+
+<!-- Footer -->
 <div style="
-margin-top:18px;
-padding:12px;
 background:rgba(0,255,255,.08);
+padding:10px;
 border-radius:10px;
 text-align:center;
-font-size:15px;
+font-size:13px;
 color:#ddd;
-line-height:1.6;
 ">
-Secure payments processed by
-<br>
-<b style="color:#00ffff;">
-DERRICK KIPAJI OF AFRIKA & CO
-</b>
+✔ Fast & Secure Mobile Payment
 </div>
 
 </div>
