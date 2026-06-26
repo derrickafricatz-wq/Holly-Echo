@@ -28,97 +28,194 @@ book.title.toLowerCase().includes(search)
 
 <div style="
 display:flex;
-gap:15px;
+gap:14px;
 align-items:flex-start;
 ">
 
-  <img
-  src="${book.cover}"
-  style="
-      width:110px;
-      height:165px;
-      object-fit:cover;
-      border-radius:8px;
-      box-shadow:0 4px 10px rgba(0,0,0,.5);
-      flex-shrink:0;
-  "
->
+<!-- BOOK COVER -->
+<div style="flex-shrink:0;">
 
-  <div style="flex:1;">
-
-  <div style="
-    font-weight:bold;
-    font-size:22px;
-    color:white;
-  ">
-    ${book.title}
-  </div>
-
-  <div style="
-    color:#ffcc00;
-    font-size:15px;
-    margin-top:4px;
-">
-     Author: ${book.author.author}
-</div>
-
-  <div style="
-    color:${book.locked ? "#ff5555" : "#00ff88"};
-    font-size:15px;
-    margin-top:6px;
-  ">
-    ${book.locked ? "Locked" : "Ready to Read"}
-  </div>
-
-  <button onclick="openBook('${book.title}')" style="
-    margin-top:10px;
-    padding:12px 20px;
-    border:none;
-    border-radius:8px;
-    background:${book.locked ? "#ff4444" : "#00ffff"};
-    font-weight:bold;
-    font-size:20px;
-  ">
-    ${book.locked ? "UNLOCK" : "READ"}
-  </button>
-
-</div>
- 
-  <div style="
-  margin-top:10px;
-  border:1px solid #00ffff;
-  border-radius:12px;
-  padding:12px;
-  background:rgba(0,255,255,0.05);
+<img src="${book.cover}" style="
+width:125px;
+height:185px;
+object-fit:cover;
+border-radius:12px;
+border:2px solid rgba(255,255,255,.08);
+box-shadow:0 8px 18px rgba(0,0,0,.45);
 ">
 
-  <div style="color:#00ffff;font-size:20px;font-weight:bold;">
-    STARTER
-  </div>
-  <div>
-    TSH ${book.plans.starter.price.toLocaleString()}
-    . ${book.plans.starter.pages} Pages
-  </div>
+</div>
 
-  <hr>
+<!-- BOOK DETAILS -->
+<div style="
+flex:1;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+height:185px;
+">
 
-  <div style="color:#00ffff;font-size:20px;font-weight:bold;">
-    STANDARD
-  </div>
-  <div>
-    TSH ${book.plans.standard.price.toLocaleString()}
-    . ${book.plans.standard.pages} Pages
-  </div>
+<div>
 
-  <hr>
+<div style="
+font-size:25px;
+font-weight:bold;
+color:#fff;
+line-height:1.2;
+margin-bottom:10px;
+">
+${book.title}
+</div>
 
-  <div style="color:#00ffff;font-size:20px;font-weight:bold;">
-    PREMIUM
-  </div>
-  <div>
-    TSH ${book.plans.premium.price.toLocaleString()}
-    . Unlimited Access
-  </div>
+<div style="
+font-size:15px;
+color:#ffc107;
+margin-bottom:8px;
+">
+Author: ${book.author.author}
+</div>
+
+<div style="
+display:inline-block;
+padding:5px 12px;
+border-radius:20px;
+font-size:13px;
+font-weight:bold;
+background:${book.locked ? "rgba(255,68,68,.15)" : "rgba(0,255,136,.15)"};
+color:${book.locked ? "#ff5555" : "#00ff88"};
+border:1px solid ${book.locked ? "#ff5555" : "#00ff88"};
+">
+${book.locked ? "LOCKED" : "READY TO READ"}
+</div>
+
+</div>
+
+<button onclick="openBook('${book.title}')" style="
+margin-top:12px;
+width:100%;
+padding:13px;
+border:none;
+border-radius:10px;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+background:${book.locked ? "linear-gradient(90deg,#ff3b3b,#ff6a6a)" : "linear-gradient(90deg,#00d9ff,#00ffff)"};
+color:#fff;
+box-shadow:0 4px 12px rgba(0,0,0,.35);
+">
+${book.locked ? "UNLOCK" : "READ NOW"}
+</button>
+
+</div>
+
+</div>
+
+<!-- PLANS -->
+<div style="
+margin-top:16px;
+display:flex;
+gap:10px;
+">
+
+<div style="
+flex:1;
+background:#141414;
+border:1px solid #00eaff;
+border-radius:12px;
+padding:12px;
+text-align:center;
+">
+
+<div style="color:#00ffff;font-weight:bold;font-size:16px;">
+STARTER
+</div>
+
+<div style="
+margin-top:8px;
+font-size:22px;
+font-weight:bold;
+color:white;
+">
+TSH ${book.plans.starter.price.toLocaleString()}
+</div>
+
+<div style="
+margin-top:5px;
+font-size:13px;
+color:#aaa;
+">
+${book.plans.starter.pages} Pages
+</div>
+
+</div>
+
+<div style="
+flex:1;
+background:#141414;
+border:1px solid #00eaff;
+border-radius:12px;
+padding:12px;
+text-align:center;
+">
+
+<div style="color:#00ffff;font-weight:bold;font-size:16px;">
+STANDARD
+</div>
+
+<div style="
+margin-top:8px;
+font-size:22px;
+font-weight:bold;
+color:white;
+">
+TSH ${book.plans.standard.price.toLocaleString()}
+</div>
+
+<div style="
+margin-top:5px;
+font-size:13px;
+color:#aaa;
+">
+${book.plans.standard.pages} Pages
+</div>
+
+</div>
+
+<div style="
+flex:1;
+background:#141414;
+border:1px solid gold;
+border-radius:12px;
+padding:12px;
+text-align:center;
+">
+
+<div style="
+color:gold;
+font-weight:bold;
+font-size:16px;
+">
+PREMIUM
+</div>
+
+<div style="
+margin-top:8px;
+font-size:22px;
+font-weight:bold;
+color:gold;
+">
+TSH ${book.plans.premium.price.toLocaleString()}
+</div>
+
+<div style="
+margin-top:5px;
+font-size:13px;
+color:#aaa;
+">
+Unlimited Access
+</div>
+
+</div>
 
 </div>
 
