@@ -132,128 +132,95 @@ align-self:flex-start;
 ">
 
 <div style="
-background:linear-gradient(145deg,#0d171b,#13252b);
-border:1px solid rgba(0,255,255,.35);
-border-radius:18px;
-padding:20px;
+background:#102428;
+border:1px solid #00d9ff;
+border-radius:14px;
+padding:14px;
 font-family:Arial,sans-serif;
-box-shadow:0 0 20px rgba(0,255,255,.15);
 ">
 
-<!-- Header -->
-<div style="text-align:center;margin-bottom:20px;">
-
 <div style="
-font-size:24px;
+text-align:center;
+font-size:20px;
 font-weight:bold;
 color:#00f7ff;
-letter-spacing:2px;
-text-transform:uppercase;
+margin-bottom:2px;
 ">
 SECURE PAYMENT
 </div>
 
 <div style="
-margin-top:5px;
-font-size:13px;
-color:#98b2b8;
+text-align:center;
+font-size:11px;
+color:#8da4a8;
+margin-bottom:12px;
 ">
 Managed by
 </div>
 
 <div style="
-margin-top:10px;
-font-size:24px;
+text-align:center;
+font-size:20px;
 font-weight:bold;
 color:#ffd700;
-line-height:1.4;
-text-shadow:0 0 10px rgba(255,215,0,.45);
+line-height:1.35;
+margin-bottom:14px;
+text-shadow:0 0 8px rgba(255,215,0,.35);
 ">
 DERRICK KIPAJI OF AFRIKA & CO
 </div>
 
-</div>
-
-<!-- Mobile Money -->
 <div style="
-background:#111;
-border-left:5px solid #00ff88;
-border-radius:14px;
-padding:16px;
-margin-bottom:12px;
+background:#151515;
+border-left:4px solid #00ff88;
+border-radius:10px;
+padding:10px 12px;
+margin-bottom:10px;
 ">
 
 <div style="
-font-size:12px;
-color:#8f8f8f;
-text-transform:uppercase;
+font-size:10px;
+color:#888;
 letter-spacing:1px;
 ">
-Mobile Money (MoMo)
+MOBILE MONEY (MOMO)
 </div>
 
 <div style="
-margin-top:6px;
-font-size:24px;
+font-size:22px;
 font-weight:bold;
 color:#00ff88;
 white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
 ">
 +255763907868
 </div>
 
 </div>
 
-<!-- Merchant -->
 <div style="
-background:#111;
-border-left:5px solid #ffd700;
-border-radius:14px;
-padding:16px;
+background:#151515;
+border-left:4px solid #ffd700;
+border-radius:10px;
+padding:10px 12px;
 ">
 
 <div style="
-font-size:12px;
-color:#8f8f8f;
-text-transform:uppercase;
+font-size:10px;
+color:#888;
 letter-spacing:1px;
 ">
-Merchant Number
+MERCHANT NUMBER
 </div>
 
 <div style="
-margin-top:6px;
-font-size:24px;
+font-size:22px;
 font-weight:bold;
 color:#ffd700;
 white-space:nowrap;
 ">
 36121630
-</div>
-
-</div>
-
-<!-- Footer -->
-<div style="
-margin-top:18px;
-padding:14px;
-background:rgba(0,255,255,.06);
-border-radius:12px;
-text-align:center;
-font-size:14px;
-color:#d8d8d8;
-line-height:1.6;
-">
-
-Secure payments processed by
-
-<div style="
-margin-top:6px;
-font-size:17px;
-font-weight:bold;
-color:#00ffff;
-">
-DERRICK KIPAJI OF AFRIKA & CO
 </div>
 
 </div>
