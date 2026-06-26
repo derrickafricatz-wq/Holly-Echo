@@ -132,61 +132,114 @@ align-self:flex-start;
 ">
 
 <div style="
+margin-top:18px;
+padding:18px;
+border-radius:18px;
+background:linear-gradient(145deg,#0d0d0d,#1b1b1b);
+border:2px solid #00ffff;
+box-shadow:
+0 0 20px rgba(0,255,255,.25),
+inset 0 0 20px rgba(255,255,255,.03);
+">
+
+<div style="
+text-align:center;
+font-size:24px;
+font-weight:bold;
 color:#00ffff;
-font-size:22px;
+letter-spacing:2px;
+margin-bottom:6px;
+">
+SECURE PAYMENT
+</div>
+
+<div style="
+text-align:center;
+font-size:15px;
+color:#bbb;
+margin-bottom:18px;
+">
+Managed by
+</div>
+
+<div style="
+text-align:center;
+font-size:24px;
 font-weight:bold;
-margin-bottom:12px;
+color:#ffd700;
+text-shadow:0 0 10px rgba(255,215,0,.6);
+line-height:1.4;
+margin-bottom:22px;
 ">
-💳 PAY TO
+DERRICK KIPAJI OF AFRIKA & CO
 </div>
 
 <div style="
-font-size:18px;
-color:white;
-margin-bottom:5px;
+padding:12px;
+background:#111;
+border-left:4px solid #00ff88;
+border-radius:10px;
+margin-bottom:15px;
 ">
- Via|Momo|M.pesa
+
+<div style="
+font-size:15px;
+color:#aaa;
+">
+Via Momo
 </div>
 
 <div style="
-font-size:22px;
+font-size:24px;
 font-weight:bold;
 color:#00ff88;
+margin-top:5px;
 ">
-+255 763907868
++255 763 907 868
 </div>
 
-<hr style="
-border:none;
-border-top:1px solid #333;
-margin:15px 0;
-">
-
-<div style="
-font-size:18px;
-color:white;
-margin-bottom:5px;
-">
- Via|Merchant|M.pesa
 </div>
 
 <div style="
-font-size:22px;
+padding:12px;
+background:#111;
+border-left:4px solid #ffd700;
+border-radius:10px;
+">
+
+<div style="
+font-size:15px;
+color:#aaa;
+">
+Via Merchant
+</div>
+
+<div style="
+font-size:24px;
 font-weight:bold;
-color:#00ff88;
+color:#ffd700;
+margin-top:5px;
 ">
 36121630
 </div>
 
+</div>
+
 <div style="
-font-size:22px;
-font-weight:bold;
-color:#ffd700;
-margin-top:8px;
-text-shadow:0 0 10px rgba(255,215,0,.6);
-letter-spacing:1px;
+margin-top:18px;
+padding:12px;
+background:rgba(0,255,255,.08);
+border-radius:10px;
+text-align:center;
+font-size:15px;
+color:#ddd;
+line-height:1.6;
 ">
-VOICE OF GOD
+Secure payments processed by
+<br>
+<b style="color:#00ffff;">
+DERRICK KIPAJI OF AFRIKA & CO
+</b>
 </div>
 
 </div>
@@ -201,7 +254,7 @@ Instant access. Pay, confirm, and receive your license key.
 </div>
 
 <a
-href="https://wa.me/255763907868?text=Hello%20Voice%20Of%20God,%0A%0AI%20have%20paid%20for%20the%20book:%20${encodeURIComponent(book.title)}%0A%0APayer%20Name:%20_____________%0A%0APlease%20verify%20my%20payment%20and%20send%20my%20license."
+href="https://wa.me/255742097868?text=Hello%20Voice%20Of%20God,%0A%0AI%20have%20paid%20for%20the%20book:%20${encodeURIComponent(book.title)}%0A%0APayer%20Name:%20_____________%0A%0APlease%20verify%20my%20payment%20and%20send%20my%20license."
 target="_blank"
 style="
 display:block;
