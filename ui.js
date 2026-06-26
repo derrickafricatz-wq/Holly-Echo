@@ -132,17 +132,6 @@ align-self:flex-start;
 ">
 
 <div style="
-margin-top:18px;
-padding:18px;
-border-radius:18px;
-background:linear-gradient(145deg,#0d0d0d,#1b1b1b);
-border:2px solid #00ffff;
-box-shadow:
-0 0 20px rgba(0,255,255,.25),
-inset 0 0 20px rgba(255,255,255,.03);
-">
-
-<div style="
 background:linear-gradient(145deg,#0f1c1f,#122b30);
 border:1px solid #00eaff;
 border-radius:18px;
