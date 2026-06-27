@@ -36,12 +36,14 @@ align-items:flex-start;
 <div style="flex-shrink:0;">
 
 <img src="${book.cover}" style="
-width:125px;
-height:185px;
+width:160px;
+height:240px;
 object-fit:cover;
-border-radius:12px;
-border:2px solid rgba(255,255,255,.08);
-box-shadow:0 8px 18px rgba(0,0,0,.45);
+border-radius:14px;
+border:2px solid rgba(255,255,255,.10);
+box-shadow:0 10px 22px rgba(0,0,0,.50);
+transition:.3s;
+cursor:pointer;
 ">
 
 </div>
