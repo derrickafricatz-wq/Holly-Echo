@@ -265,32 +265,39 @@ status.style.display = "block";
 status.style.color = "#00ffff";
 status.textContent = "Creating account...";
 
+try {
+
 const { data, error } = await client.auth.signUp({
 
 email,
 password,
 
 options:{
-
 data:{
 full_name: fullName,
 phone: phone
 }
-
 }
 
 });
 
 if(error){
-
-status.style.color="red";
-status.textContent=error.message;
-return;
-
+throw error;
 }
 
-status.style.color="#00ff88";
-status.textContent="✅ Account created successfully.";
+status.style.color = "#00ff88";
+status.textContent = "✅ Account created successfully.";
+
+console.log(data);
+
+} catch(err) {
+
+status.style.color = "red";
+status.textContent = err.message;
+
+console.error(err);
+
+}
 
 };
 
