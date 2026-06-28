@@ -319,7 +319,7 @@ if(error){
 throw error;
 }
 
-  await client
+  const { error: insertError } = await client
 .from("authors")
 .insert({
 
@@ -332,6 +332,11 @@ email: email,
 phone: phone
 
 });
+
+if (insertError) {
+  alert(insertError.message);
+  return;
+  }
 
 status.style.color = "#00ff88";
 status.textContent = "✅ Account created successfully.";
