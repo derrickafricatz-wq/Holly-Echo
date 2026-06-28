@@ -224,13 +224,33 @@ color:#fff;
 <!-- PASTE HERE -->
 <div id="dashboardBox" style="display:none;">
 
-<h2 style="color:#00ffff;">
+<h2 style="color:#00ffff;text-align:center;">
 📚 Author Dashboard
 </h2>
 
-<p>
-Welcome, <span id="authorName">Loading...</span>
+<p style="text-align:center;margin-bottom:25px;">
+Welcome, <b id="authorName">Loading...</b>
 </p>
+
+<div id="statsCard" style="
+background:#111;
+border:2px solid #00ffff;
+border-radius:15px;
+padding:20px;
+margin-top:20px;
+">
+
+<h3 style="color:#FFD700;">
+ Sales Overview
+</h3>
+
+<p>Total Books Sold: <b id="totalSold">0</b></p>
+
+<p>Total Earnings: <b id="totalEarnings">TSh 0</b></p>
+
+<p>Best Selling Book: <b id="bestBook">None</b></p>
+
+</div>
 
 </div>
 <!-- END PASTE -->
