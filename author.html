@@ -339,6 +339,11 @@ return;
 document.getElementById("loginBoxContent").style.display = "none";
 document.getElementById("dashboardBox").style.display = "block";
 
+    const user = data.user;
+
+document.getElementById("authorName").textContent =
+user.user_metadata.full_name || "Author";
+
 };
 
 </script>
