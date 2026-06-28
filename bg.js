@@ -1,6 +1,13 @@
 const campaigns = [
 
 {
+  company: "Announce With Us",
+  images: [
+    "images/de.png"
+  ]
+},
+  
+  {
   company: "Testimony Foundation",
   images: [
     "images/d1.jpg",
