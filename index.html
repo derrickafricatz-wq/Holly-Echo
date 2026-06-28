@@ -419,54 +419,91 @@
     #catchFlash{
   position:absolute;
 
-  left:148px;
+  left:170px;
   top:50%;
 
   width:110px;
   height:110px;
 
-  transform:translateY(-50%);
+  object-fit:contain;
+  pointer-events:none;
+  z-index:999;
 
   opacity:0;
 
-  z-index:6;
+  transform:translate(-50%,-50%) scale(0.1) rotate(0deg);
 
   filter:
-    drop-shadow(0 0 8px #00ffff)
-    drop-shadow(0 0 20px #00ffff)
-    drop-shadow(0 0 35px #7a00ff);
+    drop-shadow(0 0 8px #fff)
+    drop-shadow(0 0 18px #00ffff)
+    drop-shadow(0 0 35px #00bfff)
+    drop-shadow(0 0 60px #7a00ff)
+    drop-shadow(0 0 90px #ffffff);
 
   animation:catchFlash 4s linear infinite;
-    }
+}
 
-    @keyframes catchFlash{
+@keyframes catchFlash{
 
-  0%{
+  /* Hidden */
+  0%,74%{
     opacity:0;
-    transform:translateY(-50%) scale(0.3);
+    transform:
+      translate(-50%,-50%)
+      scale(0.1)
+      rotate(0deg);
   }
 
-  74%{
-    opacity:0;
-    transform:translateY(-50%) scale(0.3);
-  }
-
-  80%{
+  /* Explosion starts */
+  78%{
     opacity:1;
-    transform:translateY(-50%) scale(1.4);
+    transform:
+      translate(-50%,-50%)
+      scale(0.8)
+      rotate(180deg);
   }
 
-  90%{
+  /* Full impact */
+  82%{
+    opacity:1;
+    transform:
+      translate(-50%,-50%)
+      scale(1.8)
+      rotate(360deg);
+  }
+
+  /* Energy burst */
+  86%{
+    opacity:1;
+    transform:
+      translate(-50%,-50%)
+      scale(2.5)
+      rotate(540deg);
+    filter:
+      brightness(2.5)
+      drop-shadow(0 0 20px #fff)
+      drop-shadow(0 0 40px #00ffff)
+      drop-shadow(0 0 70px #00bfff)
+      drop-shadow(0 0 100px #7a00ff);
+  }
+
+  /* Fade away */
+  91%{
     opacity:0;
-    transform:translateY(-50%) scale(2);
+    transform:
+      translate(-50%,-50%)
+      scale(3.3)
+      rotate(720deg);
   }
 
   100%{
     opacity:0;
-    transform:translateY(-50%) scale(0.3);
+    transform:
+      translate(-50%,-50%)
+      scale(0.1)
+      rotate(720deg);
   }
-
-    }
+  }
 
     #openMarketBtn{
   background:linear-gradient(45deg,#00ffff,#0088ff);
