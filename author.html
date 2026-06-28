@@ -252,6 +252,48 @@ const SUPABASE_URL = "https://xbemkmvvbkxknuduthsg.supabase.co";
 
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
+  document.getElementById("registerBtn").onclick = async () => {
+
+const fullName = document.getElementById("fullName").value.trim();
+const email = document.getElementById("signupEmail").value.trim();
+const phone = document.getElementById("phone").value.trim();
+const password = document.getElementById("signupPassword").value;
+
+const status = document.getElementById("signupStatus");
+
+status.style.display = "block";
+status.style.color = "#00ffff";
+status.textContent = "Creating account...";
+
+const { data, error } = await client.auth.signUp({
+
+email,
+password,
+
+options:{
+
+data:{
+full_name: fullName,
+phone: phone
+}
+
+}
+
+});
+
+if(error){
+
+status.style.color="red";
+status.textContent=error.message;
+return;
+
+}
+
+status.style.color="#00ff88";
+status.textContent="✅ Account created successfully.";
+
+};
+
 </script>
 
 </body>
