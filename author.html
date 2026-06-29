@@ -409,6 +409,21 @@ return;
 
 }
 
+const coverFileName = Date.now() + "_" + cover.name;
+
+const { data: coverUploadData, error: coverUploadError } = await client
+.storage
+.from("covers")
+.upload(coverFileName, cover);
+
+if(coverUploadError){
+
+alert(coverUploadError.message);
+
+return;
+
+}    
+
 const { error: bookError } = await client
 .from("books")
 .insert({
