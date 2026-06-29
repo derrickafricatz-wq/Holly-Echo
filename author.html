@@ -345,6 +345,42 @@ box.style.display =
 
   }
 
+  document.getElementById("saveBookBtn").onclick = async () => {
+
+const title = document.getElementById("bookTitle").value.trim();
+
+const price = document.getElementById("bookPrice").value;
+
+const pdf = document.getElementById("bookPdf").files[0];
+
+if(!title){
+
+alert("Please enter the book title.");
+
+return;
+
+}
+
+if(!price){
+
+alert("Please enter the book price.");
+
+return;
+
+}
+
+if(!pdf){
+
+alert("Please select a PDF file.");
+
+return;
+
+}
+
+alert("Everything is ready for upload.");
+
+};
+
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
