@@ -394,7 +394,29 @@ return;
 
 }
 
-alert("PDF uploaded successfully!");
+const { error: bookError } = await client
+.from("books")
+.insert({
+
+author_id: window.currentAuthorId,
+
+title: title,
+
+price: price,
+
+pdf_url: uploadData.path
+
+});
+
+if(bookError){
+
+alert(bookError.message);
+
+return;
+
+}
+
+alert("✅ Book uploaded successfully!");
 
 };
 
