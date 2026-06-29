@@ -1131,15 +1131,15 @@ const { data, error } = await client
 
 if(error){
 
-console.error(error);
+alert(error.message);
 
 return;
 
 }
 
-console.log(data);
+alert("Books found: " + data.length);
 
-    }
+}
 
     let pdfDoc = null;
     let pageNum = 1;
