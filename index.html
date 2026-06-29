@@ -1863,9 +1863,14 @@ setInterval(showBanner, 20000);
      }
 });
 
-  document.getElementById("openStoreBtn").onclick = function () {
+  document.getElementById("openStoreBtn").onclick = async function () {
+
+  await loadSupabaseBooks();
+
   document.getElementById("storePanel").style.display = "block";
+
   renderBooks();
+
 };
 
   document.getElementById("openMarketBtn").onclick = function () {
