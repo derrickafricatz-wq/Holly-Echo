@@ -1147,7 +1147,7 @@ for (const row of data) {
 
     locked: true,
 
-    pdf: `${SUPABASE_URL}/storage/v1/object/public/books/${row.pdf_url}`,
+    pdf: row.pdf_url,
 
     cover: `${SUPABASE_URL}/storage/v1/object/public/covers/${row.cover_url}`,
 
@@ -1846,7 +1846,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v1");
+  const cache = await caches.open("holly-echo-v29");
 
   const keys = await cache.keys();
 
