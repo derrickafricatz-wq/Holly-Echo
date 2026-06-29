@@ -455,6 +455,9 @@ document.getElementById("dashboardBox").style.display = "block";
 document.getElementById("authorName").textContent =
 user.user_metadata.full_name || "Author";
 
+    document.getElementById("authorFullName").value =
+user.user_metadata.full_name || "";
+
 };
 
 </script>
