@@ -1125,6 +1125,20 @@ style="
 
     async function loadSupabaseBooks(){
 
+const { data, error } = await client
+.from("books")
+.select("*");
+
+if(error){
+
+console.error(error);
+
+return;
+
+}
+
+console.log(data);
+
     }
 
     let pdfDoc = null;
