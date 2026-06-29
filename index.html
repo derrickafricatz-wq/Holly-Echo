@@ -1336,7 +1336,11 @@ window.addEventListener("load", async () => {
     pdfDoc = null;
     pageNum = 1;
 
-    const url = selectedPDF;
+    const url = selectedPDF.includes("http")
+  ? selectedPDF
+  : selectedPDF.endsWith(".pdf")
+    ? `${SUPABASE_URL}/storage/v1/object/public/books/${selectedPDF}`
+    : selectedPDF;
 
     pdfDoc = await pdfjsLib.getDocument(url).promise;
 
