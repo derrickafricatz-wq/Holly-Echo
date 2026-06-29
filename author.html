@@ -424,7 +424,7 @@ return;
 
 }    
 
-const { error: bookError } = await client
+await client
 .from("books")
 .insert({
 
@@ -434,9 +434,9 @@ title: title,
 
 price: price,
 
-pdf_url: uploadData.path
+pdf_url: uploadData.path,
 
-cover_url: coverUploadData.path  
+cover_url: coverUploadData.path
 
 });
 
