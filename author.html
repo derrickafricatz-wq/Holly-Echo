@@ -558,6 +558,30 @@ total += Number(sale.author_share);
 document.getElementById("totalEarnings").innerText =
 "TSh " + total.toLocaleString();
 
+  const counter = {};
+
+for(const sale of data){
+
+counter[sale.book_pdf] = (counter[sale.book_pdf] || 0) + 1;
+
+}
+
+let bestBook = "None";
+let highest = 0;
+
+for(const book in counter){
+
+if(counter[book] > highest){
+
+highest = counter[book];
+bestBook = book;
+
+}
+
+}
+
+document.getElementById("bestBook").innerText = bestBook;
+
 }
 
 document.getElementById("registerBtn").onclick = async () => {
