@@ -547,6 +547,17 @@ return;
 
 document.getElementById("totalSold").innerText = data.length;
 
+  let total = 0;
+
+for(const sale of data){
+
+total += Number(sale.author_share);
+
+}
+
+document.getElementById("totalEarnings").innerText =
+"TSh " + total.toLocaleString();
+
 }
 
 document.getElementById("registerBtn").onclick = async () => {
