@@ -602,6 +602,51 @@ bestBook = book;
 
 document.getElementById("bestBook").innerText = bestBook;
 
+const booksCount = {};
+
+for (const sale of data) {
+
+const name = sale.book_title || sale.book_pdf;
+
+booksCount[name] = (booksCount[name] || 0) + 1;
+
+}
+
+let html = "";
+
+for (const name in booksCount) {
+
+html += `
+<div style="
+margin-top:12px;
+padding:15px;
+background:#181818;
+border-radius:12px;
+border-left:5px solid #00ffff;
+">
+
+<div style="
+font-size:18px;
+font-weight:bold;
+color:white;
+">
+${name}
+</div>
+
+<div style="
+margin-top:6px;
+color:#00ffff;
+">
+${booksCount[name]} Sale(s)
+</div>
+
+</div>
+`;
+
+}
+
+document.getElementById("booksList").innerHTML = html;  
+
 }
 
 document.getElementById("registerBtn").onclick = async () => {
