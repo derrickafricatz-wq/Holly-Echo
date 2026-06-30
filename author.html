@@ -530,7 +530,26 @@ const SUPABASE_URL = "https://xbemkmvvbkxknuduthsg.supabase.co";
 
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-  document.getElementById("registerBtn").onclick = async () => {
+async function loadSalesDashboard(){
+
+const { data, error } = await client
+.from("sales")
+.select("*")
+.eq("author_name", window.currentAuthorName);
+
+if(error){
+
+alert(error.message);
+
+return;
+
+}
+
+document.getElementById("totalSold").innerText = data.length;
+
+}
+
+document.getElementById("registerBtn").onclick = async () => {
 
 const fullName = document.getElementById("fullName").value.trim();
 const email = document.getElementById("signupEmail").value.trim();
