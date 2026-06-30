@@ -264,6 +264,23 @@ author_email: authorEmail
 
     }
 
+    const { error: salesError } =
+await client
+.from("sales")
+.insert([
+{
+license_key: license
+}
+]);
+
+if(salesError){
+
+alert(salesError.message);
+
+return;
+
+}
+
    document.getElementById("result")
 .innerHTML = `
 
