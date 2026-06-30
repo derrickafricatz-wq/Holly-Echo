@@ -269,7 +269,23 @@ await client
 .from("sales")
 .insert([
 {
-license_key: license
+
+license_key: license,
+
+book_pdf: bookPdf,
+
+package: packageName,
+
+buyer_name: buyerName,
+
+author_name: authorName,
+
+price: priceValue,
+
+author_share: authorShare,
+
+vog_share: vogShare
+
 }
 ]);
 
