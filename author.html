@@ -634,10 +634,31 @@ ${name}
 </div>
 
 <div style="
-margin-top:6px;
+margin-top:10px;
+font-size:15px;
 color:#00ffff;
+font-weight:bold;
 ">
 ${booksCount[name]} Sale(s)
+</div>
+
+<div style="
+margin-top:8px;
+height:12px;
+background:#2a2a2a;
+border-radius:20px;
+overflow:hidden;
+">
+
+<div style="
+height:100%;
+width:${Math.min(booksCount[name] * 12,100)}%;
+background:linear-gradient(90deg,#00ffff,#00ff88);
+border-radius:20px;
+transition:.5s;
+">
+</div>
+
 </div>
 
 </div>
