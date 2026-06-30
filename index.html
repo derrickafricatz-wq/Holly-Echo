@@ -1123,65 +1123,6 @@ style="
 
     const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-    async function loadSupabaseBooks(){
-
-const { data, error } = await client
-.from("books")
-.select("*");
-
-if(error){
-
-alert(error.message);
-
-return;
-
-}
-
-  alert("Books loaded: " + data.length);
-
-  for (const row of data) {
-
-  books.push({
-
-    title: row.title,
-
-    language: row.language,
-
-    locked: true,
-
-    pdf: row.pdf_url,
-
-    cover: `${SUPABASE_URL}/storage/v1/object/public/covers/${row.cover_url}`,
-
-    startReadingPage: row.start_reading_page,
-
-    author: {
-      author: row.author_name
-    },
-
-    plans: {
-      starter: {
-        price: row.starter_price,
-        pages: row.starter_pages
-      },
-
-      standard: {
-        price: row.standard_price,
-        pages: row.standard_pages
-      },
-
-      premium: {
-        price: row.premium_price,
-        pages: null
-      }
-    }
-
-  });
-
-}
-
-    }
-
     let pdfDoc = null;
     let pageNum = 1;
     let canvas = null;
@@ -1338,11 +1279,7 @@ window.addEventListener("load", async () => {
     pdfDoc = null;
     pageNum = 1;
 
-    const url = selectedPDF.includes("http")
-  ? selectedPDF
-  : selectedPDF.endsWith(".pdf")
-    ? `${SUPABASE_URL}/storage/v1/object/public/books/${selectedPDF}`
-    : selectedPDF;
+    const url = selectedPDF;
 
     pdfDoc = await pdfjsLib.getDocument(url).promise;
 
@@ -1852,7 +1789,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v32");
+  const cache = await caches.open("holly-echo-v1");
 
   const keys = await cache.keys();
 
@@ -1908,14 +1845,9 @@ setInterval(showBanner, 20000);
      }
 });
 
-  document.getElementById("openStoreBtn").onclick = async function () {
-
-  await loadSupabaseBooks();
-
+  document.getElementById("openStoreBtn").onclick = function () {
   document.getElementById("storePanel").style.display = "block";
-
   renderBooks();
-
 };
 
   document.getElementById("openMarketBtn").onclick = function () {
