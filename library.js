@@ -61,7 +61,7 @@ const books = [
   language: "sw-TZ",
   locked: true,
   pdf: "SIRI ZA MAFANIKIO YA MAISHA.pdf",
-  cover: "images/er1.jpg",
+  cover: "images/vg.jpg",
   startReadingPage: 12,
 
   author: {
