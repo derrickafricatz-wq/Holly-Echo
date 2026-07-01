@@ -83,7 +83,7 @@ function updateCart() {
       .from("licenses")
       .select("*")
       .eq("key", userKey)
-      .eq("book_pdf", selectedBookToUnlock.pdf)
+      .eq("book_pdf", selectedBookToUnlock.pdf.split("/").pop())
       .single();
 
      if (error) {
