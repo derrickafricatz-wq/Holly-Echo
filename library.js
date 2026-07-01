@@ -3,7 +3,7 @@ const books = [
   title: "How to Hear Voice of God",
   language: "en-US",
   locked: true,
-  pdf: "holly.pdf",
+  pdf: "books/voice of god.pdf",
   cover: "images/er2.jpg",
   startReadingPage: 9,
 
@@ -22,7 +22,7 @@ const books = [
   title: "Spiritual Eyes",
   language: "en-US",
   locked: true,
-  pdf: "books/learn.pdf",
+  pdf: "books/spiritual.pdf",
   cover: "images/er1.jpg",
   startReadingPage: 3,
 
@@ -41,7 +41,7 @@ const books = [
   title: "Wito Wa Kumtumikia Mungu",
   language: "sw-TZ",
   locked: true,
-  pdf: "b26.pdf",
+  pdf: "books/wito wa kumtumikia mungu.pdf",
   cover: "images/b20.jpg",
   startReadingPage: 12,
 
@@ -60,7 +60,7 @@ const books = [
   title: "Siri Za Mafanikio Ya Maisha",
   language: "sw-TZ",
   locked: true,
-  pdf: "SIRI ZA MAFANIKIO YA MAISHA.pdf",
+  pdf: "books/siri za mafanikio ya maisha.pdf",
   cover: "images/vg.jpg",
   startReadingPage: 12,
 
