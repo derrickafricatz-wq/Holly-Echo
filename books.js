@@ -120,8 +120,10 @@ if (license.status !== "active") {
   return;
 }
 
-if (license.book_pdf !== selectedBookToUnlock.pdf) {
-  msg.innerHTML = "This license is not valid for this book 🔐";
+if (
+  license.book_pdf !== selectedBookToUnlock.pdf.split("/").pop()
+) {
+  msg.innerHTML = "This license is not valid for this book 🔐";
   return;
 }
 
