@@ -1314,12 +1314,10 @@ window.addEventListener("load", async () => {
 
     await renderPage(pageNum);
 
-  } catch(err) {
-
-    console.error("PDF Load Error:", err);
-
-    alert("Elite flow. Tap rekindle view.");
-
+  } catch (err) {
+  console.error("PDF Load Error:", err);
+  console.log("selectedPDF:", selectedPDF);
+  alert(err.message);
   }
 
 }
