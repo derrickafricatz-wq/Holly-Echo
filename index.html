@@ -2111,6 +2111,47 @@ const brandMessages = [
 }  
 
     startBrandLoop();
+
+    let newWorker = null;
+
+if ("serviceWorker" in navigator) {
+
+navigator.serviceWorker.register("./sw.js");
+
+navigator.serviceWorker.addEventListener("controllerchange", () => {
+
+window.location.reload();
+
+});
+
+navigator.serviceWorker.getRegistration().then((registration) => {
+
+if (!registration) return;
+
+registration.addEventListener("updatefound", () => {
+
+newWorker = registration.installing;
+
+newWorker.addEventListener("statechange", () => {
+
+if (
+
+newWorker.state === "installed" &&
+navigator.serviceWorker.controller
+
+) {
+
+showUpdatePopup();
+
+}
+
+});
+
+});
+
+});
+
+}
     
 </script>
 </body>
