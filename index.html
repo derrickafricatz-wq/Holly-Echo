@@ -1963,10 +1963,11 @@ function startBackgroundLoop() {
       const sponsorLabel =
 document.getElementById("campaignName");
 
-if(billboardLabel){
+if (sponsorLabel) {
 
-billboardLabel.innerText =
-nextCampaign.company;
+  sponsorLabel.innerHTML =
+    "Featured Sponsor<br>" +
+    nextCampaign.company;
 
 }
 
