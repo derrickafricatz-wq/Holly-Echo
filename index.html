@@ -1810,7 +1810,9 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cache = await caches.open("holly-echo-v1");
+  const cacheNames = await caches.keys();
+
+  const cache = await caches.open(cacheNames[0]);
 
   const keys = await cache.keys();
 
