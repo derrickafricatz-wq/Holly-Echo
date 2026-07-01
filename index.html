@@ -39,81 +39,6 @@
   opacity: 1;
   transition: opacity 2.5s ease-in-out;
 }
-
-#billboardFrame{
-
-position:fixed;
-
-top:20px;
-left:50%;
-
-transform:translateX(-50%);
-
-width:92%;
-max-width:900px;
-
-height:260px;
-
-border:10px solid #444;
-border-radius:25px;
-
-background:transparent;
-
-box-shadow:
-0 0 30px rgba(0,255,255,.25),
-0 10px 50px rgba(0,0,0,.7);
-
-pointer-events:none;
-
-z-index:2;
-
-overflow:hidden;
-
-}
-
-#billboardHeader{
-
-position:absolute;
-
-top:0;
-left:0;
-
-width:100%;
-
-padding:10px;
-
-text-align:center;
-
-font-size:18px;
-font-weight:bold;
-
-color:#FFD700;
-
-background:rgba(0,0,0,.65);
-
-letter-spacing:1px;
-
-}
-
-#billboardCompany{
-
-position:absolute;
-
-bottom:15px;
-left:15px;
-
-padding:10px 16px;
-
-border-radius:12px;
-
-background:rgba(0,0,0,.75);
-
-color:white;
-
-font-size:18px;
-font-weight:bold;
-
-}
     
     #scrollBannerWrapper {
   position: fixed;
@@ -2024,17 +1949,6 @@ function startBackgroundLoop() {
 
       const sponsorLabel =
 document.getElementById("campaignName");
-
-const billboardLabel =
-document.getElementById("billboardCompanyName");
-
-if(sponsorLabel){
-
-sponsorLabel.innerHTML =
-"Featured Sponsor<br>" +
-nextCampaign.company;
-
-}
 
 if(billboardLabel){
 
