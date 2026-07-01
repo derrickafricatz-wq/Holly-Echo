@@ -54,5 +54,24 @@ const books = [
     standard: { price: 5000, pages: 41 },
     premium: { price: 10000, pages: null }
   }
-} 
+},
+
+  {
+  title: "Siri Za Mafanikio Ya Maisha",
+  language: "sw-TZ",
+  locked: true,
+  pdf: "SIRI ZA MAFANIKIO YA MAISHA.pdf",
+  cover: "images/er1.jpg",
+  startReadingPage: 12,
+
+  author: {
+    author: "Abubakar Sheshe"
+  },
+
+  plans: {
+    starter: { price: 3000, pages: 17 },
+    standard: { price: 7000, pages: 54 },
+    premium: { price: 15000, pages: null }
+  }
+}
 ];
