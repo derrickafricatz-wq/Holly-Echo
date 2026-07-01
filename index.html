@@ -2152,6 +2152,22 @@ showUpdatePopup();
 });
 
 }
+
+    function showUpdatePopup(){
+
+document.getElementById("updatePopup").style.display = "block";
+
+}
+
+document.getElementById("updateNowBtn").onclick = function(){
+
+if(newWorker){
+
+newWorker.postMessage("SKIP_WAITING");
+
+}
+
+};
     
 </script>
 
