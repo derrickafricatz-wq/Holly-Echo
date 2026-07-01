@@ -22,7 +22,7 @@ const books = [
   title: "Spiritual Eyes",
   language: "en-US",
   locked: true,
-  pdf: "learn.pdf",
+  pdf: "books/learn.pdf",
   cover: "images/er1.jpg",
   startReadingPage: 3,
 
