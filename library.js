@@ -75,3 +75,48 @@ const books = [
   }
 }
 ];
+
+async function loadBooksFromSupabase() {
+  
+  const { data, error } = await client
+    .from("books")
+    .select("*");
+
+  if (error) {
+    console.error("Books Error:", error);
+    return;
+  }
+
+  books = data.map(row => ({
+    title: row.title,
+    language: row.language,
+    locked: true,
+    pdf: row.pdf_url,
+    cover: row.cover,
+
+    startReadingPage: row.start_reading_page,
+
+    author: {
+      author: row.author_name
+    },
+
+    plans: {
+      starter: {
+        price: row.starter_price,
+        pages: row.starter_pages
+      },
+
+      standard: {
+        price: row.standard_price,
+        pages: row.standard_pages
+      },
+
+      premium: {
+        price: row.premium_price,
+        pages: null
+      }
+    }
+  }));
+
+  renderBooks();
+}
