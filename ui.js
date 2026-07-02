@@ -282,7 +282,7 @@ font-size:10px;
 color:#888;
 letter-spacing:1px;
 ">
-MOBILE MONEY (MOMO)
+BUSINESS NAME
 </div>
 
 <div style="
@@ -293,7 +293,7 @@ white-space:nowrap;
 overflow:hidden;
 text-overflow:ellipsis;
 ">
-+255763907868
+DERRICK KIPAJI OF AFRIKA & CO
 </div>
 
 </div>
@@ -319,7 +319,7 @@ font-weight:bold;
 color:#ffd700;
 white-space:nowrap;
 ">
-36121630
+23544652|PROV:HALOTEL 
 </div>
 
 </div>
