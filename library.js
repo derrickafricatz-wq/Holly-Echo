@@ -95,35 +95,36 @@ async function loadBooksFromSupabase() {
   }
 
   books = data.map(row => ({
-    title: row.title,
-    language: row.language,
-    locked: true,
-    pdf: row.pdf_url,
-    cover: row.cover,
+  title: row.title,
+  language: row.language,
+  locked: true,
 
-    startReadingPage: row.start_reading_page,
+  pdf: "https://xbemkmvvbkxknuduthsg.supabase.co/storage/v1/object/public/books/" + row.pdf_url,
 
-    author: {
-      author: row.author_name
+  cover: "https://xbemkmvvbkxknuduthsg.supabase.co/storage/v1/object/public/covers/" + row.cover_url,
+
+  startReadingPage: row.start_reading_page,
+
+  author: {
+    author: row.author_name
+  },
+
+  plans: {
+    starter: {
+      price: row.starter_price,
+      pages: row.starter_pages
     },
 
-    plans: {
-      starter: {
-        price: row.starter_price,
-        pages: row.starter_pages
-      },
+    standard: {
+      price: row.standard_price,
+      pages: row.standard_pages
+    },
 
-      standard: {
-        price: row.standard_price,
-        pages: row.standard_pages
-      },
-
-      premium: {
-        price: row.premium_price,
-        pages: null
-      }
+    premium: {
+      price: row.premium_price,
+      pages: null
     }
-  }));
+  }
+}));
 
-  renderBooks();
-}
+renderBooks();
