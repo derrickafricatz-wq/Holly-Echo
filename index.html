@@ -1871,9 +1871,12 @@ setInterval(showBanner, 20000);
      }
 });
 
-  document.getElementById("openStoreBtn").onclick = function () {
+  document.getElementById("openStoreBtn").onclick = async function () {
+
   document.getElementById("storePanel").style.display = "block";
-  renderBooks();
+
+  await loadBooksFromSupabase();
+
 };
 
  document.getElementById("authorPortalBtn").onclick = function () {
