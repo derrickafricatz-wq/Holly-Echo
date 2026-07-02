@@ -266,7 +266,7 @@ line-height:1.35;
 margin-bottom:14px;
 text-shadow:0 0 8px rgba(255,215,0,.35);
 ">
-DERRICK KIPAJI OF AFRIKA & CO
+Trusted Payment Gateway
 </div>
 
 <div style="
