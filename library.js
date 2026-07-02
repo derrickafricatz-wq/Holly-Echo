@@ -87,7 +87,7 @@ async function loadBooksFromSupabase() {
   return;
 }
 
-alert("Books found: " + data.length);
+ alert(JSON.stringify(data[0]));
 
   if (error) {
     console.error("Books Error:", error);
