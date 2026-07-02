@@ -94,6 +94,8 @@ async function loadBooksFromSupabase() {
     return;
   }
 
+  alert("Mapping books...");
+
   books = data.map(row => ({
   title: row.title,
   language: row.language,
@@ -126,5 +128,7 @@ async function loadBooksFromSupabase() {
     }
   }
 }));
+
+  alert("Books mapped!");
 
 renderBooks();
