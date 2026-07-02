@@ -83,6 +83,13 @@ async function loadBooksFromSupabase() {
     .select("*");
 
   if (error) {
+  alert("Supabase Error: " + error.message);
+  return;
+}
+
+alert("Books found: " + data.length);
+
+  if (error) {
     console.error("Books Error:", error);
     return;
   }
