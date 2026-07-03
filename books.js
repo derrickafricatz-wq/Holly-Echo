@@ -164,6 +164,11 @@ if (!license.package) {
 
       unlockedBooksSet.add(selectedBookToUnlock.title);
 
+   localStorage.setItem(
+  "unlockedBooks",
+  JSON.stringify([...unlockedBooksSet])
+);
+
       selectedBookToUnlock.locked = false;
 
       updateCart();
