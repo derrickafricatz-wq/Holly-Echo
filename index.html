@@ -1123,69 +1123,82 @@ style="
 
     const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-    async function loadSupabaseBooks(){
+    async function loadSupabaseBooks() {
 
-const { data, error } = await client
-.from("books")
-.select("*");
+  const { data, error } = await client
+    .from("books")
+    .select("*");
 
-if(error){
+  if (error) {
+    alert(error.message);
+    return;
+  }
 
-alert(error.message);
-
-return;
-
-}
-
-  alert("Books loaded: " + data.length);
+  console.log("Books loaded:", data.length);
 
   for (const row of data) {
 
-  // Skip if book already exists
-  if (books.some(book => book.pdf === row.pdf_url)) {
-    continue;
+    // Skip if already exists
+    if (books.some(book => book.pdf === row.pdf_url)) {
+      continue;
+    }
+
+    books.push({
+
+      title: row.title,
+
+      language: row.language,
+
+      locked: true,
+
+      pdf: row.pdf_url,
+
+      cover: `${SUPABASE_URL}/storage/v1/object/public/covers/${row.cover_url}`,
+
+      startReadingPage: row.start_reading_page,
+
+      author: {
+        author: row.author_name
+      },
+
+      plans: {
+
+        starter: {
+          price: row.starter_price,
+          pages: row.starter_pages
+        },
+
+        standard: {
+          price: row.standard_price,
+          pages: row.standard_pages
+        },
+
+        premium: {
+          price: row.premium_price,
+          pages: null
+        }
+
+      }
+
+    });
+
   }
 
-  books.push({
+  // Restore previously unlocked books
+  const savedUnlocked =
+    JSON.parse(localStorage.getItem("unlockedBooks") || "[]");
 
-    title: row.title,
+  unlockedBooksSet = new Set(savedUnlocked);
 
-    language: row.language,
+  books.forEach(book => {
 
-    locked: true,
-
-    pdf: row.pdf_url,
-
-    cover: `${SUPABASE_URL}/storage/v1/object/public/covers/${row.cover_url}`,
-
-    startReadingPage: row.start_reading_page,
-
-    author: {
-      author: row.author_name
-    },
-
-    plans: {
-      starter: {
-        price: row.starter_price,
-        pages: row.starter_pages
-      },
-
-      standard: {
-        price: row.standard_price,
-        pages: row.standard_pages
-      },
-
-      premium: {
-        price: row.premium_price,
-        pages: null
-      }
+    if (unlockedBooksSet.has(book.title)) {
+      book.locked = false;
     }
 
   });
 
 }
-
-    }
 
     let pdfDoc = null;
     let pageNum = 1;
