@@ -179,6 +179,20 @@ if (!license.package) {
 
      console.log("Opening PDF:", selectedPDF);
 
+   // Cache Supabase PDF for offline reading
+if (selectedPDF.startsWith("http")) {
+
+  const cache = await caches.open("books-cache");
+
+  try {
+    await cache.add(selectedPDF);
+    console.log("Book cached successfully");
+  } catch (e) {
+    console.log("Caching failed:", e);
+  }
+
+}
+
      setTimeout(() => {
 
   document.getElementById("licenseScreen").style.display = "none";
