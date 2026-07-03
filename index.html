@@ -39,7 +39,6 @@
   opacity: 1;
   transition: opacity 2.5s ease-in-out;
 }
-    
     #scrollBannerWrapper {
   position: fixed;
   bottom: 0;
@@ -645,11 +644,9 @@
 Featured Sponsor
 </div>
 
-<div id="appBg"></div>
-
-</div>
-
-<div id="scrollBannerWrapper">
+  <div id="appBg"></div>
+  
+  <div id="scrollBannerWrapper">
 
   <div id="brandBox">
 
@@ -726,32 +723,13 @@ border-bottom:1px solid #00ffff;
 z-index:1000000;
 ">
 
- <div style="
+<div style="
 font-size:28px;
 font-weight:bold;
 color:#00ffff;
 ">
 📚 Book Store
 </div>
-
-<div style="
-display:flex;
-align-items:center;
-gap:10px;
-">
-
-<button id="authorPortalBtn" style="
-padding:10px 16px;
-border:none;
-border-radius:8px;
-background:linear-gradient(90deg,#FFD700,#FF9800);
-color:#000;
-font-weight:bold;
-font-size:15px;
-cursor:pointer;
-">
-👤 Author Portal
-</button>
 
 <button onclick="closeStore()" style="
 padding:10px 18px;
@@ -763,10 +741,8 @@ font-weight:bold;
 font-size:15px;
 cursor:pointer;
 ">
-CLOSE
+ CLOSE
 </button>
-
-</div>     
 
     </div>
 
@@ -1147,6 +1123,65 @@ style="
 
     const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
+    async function loadSupabaseBooks(){
+
+const { data, error } = await client
+.from("books")
+.select("*");
+
+if(error){
+
+alert(error.message);
+
+return;
+
+}
+
+  alert("Books loaded: " + data.length);
+
+  for (const row of data) {
+
+  books.push({
+
+    title: row.title,
+
+    language: row.language,
+
+    locked: true,
+
+    pdf: row.pdf_url,
+
+    cover: `${SUPABASE_URL}/storage/v1/object/public/covers/${row.cover_url}`,
+
+    startReadingPage: row.start_reading_page,
+
+    author: {
+      author: row.author_name
+    },
+
+    plans: {
+      starter: {
+        price: row.starter_price,
+        pages: row.starter_pages
+      },
+
+      standard: {
+        price: row.standard_price,
+        pages: row.standard_pages
+      },
+
+      premium: {
+        price: row.premium_price,
+        pages: null
+      }
+    }
+
+  });
+
+}
+
+    }
+
     let pdfDoc = null;
     let pageNum = 1;
     let canvas = null;
@@ -1303,7 +1338,11 @@ window.addEventListener("load", async () => {
     pdfDoc = null;
     pageNum = 1;
 
-    const url = selectedPDF;
+    const url = selectedPDF.includes("http")
+  ? selectedPDF
+  : selectedPDF.endsWith(".pdf")
+    ? `${SUPABASE_URL}/storage/v1/object/public/books/${selectedPDF}`
+    : selectedPDF;
 
     pdfDoc = await pdfjsLib.getDocument(url).promise;
 
@@ -1813,9 +1852,7 @@ startHeaderLoop();
 
    window.addEventListener("load", async () => {
 
-  const cacheNames = await caches.keys();
-
-  const cache = await caches.open(cacheNames[0]);
+  const cache = await caches.open("holly-echo-v32");
 
   const keys = await cache.keys();
 
@@ -1871,16 +1908,15 @@ setInterval(showBanner, 20000);
      }
 });
 
-  document.getElementById("openStoreBtn").onclick = function () {
+  document.getElementById("openStoreBtn").onclick = async function () {
+
+  await loadSupabaseBooks();
+
   document.getElementById("storePanel").style.display = "block";
+
   renderBooks();
+
 };
-
- document.getElementById("authorPortalBtn").onclick = function () {
-
-window.location.href = "author.html";
-
-};   
 
   document.getElementById("openMarketBtn").onclick = function () {
 
@@ -2116,115 +2152,7 @@ const brandMessages = [
 }  
 
     startBrandLoop();
-
-    let newWorker = null;
-
-if ("serviceWorker" in navigator) {
-
-navigator.serviceWorker.register("./sw.js");
-
-navigator.serviceWorker.addEventListener("controllerchange", () => {
-
-window.location.reload();
-
-});
-
-navigator.serviceWorker.getRegistration().then((registration) => {
-
-if (!registration) return;
-
-registration.addEventListener("updatefound", () => {
-
-newWorker = registration.installing;
-
-newWorker.addEventListener("statechange", () => {
-
-if (
-
-newWorker.state === "installed" &&
-navigator.serviceWorker.controller
-
-) {
-
-showUpdatePopup();
-
-}
-
-});
-
-});
-
-});
-
-}
-
-    function showUpdatePopup(){
-
-document.getElementById("updatePopup").style.display = "block";
-
-}
-
-document.getElementById("updateNowBtn").onclick = function(){
-
-if(newWorker){
-
-newWorker.postMessage("SKIP_WAITING");
-
-}
-
-};
     
 </script>
-
-  <div id="updatePopup" style="
-display:none;
-position:fixed;
-left:50%;
-top:50%;
-transform:translate(-50%,-50%);
-width:90%;
-max-width:360px;
-background:#111;
-border:2px solid #00ffff;
-border-radius:18px;
-padding:25px;
-text-align:center;
-z-index:99999999;
-box-shadow:0 0 30px rgba(0,255,255,.35);
-">
-
-<h2 style="
-color:#00ffff;
-margin-bottom:15px;
-">
-Update Available
-</h2>
-
-<p style="
-color:#fff;
-line-height:1.6;
-margin-bottom:25px;
-">
-A new version of Holly Echo is ready.
-
-Press the button below to update your app.
-</p>
-
-<button id="updateNowBtn" style="
-width:100%;
-padding:15px;
-background:#00ffff;
-color:#000;
-font-size:18px;
-font-weight:bold;
-border:none;
-border-radius:12px;
-cursor:pointer;
-">
-UPDATE NOW
-</button>
-
-</div>
-  
 </body>
 </html>
