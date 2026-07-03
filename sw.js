@@ -1,6 +1,6 @@
 // Holly Echo - Offline Service Worker (FINAL CLEAN VERSION)
 
-const CACHE_NAME = "holly-echo-v6";
+const CACHE_NAME = "holly-echo-v7";
 
 /* =========================
    FILES TO CACHE (APP SHELL)
@@ -134,6 +134,33 @@ self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
 
   const requestUrl = event.request.url;
+
+   // Serve cached Supabase books
+if (requestUrl.includes("/storage/v1/object/public/books/")) {
+
+  event.respondWith(
+
+    caches.match(event.request).then((cached) => {
+
+      return cached || fetch(event.request).then((response) => {
+
+        const clone = response.clone();
+
+        caches.open("books-cache").then((cache) => {
+          cache.put(event.request, clone);
+        });
+
+        return response;
+
+      });
+
+    })
+
+  );
+
+  return;
+
+}
 
   // VIDEO FIX
   if (
