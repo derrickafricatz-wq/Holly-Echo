@@ -1344,8 +1344,9 @@ window.addEventListener("load", async () => {
     ? selectedPDF
     : `${SUPABASE_URL}/storage/v1/object/public/books/${selectedPDF}`;
 
-    pdfDoc = await pdfjsLib.getDocument(url).promise;
-    alert(url);
+alert(url);
+
+pdfDoc = await pdfjsLib.getDocument(url).promise;
 
     applyLimit();
     
