@@ -1141,6 +1141,11 @@ return;
 
   for (const row of data) {
 
+  // Skip if book already exists
+  if (books.some(book => book.pdf === row.pdf_url)) {
+    continue;
+  }
+
   books.push({
 
     title: row.title,
