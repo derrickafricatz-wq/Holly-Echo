@@ -143,17 +143,23 @@ if (requestUrl.includes("/storage/v1/object/public/books/")) {
 
     caches.match(event.request).then((cached) => {
 
-      return cached || fetch(event.request).then((response) => {
+      return cached || fetch(event.request)
+.then((response) => {
 
-        const clone = response.clone();
+  const clone = response.clone();
 
-        caches.open("books-cache").then((cache) => {
-          cache.put(event.request, clone);
-        });
+  caches.open("books-cache").then((cache) => {
+    cache.put(event.request, clone);
+  });
 
-        return response;
+  return response;
 
-      });
+})
+.catch(() => {
+
+  return caches.match(event.request);
+
+});
 
     })
 
