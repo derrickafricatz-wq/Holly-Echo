@@ -1387,7 +1387,21 @@ window.addEventListener("load", async () => {
 
 alert(url);
 
-pdfDoc = await pdfjsLib.getDocument(url).promise;
+let finalUrl = url;
+
+try {
+  const cachedResponse = await caches.match(url);
+
+  if (cachedResponse) {
+    const blob = await cachedResponse.blob();
+    finalUrl = URL.createObjectURL(blob);
+  }
+
+} catch (e) {
+  console.log("Cache check failed:", e);
+}
+
+pdfDoc = await pdfjsLib.getDocument(finalUrl).promise;
 
     applyLimit();
     
