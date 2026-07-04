@@ -1,6 +1,7 @@
 // Holly Echo - Offline Service Worker (FINAL CLEAN VERSION)
 
-const CACHE_NAME = "holly-echo-v28";
+const APP_VERSION = "1.0.1";
+const CACHE_NAME = `voiceofgod-${APP_VERSION}`;
 
 /* =========================
    FILES TO CACHE (APP SHELL)
