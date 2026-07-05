@@ -163,17 +163,6 @@
   padding-top: 80px;
 }
 
-    #pdf-render {
-  position: absolute;
-
-  top: 50%;
-  left: 50%;
-
-  transform: translate(-50%, -50%);
-
-  display: block;
-    }
-
     #toggleBtn {
   position: fixed;
   bottom: 20px;
@@ -1438,9 +1427,7 @@ pdfDoc = await pdfjsLib.getDocument(finalUrl).promise;
     return;
   }
 
-  const page = await pdfDoc.getPage(num);
-
-  document.getElementById("pdf-render").style.opacity = "0.4";   
+  const page = await pdfDoc.getPage(num); 
 
   const canvas = document.getElementById('pdf-render');
   const ctx = canvas.getContext('2d');
@@ -1471,9 +1458,7 @@ pdfDoc = await pdfjsLib.getDocument(finalUrl).promise;
   await page.render({
     canvasContext: ctx,
     viewport: scaledViewport
-  }).promise;
-
-  document.getElementById("pdf-render").style.opacity = "1";    
+  }).promise;   
 
   document.getElementById("pageNum").innerText = "Page: " + num;
     }
