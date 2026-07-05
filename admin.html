@@ -363,36 +363,55 @@ Confirmed Sale
 
 Thank you for publishing with Voice Of God.`; 
 
-if (buyerWhatsapp) {
+const btn = document.getElementById("generateBtn");
 
-  const phone =
-  buyerWhatsapp.replace(/\D/g,"");
+btn.disabled = true;
 
-  setTimeout(() => {
+if (licenseStep === "buyer") {
 
-    window.open(
-      `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
-      "_blank"
-    );
+  const phone = buyerWhatsapp.replace(/\D/g,"");
 
-  }, 1000);
+  window.open(
+    `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
+    "_blank"
+  );
 
-  if(authorWhatsapp){
+  licenseStep = "author";
 
-    const authorPhone =
-    authorWhatsapp.replace(/\D/g,"");
+  alert("Buyer message sent. Now click GENERATE again for Author.");
 
-    setTimeout(() => {
+  btn.disabled = false;
 
-      window.open(
-        `https://wa.me/${authorPhone}?text=${encodeURIComponent(authorMessage)}`,
-        "_blank"
-      );
+  return;
+}
 
-    }, 3000);
+if (licenseStep === "author") {
 
-  }
+  const authorPhone = authorWhatsapp.replace(/\D/g,"");
 
+  window.open(
+    `https://wa.me/${authorPhone}?text=${encodeURIComponent(authorMessage)}`,
+    "_blank"
+  );
+
+  licenseStep = "done";
+
+  alert("Author message sent.");
+
+  btn.disabled = false;
+
+  return;
+}
+
+if (licenseStep === "done") {
+
+  alert("✔ Both messages completed successfully.");
+
+  licenseStep = "buyer";
+
+  btn.disabled = false;
+
+  return;
 }
 
 else if (buyerEmail) {
