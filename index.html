@@ -1962,13 +1962,19 @@ setInterval(showBanner, 20000);
 
   document.getElementById("loadingBox").style.display = "flex";
 
-  await loadSupabaseBooks();
+  try {
 
-  document.getElementById("loadingBox").style.display = "none";
+    await loadSupabaseBooks();
 
-  document.getElementById("storePanel").style.display = "block";
+    document.getElementById("storePanel").style.display = "block";
 
-  renderBooks();
+    renderBooks();
+
+  } finally {
+
+    document.getElementById("loadingBox").style.display = "none";
+
+  }
 
 };
 
