@@ -1960,7 +1960,11 @@ setInterval(showBanner, 20000);
 
   document.getElementById("openStoreBtn").onclick = async function () {
 
+  document.getElementById("loadingBox").style.display = "flex";
+
   await loadSupabaseBooks();
+
+  document.getElementById("loadingBox").style.display = "none";
 
   document.getElementById("storePanel").style.display = "block";
 
