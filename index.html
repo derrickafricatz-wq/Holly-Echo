@@ -1165,7 +1165,6 @@ style="
     }
 
     const coverUrl = `${SUPABASE_URL}/storage/v1/object/public/covers/${row.cover_url}`;
-    alert(coverUrl);
 
     books.push({
 
@@ -1386,8 +1385,6 @@ window.addEventListener("load", async () => {
     ? selectedPDF
     : `${SUPABASE_URL}/storage/v1/object/public/books/${selectedPDF}`;
 
-alert(url);
-
 let finalUrl = url;
 
 try {
@@ -1471,6 +1468,8 @@ pdfDoc = await pdfjsLib.getDocument(finalUrl).promise;
     canvasContext: ctx,
     viewport: scaledViewport
   }).promise;
+
+  document.getElementById("pdf-render").style.opacity = "1";    
 
   document.getElementById("pageNum").innerText = "Page: " + num;
     }
