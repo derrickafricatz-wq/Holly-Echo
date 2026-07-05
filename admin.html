@@ -103,6 +103,10 @@ placeholder="Email Address">
 id="bookPdf"
 placeholder="Book PDF">
 
+  <input
+id="bookTitle"
+placeholder="Book Title">
+
 <input
 id="package"
 placeholder="Package">
@@ -156,6 +160,9 @@ const SUPABASE_KEY =
 
 const client =
 supabase.createClient(
+
+  let licenseStep = "buyer";
+  
   SUPABASE_URL,
   SUPABASE_KEY
 );
