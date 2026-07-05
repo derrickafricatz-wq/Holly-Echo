@@ -1439,6 +1439,8 @@ pdfDoc = await pdfjsLib.getDocument(finalUrl).promise;
 
   const page = await pdfDoc.getPage(num);
 
+  document.getElementById("pdf-render").style.opacity = "0.4";   
+
   const canvas = document.getElementById('pdf-render');
   const ctx = canvas.getContext('2d');
 
