@@ -319,7 +319,7 @@ font-weight:bold;
 color:#ffd700;
 white-space:nowrap;
 ">
-140001788|PROV:AIRTEL|   |23544652|PROV: HALOTEL|
+140001788|PROV:AIRTEL|   23544652|PROV: HALOTEL|
 </div>
 
 </div>
