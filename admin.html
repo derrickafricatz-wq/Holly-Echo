@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+You're rushing me let's go slowly step one by one and show me where to put..  <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -103,10 +103,6 @@ placeholder="Email Address">
 id="bookPdf"
 placeholder="Book PDF">
 
-  <input
-id="bookTitle"
-placeholder="Book Title">
-
 <input
 id="package"
 placeholder="Package">
@@ -158,12 +154,11 @@ const SUPABASE_URL =
 const SUPABASE_KEY =
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhiZW1rbXZ2Ymt4a251ZHV0aHNnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk0OTUyOTgsImV4cCI6MjA5NTA3MTI5OH0.tKtlJ89jdPyeFSAaQs02Vet3SOl2LVatl4psSG9RxPI";
 
-const client = supabase.createClient(
+const client =
+supabase.createClient(
   SUPABASE_URL,
   SUPABASE_KEY
 );
-
-let licenseStep = "buyer";
 
 function generateLicense() {
 
@@ -212,9 +207,6 @@ document
 
     const packageName =
     document.getElementById("package").value.trim();
-
-    const bookTitle =
-document.getElementById("bookTitle").value.trim();
 
     const authorName =
 document.getElementById("authorName").value.trim();
@@ -364,55 +356,36 @@ Confirmed Sale
 
 Thank you for publishing with Voice Of God.`; 
 
-const btn = document.getElementById("generateBtn");
+if (buyerWhatsapp) {
 
-btn.disabled = true;
+  const phone =
+  buyerWhatsapp.replace(/\D/g,"");
 
-if (licenseStep === "buyer") {
+  setTimeout(() => {
 
-  const phone = buyerWhatsapp.replace(/\D/g,"");
+    window.open(
+      `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
+      "_blank"
+    );
 
-  window.open(
-    `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
-    "_blank"
-  );
+  }, 1000);
 
-  licenseStep = "author";
+  if(authorWhatsapp){
 
-  alert("Buyer message sent. Now click GENERATE again for Author.");
+    const authorPhone =
+    authorWhatsapp.replace(/\D/g,"");
 
-  btn.disabled = false;
+    setTimeout(() => {
 
-  return;
-}
+      window.open(
+        `https://wa.me/${authorPhone}?text=${encodeURIComponent(authorMessage)}`,
+        "_blank"
+      );
 
-if (licenseStep === "author") {
+    }, 3000);
 
-  const authorPhone = authorWhatsapp.replace(/\D/g,"");
+  }
 
-  window.open(
-    `https://wa.me/${authorPhone}?text=${encodeURIComponent(authorMessage)}`,
-    "_blank"
-  );
-
-  licenseStep = "done";
-
-  alert("Author message sent.");
-
-  btn.disabled = false;
-
-  return;
-}
-
-if (licenseStep === "done") {
-
-  alert("✔ Both messages completed successfully.");
-
-  licenseStep = "buyer";
-
-  btn.disabled = false;
-
-  return;
 }
 
 else if (buyerEmail) {
