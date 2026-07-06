@@ -1140,15 +1140,15 @@ style="
     async function loadSupabaseBooks() {
 
   const { data, error } = await client
-    .from("books")
-    .select("*");
+  .from("books")
+  .select("*");
 
-  if (error) {
-    alert(error.message);
-    return;
-  }
+if (error) {
+  alert("Supabase error: " + error.message);
+  return;
+}
 
-  alert("Supabase returned " + data.length + " books.");
+alert("Books returned: " + JSON.stringify(data));
 
   for (const row of data) {
 
