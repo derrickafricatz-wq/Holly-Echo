@@ -138,7 +138,10 @@ font-size:22px;
 font-weight:bold;
 color:white;
 ">
-TSH ${book.plans.starter.price.toLocaleString()}
+${book.singlePurchase
+  ? `<span style="text-decoration:line-through;color:#888;">TSH ${book.plans.starter.price.toLocaleString()}</span>`
+  : `TSH ${book.plans.starter.price.toLocaleString()}`
+}
 </div>
 
 <div style="
@@ -170,7 +173,10 @@ font-size:22px;
 font-weight:bold;
 color:white;
 ">
-TSH ${book.plans.standard.price.toLocaleString()}
+${book.singlePurchase
+  ? `<span style="text-decoration:line-through;color:#888;">TSH ${book.plans.standard.price.toLocaleString()}</span>`
+  : `TSH ${book.plans.standard.price.toLocaleString()}`
+}
 </div>
 
 <div style="
