@@ -149,7 +149,10 @@ margin-top:5px;
 font-size:13px;
 color:#aaa;
 ">
-${book.plans.starter.pages} Pages
+${book.singlePurchase
+  ? `<span style="color:#ff6666;font-weight:bold;">Not Available</span>`
+  : `${book.plans.starter.pages} Pages`
+}
 </div>
 
 </div>
@@ -184,7 +187,10 @@ margin-top:5px;
 font-size:13px;
 color:#aaa;
 ">
-${book.plans.standard.pages} Pages
+${book.singlePurchase
+  ? `<span style="color:#ff6666;font-weight:bold;">Not Available</span>`
+  : `${book.plans.standard.pages} Pages`
+}
 </div>
 
 </div>
