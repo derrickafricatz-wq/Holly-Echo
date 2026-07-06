@@ -12,9 +12,7 @@ const marketAds = [
 
   images: [
     "images/logo.png",
-    "images/logo1.jpg",
-    "images/logo2.jpg",
-    "images/me.jpg"
+    "images/logo1.jpg"
   ]
 },
 
