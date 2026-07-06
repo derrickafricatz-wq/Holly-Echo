@@ -218,7 +218,11 @@ font-size:22px;
 font-weight:bold;
 color:gold;
 ">
-TSH ${book.plans.premium.price.toLocaleString()}
+${book.singlePurchase
+  ? `<div style="color:#00ff88;font-size:14px;font-weight:bold;margin-bottom:5px;">✓ Only Available Option</div>
+     <div>TSH ${book.plans.premium.price.toLocaleString()}</div>`
+  : `TSH ${book.plans.premium.price.toLocaleString()}`
+}
 </div>
 
 <div style="
