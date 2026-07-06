@@ -1,6 +1,6 @@
 // Holly Echo - Offline Service Worker (FINAL CLEAN VERSION)
 
-const APP_VERSION = "1.0.24";
+const APP_VERSION = "1.0.25";
 const CACHE_NAME = `voiceofgod-${APP_VERSION}`;
 
 /* =========================
@@ -151,9 +151,9 @@ if (
 
   const clone = response.clone();
 
-  caches.open("books-cache").then((cache) => {
-    cache.put(event.request, clone);
-  });
+  caches.open(`books-cache-${APP_VERSION}`).then((cache) => {
+  cache.put(event.request, clone);
+});
 
   return response;
 
