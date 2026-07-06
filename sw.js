@@ -143,33 +143,26 @@ if (
 ) {
 
   event.respondWith(
+    caches.open(`books-cache-${APP_VERSION}`).then(async (cache) => {
 
-    caches.match(event.request).then((cached) => {
+      try {
+        const response = await fetch(event.request);
 
-      return cached || fetch(event.request)
-.then((response) => {
+        // only cache GOOD responses
+        if (response && response.status === 200) {
+          cache.put(event.request, response.clone());
+        }
 
-  const clone = response.clone();
+        return response;
 
-  caches.open(`books-cache-${APP_VERSION}`).then((cache) => {
-  cache.put(event.request, clone);
-});
-
-  return response;
-
-})
-.catch(() => {
-
-  return caches.match(event.request);
-
-});
+      } catch (err) {
+        return cache.match(event.request);
+      }
 
     })
-
   );
 
   return;
-
 }
 
   // VIDEO FIX
