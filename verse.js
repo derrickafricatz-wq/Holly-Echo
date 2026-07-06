@@ -2,7 +2,7 @@ const bibleVerses = [
 
 {
   verse: "Trust in the Lord with all your heart.",
-  reference: "Proverbsgghhhhhhhfch 3:5"
+  reference: "Proverb 3:5"
 },
 
 {
