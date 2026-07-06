@@ -1139,6 +1139,14 @@ style="
 
     async function loadSupabaseBooks() {
 
+const session = await client.auth.getSession();
+
+alert(
+  session.data.session
+    ? "Logged in"
+    : "Not logged in"
+);
+      
   const { data, error } = await client
   .from("books")
   .select("*");
