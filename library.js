@@ -26,14 +26,16 @@ const books = [
   cover: "images/er1.jpg",
   startReadingPage: 3,
 
+  singlePurchase: true,
+
   author: {
     author: "Errick H Agustino"
   },
 
   plans: {
-    starter: { price: 500, pages: 2 },
-    standard: { price: 1000, pages: 5 },
-    premium: { price: 2000, pages: null }
+    starter: { price: 3000, pages: 0 },
+    standard: { price: 3000, pages: 0 },
+    premium: { price: 3000, pages: null }
   }
 },
 
