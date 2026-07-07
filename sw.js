@@ -136,35 +136,6 @@ self.addEventListener("fetch", (event) => {
 
   const requestUrl = event.request.url;
 
-   // Serve cached Supabase books
-if (
-  requestUrl.includes("/storage/v1/object/public/books/") ||
-  requestUrl.includes("/storage/v1/object/public/covers/")
-) {
-
-  event.respondWith(
-    caches.open(`books-cache-${APP_VERSION}`).then(async (cache) => {
-
-      try {
-        const response = await fetch(event.request);
-
-        // only cache GOOD responses
-        if (response && response.status === 200) {
-          cache.put(event.request, response.clone());
-        }
-
-        return response;
-
-      } catch (err) {
-        return cache.match(event.request);
-      }
-
-    })
-  );
-
-  return;
-}
-
   // VIDEO FIX
   if (
     event.request.destination === "video" ||
