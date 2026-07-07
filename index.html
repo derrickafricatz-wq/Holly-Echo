@@ -1936,8 +1936,9 @@ function startBackgroundLoop() {
 
     setTimeout(() => {
 
-      const currentCampaign =
-        campaigns[campaignIndex];
+      const hasVideo =
+  currentCampaign.videos &&
+  currentCampaign.videos.length > 0;
 
       imageIndex++;
 
