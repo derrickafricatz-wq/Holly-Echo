@@ -1914,8 +1914,9 @@ let imageIndex = 0;
 function startBackgroundLoop() {
 
   const bg = document.getElementById("appBg");
+  const video = document.getElementById("appVideo");
 
-  if (!bg || campaigns.length === 0) return;
+  if (!bg || !video || campaigns.length === 0) return;
 
   bg.style.transition =
     "opacity 1.5s ease-in-out";
