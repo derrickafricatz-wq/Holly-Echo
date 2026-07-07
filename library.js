@@ -33,8 +33,8 @@ const books = [
   },
 
   plans: {
-    starter: { price: 3000, pages: 0 },
-    standard: { price: 3000, pages: 0 },
+    starter: { price: 0, pages: 0 },
+    standard: { price: 0, pages: 0 },
     premium: { price: 3000, pages: null }
   }
 },
