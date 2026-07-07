@@ -1930,7 +1930,9 @@ function startBackgroundLoop() {
 
   setInterval(() => {
 
-    bg.style.opacity = "0";
+  if (playingVideo) return;
+
+  bg.style.opacity = "0";
 
     setTimeout(() => {
 
