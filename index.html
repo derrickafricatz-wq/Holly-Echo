@@ -1919,6 +1919,49 @@ function startBackgroundLoop() {
 
   if (!bg || !video || campaigns.length === 0) return;
 
+video.onloadedmetadata = () => {
+
+  // Limit playback to 10 seconds
+  setTimeout(() => {
+
+    video.pause();
+
+    video.currentTime = 0;
+
+    video.style.display = "none";
+
+    bg.style.display = "block";
+
+    playingVideo = false;
+
+    imageIndex = 0;
+
+    campaignIndex++;
+
+    if (campaignIndex >= campaigns.length) {
+      campaignIndex = 0;
+    }
+
+    const nextCampaign = campaigns[campaignIndex];
+
+    bg.style.backgroundImage =
+      `url('${nextCampaign.images[0]}')`;
+
+    const sponsorLabel =
+      document.getElementById("campaignName");
+
+    if (sponsorLabel) {
+      sponsorLabel.innerHTML =
+        "Featured Sponsor<br>" +
+        nextCampaign.company;
+    }
+
+    bg.style.opacity = "1";
+
+  }, 10000); // 10 seconds
+
+};
+
   bg.style.transition =
     "opacity 1.5s ease-in-out";
 
