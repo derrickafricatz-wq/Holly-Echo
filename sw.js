@@ -81,6 +81,7 @@ const APP_SHELL = [
   "./books/spiritual.pdf",
   "./books/wito wa kumtumikia mungu.pdf",
   "./books/siri za mafanikio ya maisha.pdf",
+  "./videos/wow.mp4", 
   "./banner.txt"
 
 ];
@@ -134,29 +135,42 @@ self.addEventListener("fetch", (event) => {
 
   const requestUrl = event.request.url;
 
-  // VIDEO FIX
-  if (
-    event.request.destination === "video" ||
-    requestUrl.endsWith(".mp4")
-  ) {
+ // VIDEO FIX
+if (
+  event.request.destination === "video" ||
+  requestUrl.endsWith(".mp4")
+) {
 
-    event.respondWith(
+  event.respondWith(
 
-      caches.match(event.request).then((response) => {
+    caches.match(event.request).then((cached) => {
 
-        if (response) {
-          console.log("Video from cache:", requestUrl);
-          return response;
+      if (cached) {
+        return cached;
+      }
+
+      return fetch(event.request).then((response) => {
+
+        if (response && response.status === 200) {
+
+          const clone = response.clone();
+
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, clone);
+          });
+
         }
 
-        return fetch(event.request);
+        return response;
 
-      })
+      });
 
-    );
+    })
 
-    return;
-  }
+  );
+
+  return;
+} 
 
   event.respondWith(
 
