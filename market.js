@@ -31,6 +31,29 @@ const marketAds = [
   ]
 },
 
+  {
+  company: "NEW DUNCAN FURNITURE",
+  phone: "+255759376054",
+  whatsapp: "255759376054",
+  location: "Arusha, Tanzania",
+
+  categories: ["Furniture", "Services"],
+
+  expiresAt: "2026-08-09 00:02",
+
+  images: [
+    "images/m1.png",
+    "images/m2.png",
+    "images/m3.png",
+    "images/m4.png",
+    "images/m5.jpg",
+    "images/m6.jpg",
+    "images/m7.jpg",
+    "images/m8.png"
+    
+  ]
+},
+
 {
   company: "Ruere Arts",
   phone: "255746727716",
@@ -69,6 +92,7 @@ const marketCategories = [
   "Technology",
   "Food",
   "Fashion",
+  "Furniture",
   "Health",
   "Education",
   "Transport",
