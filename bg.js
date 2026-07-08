@@ -2,9 +2,6 @@ const campaigns = [
 
 {
   company: "Announce With Us",
-  images: [
-    "images/de.png"
-  ],
   videos: [
     "videos/wow.mp4"
   ]
