@@ -39,20 +39,6 @@
   opacity: 1;
   transition: opacity 2.5s ease-in-out;
 }
-
-    #appVideo{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-
-  object-fit:contain;
-
-  display:none;
-
-  z-index:1;
-    }
     
     #scrollBannerWrapper {
   position: fixed;
@@ -660,13 +646,6 @@ Featured Sponsor
 </div>
 
 <div id="appBg"></div>
-
-<video
-  id="appVideo"
-  muted
-  playsinline
-  preload="auto"
-></video>
 
 </div>
 
@@ -1910,57 +1889,12 @@ startMarketRotations();
 
 let campaignIndex = 0;
 let imageIndex = 0;
-let playingVideo = false;
 
 function startBackgroundLoop() {
 
   const bg = document.getElementById("appBg");
-  const video = document.getElementById("appVideo");
 
-  if (!bg || !video || campaigns.length === 0) return;
-
-video.onloadedmetadata = () => {
-
-  // Limit playback to 10 seconds
-  setTimeout(() => {
-
-    video.pause();
-
-    video.currentTime = 0;
-
-    video.style.display = "none";
-
-    bg.style.display = "block";
-
-    playingVideo = false;
-
-    imageIndex = 0;
-
-    campaignIndex++;
-
-    if (campaignIndex >= campaigns.length) {
-      campaignIndex = 0;
-    }
-
-    const nextCampaign = campaigns[campaignIndex];
-
-    bg.style.backgroundImage =
-      `url('${nextCampaign.images[0]}')`;
-
-    const sponsorLabel =
-      document.getElementById("campaignName");
-
-    if (sponsorLabel) {
-      sponsorLabel.innerHTML =
-        "Featured Sponsor<br>" +
-        nextCampaign.company;
-    }
-
-    bg.style.opacity = "1";
-
-  }, 10000); // 10 seconds
-
-};
+  if (!bg || campaigns.length === 0) return;
 
   bg.style.transition =
     "opacity 1.5s ease-in-out";
@@ -1973,53 +1907,31 @@ video.onloadedmetadata = () => {
 
   setInterval(() => {
 
-  if (playingVideo) return;
-
-  bg.style.opacity = "0";
+    bg.style.opacity = "0";
 
     setTimeout(() => {
 
       const currentCampaign =
-  campaigns[campaignIndex];
-
-const hasVideo =
-  currentCampaign.videos &&
-  currentCampaign.videos.length > 0;
+        campaigns[campaignIndex];
 
       imageIndex++;
 
-     // Last image reached
-if (imageIndex >= currentCampaign.images.length) {
+      // Next campaign after last image
+      if (
+        imageIndex >= currentCampaign.images.length
+      ) {
 
-  // Play video first (if available)
-  if (hasVideo) {
+        imageIndex = 0;
 
-    playingVideo = true;
+        campaignIndex++;
 
-    bg.style.display = "none";
+        if (
+          campaignIndex >= campaigns.length
+        ) {
+          campaignIndex = 0;
+        }
 
-    video.style.display = "block";
-
-    video.src = currentCampaign.videos[0];
-
-    video.currentTime = 0;
-
-    video.play();
-
-    return;
-
-  }
-
-  // No video → go to next campaign
-  imageIndex = 0;
-
-  campaignIndex++;
-
-  if (campaignIndex >= campaigns.length) {
-    campaignIndex = 0;
-  }
-
-}
+      }
 
       const nextCampaign =
         campaigns[campaignIndex];
