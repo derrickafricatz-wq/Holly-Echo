@@ -1945,22 +1945,38 @@ const hasVideo =
 
       imageIndex++;
 
-      // Next campaign after last image
-      if (
-        imageIndex >= currentCampaign.images.length
-      ) {
+     // Last image reached
+if (imageIndex >= currentCampaign.images.length) {
 
-        imageIndex = 0;
+  // Play video first (if available)
+  if (hasVideo) {
 
-        campaignIndex++;
+    playingVideo = true;
 
-        if (
-          campaignIndex >= campaigns.length
-        ) {
-          campaignIndex = 0;
-        }
+    bg.style.display = "none";
 
-      }
+    video.style.display = "block";
+
+    video.src = currentCampaign.videos[0];
+
+    video.currentTime = 0;
+
+    video.play();
+
+    return;
+
+  }
+
+  // No video → go to next campaign
+  imageIndex = 0;
+
+  campaignIndex++;
+
+  if (campaignIndex >= campaigns.length) {
+    campaignIndex = 0;
+  }
+
+}
 
       const nextCampaign =
         campaigns[campaignIndex];
