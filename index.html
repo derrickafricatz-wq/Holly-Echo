@@ -1639,7 +1639,15 @@ window.addEventListener("beforeinstallprompt", (e) => {
 // user presses install
 installBtn.addEventListener("click", async () => {
 
-  if (!deferredPrompt) return;
+  if (!deferredPrompt) {
+
+  alert(
+    "Install is not available yet.\n\nIf you're using Chrome, tap the ⋮ menu and choose 'Install app' or 'Add to Home screen'."
+  );
+
+  return;
+
+  }
 
   deferredPrompt.prompt();
 
