@@ -1653,14 +1653,19 @@ installBtn.addEventListener("click", async () => {
 
   const result = await deferredPrompt.userChoice;
 
-  if (result.outcome === "accepted") {
+if (result.outcome === "accepted") {
 
-    // hide after install
-    installBtn.style.display = "none";
+  // User installed the app
+  installBtn.style.display = "none";
 
-  }
+} else {
 
-  deferredPrompt = null;
+  // User cancelled
+  installBtn.style.display = "block";
+
+}
+
+deferredPrompt = null;
 
 });
 
