@@ -42,7 +42,7 @@ const marketAds = [
   expiresAt: "2026-08-09 00:02",
 
   images: [
-    "images/m1.png",
+    "images/m1.jpg",
     "images/m2.png",
     "images/m3.png",
     "images/m4.png",
