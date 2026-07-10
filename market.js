@@ -43,13 +43,16 @@ const marketAds = [
 
   images: [
     "images/m1.jpg",
-    "images/m2.png",
     "images/m3.png",
+    "images/m11.png",
     "images/m4.png",
+    "images/m10.jpg",
     "images/m5.jpg",
+    "images/m2.png",
+    "images/m9.jpg",
     "images/m6.jpg",
     "images/m7.jpg",
-    "images/m8.png"
+    "images/m8.jpg"
     
   ]
 },
