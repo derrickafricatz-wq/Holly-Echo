@@ -563,4 +563,26 @@ const filtered = marketAds.filter(company => {
     startMarketBillboard();
   }, 100);
 
-} 
+}
+
+function orderNow(index) {
+
+  const company = marketAds[index];
+
+  if (!company) return;
+
+  const message =
+`Hello ${company.company},
+
+I found your business through the Voice of God App.
+
+I would like to place an order. Please provide me with more information.
+
+Thank you.`;
+
+  window.open(
+    `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(message)}`,
+    "_blank"
+  );
+
+}
