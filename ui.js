@@ -567,22 +567,32 @@ const filtered = marketAds.filter(company => {
 
 function orderNow(index) {
 
-  const company = marketAds[index];
+  selectedCompany = marketAds[index];
 
-  if (!company) return;
+  if (!selectedCompany) return;
 
-  const message =
-`Hello ${company.company},
+  document.getElementById("orderContent").innerHTML = `
+    <h2 style="color:#00ffff;">
+      ${selectedCompany.company}
+    </h2>
 
-I found your business through the Voice of God App.
+    <p>${selectedCompany.location}</p>
 
-I would like to place an order. Please provide me with more information.
+    <input
+      id="customerOrder"
+      type="text"
+      placeholder="What would you like to order?"
+      style="
+        width:100%;
+        padding:12px;
+        border:none;
+        border-radius:8px;
+        margin-top:20px;
+        box-sizing:border-box;
+      "
+    >
+  `;
 
-Thank you.`;
-
-  window.open(
-    `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(message)}`,
-    "_blank"
-  );
+  document.getElementById("orderPage").style.display = "block";
 
 }
