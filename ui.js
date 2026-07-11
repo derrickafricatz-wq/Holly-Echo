@@ -690,3 +690,65 @@ SEND ORDER
   document.getElementById("orderPage").style.display = "block";
 
 }
+
+function closeOrderPage(){
+
+document.getElementById("orderPage").style.display="none";
+
+}
+
+function sendOrder(){
+
+const name=document.getElementById("customerName").value.trim();
+const phone=document.getElementById("customerPhone").value.trim();
+const location=document.getElementById("customerLocation").value.trim();
+const product=document.getElementById("customerProduct").value.trim();
+const quantity=document.getElementById("customerQuantity").value.trim();
+const note=document.getElementById("customerNote").value.trim();
+
+if(name===""||phone===""||product===""){
+
+alert("Please complete the required information.");
+
+return;
+
+}
+
+const message=
+
+`NEW ORDER
+
+Company:
+${selectedCompany.company}
+
+Customer:
+${name}
+
+Phone:
+${phone}
+
+Delivery:
+${location}
+
+Product:
+${product}
+
+Quantity:
+${quantity}
+
+Notes:
+${note}
+
+Sent from Voice of God App.`;
+
+window.open(
+
+`https://wa.me/${selectedCompany.whatsapp}?text=${encodeURIComponent(message)}`,
+
+"_blank"
+
+);
+
+closeOrderPage();
+
+}
