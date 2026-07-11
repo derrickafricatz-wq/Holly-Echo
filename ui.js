@@ -572,26 +572,120 @@ function orderNow(index) {
   if (!selectedCompany) return;
 
   document.getElementById("orderContent").innerHTML = `
-    <h2 style="color:#00ffff;">
-      ${selectedCompany.company}
-    </h2>
 
-    <p>${selectedCompany.location}</p>
+<img
+src="${selectedCompany.images[0]}"
+style="
+width:100%;
+max-height:240px;
+object-fit:cover;
+border-radius:15px;
+margin-bottom:20px;
+">
 
-    <input
-      id="customerOrder"
-      type="text"
-      placeholder="What would you like to order?"
-      style="
-        width:100%;
-        padding:12px;
-        border:none;
-        border-radius:8px;
-        margin-top:20px;
-        box-sizing:border-box;
-      "
-    >
-  `;
+<h2 style="
+color:#00ffff;
+margin:0;
+">
+${selectedCompany.company}
+</h2>
+
+<p style="color:#aaa;">
+${selectedCompany.location}
+</p>
+
+<input
+id="customerName"
+placeholder="Your Full Name"
+style="
+width:100%;
+padding:14px;
+margin-top:20px;
+border:none;
+border-radius:10px;
+box-sizing:border-box;
+">
+
+<input
+id="customerPhone"
+placeholder="Phone Number"
+style="
+width:100%;
+padding:14px;
+margin-top:12px;
+border:none;
+border-radius:10px;
+box-sizing:border-box;
+">
+
+<input
+id="customerLocation"
+placeholder="Delivery Location"
+style="
+width:100%;
+padding:14px;
+margin-top:12px;
+border:none;
+border-radius:10px;
+box-sizing:border-box;
+">
+
+<input
+id="customerProduct"
+placeholder="Product or Service"
+style="
+width:100%;
+padding:14px;
+margin-top:12px;
+border:none;
+border-radius:10px;
+box-sizing:border-box;
+">
+
+<input
+id="customerQuantity"
+placeholder="Quantity"
+style="
+width:100%;
+padding:14px;
+margin-top:12px;
+border:none;
+border-radius:10px;
+box-sizing:border-box;
+">
+
+<textarea
+id="customerNote"
+placeholder="Additional Notes (Optional)"
+style="
+width:100%;
+height:120px;
+padding:14px;
+margin-top:12px;
+border:none;
+border-radius:10px;
+box-sizing:border-box;
+resize:none;
+"></textarea>
+
+<button
+onclick="sendOrder()"
+style="
+width:100%;
+margin-top:20px;
+padding:18px;
+font-size:20px;
+font-weight:bold;
+background:#00ffff;
+color:black;
+border:none;
+border-radius:12px;
+cursor:pointer;
+">
+SEND ORDER
+</button>
+
+`;
 
   document.getElementById("orderPage").style.display = "block";
 
