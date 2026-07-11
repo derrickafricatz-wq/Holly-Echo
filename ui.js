@@ -537,9 +537,19 @@ const filtered = marketAds.filter(company => {
             Call
           </a>
 
-          <a href="https://wa.me/${company.whatsapp}" target="_blank" style="color:#00ff88;text-decoration:none;">
-            WhatsApp
-          </a>
+          <button
+           onclick="orderNow(${index})"
+           style="
+           background:#00ffff;
+           color:black;
+           border:none;
+           border-radius:8px;
+           padding:8px 15px;
+           font-weight:bold;
+           cursor:pointer;
+           ">
+           ORDER NOW
+           </button>
 
         </div>
 
