@@ -822,7 +822,7 @@ document.getElementById("locationVerified").style.display = "block";
 
     {
       enableHighAccuracy: true,
-      timeout: 10000,
+      timeout: 20000,
       maximumAge: 0
     }
 
