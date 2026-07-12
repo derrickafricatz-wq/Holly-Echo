@@ -718,9 +718,9 @@ const product=document.getElementById("customerProduct").value.trim();
 const quantity=document.getElementById("customerQuantity").value.trim();
 const note=document.getElementById("customerNote").value.trim();
 
-if(name===""||phone===""||product===""){
+if(name==="" || phone===""){
 
-alert("Please complete the required information.");
+alert("Please complete the required information. Thank You.");
 
 return;
 
