@@ -833,58 +833,30 @@ document.getElementById("locationVerified").style.display = "block";
 function findNearestLandmark(lat, lon){
 
 const query = `
-[out:json][timeout:10];
+[out:json];
 (
-  node(around:100,${lat},${lon})[amenity];
-  node(around:100,${lat},${lon})[shop];
-  node(around:100,${lat},${lon})[tourism];
-  node(around:100,${lat},${lon})[leisure];
-  node(around:100,${lat},${lon})[office];
-  node(around:100,${lat},${lon})[building];
-  node(around:100,${lat},${lon})[public_transport];
-  node(around:100,${lat},${lon})[railway];
-  node(around:100,${lat},${lon})[highway];
-  node(around:100,${lat},${lon})[historic];
-  node(around:100,${lat},${lon})[man_made];
+  node(around:300,${lat},${lon})[amenity];
+  node(around:300,${lat},${lon})[shop];
+  node(around:300,${lat},${lon})[tourism];
+  node(around:300,${lat},${lon})[leisure];
 );
 out body;
 `;
 
 fetch("https://overpass-api.de/api/interpreter",{
-  method:"POST",
-  body:query
+    method:"POST",
+    body:query
 })
 .then(res=>res.json())
 .then(data=>{
 
-  if(data.elements && data.elements.length){
+if(data.elements && data.elements.length){
 
-    const namedPlaces = data.elements.filter(
-      place => place.tags && place.tags.name
-    );
+const place = data.elements.find(e=>e.tags && e.tags.name);
 
-    if(namedPlaces.length){
-
-let nearest = namedPlaces[0];
-let shortestDistance = Infinity;
-
-namedPlaces.forEach(place=>{
-
-const distance = Math.sqrt(
-Math.pow(place.lat - lat,2) +
-Math.pow(place.lon - lon,2)
-);
-
-if(distance < shortestDistance){
-
-shortestDistance = distance;
-nearest = place;
-
-}
-
-});
-
-customerLandmark = nearest.tags.name;
+customerLandmark = place
+? place.tags.name
+: "";
 
 }else{
 
@@ -892,16 +864,10 @@ customerLandmark = "";
 
 }
 
-  }else{
-
-    customerLandmark = "";
-
-  }
-
 })
 .catch(()=>{
 
-  customerLandmark = "";
+customerLandmark = "";
 
 });
 
