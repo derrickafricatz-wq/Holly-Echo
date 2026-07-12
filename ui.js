@@ -780,11 +780,15 @@ const city = data.address.city
 document.getElementById("customerLocation").value =
 `${area}, ${city}`;
 
+document.getElementById("locationVerified").style.display = "block";
+
 })
 .catch(() => {
 
 document.getElementById("customerLocation").value =
 "Current Location";
+
+document.getElementById("locationVerified").style.display = "block";
 
 });
 
