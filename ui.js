@@ -584,13 +584,25 @@ margin-bottom:20px;
 ">
 
 <h2 style="
-color:#00ffff;
 margin:0;
+font-size:30px;
+font-weight:900;
+text-transform:uppercase;
+letter-spacing:2px;
+background:linear-gradient(45deg,#00ffff,#ffffff,#00aaff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+text-shadow:0 0 15px rgba(0,255,255,.4);
 ">
 ${selectedCompany.company}
 </h2>
 
-<p style="color:#aaa;">
+<p style="
+color:#bbb;
+font-size:16px;
+margin-top:8px;
+margin-bottom:20px;
+">
 ${selectedCompany.location}
 </p>
 
