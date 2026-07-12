@@ -832,42 +832,23 @@ document.getElementById("locationVerified").style.display = "block";
 
 function findNearestLandmark(lat, lon){
 
-const query = `
-[out:json];
-(
-  node(around:300,${lat},${lon})[amenity];
-  node(around:300,${lat},${lon})[shop];
-  node(around:300,${lat},${lon})[tourism];
-  node(around:300,${lat},${lon})[leisure];
-);
-out body;
-`;
+fetch(
+`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=18`
+)
+.then(res => res.json())
+.then(data => {
 
-fetch("https://overpass-api.de/api/interpreter",{
-    method:"POST",
-    body:query
-})
-.then(res=>res.json())
-.then(data=>{
+const place =
+data.name ||
+data.display_name ||
+"Nearby landmark not found";
 
-if(data.elements && data.elements.length){
-
-const place = data.elements.find(e=>e.tags && e.tags.name);
-
-customerLandmark = place
-? place.tags.name
-: "";
-
-}else{
-
-customerLandmark = "";
-
-}
+customerLandmark = place;
 
 })
 .catch(()=>{
 
-customerLandmark = "";
+customerLandmark = "Nearby landmark not found";
 
 });
 
