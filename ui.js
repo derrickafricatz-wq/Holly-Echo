@@ -765,6 +765,7 @@ function getCurrentLocation() {
 
       customerLatitude = position.coords.latitude;
       customerLongitude = position.coords.longitude;
+     
       findNearestLandmark(customerLatitude, customerLongitude);
 
 fetch(
@@ -795,7 +796,9 @@ address.state ||
 "";
 
 document.getElementById("customerLocation").value =
-area === city ? city : `${area}, ${city}`;
+customerLandmark
+? `Near ${customerLandmark}, ${area}, ${city}`
+: `${area}, ${city}`;
 
 document.getElementById("locationVerified").style.display = "block";
 
