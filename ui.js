@@ -726,7 +726,7 @@ return;
 
 }
 
-const message=
+const message =
 
 `NEW ORDER
 
@@ -740,16 +740,16 @@ Phone:
 ${phone}
 
 Delivery:
-${location}
+${location || "Not specified"}
 
 Product:
-${product}
+${product || "Not specified"}
 
 Quantity:
-${quantity}
+${quantity || "Not specified"}
 
 Notes:
-${note}
+${note || "None"}
 
 Sent from Voice of God App.`;
 
