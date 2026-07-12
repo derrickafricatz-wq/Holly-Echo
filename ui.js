@@ -677,6 +677,7 @@ text-align:center;
 animation:fadeIn .4s ease;
 ">
 ✅ Location Verified
+Your GPS location has been attached successfully.
 </div>
 
 <input
@@ -737,6 +738,11 @@ SEND ORDER
 `;
 
   document.getElementById("orderPage").style.display = "block";
+
+  customerLatitude = "";
+customerLongitude = "";
+
+document.getElementById("locationVerified").style.display = "none";
 
 }
 
