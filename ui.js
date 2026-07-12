@@ -782,6 +782,14 @@ return;
 
 }
 
+const mapLink =
+(customerLatitude && customerLongitude)
+? `https://maps.google.com/?q=${customerLatitude},${customerLongitude}`
+: "Location not shared";
+
+const typedLocation =
+location || "Not provided";
+
 const message =
 
 `NEW ORDER
@@ -795,8 +803,11 @@ ${name}
 Phone:
 ${phone}
 
-Delivery:
-${location || "Not specified"}
+Delivery Location:
+${typedLocation}
+
+Google Maps:
+${mapLink}
 
 Product:
 ${product || "Not specified"}
