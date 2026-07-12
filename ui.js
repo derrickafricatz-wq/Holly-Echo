@@ -772,19 +772,29 @@ fetch(
 .then(res => res.json())
 .then(data => {
 
-const area = data.address.suburb
-|| data.address.village
-|| data.address.town
-|| data.address.city
-|| "";
+const address = data.address;
 
-const city = data.address.city
-|| data.address.county
-|| data.address.state
-|| "";
+const area =
+address.neighbourhood ||
+address.hamlet ||
+address.suburb ||
+address.quarter ||
+address.city_district ||
+address.village ||
+address.town ||
+address.municipality ||
+address.city ||
+"";
+
+const city =
+address.city ||
+address.county ||
+address.state_district ||
+address.state ||
+"";
 
 document.getElementById("customerLocation").value =
-`${area}, ${city}`;
+area === city ? city : `${area}, ${city}`;
 
 document.getElementById("locationVerified").style.display = "block";
 
