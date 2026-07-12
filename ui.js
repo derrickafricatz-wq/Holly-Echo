@@ -864,10 +864,33 @@ fetch("https://overpass-api.de/api/interpreter",{
     );
 
     if(namedPlaces.length){
-      customerLandmark = namedPlaces[0].tags.name;
-    }else{
-      customerLandmark = "";
-    }
+
+let nearest = namedPlaces[0];
+let shortestDistance = Infinity;
+
+namedPlaces.forEach(place=>{
+
+const distance = Math.sqrt(
+Math.pow(place.lat - lat,2) +
+Math.pow(place.lon - lon,2)
+);
+
+if(distance < shortestDistance){
+
+shortestDistance = distance;
+nearest = place;
+
+}
+
+});
+
+customerLandmark = nearest.tags.name;
+
+}else{
+
+customerLandmark = "";
+
+}
 
   }else{
 
