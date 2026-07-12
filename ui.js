@@ -642,6 +642,25 @@ border-radius:10px;
 box-sizing:border-box;
 ">
 
+<button
+type="button"
+onclick="getCurrentLocation()"
+style="
+width:100%;
+padding:14px;
+margin-top:10px;
+background:#00ffff;
+color:#000;
+border:none;
+border-radius:10px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+">
+Use My Current Location
+</button>
+
 <input
 id="customerProduct"
 placeholder="Product or Service (Optional)"
