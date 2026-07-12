@@ -740,12 +740,35 @@ function getCurrentLocation() {
     function(position) {
 
       customerLatitude = position.coords.latitude;
-      customerLongitude = position.coords.longitude;
+customerLongitude = position.coords.longitude;
 
-      document.getElementById("customerLocation").value =
-        "Current location captured";
+fetch(
+`https://nominatim.openstreetmap.org/reverse?format=json&lat=${customerLatitude}&lon=${customerLongitude}`
+)
+.then(res => res.json())
+.then(data => {
 
-      alert("Location captured successfully.");
+const area = data.address.suburb
+|| data.address.village
+|| data.address.town
+|| data.address.city
+|| "";
+
+const city = data.address.city
+|| data.address.county
+|| data.address.state
+|| "";
+
+document.getElementById("customerLocation").value =
+`${area}, ${city}`;
+
+})
+.catch(() => {
+
+document.getElementById("customerLocation").value =
+"Current Location";
+
+});
 
     },
 
