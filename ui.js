@@ -632,7 +632,7 @@ box-sizing:border-box;
 
 <input
 id="customerLocation"
-placeholder="Delivery Location"
+placeholder="Delivery Location (Optional)"
 style="
 width:100%;
 padding:14px;
@@ -644,7 +644,7 @@ box-sizing:border-box;
 
 <input
 id="customerProduct"
-placeholder="Product or Service"
+placeholder="Product or Service (Optional)"
 style="
 width:100%;
 padding:14px;
@@ -656,7 +656,7 @@ box-sizing:border-box;
 
 <input
 id="customerQuantity"
-placeholder="Quantity"
+placeholder="Quantity (Optional)"
 style="
 width:100%;
 padding:14px;
