@@ -832,23 +832,53 @@ document.getElementById("locationVerified").style.display = "block";
 
 function findNearestLandmark(lat, lon){
 
-fetch(
-`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=18`
-)
-.then(res => res.json())
-.then(data => {
+const query = `
+[out:json][timeout:10];
+(
+  node(around:100,${lat},${lon})[amenity];
+  node(around:100,${lat},${lon})[shop];
+  node(around:100,${lat},${lon})[tourism];
+  node(around:100,${lat},${lon})[leisure];
+  node(around:100,${lat},${lon})[office];
+  node(around:100,${lat},${lon})[building];
+  node(around:100,${lat},${lon})[public_transport];
+  node(around:100,${lat},${lon})[railway];
+  node(around:100,${lat},${lon})[highway];
+  node(around:100,${lat},${lon})[historic];
+  node(around:100,${lat},${lon})[man_made];
+);
+out body;
+`;
 
-const place = 
-data.name ||
-data.display_name ||
-"Nearby landmark not found";
+fetch("https://overpass-api.de/api/interpreter",{
+  method:"POST",
+  body:query
+})
+.then(res=>res.json())
+.then(data=>{
 
-customerLandmark = place;
+  if(data.elements && data.elements.length){
+
+    const namedPlaces = data.elements.filter(
+      place => place.tags && place.tags.name
+    );
+
+    if(namedPlaces.length){
+      customerLandmark = namedPlaces[0].tags.name;
+    }else{
+      customerLandmark = "";
+    }
+
+  }else{
+
+    customerLandmark = "";
+
+  }
 
 })
 .catch(()=>{
 
-customerLandmark = "Nearby landmark not found";
+  customerLandmark = "";
 
 });
 
