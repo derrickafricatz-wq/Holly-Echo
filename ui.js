@@ -826,6 +826,30 @@ document.getElementById("locationVerified").style.display = "block";
 
 }
 
+function findNearestLandmark(lat, lon){
+
+fetch(
+`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=18`
+)
+.then(res => res.json())
+.then(data => {
+
+const place = 
+data.name ||
+data.display_name ||
+"Nearby landmark not found";
+
+customerLandmark = place;
+
+})
+.catch(()=>{
+
+customerLandmark = "Nearby landmark not found";
+
+});
+
+}
+
 function sendOrder(){
 
 const name=document.getElementById("customerName").value.trim();
