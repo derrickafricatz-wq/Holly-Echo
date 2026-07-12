@@ -728,6 +728,43 @@ document.getElementById("orderPage").style.display="none";
 
 }
 
+function getCurrentLocation() {
+
+  if (!navigator.geolocation) {
+    alert("Your device does not support GPS.");
+    return;
+  }
+
+  navigator.geolocation.getCurrentPosition(
+
+    function(position) {
+
+      customerLatitude = position.coords.latitude;
+      customerLongitude = position.coords.longitude;
+
+      document.getElementById("customerLocation").value =
+        "Current location captured";
+
+      alert("Location captured successfully.");
+
+    },
+
+    function(error) {
+
+      alert("Unable to get your location. Please enable GPS and Location permission.");
+
+    },
+
+    {
+      enableHighAccuracy: true,
+      timeout: 10000,
+      maximumAge: 0
+    }
+
+  );
+
+}
+
 function sendOrder(){
 
 const name=document.getElementById("customerName").value.trim();
