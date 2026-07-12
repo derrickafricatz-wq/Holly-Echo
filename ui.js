@@ -661,6 +661,24 @@ transition:.3s;
 Use My Current Location
 </button>
 
+<div
+id="locationVerified"
+style="
+display:none;
+margin-top:10px;
+padding:12px;
+background:#0b3d1d;
+border:1px solid #00ff66;
+border-radius:10px;
+color:#00ff66;
+font-weight:bold;
+font-size:15px;
+text-align:center;
+animation:fadeIn .4s ease;
+">
+✅ Location Verified
+</div>
+
 <input
 id="customerProduct"
 placeholder="Product or Service (Optional)"
