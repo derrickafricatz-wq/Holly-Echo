@@ -802,6 +802,7 @@ customerLandmark
 : `${area}, ${city}`;
 
 document.getElementById("locationVerified").style.display = "block";
+
 document.getElementById("locationBtn").innerHTML =
 "Fetch Nearby Landmark";  
 
