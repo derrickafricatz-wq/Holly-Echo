@@ -643,6 +643,7 @@ box-sizing:border-box;
 ">
 
 <button
+id="locationBtn"
 type="button"
 onclick="getCurrentLocation()"
 style="
