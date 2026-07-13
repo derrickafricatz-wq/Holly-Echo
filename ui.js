@@ -766,7 +766,7 @@ function getCurrentLocation() {
       customerLatitude = position.coords.latitude;
       customerLongitude = position.coords.longitude;
      
-      findNearestLandmark(customerLatitude, customerLongitude);
+      // findNearestLandmark(customerLatitude, customerLongitude);
 
 fetch(
 `https://nominatim.openstreetmap.org/reverse?format=json&lat=${customerLatitude}&lon=${customerLongitude}`
