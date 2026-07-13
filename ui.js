@@ -795,20 +795,46 @@ fetch(
 .then(res => res.json())
 .then(data => {
 
-const place =
-data.address.road ||
-data.address.pedestrian ||
-data.address.footway ||
-data.address.cycleway ||
-data.address.path ||
+const address = data.address || {};
+
+const landmark =
+address.road ||
+address.pedestrian ||
+address.footway ||
+address.cycleway ||
+address.path ||
 "";
 
-customerLandmark = place;
+const area =
+address.neighbourhood ||
+address.suburb ||
+address.quarter ||
+address.hamlet ||
+address.village ||
+address.town ||
+"";
+
+const city =
+address.city ||
+address.county ||
+address.state_district ||
+address.state ||
+"";
+
+document.getElementById("customerLocation").value =
+landmark
+? `Near ${landmark}, ${area}, ${city}`
+: `${area}, ${city}`;
+
+document.getElementById("locationVerified").style.display = "block";
 
 })
 .catch(()=>{
 
-customerLandmark = "Nearby landmark not found";
+document.getElementById("customerLocation").value =
+"Current Location";
+
+document.getElementById("locationVerified").style.display = "block";
 
 });
 
