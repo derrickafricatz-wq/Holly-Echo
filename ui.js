@@ -807,7 +807,7 @@ customerLandmark
 document.getElementById("locationVerified").style.display = "block";
 
 document.getElementById("locationBtn").innerHTML =
-"press to Fetch Nearby Landmark";  
+"Fetch Nearby Landmark";  
 
 })
 .catch(() => {
@@ -829,7 +829,7 @@ document.getElementById("locationVerified").style.display = "block";
 
     {
       enableHighAccuracy: true,
-      timeout: 20000,
+      timeout: 40000,
       maximumAge: 0
     }
 
