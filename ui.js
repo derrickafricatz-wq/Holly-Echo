@@ -394,7 +394,7 @@ function showRandomVerse() {
       font-weight:bold;
       margin-bottom:10px;
     ">
-      🕊 Daily Encouragement
+    Daily Encouragement
     </div>
 
     <div style="
@@ -802,6 +802,8 @@ customerLandmark
 : `${area}, ${city}`;
 
 document.getElementById("locationVerified").style.display = "block";
+document.getElementById("locationBtn").innerHTML =
+"Fetch Nearby Landmark";  
 
 })
 .catch(() => {
