@@ -677,13 +677,13 @@ font-size:15px;
 text-align:center;
 animation:fadeIn .4s ease;
 ">
-✅ Location Verified
+Location Verified
 Your GPS location has been attached successfully.
 </div>
 
 <input
 id="customerProduct"
-placeholder="Product or Service (Optional)"
+placeholder="Package/Product or Service (Optional)"
 style="
 width:100%;
 padding:14px;
@@ -707,7 +707,7 @@ box-sizing:border-box;
 
 <textarea
 id="customerNote"
-placeholder="Additional Notes (Optional)"
+placeholder="Additional Notes/Inquiry (Optional)"
 style="
 width:100%;
 height:120px;
@@ -744,6 +744,9 @@ SEND ORDER
 customerLongitude = "";
 
 document.getElementById("locationVerified").style.display = "none";
+
+ document.getElementById("locationBtn").innerHTML =
+ "Use My Current Location"; 
 
 }
 
@@ -804,7 +807,7 @@ customerLandmark
 document.getElementById("locationVerified").style.display = "block";
 
 document.getElementById("locationBtn").innerHTML =
-"Fetch Nearby Landmark";  
+"press to Fetch Nearby Landmark";  
 
 })
 .catch(() => {
