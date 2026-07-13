@@ -769,50 +769,6 @@ function getCurrentLocation() {
      
       findNearestLandmark(customerLatitude, customerLongitude);
 
-fetch(
-`https://nominatim.openstreetmap.org/reverse?format=json&lat=${customerLatitude}&lon=${customerLongitude}`
-)
-.then(res => res.json())
-.then(data => {
-
-const address = data.address;
-
-const area =
-address.neighbourhood ||
-address.hamlet ||
-address.suburb ||
-address.quarter ||
-address.city_district ||
-address.village ||
-address.town ||
-address.municipality ||
-address.city ||
-"";
-
-const city =
-address.city ||
-address.county ||
-address.state_district ||
-address.state ||
-"";
-
-document.getElementById("customerLocation").value =
-customerLandmark
-? `Near ${customerLandmark}, ${area}, ${city}`
-: `${area}, ${city}`;
-
-document.getElementById("locationVerified").style.display = "block";
-
-})
-.catch(() => {
-
-document.getElementById("customerLocation").value =
-"Current Location";
-
-document.getElementById("locationVerified").style.display = "block";
-
-});
-
     },
 
     function(error) {
