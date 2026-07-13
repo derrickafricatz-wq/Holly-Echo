@@ -840,9 +840,12 @@ fetch(
 .then(data => {
 
 const place =
-data.name ||
-data.display_name ||
-"Nearby landmark not found";
+data.address.road ||
+data.address.pedestrian ||
+data.address.footway ||
+data.address.cycleway ||
+data.address.path ||
+"";
 
 customerLandmark = place;
 
