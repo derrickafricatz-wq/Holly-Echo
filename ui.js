@@ -658,7 +658,7 @@ font-weight:bold;
 cursor:pointer;
 transition:.3s;
 ">
-Use My Current Location
+Use My Current Location| 
 Tip: Tap again for a more accurate nearby landmark.
 </button>
 
@@ -823,7 +823,7 @@ document.getElementById("locationVerified").style.display = "block";
 
     {
       enableHighAccuracy: true,
-      timeout: 30000,
+      timeout: 20000,
       maximumAge: 0
     }
 
