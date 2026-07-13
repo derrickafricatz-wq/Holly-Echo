@@ -643,7 +643,6 @@ box-sizing:border-box;
 ">
 
 <button
-id="locationBtn"
 type="button"
 onclick="getCurrentLocation()"
 style="
@@ -659,7 +658,7 @@ font-weight:bold;
 cursor:pointer;
 transition:.3s;
 ">
-Use My Current Location
+Use My Current Location/Nb: For Nearest Landmark After First Fetch Press Again..
 </button>
 
 <div
@@ -745,9 +744,6 @@ customerLongitude = "";
 
 document.getElementById("locationVerified").style.display = "none";
 
- document.getElementById("locationBtn").innerHTML =
- "Use My Current Location"; 
-
 }
 
 function closeOrderPage(){
@@ -806,9 +802,6 @@ customerLandmark
 
 document.getElementById("locationVerified").style.display = "block";
 
-document.getElementById("locationBtn").innerHTML =
-"Fetch Nearby Landmark";  
-
 })
 .catch(() => {
 
@@ -829,7 +822,7 @@ document.getElementById("locationVerified").style.display = "block";
 
     {
       enableHighAccuracy: true,
-      timeout: 40000,
+      timeout: 30000,
       maximumAge: 0
     }
 
