@@ -658,7 +658,8 @@ font-weight:bold;
 cursor:pointer;
 transition:.3s;
 ">
-Use My Current Location/Nb: For Nearest Landmark After First Fetch Press Again..
+Use My Current Location
+Tip: Tap again for a more accurate nearby landmark.
 </button>
 
 <div
