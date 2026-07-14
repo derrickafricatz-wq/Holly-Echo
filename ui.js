@@ -900,7 +900,7 @@ Google Maps:
 ${mapLink}
 
 GPS Accuracy:
-${customerAccuracy} meters
+${customerAccuracy}
 
 Product:
 ${product || "Not specified"}
