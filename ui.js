@@ -766,6 +766,7 @@ function getCurrentLocation() {
 
       customerLatitude = position.coords.latitude;
       customerLongitude = position.coords.longitude;
+      customerAccuracy = Math.round(position.coords.accuracy);
      
       findNearestLandmark(customerLatitude, customerLongitude);
 
