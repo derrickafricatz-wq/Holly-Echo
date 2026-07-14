@@ -885,6 +885,9 @@ ${typedLocation}
 Google Maps:
 ${mapLink}
 
+GPS Accuracy:
+${customerAccuracy} meters
+
 Product:
 ${product || "Not specified"}
 
