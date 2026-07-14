@@ -767,6 +767,20 @@ function getCurrentLocation() {
       customerLatitude = position.coords.latitude;
       customerLongitude = position.coords.longitude;
       customerAccuracy = Math.round(position.coords.accuracy);
+
+      let accuracyLevel = "";
+
+if(customerAccuracy <= 10){
+  accuracyLevel = "Excellent";
+}else if(customerAccuracy <= 25){
+  accuracyLevel = "Good";
+}else if(customerAccuracy <= 50){
+  accuracyLevel = "Fair";
+}else{
+  accuracyLevel = "Approximate";
+}
+
+customerAccuracy = `${customerAccuracy} meters (${accuracyLevel})`;
      
       findNearestLandmark(customerLatitude, customerLongitude);
 
