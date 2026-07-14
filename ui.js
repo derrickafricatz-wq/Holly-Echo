@@ -658,8 +658,8 @@ font-weight:bold;
 cursor:pointer;
 transition:.3s;
 ">
-Use My Current Location| 
-Tip: Tap again for a more accurate nearby landmark.
+Use My Current Location|
+Tip: Press To Auto Fetch Your Location.
 </button>
 
 <div
