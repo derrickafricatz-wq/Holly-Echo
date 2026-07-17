@@ -309,7 +309,7 @@ white-space:nowrap;
 overflow:hidden;
 text-overflow:ellipsis;
 ">
-DERRICK KIPAJI OF AFRIKA & CO
+DERRICK KIPAJI OF AFRIKA CO
 </div>
 
 </div>
@@ -335,7 +335,7 @@ font-weight:bold;
 color:#ffd700;
 white-space:nowrap;
 ">
-140001788|PROV:AIRTEL|   23544652|PROV: HALOTEL|
+23544652|PROV: HALOTEL|
 </div>
 
 </div>
