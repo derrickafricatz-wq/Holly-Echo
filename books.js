@@ -3,7 +3,7 @@ function updateCart() {
   console.log("Saving:", [...unlockedBooksSet]);
 
   document.getElementById("cartCount").innerText =
-    "🛒 [" + unlockedBooksSet.size + "]";
+    "[" + unlockedBooksSet.size + "]";
 
   localStorage.setItem(
     "unlockedBooks",
@@ -116,19 +116,19 @@ if (!license) {
 }
 
 if (license.status !== "active") {
-  msg.innerHTML = "secured by deka 🔐";
+  msg.innerHTML = "secured by deka";
   return;
 }
 
 if (
   license.book_pdf !== selectedBookToUnlock.pdf.split("/").pop()
 ) {
-  msg.innerHTML = "This license is not valid for this book 🔐";
+  msg.innerHTML = "This license is not valid for this book";
   return;
 }
 
 if (!license.package) {
-  msg.innerHTML = "License missing package type 🔐";
+  msg.innerHTML = "License missing package type ";
   return;
 }
 
@@ -156,7 +156,7 @@ if (!license.package) {
 }
 
       if (license.device_id && license.device_id !== deviceID) {
-      msg.innerHTML = "This license is locked to another device 🔐";
+      msg.innerHTML = "This license is locked to another device";
       return;
       }
 
