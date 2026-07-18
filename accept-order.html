@@ -142,15 +142,19 @@ const { data, error } = await client
 
 .from("driver_tracking")
 
-.update({
+.insert([{
 
-status:"accepted",
+tracking_id: orderId,
 
-updated_at:new Date()
+driver_lat: null,
 
-})
+driver_lng: null,
 
-.eq("tracking_id", orderId);
+status: "accepted",
+
+updated_at: new Date()
+
+}]);
 
 
 
