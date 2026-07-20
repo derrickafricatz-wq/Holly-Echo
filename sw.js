@@ -74,6 +74,14 @@ const APP_SHELL = [
   "./images/m6.jpg",
   "./images/m7.jpg",
   "./images/m8.png",
+   "./images/s2.jpg",
+    "./images/s3.jpg",
+    "./images/s4.jpg",
+    "./images/s5.png",
+    "./images/s6.png",
+    "./images/s7.png",
+   "./images/s1.png",
+   
 
   /* SCREENSHOTS*/
   "./screenshots/home1.jpg",
