@@ -33,11 +33,7 @@ const APP_SHELL = [
   /* BACKGROUND */
 
   "./images/d1.jpg",
-  "./images/d2.png",
-  "./images/d3.png",
-  "./images/d4.png",
-  "./images/d5.jpg",
-  "./images/d6.png",   
+  "./images/s1.png",
   "./images/de.png",   
 
   /* BOOK COVERS */
