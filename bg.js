@@ -3,19 +3,8 @@ const campaigns = [
 {
   company: "Announce With Us",
   images: [
-    "images/de.png"
-  ]
-},
-  
-  {
-  company: "Testimony Foundation",
-  images: [
-    "images/d1.jpg",
-    "images/d2.png",
-    "images/d3.png",
-    "images/d4.png",
-    "images/d5.jpg",
-    "images/d6.png"
+    "images/de.png",
+    "images/s1.png"
   ]
 }
 
