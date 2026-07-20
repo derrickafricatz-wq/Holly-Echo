@@ -57,6 +57,28 @@ const marketAds = [
   ]
 },
 
+  
+{
+  company: "SHALOM PRODUCTS",
+  phone: "+255759797373",
+  whatsapp: "255759797373",
+  location: "Kilimanjaro, Tanzania",
+
+  categories: ["Agro & Natural Foods"],
+
+  expiresAt: "2026-08-20 23:59",
+
+  images: [
+    "images/s1.png",
+    "images/s2.jpg",
+    "images/s3.jpg",
+    "images/s4.jpg",
+    "images/s5.png",
+    "images/s6.png",
+    "images/s7.png"
+  ]
+},
+
 {
   company: "Ruere Arts",
   phone: "255746727716",
@@ -93,7 +115,7 @@ let selectedCategory = "All";
 const marketCategories = [
   "All",
   "Technology",
-  "Food",
+  "Agro & Natural Foods",
   "Fashion",
   "Furniture",
   "Health",
