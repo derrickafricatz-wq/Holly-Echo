@@ -7,6 +7,7 @@ const marketAds = [
   location: "Arusha, Tanzania",
 
   categories: ["Technology", "Services"],
+  service: "technology",
 
   expiresAt: "2026-07-22 00:59",  
 
@@ -22,6 +23,7 @@ const marketAds = [
   location: "Dodoma, Tanzania",
 
   categories: ["Printing", "Events"],
+  service: "printing",
 
   expiresAt: "2026-07-22 23:59",
 
@@ -38,6 +40,7 @@ const marketAds = [
   location: "Arusha, Tanzania",
 
   categories: ["Furniture", "Services"],
+  service: "furniture",
 
   expiresAt: "2026-08-09 00:02",
 
@@ -65,6 +68,7 @@ const marketAds = [
   location: "Kilimanjaro, Tanzania",
 
   categories: ["Agro & Natural Foods"],
+  service: "agro",
 
   expiresAt: "2026-08-20 23:59",
 
@@ -86,6 +90,7 @@ const marketAds = [
   location: "Arusha, Tanzania|Rd 15.Kinana, Themi",
 
   categories: ["Arts",],
+  service: "arts",
 
   expiresAt: "2026-07-25 18:00",
 
