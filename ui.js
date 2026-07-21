@@ -548,7 +548,7 @@ const filtered = marketAds.filter(company => {
            font-weight:bold;
            cursor:pointer;
            ">
-           ORDER NOW
+           OPEN SERVICE
            </button>
 
         </div>
