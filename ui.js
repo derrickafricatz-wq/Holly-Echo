@@ -741,6 +741,35 @@ SEND ORDER
 `;
 
   document.getElementById("orderPage").style.display = "block";
+  document.getElementById("serviceHeader").innerHTML = `
+<div style="
+background:linear-gradient(135deg,#002b36,#004d66);
+border:1px solid #00ffff;
+border-radius:12px;
+padding:12px;
+margin-bottom:20px;
+text-align:center;
+">
+
+<div style="
+font-size:14px;
+color:#00ffff;
+font-weight:bold;
+letter-spacing:1px;
+">
+DIGITAL SERVICE CENTER
+</div>
+
+<div style="
+margin-top:6px;
+color:white;
+font-size:15px;
+">
+Welcome to ${selectedCompany.company}
+</div>
+
+</div>
+`;
 
   customerLatitude = "";
 customerLongitude = "";
