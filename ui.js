@@ -760,12 +760,15 @@ letter-spacing:1px;
 DIGITAL SERVICE CENTER
 </div>
 
-<div style="
+<div id="companyBanner"
+style="
 margin-top:6px;
 color:white;
 font-size:15px;
+font-weight:bold;
+min-height:22px;
 ">
-Welcome to ${selectedCompany.company}
+Loading...
 </div>
 
 </div>
