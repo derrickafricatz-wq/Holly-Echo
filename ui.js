@@ -568,6 +568,7 @@ const filtered = marketAds.filter(company => {
 function orderNow(index) {
 
   selectedCompany = marketAds[index];
+  activeService = selectedCompany;
 
   if (!selectedCompany) return;
 
