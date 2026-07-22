@@ -691,7 +691,9 @@ box-shadow:0 0 18px rgba(0,255,255,.15);
 
 <div style="flex:1;text-align:center;">
 
-<div style="
+<div
+onclick="showBookingTab()"
+style="
 width:46px;
 height:46px;
 margin:auto;
