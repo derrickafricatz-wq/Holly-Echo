@@ -2,15 +2,27 @@ let activeService = null;
 
 const serviceDatabase = {
 
-"SHALOM PRODUCTS": {
+"SHALOM PRODUCTS":{
 
-bannerMessages:[
-"SHALOM PRODUCTS| Natural Products For A Better Life",
-"Quality Agro Products Direct From Tanzania",
-"Learn, Grow And Discover With Shalom Products"
-]
+  bannerMessages:[
+    "Welcome to SHALOM PRODUCTS",
+    "Quality Agro Products Direct From Tanzania",
+    "Natural Products For A Better Life"
+  ],
 
-}
+  bookingDetails:`
+Product Category : Natural Food Products
+
+Availability : In Stock
+
+Order Type : Wholesale & Retail
+
+Delivery : Tanzania Wide
+
+Payment : Mobile Money & Bank Transfer
+`
+
+},
 
 };
 
@@ -26,6 +38,20 @@ function loadServiceBanner(){
 
   if(bannerTimer){
     clearInterval(bannerTimer);
+  }
+
+  function loadBookingDetails(){
+
+  const box = document.getElementById("bookingDetailsText");
+
+  if(!box) return;
+
+  const companyData =
+  serviceDatabase[activeService?.company];
+
+  box.innerHTML =
+  companyData?.bookingDetails ||
+  "Booking information will appear here.";
   }
 
 
