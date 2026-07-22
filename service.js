@@ -28,10 +28,15 @@ function loadServiceBanner(){
     clearInterval(bannerTimer);
   }
 
+
+  const companyData =
+  serviceDatabase[activeService?.company];
+
+
   const messages =
-  activeService?.bannerMessages || [
+  companyData?.bannerMessages || [
     "Welcome to Digital Service Center",
-    "Book Services Easily Inside Afri|Link",
+    "Book Services Easily Inside AfriLink",
     "Smart Business Connection Platform"
   ];
 
@@ -49,7 +54,9 @@ function loadServiceBanner(){
       bannerIndex = 0;
     }
 
+
     banner.style.opacity = "0";
+
 
     setTimeout(()=>{
 
