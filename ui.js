@@ -886,6 +886,9 @@ backdrop-filter:blur(4px);
 Loading...
 </div>
 
+</div>
+`;
+
   loadServiceBanner();
 
   customerLatitude = "";
