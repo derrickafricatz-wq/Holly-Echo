@@ -1,3 +1,20 @@
+let activeService = null;
+
+const serviceDatabase = {
+
+"SHALOM PRODUCTS": {
+
+bannerMessages:[
+"SHALOM PRODUCTS| Natural Products For A Better Life",
+"Quality Agro Products Direct From Tanzania",
+"Learn, Grow And Discover With Shalom Products"
+]
+
+}
+
+};
+
+
 let bannerIndex = 0;
 let bannerTimer = null;
 
