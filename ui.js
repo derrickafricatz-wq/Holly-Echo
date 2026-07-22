@@ -764,11 +764,18 @@ DIGITAL SERVICE CENTER
 
 <div id="companyBanner"
 style="
-margin-top:6px;
+margin-top:10px;
 color:white;
-font-size:15px;
-font-weight:bold;
-min-height:22px;
+font-size:22px;
+font-weight:900;
+line-height:1.5;
+min-height:90px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+transition:opacity .5s ease;
+padding:10px;
 ">
 Loading...
 </div>
