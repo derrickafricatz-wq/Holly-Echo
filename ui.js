@@ -644,6 +644,38 @@ Our team is ready to receive your booking or service request.
 
 </div>
 
+<div id="serviceInfoCard" style="
+margin:20px 0;
+padding:18px;
+background:linear-gradient(135deg,#111,#1d1d1d);
+border:1px solid #ffd700;
+border-radius:16px;
+box-shadow:0 0 18px rgba(255,215,0,.18);
+">
+
+<div style="
+font-size:19px;
+font-weight:900;
+color:#ffd700;
+margin-bottom:12px;
+">
+SERVICE INFORMATION
+</div>
+
+<div id="serviceInfoText" style="
+font-size:16px;
+line-height:1.7;
+color:#f5f5f5;
+">
+
+Welcome to our Digital Service Center.
+
+Please complete your booking request below. Our team will contact you with pricing, availability and confirmation.
+
+</div>
+
+</div>
+
 <input
 id="customerName"
 placeholder="Your Full Name"
