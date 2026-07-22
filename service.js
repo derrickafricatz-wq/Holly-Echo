@@ -16,8 +16,9 @@ const serviceDatabase = {
       Order Type : Wholesale & Retail<br><br>
       Delivery : Tanzania Wide<br><br>
       Payment : Mobile Money & Bank Transfer
-    `
-       paymentDetails:`
+        `,
+    
+    paymentDetails:`
 <div style="
 text-align:left;
 ">
