@@ -22,6 +22,72 @@ Delivery : Tanzania Wide
 Payment : Mobile Money & Bank Transfer
 `
 
+    paymentDetails:`
+<div style="
+text-align:left;
+">
+
+<div style="
+font-size:18px;
+font-weight:900;
+color:#ffd700;
+margin-bottom:12px;
+">
+AVAILABLE PAYMENT METHODS
+</div>
+
+<div style="
+padding:14px;
+margin-bottom:10px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,215,0,.3);
+border-radius:12px;
+">
+<b>M-Pesa</b><br>
+Payment Number: 07XXXXXXXX<br>
+Account Name: SHALOM PRODUCTS
+</div>
+
+<div style="
+padding:14px;
+margin-bottom:10px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,215,0,.3);
+border-radius:12px;
+">
+<b>Airtel Money</b><br>
+Payment Number: 07XXXXXXXX<br>
+Account Name: SHALOM PRODUCTS
+</div>
+
+<div style="
+padding:14px;
+margin-bottom:10px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,215,0,.3);
+border-radius:12px;
+">
+<b>Mixx by Yas</b><br>
+Payment Number: 07XXXXXXXX<br>
+Account Name: SHALOM PRODUCTS
+</div>
+
+<div style="
+padding:14px;
+margin-bottom:10px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,215,0,.3);
+border-radius:12px;
+">
+<b>Bank Transfer</b><br>
+Bank Name: YOUR BANK<br>
+Account Name: SHALOM PRODUCTS<br>
+Account Number: XXXXXXXXX
+</div>
+
+</div>
+`
+
 }
 
 };
