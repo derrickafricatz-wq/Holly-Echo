@@ -676,6 +676,122 @@ Please complete your booking request below. Our team will contact you with prici
 
 </div>
 
+<div style="
+margin:22px 0;
+padding:18px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+background:linear-gradient(135deg,#111,#222);
+border:1px solid #00ffff;
+border-radius:18px;
+box-shadow:0 0 18px rgba(0,255,255,.15);
+">
+
+<div style="flex:1;text-align:center;">
+
+<div style="
+width:46px;
+height:46px;
+margin:auto;
+border-radius:50%;
+background:#00ffff;
+color:#000;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:18px;
+font-weight:900;
+">
+|
+</div>
+
+<div style="
+margin-top:10px;
+font-size:14px;
+font-weight:bold;
+color:#00ffff;
+">
+BOOKING
+</div>
+
+</div>
+
+<div style="
+flex:1;
+height:3px;
+background:#00ffff;
+opacity:.35;
+"></div>
+
+<div style="flex:1;text-align:center;">
+
+<div style="
+width:46px;
+height:46px;
+margin:auto;
+border-radius:50%;
+background:#ffd700;
+color:#000;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:18px;
+font-weight:900;
+">
+|
+</div>
+
+<div style="
+margin-top:10px;
+font-size:14px;
+font-weight:bold;
+color:#ffd700;
+">
+PAYMENT
+</div>
+
+</div>
+
+<div style="
+flex:1;
+height:3px;
+background:#ffd700;
+opacity:.35;
+"></div>
+
+<div style="flex:1;text-align:center;">
+
+<div style="
+width:46px;
+height:46px;
+margin:auto;
+border-radius:50%;
+background:#00ff88;
+color:#000;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:18px;
+font-weight:900;
+">
+|
+</div>
+
+<div style="
+margin-top:10px;
+font-size:14px;
+font-weight:bold;
+color:#00ff88;
+">
+CONFIRMATION
+</div>
+
+</div>
+
+</div>
+
 <input
 id="customerName"
 placeholder="Your Full Name"
