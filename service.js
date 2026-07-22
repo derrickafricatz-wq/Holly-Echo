@@ -96,3 +96,9 @@ function loadServiceBanner(){
   },5000);
 
 }
+
+function showPaymentTab(){
+
+  alert("Payment section selected");
+
+}
