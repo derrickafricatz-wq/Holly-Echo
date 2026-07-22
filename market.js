@@ -9,7 +9,7 @@ const marketAds = [
   categories: ["Technology", "Services"],
   service: "technology",
 
-  expiresAt: "2026-07-22 00:59",  
+  expiresAt: "2026-09-22 00:59",  
 
   images: [
     "images/logo.png"
