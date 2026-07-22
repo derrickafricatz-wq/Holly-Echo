@@ -2,33 +2,33 @@ let activeService = null;
 
 const serviceDatabase = {
 
-  "SHALOM PRODUCTS": {
+"SHALOM PRODUCTS":{
 
-    bannerMessages: [
-      "Welcome to SHALOM PRODUCTS",
-      "Quality Agro Products Direct From Tanzania",
-      "Natural Products For A Better Life"
-    ],
+  bannerMessages:[
+    "Welcome to SHALOM PRODUCTS",
+    "Quality Agro Products Direct From Tanzania",
+    "Natural Products For A Better Life"
+  ],
 
-    bookingDetails: `
-      Product Category : Natural Food Products<br><br>
-      Availability : In Stock<br><br>
-      Order Type : Wholesale & Retail<br><br>
-      Delivery : Tanzania Wide<br><br>
-      Payment : Mobile Money & Bank Transfer
-    `
-  }
+  bookingDetails:`
+Product Category : Natural Food Products
+
+Availability : In Stock
+
+Order Type : Wholesale & Retail
+
+Delivery : Tanzania Wide
+
+Payment : Mobile Money & Bank Transfer
+`
+
+}
 
 };
 
 
 let bannerIndex = 0;
 let bannerTimer = null;
-
-
-// ===============================
-// BOOKING DETAILS
-// ===============================
 
 function loadBookingDetails(){
 
@@ -37,23 +37,16 @@ function loadBookingDetails(){
   if(!box) return;
 
   const companyData =
-    serviceDatabase[activeService?.company];
+  serviceDatabase[activeService?.company];
 
   box.innerHTML =
-    companyData?.bookingDetails ||
-    "Booking information will appear here.";
-
-}
-
-
-// ===============================
-// COMPANY BANNER
-// ===============================
+  companyData?.bookingDetails ||
+  "Booking information will appear here.";
+  }
 
 function loadServiceBanner(){
 
-  const banner =
-    document.getElementById("companyBanner");
+  const banner = document.getElementById("companyBanner");
 
   if(!banner) return;
 
@@ -61,20 +54,22 @@ function loadServiceBanner(){
     clearInterval(bannerTimer);
   }
 
+
   const companyData =
-    serviceDatabase[activeService?.company];
+  serviceDatabase[activeService?.company];
+
 
   const messages =
-    companyData?.bannerMessages || [
-      "Welcome to Digital Service Center",
-      "Book Services Easily Inside AfriLink",
-      "Smart Business Connection Platform"
-    ];
+  companyData?.bannerMessages || [
+    "Welcome to Digital Service Center",
+    "Book Services Easily Inside AfriLink",
+    "Smart Business Connection Platform"
+  ];
+
 
   bannerIndex = 0;
 
-  banner.innerHTML =
-    messages[bannerIndex];
+  banner.innerHTML = messages[bannerIndex];
 
 
   bannerTimer = setInterval(()=>{
@@ -85,16 +80,18 @@ function loadServiceBanner(){
       bannerIndex = 0;
     }
 
+
     banner.style.opacity = "0";
+
 
     setTimeout(()=>{
 
-      banner.innerHTML =
-        messages[bannerIndex];
+      banner.innerHTML = messages[bannerIndex];
 
       banner.style.opacity = "1";
 
     },500);
+
 
   },5000);
 
