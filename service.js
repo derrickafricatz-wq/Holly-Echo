@@ -168,24 +168,24 @@ function loadServiceBanner(){
 
 function showPaymentTab(){
 
-  // Hide Booking Details
+  // SHOW BOOKING TAB CONTENT
   document.getElementById("bookingDetailsCard").style.display = "none";
 
-  // Show Payment Section
+  // HIDE CONFIRMATION
+  document.getElementById("confirmationContent").style.display = "none";
+
+  // SHOW PAYMENT
   document.getElementById("paymentContent").style.display = "block";
 
-  // Find the active company's data
+  // LOAD COMPANY PAYMENT DETAILS
   const companyData =
     serviceDatabase[activeService?.company];
 
-  // Find the Payment Details container
   const paymentBox =
     document.getElementById("paymentDetailsText");
 
-  // Safety check
   if(!paymentBox) return;
 
-  // Load the company's payment information
   paymentBox.innerHTML =
     companyData?.paymentDetails ||
     "Payment information is currently unavailable.";
