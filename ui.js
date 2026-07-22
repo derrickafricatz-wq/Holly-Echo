@@ -826,6 +826,40 @@ Loading service details...
 
 </div>
 
+<div id="paymentContent" style="
+display:none;
+margin:20px 0;
+padding:18px;
+background:linear-gradient(135deg,#111,#1d1d1d);
+border:1px solid #ffd700;
+border-radius:16px;
+box-shadow:0 0 20px rgba(255,215,0,.18);
+">
+
+<div style="
+font-size:22px;
+font-weight:900;
+color:#ffd700;
+margin-bottom:18px;
+text-align:center;
+letter-spacing:1px;
+">
+PAYMENT DETAILS
+</div>
+
+<div id="paymentDetailsText" style="
+font-size:16px;
+line-height:1.8;
+color:#ffffff;
+text-align:center;
+">
+
+Payment information will appear here.
+
+</div>
+
+</div>
+
 <input
 id="customerName"
 placeholder="Your Full Name"
