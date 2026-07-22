@@ -609,6 +609,41 @@ margin-bottom:20px;
 ${selectedCompany.location}
 </p>
 
+<div style="
+margin:20px 0;
+padding:16px;
+background:linear-gradient(135deg,#0d3b1e,#14532d);
+border:1px solid #00ff88;
+border-radius:14px;
+box-shadow:0 0 15px rgba(0,255,136,.2);
+">
+
+<div style="
+font-size:18px;
+font-weight:900;
+color:#00ff88;
+margin-bottom:8px;
+">
+SERVICE STATUS
+</div>
+
+<div style="
+font-size:16px;
+color:white;
+line-height:1.6;
+">
+
+Booking Status:
+<b style="color:#00ff88;">OPEN</b>
+
+<br><br>
+
+Our team is ready to receive your booking or service request.
+
+</div>
+
+</div>
+
 <input
 id="customerName"
 placeholder="Your Full Name"
