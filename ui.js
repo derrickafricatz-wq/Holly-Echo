@@ -761,17 +761,17 @@ text-transform:uppercase;
 font-family:Arial,sans-serif;
 background:linear-gradient(
 180deg,
-#ffffff 0%,
-#7df9ff 40%,
-#00d4ff 70%,
-#0088cc 100%
+#fff8dc 0%,
+#ffd700 35%,
+#ffb300 70%,
+#cc8400 100%
 );
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 text-shadow:
-0 2px 0 #005577,
-0 4px 8px rgba(0,255,255,.35),
-0 0 20px rgba(0,255,255,.45);
+0 2px 0 #8b5a00,
+0 4px 10px rgba(255,215,0,.45),
+0 0 18px rgba(255,193,7,.35);
 margin-bottom:12px;
 ">
 DIGITAL SERVICE CENTER
