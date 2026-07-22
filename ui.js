@@ -742,7 +742,7 @@ SEND ORDER
 `;
 
   document.getElementById("orderPage").style.display = "block";
-  loadServiceBanner();
+  
   document.getElementById("serviceHeader").innerHTML = `
 <div style="
 background:linear-gradient(135deg,#002b36,#004d66);
@@ -775,6 +775,8 @@ Loading...
 
 </div>
 `;
+
+  loadServiceBanner();
 
   customerLatitude = "";
 customerLongitude = "";
