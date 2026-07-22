@@ -192,6 +192,16 @@ function showPaymentTab(){
 
 }
 
+function showConfirmationTab(){
+
+  document.getElementById("bookingDetailsCard").style.display = "none";
+
+  document.getElementById("paymentContent").style.display = "none";
+
+  document.getElementById("confirmationContent").style.display = "block";
+
+}
+
 function showBookingTab(){
 
   // SHOW BOOKING DETAILS
