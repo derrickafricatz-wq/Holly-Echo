@@ -1038,6 +1038,7 @@ Loading...
 `;
 
   loadServiceBanner();
+  loadBookingDetails();
 
   customerLatitude = "";
 customerLongitude = "";
