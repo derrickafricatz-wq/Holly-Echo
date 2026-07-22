@@ -779,24 +779,45 @@ DIGITAL SERVICE CENTER
 
 <div id="companyBanner"
 style="
-margin-top:10px;
-color:white;
-font-size:22px;
-font-weight:900;
-line-height:1.5;
-min-height:90px;
+margin-top:12px;
+min-height:120px;
+padding:18px;
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
-transition:opacity .5s ease;
-padding:10px;
+
+font-size:24px;
+font-weight:900;
+line-height:1.6;
+letter-spacing:.8px;
+
+color:#ffffff;
+
+background:
+linear-gradient(
+135deg,
+rgba(0,0,0,.35),
+rgba(255,255,255,.08)
+);
+
+border:2px solid rgba(255,215,0,.75);
+
+border-radius:16px;
+
+box-shadow:
+0 0 15px rgba(255,215,0,.25),
+0 0 35px rgba(0,255,255,.15),
+inset 0 0 20px rgba(255,255,255,.05);
+
+transition:
+opacity .5s ease,
+transform .4s ease;
+
+backdrop-filter:blur(4px);
 ">
 Loading...
 </div>
-
-</div>
-`;
 
   loadServiceBanner();
 
