@@ -727,7 +727,9 @@ opacity:.35;
 
 <div style="flex:1;text-align:center;">
 
-<div style="
+<div
+onclick="showPaymentTab()"
+style="
 width:46px;
 height:46px;
 margin:auto;
