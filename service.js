@@ -165,8 +165,26 @@ function loadServiceBanner(){
 
 function showPaymentTab(){
 
+  // Hide Booking Details
   document.getElementById("bookingDetailsCard").style.display = "none";
 
+  // Show Payment Section
   document.getElementById("paymentContent").style.display = "block";
+
+  // Find the active company's data
+  const companyData =
+    serviceDatabase[activeService?.company];
+
+  // Find the Payment Details container
+  const paymentBox =
+    document.getElementById("paymentDetailsText");
+
+  // Safety check
+  if(!paymentBox) return;
+
+  // Load the company's payment information
+  paymentBox.innerHTML =
+    companyData?.paymentDetails ||
+    "Payment information is currently unavailable.";
 
 }
