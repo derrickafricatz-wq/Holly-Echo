@@ -896,8 +896,6 @@ Your booking confirmation details will appear here.
 
 </div>
 
-</div>
-
 <input
 id="customerName"
 placeholder="Your Full Name"
@@ -909,6 +907,7 @@ border:none;
 border-radius:10px;
 box-sizing:border-box;
 ">
+</div>
 
 <input
 id="customerPhone"
