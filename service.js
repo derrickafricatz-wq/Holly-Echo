@@ -191,3 +191,16 @@ function showPaymentTab(){
     "Payment information is currently unavailable.";
 
 }
+
+function showBookingTab(){
+
+  // SHOW BOOKING DETAILS
+  document.getElementById("bookingDetailsCard").style.display = "block";
+
+  // HIDE PAYMENT
+  document.getElementById("paymentContent").style.display = "none";
+
+  // HIDE CONFIRMATION
+  document.getElementById("confirmationContent").style.display = "none";
+
+}
