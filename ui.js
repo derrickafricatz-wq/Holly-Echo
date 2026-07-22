@@ -862,6 +862,40 @@ Payment information will appear here.
 
 </div>
 
+<div id="confirmationContent" style="
+display:none;
+margin:20px 0;
+padding:18px;
+background:linear-gradient(135deg,#111,#1d1d1d);
+border:1px solid #00ff88;
+border-radius:16px;
+box-shadow:0 0 20px rgba(0,255,136,.18);
+">
+
+<div style="
+font-size:22px;
+font-weight:900;
+color:#00ff88;
+margin-bottom:18px;
+text-align:center;
+letter-spacing:1px;
+">
+CONFIRM YOUR BOOKING
+</div>
+
+<div id="confirmationDetailsText" style="
+font-size:16px;
+line-height:1.8;
+color:#ffffff;
+text-align:center;
+">
+
+Your booking confirmation details will appear here.
+
+</div>
+
+</div>
+
 <input
 id="customerName"
 placeholder="Your Full Name"
