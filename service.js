@@ -99,6 +99,8 @@ function loadServiceBanner(){
 
 function showPaymentTab(){
 
-  alert("Payment section selected");
+  document.getElementById("bookingDetailsCard").style.display = "none";
+
+  document.getElementById("paymentContent").style.display = "block";
 
 }
