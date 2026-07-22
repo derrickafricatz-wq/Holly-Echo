@@ -754,10 +754,25 @@ text-align:center;
 ">
 
 <div style="
-font-size:14px;
-color:#00ffff;
-font-weight:bold;
-letter-spacing:1px;
+font-size:24px;
+font-weight:900;
+letter-spacing:2px;
+text-transform:uppercase;
+font-family:Arial,sans-serif;
+background:linear-gradient(
+180deg,
+#ffffff 0%,
+#7df9ff 40%,
+#00d4ff 70%,
+#0088cc 100%
+);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+text-shadow:
+0 2px 0 #005577,
+0 4px 8px rgba(0,255,255,.35),
+0 0 20px rgba(0,255,255,.45);
+margin-bottom:12px;
 ">
 DIGITAL SERVICE CENTER
 </div>
