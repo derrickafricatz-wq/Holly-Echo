@@ -1022,8 +1022,6 @@ box-sizing:border-box;
 resize:none;
 "></textarea>
 
-</div>
-
 <button
 onclick="sendOrder()"
 style="
@@ -1032,14 +1030,17 @@ margin-top:20px;
 padding:18px;
 font-size:20px;
 font-weight:bold;
-background:#00ffff;
-color:black;
+background:#00ff88;
+color:#000;
 border:none;
 border-radius:12px;
 cursor:pointer;
+box-shadow:0 0 18px rgba(0,255,136,.25);
 ">
-SEND ORDER
+CONFIRM & SEND BOOKING
 </button>
+
+</div>
 
 `;
 
