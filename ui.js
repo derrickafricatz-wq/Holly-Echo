@@ -921,6 +921,19 @@ box-sizing:border-box;
 ">
 
 <input
+id="customerEmail"
+type="email"
+placeholder="Email Address"
+style="
+width:100%;
+padding:14px;
+margin-top:12px;
+border:none;
+border-radius:10px;
+box-sizing:border-box;
+">
+
+<input
 id="customerLocation"
 placeholder="Delivery Location (Optional)"
 style="
