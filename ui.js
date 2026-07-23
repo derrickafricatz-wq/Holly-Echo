@@ -983,8 +983,6 @@ border-radius:10px;
 box-sizing:border-box;
 ">
 
-</div>
-
 <input
 id="customerQuantity"
 placeholder="Quantity (Optional)"
@@ -1010,6 +1008,8 @@ border-radius:10px;
 box-sizing:border-box;
 resize:none;
 "></textarea>
+
+</div>
 
 <button
 onclick="sendOrder()"
