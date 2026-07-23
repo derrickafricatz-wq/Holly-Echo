@@ -1134,10 +1134,11 @@ Loading...
 </div>
 `;
 
-  loadServiceBanner();
-  loadBookingDetails();
-  updateConfirmationTitle();
-  updateConfirmationDetails();
+loadServiceBanner();
+loadBookingDetails();
+updateConfirmationTitle();
+updateConfirmationDetails();
+updateDynamicBookingFields();
 
   customerLatitude = "";
 customerLongitude = "";
