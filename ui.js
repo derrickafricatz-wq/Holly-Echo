@@ -1247,6 +1247,7 @@ function sendOrder(){
 
 const name=document.getElementById("customerName").value.trim();
 const phone=document.getElementById("customerPhone").value.trim();
+const email=document.getElementById("customerEmail").value.trim();  
 const location=document.getElementById("customerLocation").value.trim();
 const product=document.getElementById("customerProduct").value.trim();
 const quantity=document.getElementById("customerQuantity").value.trim();
