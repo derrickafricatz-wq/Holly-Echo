@@ -122,6 +122,44 @@ function getActiveServiceType(){
 
 }
 
+function updateConfirmationTitle(){
+
+  const title =
+    document.getElementById("confirmationTitle");
+
+  if(!title) return;
+
+  const serviceType =
+    getActiveServiceType();
+
+  const titles = {
+
+    product:
+      "APPROVE YOUR ORDER",
+
+    flight:
+      "APPROVE YOUR FLIGHT",
+
+    bus:
+      "APPROVE YOUR BUS BOOKING",
+
+    tourism:
+      "APPROVE YOUR TOUR",
+
+    hotel:
+      "APPROVE YOUR HOTEL",
+
+    service:
+      "APPROVE YOUR SERVICE REQUEST"
+
+  };
+
+  title.innerHTML =
+    titles[serviceType] ||
+    "APPROVE YOUR BOOKING";
+
+}
+
 
 // ===============================
 // COMPANY BANNER
