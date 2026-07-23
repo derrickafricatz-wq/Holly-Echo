@@ -263,3 +263,173 @@ function showBookingTab(){
   document.getElementById("confirmationContent").style.display = "none";
 
 }
+
+function updateConfirmationDetails(){
+
+  const box =
+    document.getElementById("confirmationDetailsText");
+
+  if(!box) return;
+
+  const serviceType =
+    getActiveServiceType();
+
+  const details = {
+
+    product: `
+      <div style="
+        padding:14px;
+        border-radius:12px;
+        background:linear-gradient(135deg,rgba(0,255,255,.08),rgba(255,215,0,.08));
+        border:1px solid rgba(0,255,255,.25);
+      ">
+        <div style="
+          font-size:18px;
+          font-weight:900;
+          color:#00ffff;
+          margin-bottom:8px;
+        ">
+          ORDER SUMMARY
+        </div>
+
+        <div style="
+          color:#ccc;
+          font-size:14px;
+        ">
+          Please review your product details and customer information before confirming your order.
+        </div>
+      </div>
+    `,
+
+    flight: `
+      <div style="
+        padding:14px;
+        border-radius:12px;
+        background:linear-gradient(135deg,rgba(0,150,255,.12),rgba(0,255,255,.08));
+        border:1px solid rgba(0,200,255,.3);
+      ">
+        <div style="
+          font-size:18px;
+          font-weight:900;
+          color:#00ccff;
+          margin-bottom:8px;
+        ">
+          FLIGHT BOOKING
+        </div>
+
+        <div style="
+          color:#ccc;
+          font-size:14px;
+        ">
+          Please provide your travel information and review your passenger details before confirmation.
+        </div>
+      </div>
+    `,
+
+    bus: `
+      <div style="
+        padding:14px;
+        border-radius:12px;
+        background:linear-gradient(135deg,rgba(255,140,0,.12),rgba(255,215,0,.08));
+        border:1px solid rgba(255,165,0,.3);
+      ">
+        <div style="
+          font-size:18px;
+          font-weight:900;
+          color:#ffb000;
+          margin-bottom:8px;
+        ">
+          BUS BOOKING
+        </div>
+
+        <div style="
+          color:#ccc;
+          font-size:14px;
+        ">
+          Please provide your travel route, date and passenger information before confirmation.
+        </div>
+      </div>
+    `,
+
+    tourism: `
+      <div style="
+        padding:14px;
+        border-radius:12px;
+        background:linear-gradient(135deg,rgba(0,255,136,.12),rgba(255,215,0,.08));
+        border:1px solid rgba(0,255,136,.3);
+      ">
+        <div style="
+          font-size:18px;
+          font-weight:900;
+          color:#00ff88;
+          margin-bottom:8px;
+        ">
+          TOURISM & SAFARI
+        </div>
+
+        <div style="
+          color:#ccc;
+          font-size:14px;
+        ">
+          Please provide your travel plans, number of travelers and special requests before confirmation.
+        </div>
+      </div>
+    `,
+
+    hotel: `
+      <div style="
+        padding:14px;
+        border-radius:12px;
+        background:linear-gradient(135deg,rgba(180,80,255,.12),rgba(255,215,0,.08));
+        border:1px solid rgba(190,100,255,.3);
+      ">
+        <div style="
+          font-size:18px;
+          font-weight:900;
+          color:#c77dff;
+          margin-bottom:8px;
+        ">
+          HOTEL BOOKING
+        </div>
+
+        <div style="
+          color:#ccc;
+          font-size:14px;
+        ">
+          Please provide your stay dates, number of guests and room requirements before confirmation.
+        </div>
+      </div>
+    `,
+
+    service: `
+      <div style="
+        padding:14px;
+        border-radius:12px;
+        background:linear-gradient(135deg,rgba(0,255,255,.08),rgba(255,255,255,.05));
+        border:1px solid rgba(0,255,255,.25);
+      ">
+        <div style="
+          font-size:18px;
+          font-weight:900;
+          color:#00ffff;
+          margin-bottom:8px;
+        ">
+          SERVICE REQUEST
+        </div>
+
+        <div style="
+          color:#ccc;
+          font-size:14px;
+        ">
+          Please provide the information required for your service request before confirmation.
+        </div>
+      </div>
+    `
+
+  };
+
+  box.innerHTML =
+    details[serviceType] ||
+    details.service;
+
+    }
