@@ -9,7 +9,7 @@ const marketAds = [
   categories: ["Technology", "Services"],
   service: "technology",
 
-  expiresAt: "2026-09-22 00:59",  
+  expiresAt: "2026-10-22 00:59",  
 
   images: [
     "images/logo.png"
@@ -25,7 +25,7 @@ const marketAds = [
   categories: ["Printing", "Events"],
   service: "printing",
 
-  expiresAt: "2026-07-22 23:59",
+  expiresAt: "2026-10-22 23:59",
 
   images: [
     "images/o1.png",
@@ -42,7 +42,7 @@ const marketAds = [
   categories: ["Furniture", "Services"],
   service: "furniture",
 
-  expiresAt: "2026-08-09 00:02",
+  expiresAt: "2026-10-09 00:02",
 
   images: [
     "images/m1.jpg",
@@ -70,7 +70,7 @@ const marketAds = [
   categories: ["Agro & Natural Foods"],
   service: "agro",
 
-  expiresAt: "2026-08-20 23:59",
+  expiresAt: "2026-10-20 23:59",
 
   images: [
     "images/s1.png",
@@ -92,7 +92,7 @@ const marketAds = [
   categories: ["Arts",],
   service: "arts",
 
-  expiresAt: "2026-07-25 18:00",
+  expiresAt: "2026-10-25 18:00",
 
   images: [
     "images/1.png",
