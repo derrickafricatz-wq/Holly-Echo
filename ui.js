@@ -1481,6 +1481,8 @@ ${product || "Not specified"}
 Quantity:
 ${quantity || "Not specified"}
 
+${dynamicBookingInfo}
+
 Notes:
 ${note || "None"}
 
