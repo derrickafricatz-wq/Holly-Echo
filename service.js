@@ -4,6 +4,8 @@ const serviceDatabase = {
 
   "SHALOM PRODUCTS": {
 
+    serviceType: "product",
+
     bannerMessages: [
       "Welcome to SHALOM PRODUCTS",
       "Quality Agro Products Direct From Tanzania",
