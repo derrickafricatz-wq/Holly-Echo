@@ -874,7 +874,9 @@ border-radius:16px;
 box-shadow:0 0 20px rgba(0,255,136,.18);
 ">
 
-<div style="
+<div
+id="confirmationTitle"
+style="
 font-size:22px;
 font-weight:900;
 color:#00ff88;
