@@ -971,8 +971,6 @@ Location Verified
 Your GPS location has been attached successfully.
 </div>
 
-</div>
-
 <input
 id="customerProduct"
 placeholder="Package/Product or Service (Optional)"
@@ -984,6 +982,8 @@ border:none;
 border-radius:10px;
 box-sizing:border-box;
 ">
+
+</div>
 
 <input
 id="customerQuantity"
