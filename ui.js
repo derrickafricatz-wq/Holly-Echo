@@ -1265,6 +1265,175 @@ const product=document.getElementById("customerProduct").value.trim();
 const quantity=document.getElementById("customerQuantity").value.trim();
 const note=document.getElementById("customerNote").value.trim();
 
+const serviceType = getActiveServiceType();
+
+let dynamicBookingInfo = "";
+
+if(serviceType === "flight"){
+
+  const departure =
+    document.getElementById("bookingDeparture")?.value.trim() || "";
+
+  const destination =
+    document.getElementById("bookingDestination")?.value.trim() || "";
+
+  const travelDate =
+    document.getElementById("bookingTravelDate")?.value || "";
+
+  const passengers =
+    document.getElementById("bookingPassengers")?.value || "";
+
+  const travelClass =
+    document.getElementById("bookingTravelClass")?.value || "";
+
+  dynamicBookingInfo = `
+Service Type:
+FLIGHT BOOKING
+
+Departure:
+${departure || "Not provided"}
+
+Destination:
+${destination || "Not provided"}
+
+Travel Date:
+${travelDate || "Not provided"}
+
+Passengers:
+${passengers || "Not provided"}
+
+Travel Class:
+${travelClass || "Not specified"}
+`;
+
+}
+
+else if(serviceType === "bus"){
+
+  const departure =
+    document.getElementById("bookingDeparture")?.value.trim() || "";
+
+  const destination =
+    document.getElementById("bookingDestination")?.value.trim() || "";
+
+  const travelDate =
+    document.getElementById("bookingTravelDate")?.value || "";
+
+  const passengers =
+    document.getElementById("bookingPassengers")?.value || "";
+
+  dynamicBookingInfo = `
+Service Type:
+BUS / TRANSPORT BOOKING
+
+Departure:
+${departure || "Not provided"}
+
+Destination:
+${destination || "Not provided"}
+
+Travel Date:
+${travelDate || "Not provided"}
+
+Passengers:
+${passengers || "Not provided"}
+`;
+
+}
+
+else if(serviceType === "tourism"){
+
+  const destination =
+    document.getElementById("bookingDestination")?.value.trim() || "";
+
+  const travelDate =
+    document.getElementById("bookingTravelDate")?.value || "";
+
+  const passengers =
+    document.getElementById("bookingPassengers")?.value || "";
+
+  const adults =
+    document.getElementById("bookingAdults")?.value || "";
+
+  const children =
+    document.getElementById("bookingChildren")?.value || "";
+
+  const hotel =
+    document.getElementById("bookingHotel")?.value || "";
+
+  dynamicBookingInfo = `
+Service Type:
+TOURISM / SAFARI
+
+Destination:
+${destination || "Not provided"}
+
+Travel Date:
+${travelDate || "Not provided"}
+
+Total Travelers:
+${passengers || "Not provided"}
+
+Adults:
+${adults || "Not provided"}
+
+Children:
+${children || "Not provided"}
+
+Hotel Accommodation:
+${hotel || "Not specified"}
+`;
+
+}
+
+else if(serviceType === "hotel"){
+
+  const checkIn =
+    document.getElementById("bookingCheckIn")?.value || "";
+
+  const checkOut =
+    document.getElementById("bookingCheckOut")?.value || "";
+
+  const guests =
+    document.getElementById("bookingGuests")?.value || "";
+
+  const rooms =
+    document.getElementById("bookingRooms")?.value || "";
+
+  dynamicBookingInfo = `
+Service Type:
+HOTEL BOOKING
+
+Check-In:
+${checkIn || "Not provided"}
+
+Check-Out:
+${checkOut || "Not provided"}
+
+Guests:
+${guests || "Not provided"}
+
+Rooms:
+${rooms || "Not provided"}
+`;
+
+}
+
+else{
+
+  const serviceDate =
+    document.getElementById("bookingServiceDate")?.value || "";
+
+  dynamicBookingInfo = `
+Service Type:
+GENERAL SERVICE
+
+Preferred Date:
+${serviceDate || "Not provided"}
+`;
+
+}  
+
 if(name==="" || phone===""){
 
 alert("Please complete the required information. Thank You.");
