@@ -898,6 +898,13 @@ Preparing your booking details...
 
 </div>
 
+<div
+id="dynamicBookingFields"
+style="
+margin-top:18px;
+">
+</div>
+
 <input
 id="customerName"
 placeholder="Your Full Name"
