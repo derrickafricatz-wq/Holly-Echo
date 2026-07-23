@@ -1129,6 +1129,7 @@ Loading...
 
   loadServiceBanner();
   loadBookingDetails();
+  updateConfirmationTitle();
 
   customerLatitude = "";
 customerLongitude = "";
