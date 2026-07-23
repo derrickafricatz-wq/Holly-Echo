@@ -892,7 +892,7 @@ color:#ffffff;
 text-align:center;
 ">
 
-Your booking confirmation details will appear here.
+Preparing your booking details...
 
 </div>
 
