@@ -1271,7 +1271,7 @@ location || "Not provided";
 
 const message =
 
-`NEW ORDER
+`NEW BOOKING REQUEST
 
 Company:
 ${selectedCompany.company}
