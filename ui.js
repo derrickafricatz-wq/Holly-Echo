@@ -952,8 +952,6 @@ Use My Current Location|
 Tip: Press To Auto Fetch Your Location.
 </button>
 
-</div>
-
 <div
 id="locationVerified"
 style="
@@ -971,6 +969,8 @@ animation:fadeIn .4s ease;
 ">
 Location Verified
 Your GPS location has been attached successfully.
+</div>
+
 </div>
 
 <input
