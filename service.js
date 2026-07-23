@@ -113,6 +113,15 @@ function loadBookingDetails(){
 
 }
 
+function getActiveServiceType(){
+
+  const companyData =
+    serviceDatabase[activeService?.company];
+
+  return companyData?.serviceType || "service";
+
+}
+
 
 // ===============================
 // COMPANY BANNER
