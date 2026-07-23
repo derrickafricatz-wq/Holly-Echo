@@ -953,6 +953,8 @@ Use My Current Location|
 Tip: Press To Auto Fetch Your Location.
 </button>
 
+</div>
+
 <div
 id="locationVerified"
 style="
