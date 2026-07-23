@@ -1282,6 +1282,9 @@ ${name}
 Phone:
 ${phone}
 
+Email:
+${email}
+
 Delivery Location:
 ${typedLocation}
 
