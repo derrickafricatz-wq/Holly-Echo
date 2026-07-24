@@ -291,7 +291,47 @@ function showPaymentTab(){
   if(!paymentBox) return;
 
     const paymentMethods =
-    companyData?.paymentMethods || [];
+  paymentProviders
+    .filter(provider =>
+      companyData?.paymentAccounts?.[provider.id]?.enabled
+    )
+    .map(provider => {
+
+      const account =
+        companyData.paymentAccounts[provider.id];
+
+      return {
+
+        type: provider.category,
+
+        name: provider.name,
+
+        paymentNumber:
+          account.number || "",
+
+        accountName:
+          account.accountName || "",
+
+        accountNumber:
+          account.accountNumber || "",
+
+        bankName:
+          provider.category === "bank"
+            ? provider.name
+            : "",
+
+        ussdCode:
+          provider.ussdCode,
+
+        appLink:
+          provider.appLink,
+
+        color:
+          provider.color
+
+      };
+
+    });
 
   if(paymentMethods.length === 0){
 
