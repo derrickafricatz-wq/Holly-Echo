@@ -53,7 +53,41 @@ const serviceDatabase = {
     accountNumber: "XXXXXXXXX"
   }
 
-]
+],
+
+      paymentAccounts: {
+
+      mpesa: {
+        enabled: true,
+        number: "07XXXXXXXX",
+        accountName: "SHALOM PRODUCTS"
+      },
+
+      airtel: {
+        enabled: false,
+        number: "",
+        accountName: "SHALOM PRODUCTS"
+      },
+
+      mixx: {
+        enabled: false,
+        number: "",
+        accountName: "SHALOM PRODUCTS"
+      },
+
+      nmb: {
+        enabled: false,
+        accountName: "SHALOM PRODUCTS",
+        accountNumber: ""
+      },
+
+      crdb: {
+        enabled: false,
+        accountName: "SHALOM PRODUCTS",
+        accountNumber: ""
+      }
+
+    }  
   },
 
 };
