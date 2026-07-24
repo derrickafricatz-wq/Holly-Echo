@@ -19,41 +19,6 @@ const serviceDatabase = {
       Delivery : Tanzania Wide<br><br>
       Payment : Mobile Money & Bank Transfer
         `,
-    
-    paymentMethods: [
-
-  {
-  type: "mobile",
-  name: "M-Pesa",
-  paymentNumber: "07XXXXXXXX",
-  accountName: "SHALOM PRODUCTS",
-  ussdCode: "*150*00#",
-  appLink: "mpesa"
- },
-
-  {
-    type: "mobile",
-    name: "Airtel Money",
-    paymentNumber: "07XXXXXXXX",
-    accountName: "SHALOM PRODUCTS"
-  },
-
-  {
-    type: "mobile",
-    name: "Mixx by Yas",
-    paymentNumber: "07XXXXXXXX",
-    accountName: "SHALOM PRODUCTS"
-  },
-
-  {
-    type: "bank",
-    name: "Bank Transfer",
-    bankName: "YOUR BANK",
-    accountName: "SHALOM PRODUCTS",
-    accountNumber: "XXXXXXXXX"
-  }
-
-],
 
       paymentAccounts: {
 
