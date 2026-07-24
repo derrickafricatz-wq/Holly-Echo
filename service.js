@@ -23,11 +23,12 @@ const serviceDatabase = {
     paymentMethods: [
 
   {
-    type: "mobile",
-    name: "M-Pesa",
-    paymentNumber: "07XXXXXXXX",
-    accountName: "SHALOM PRODUCTS"
-  },
+  type: "mobile",
+  name: "M-Pesa",
+  paymentNumber: "07XXXXXXXX",
+  accountName: "SHALOM PRODUCTS",
+  ussdCode: "*150*00#"
+ },
 
   {
     type: "mobile",
