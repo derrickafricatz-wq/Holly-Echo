@@ -100,12 +100,12 @@ const paymentProviders = [
   },
 
   {
-    id: "crdb",
-    name: "CRDB Bank",
-    category: "bank",
-    color: "#005baa",
-    ussdCode: "*150*03#",
-    appLink: ""
+  id: "crdb",
+  name: "CRDB Bank",
+  category: "bank",
+  color: "#005baa",
+  ussdCode: "*150*03#",
+  appLink: "https://play.google.com/store/apps/details?id=apps.crdbbank.com.mobapp"
   }
 
 ];
@@ -1402,7 +1402,7 @@ function openPaymentApp(appLink){
   if(!appLink){
 
     alert(
-      "The official app link for this payment provider is not available yet."
+      "The official app for this payment provider is not available yet."
     );
 
     return;
