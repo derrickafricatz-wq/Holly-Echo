@@ -28,7 +28,7 @@ const serviceDatabase = {
   paymentNumber: "07XXXXXXXX",
   accountName: "SHALOM PRODUCTS",
   ussdCode: "*150*00#",
-  appLink: "https://play.google.com/store/apps/details?id=com.vodafone.mpesa.tanzania"  
+  appLink: true
  },
 
   {
