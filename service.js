@@ -1397,11 +1397,18 @@ function openUSSD(code){
 
 }
 
-function openPaymentApp(){
+function openPaymentApp(appLink){
 
-  const mpesaApp =
-    "intent://#Intent;package=com.vodafone.mpesa.tanzania;end";
+  if(!appLink){
 
-  window.location.href = mpesaApp;
+    alert(
+      "The official app link for this payment provider is not available yet."
+    );
+
+    return;
+
+  }
+
+  window.location.href = appLink;
 
 }
