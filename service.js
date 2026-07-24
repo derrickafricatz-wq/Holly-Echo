@@ -579,7 +579,6 @@ font-family:monospace;
 ${method.bankName}
 </div>
 
-
 <div style="
 margin-top:14px;
 font-size:11px;
@@ -595,10 +594,12 @@ display:flex;
 align-items:center;
 gap:10px;
 margin-top:6px;
+flex-wrap:wrap;
 ">
 
 <div style="
 flex:1;
+min-width:150px;
 padding:12px;
 border-radius:10px;
 background:#020b13;
@@ -624,12 +625,58 @@ color:#001014;
 font-weight:900;
 font-family:monospace;
 cursor:pointer;
+box-shadow:0 0 12px rgba(0,255,255,.3);
 ">
 COPY
 </button>
 
-</div>
+${
+  method.ussdCode
+  ? `
+    <button
+      type="button"
+      onclick="openUSSD('${method.ussdCode}')"
+      style="
+        padding:12px 14px;
+        border:none;
+        border-radius:10px;
+        background:#00ff88;
+        color:#001014;
+        font-weight:900;
+        font-family:monospace;
+        cursor:pointer;
+        box-shadow:0 0 12px rgba(0,255,136,.3);
+      ">
+      OPEN USSD
+    </button>
+  `
+  : ""
+}
 
+${
+  method.appLink
+  ? `
+    <button
+      type="button"
+      onclick="openPaymentApp('${method.appLink}')"
+      style="
+        padding:12px 14px;
+        border:none;
+        border-radius:10px;
+        background:#ff4d6d;
+        color:#ffffff;
+        font-weight:900;
+        font-family:monospace;
+        cursor:pointer;
+        box-shadow:0 0 12px rgba(255,77,109,.35);
+      ">
+      OPEN APP
+    </button>
+  `
+  : ""
+}
+
+</div>
 
 <div style="
 margin-top:14px;
