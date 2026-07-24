@@ -58,6 +58,58 @@ const serviceDatabase = {
 
 };
 
+// ============================================
+// PERMANENT PAYMENT PROVIDERS
+// ============================================
+
+const paymentProviders = [
+
+  {
+    id: "mpesa",
+    name: "M-Pesa",
+    category: "mobile",
+    color: "#00a859",
+    ussdCode: "*150*00#",
+    appLink: "https://play.google.com/store/apps/details?id=com.vodafone.mpesa.tanzania"
+  },
+
+  {
+    id: "airtel",
+    name: "Airtel Money",
+    category: "mobile",
+    color: "#e60000",
+    ussdCode: "*150*60#",
+    appLink: ""
+  },
+
+  {
+    id: "mixx",
+    name: "Mixx by Yas",
+    category: "mobile",
+    color: "#ffcc00",
+    ussdCode: "*150*01#",
+    appLink: ""
+  },
+
+  {
+    id: "nmb",
+    name: "NMB Bank",
+    category: "bank",
+    color: "#0066b3",
+    ussdCode: "*150*66#",
+    appLink: ""
+  },
+
+  {
+    id: "crdb",
+    name: "CRDB Bank",
+    category: "bank",
+    color: "#005baa",
+    ussdCode: "*150*03#",
+    appLink: ""
+  }
+
+];
 
 let bannerIndex = 0;
 let bannerTimer = null;
