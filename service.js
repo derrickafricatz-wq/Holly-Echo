@@ -1308,11 +1308,15 @@ function openUSSD(code){
 
 function openPaymentApp(appLink){
 
-  if(!appLink){
-    alert("Payment app link is not available.");
-    return;
-  }
+  // Try to open M-Pesa Android app directly
+  window.location.href =
+    "intent://#Intent;scheme=mpesa;package=com.vodafone.mpesa.tanzania;end";
 
-  window.location.href = appLink;
+  // Fallback to Play Store if the app cannot be opened
+  setTimeout(() => {
+
+    window.location.href = appLink;
+
+  }, 2000);
 
 }
