@@ -27,7 +27,8 @@ const serviceDatabase = {
   name: "M-Pesa",
   paymentNumber: "07XXXXXXXX",
   accountName: "SHALOM PRODUCTS",
-  ussdCode: "*150*00#"
+  ussdCode: "*150*00#",
+  appLink: "mpesa"
  },
 
   {
