@@ -27,8 +27,7 @@ const serviceDatabase = {
   name: "M-Pesa",
   paymentNumber: "07XXXXXXXX",
   accountName: "SHALOM PRODUCTS",
-  ussdCode: "*150*00#",
-  appLink: true
+  ussdCode: "*150*00#"
  },
 
   {
@@ -401,7 +400,7 @@ ${
   ? `
     <button
       type="button"
-      onclick="openPaymentApp('${method.appLink}')"
+      onclick="openPaymentApp()"
       style="
         padding:12px 14px;
         border:none;
