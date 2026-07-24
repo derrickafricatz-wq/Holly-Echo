@@ -82,13 +82,13 @@ const paymentProviders = [
   },
 
   {
-    id: "mixx",
-    name: "Mixx by Yas",
-    category: "mobile",
-    color: "#ffcc00",
-    ussdCode: "*150*01#",
-    appLink: ""
-  },
+  id: "mixx",
+  name: "Mixx by Yas",
+  category: "mobile",
+  color: "#ffcc00",
+  ussdCode: "*150*01#",
+  appLink: "https://play.google.com/store/apps/details?id=tz.tigo.mfsapp"
+},
 
   {
     id: "nmb",
