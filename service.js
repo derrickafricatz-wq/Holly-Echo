@@ -202,9 +202,171 @@ function showPaymentTab(){
 
   if(!paymentBox) return;
 
-  paymentBox.innerHTML =
-    companyData?.paymentDetails ||
-    "Payment information is currently unavailable.";
+    const paymentMethods =
+    companyData?.paymentMethods || [];
+
+  if(paymentMethods.length === 0){
+
+    paymentBox.innerHTML = `
+      <div style="
+        padding:25px;
+        text-align:center;
+        color:#aaa;
+      ">
+        Payment information is currently unavailable.
+      </div>
+    `;
+
+    return;
+  }
+
+  paymentBox.innerHTML = `
+
+    <div style="
+      text-align:center;
+      margin-bottom:22px;
+    ">
+
+      <div style="
+        font-size:26px;
+        font-weight:900;
+        color:#ffd700;
+        letter-spacing:1px;
+      ">
+        SECURE PAYMENT CENTER
+      </div>
+
+      <div style="
+        margin-top:8px;
+        color:#aaa;
+        font-size:14px;
+      ">
+        Choose your preferred payment method
+      </div>
+
+    </div>
+
+    <div style="
+      display:grid;
+      gap:14px;
+    ">
+
+      ${paymentMethods.map((method,index)=>`
+
+        <div style="
+          padding:18px;
+          border-radius:16px;
+          background:
+            linear-gradient(
+              135deg,
+              rgba(255,255,255,.08),
+              rgba(255,255,255,.02)
+            );
+          border:1px solid rgba(255,215,0,.35);
+          box-shadow:
+            0 0 15px rgba(255,215,0,.08);
+          text-align:left;
+        ">
+
+          <div style="
+            font-size:19px;
+            font-weight:900;
+            color:#ffffff;
+            margin-bottom:12px;
+          ">
+            ${method.name}
+          </div>
+
+          ${
+            method.type === "mobile"
+            ? `
+              <div style="
+                color:#aaa;
+                font-size:13px;
+              ">
+                PAYMENT NUMBER
+              </div>
+
+              <div style="
+                color:#00ffff;
+                font-size:20px;
+                font-weight:900;
+                margin:4px 0 12px;
+              ">
+                ${method.paymentNumber}
+              </div>
+
+              <div style="
+                color:#aaa;
+                font-size:13px;
+              ">
+                ACCOUNT NAME
+              </div>
+
+              <div style="
+                color:#ffffff;
+                font-weight:bold;
+                margin-top:4px;
+              ">
+                ${method.accountName}
+              </div>
+            `
+            : `
+              <div style="
+                color:#aaa;
+                font-size:13px;
+              ">
+                BANK NAME
+              </div>
+
+              <div style="
+                color:#00ffff;
+                font-weight:900;
+                margin:4px 0 12px;
+              ">
+                ${method.bankName}
+              </div>
+
+              <div style="
+                color:#aaa;
+                font-size:13px;
+              ">
+                ACCOUNT NAME
+              </div>
+
+              <div style="
+                color:#ffffff;
+                font-weight:bold;
+                margin:4px 0 12px;
+              ">
+                ${method.accountName}
+              </div>
+
+              <div style="
+                color:#aaa;
+                font-size:13px;
+              ">
+                ACCOUNT NUMBER
+              </div>
+
+              <div style="
+                color:#00ffff;
+                font-size:19px;
+                font-weight:900;
+                margin-top:4px;
+              ">
+                ${method.accountNumber}
+              </div>
+            `
+          }
+
+        </div>
+
+      `).join("")}
+
+    </div>
+
+  `;
 
 }
 
