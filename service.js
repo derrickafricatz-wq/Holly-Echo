@@ -1308,9 +1308,6 @@ function openUSSD(code){
 
 function openPaymentApp(){
 
-  const mpesaApp =
-    "intent://#Intent;package=com.vodafone.mpesa.tanzania;end";
-
-  window.location.href = mpesaApp;
+  window.location.href = "mpesa://";
 
 }
