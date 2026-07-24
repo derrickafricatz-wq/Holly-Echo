@@ -1305,3 +1305,14 @@ function openUSSD(code){
   window.location.href = ussdLink;
 
 }
+
+function openPaymentApp(appLink){
+
+  if(!appLink){
+    alert("Payment app link is not available.");
+    return;
+  }
+
+  window.location.href = appLink;
+
+}
