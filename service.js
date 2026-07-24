@@ -1305,22 +1305,11 @@ function openUSSD(code){
 
 }
 
-function openPaymentApp(appLink){
+function openPaymentApp(){
 
-  // Try to open M-Pesa directly
-  const mpesaIntent =
-    "intent://#Intent;scheme=mpesa;package=com.vodafone.mpesa.tanzania;end";
+  const mpesaApp =
+    "intent://#Intent;package=com.vodafone.mpesa.tanzania;end";
 
-  window.location.href = mpesaIntent;
-
-  // If M-Pesa does not open, show installation message
-  setTimeout(() => {
-
-    alert(
-      "M-Pesa Tanzania app is not installed or could not be opened.\n\n" +
-      "Please install the official M-Pesa Tanzania app first, then try again."
-    );
-
-  }, 2500);
+  window.location.href = mpesaApp;
 
 }
