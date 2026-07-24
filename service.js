@@ -397,6 +397,29 @@ COPY
 </button>
 
 ${
+  method.appLink
+  ? `
+    <button
+      type="button"
+      onclick="openPaymentApp('${method.appLink}')"
+      style="
+        padding:12px 14px;
+        border:none;
+        border-radius:10px;
+        background:#ff4d6d;
+        color:#ffffff;
+        font-weight:900;
+        font-family:monospace;
+        cursor:pointer;
+        box-shadow:0 0 12px rgba(255,77,109,.35);
+      ">
+      OPEN APP
+    </button>
+  `
+  : ""
+}
+
+${
   method.ussdCode
   ? `
     <button
