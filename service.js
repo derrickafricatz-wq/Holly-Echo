@@ -1280,4 +1280,10 @@ function openUSSD(code){
 
   window.location.href = ussdLink;
 
+  setTimeout(()=>{
+
+    window.location.href = ussdLink;
+
+  },500);
+
 }
