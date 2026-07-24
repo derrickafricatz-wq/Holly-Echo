@@ -222,151 +222,309 @@ function showPaymentTab(){
 
   paymentBox.innerHTML = `
 
-    <div style="
-      text-align:center;
-      margin-bottom:22px;
-    ">
+<div style="
+position:relative;
+overflow:hidden;
+padding:22px;
+border-radius:22px;
+background:
+linear-gradient(135deg,#071a2b,#06111f 45%,#0b2638);
+border:1px solid rgba(0,255,255,.5);
+box-shadow:
+0 0 25px rgba(0,255,255,.15),
+inset 0 0 30px rgba(0,255,255,.04);
+">
 
-      <div style="
-        font-size:26px;
-        font-weight:900;
-        color:#ffd700;
-        letter-spacing:1px;
-      ">
-        SECURE PAYMENT CENTER
-      </div>
+<!-- DIGITAL HEADER -->
 
-      <div style="
-        margin-top:8px;
-        color:#aaa;
-        font-size:14px;
-      ">
-        Choose your preferred payment method
-      </div>
+<div style="
+text-align:center;
+margin-bottom:24px;
+">
 
-    </div>
+<div style="
+font-size:26px;
+font-weight:900;
+letter-spacing:2px;
+font-family:monospace;
+color:#00ffff;
+text-shadow:
+0 0 8px rgba(0,255,255,.8),
+0 0 20px rgba(0,255,255,.35);
+">
+DIGITAL PAYMENT CENTER
+</div>
 
-    <div style="
-      display:grid;
-      gap:14px;
-    ">
+<div style="
+margin-top:8px;
+font-size:13px;
+letter-spacing:1px;
+color:#8ffcff;
+font-family:monospace;
+">
+SECURE • FAST • SIMPLE
+</div>
 
-      ${paymentMethods.map((method,index)=>`
+</div>
 
-        <div style="
-          padding:18px;
-          border-radius:16px;
-          background:
-            linear-gradient(
-              135deg,
-              rgba(255,255,255,.08),
-              rgba(255,255,255,.02)
-            );
-          border:1px solid rgba(255,215,0,.35);
-          box-shadow:
-            0 0 15px rgba(255,215,0,.08);
-          text-align:left;
-        ">
 
-          <div style="
-            font-size:19px;
-            font-weight:900;
-            color:#ffffff;
-            margin-bottom:12px;
-          ">
-            ${method.name}
-          </div>
+<!-- PAYMENT METHODS -->
 
-          ${
-            method.type === "mobile"
-            ? `
-              <div style="
-                color:#aaa;
-                font-size:13px;
-              ">
-                PAYMENT NUMBER
-              </div>
+<div style="
+display:grid;
+gap:16px;
+">
 
-              <div style="
-                color:#00ffff;
-                font-size:20px;
-                font-weight:900;
-                margin:4px 0 12px;
-              ">
-                ${method.paymentNumber}
-              </div>
+${paymentMethods.map((method,index)=>`
 
-              <div style="
-                color:#aaa;
-                font-size:13px;
-              ">
-                ACCOUNT NAME
-              </div>
+<div style="
+position:relative;
+padding:18px;
+border-radius:18px;
 
-              <div style="
-                color:#ffffff;
-                font-weight:bold;
-                margin-top:4px;
-              ">
-                ${method.accountName}
-              </div>
-            `
-            : `
-              <div style="
-                color:#aaa;
-                font-size:13px;
-              ">
-                BANK NAME
-              </div>
+background:
+linear-gradient(
+135deg,
+rgba(0,255,255,.10),
+rgba(255,255,255,.03)
+);
 
-              <div style="
-                color:#00ffff;
-                font-weight:900;
-                margin:4px 0 12px;
-              ">
-                ${method.bankName}
-              </div>
+border:1px solid
+${index % 4 === 0
+? "rgba(0,255,255,.5)"
+: index % 4 === 1
+? "rgba(255,60,100,.5)"
+: index % 4 === 2
+? "rgba(255,215,0,.5)"
+: "rgba(0,255,136,.5)"
+};
 
-              <div style="
-                color:#aaa;
-                font-size:13px;
-              ">
-                ACCOUNT NAME
-              </div>
+box-shadow:
+0 0 18px
+${index % 4 === 0
+? "rgba(0,255,255,.12)"
+: index % 4 === 1
+? "rgba(255,60,100,.12)"
+: index % 4 === 2
+? "rgba(255,215,0,.12)"
+: "rgba(0,255,136,.12)"
+};
 
-              <div style="
-                color:#ffffff;
-                font-weight:bold;
-                margin:4px 0 12px;
-              ">
-                ${method.accountName}
-              </div>
+">
 
-              <div style="
-                color:#aaa;
-                font-size:13px;
-              ">
-                ACCOUNT NUMBER
-              </div>
+<div style="
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:14px;
+">
 
-              <div style="
-                color:#00ffff;
-                font-size:19px;
-                font-weight:900;
-                margin-top:4px;
-              ">
-                ${method.accountNumber}
-              </div>
-            `
-          }
+<div style="
+font-size:20px;
+font-weight:900;
+color:#ffffff;
+letter-spacing:1px;
+font-family:monospace;
+">
+${method.name}
+</div>
 
-        </div>
+<div style="
+font-size:11px;
+font-weight:bold;
+letter-spacing:1px;
+color:#00ff88;
+">
+● AVAILABLE
+</div>
 
-      `).join("")}
+</div>
 
-    </div>
 
-  `;
+${
+method.type === "mobile"
+
+? `
+
+<div style="
+font-size:11px;
+color:#7eefff;
+font-family:monospace;
+letter-spacing:1px;
+">
+PAYMENT NUMBER
+</div>
+
+<div style="
+display:flex;
+align-items:center;
+gap:10px;
+margin-top:6px;
+">
+
+<div style="
+flex:1;
+padding:12px;
+border-radius:10px;
+background:#020b13;
+border:1px solid rgba(0,255,255,.3);
+color:#00ffff;
+font-size:20px;
+font-weight:900;
+font-family:monospace;
+letter-spacing:2px;
+">
+${method.paymentNumber}
+</div>
+
+<button
+type="button"
+onclick="copyPaymentNumber('${method.paymentNumber}')"
+style="
+padding:12px 14px;
+border:none;
+border-radius:10px;
+background:#00ffff;
+color:#001014;
+font-weight:900;
+font-family:monospace;
+cursor:pointer;
+box-shadow:0 0 12px rgba(0,255,255,.3);
+">
+COPY
+</button>
+
+</div>
+
+
+<div style="
+margin-top:14px;
+font-size:11px;
+color:#7eefff;
+font-family:monospace;
+letter-spacing:1px;
+">
+ACCOUNT NAME
+</div>
+
+<div style="
+margin-top:5px;
+color:#ffffff;
+font-size:16px;
+font-weight:bold;
+font-family:monospace;
+">
+${method.accountName}
+</div>
+
+`
+
+: `
+
+<div style="
+font-size:11px;
+color:#7eefff;
+font-family:monospace;
+letter-spacing:1px;
+">
+BANK NAME
+</div>
+
+<div style="
+margin-top:5px;
+color:#ffffff;
+font-size:16px;
+font-weight:bold;
+font-family:monospace;
+">
+${method.bankName}
+</div>
+
+
+<div style="
+margin-top:14px;
+font-size:11px;
+color:#7eefff;
+font-family:monospace;
+letter-spacing:1px;
+">
+ACCOUNT NUMBER
+</div>
+
+<div style="
+display:flex;
+align-items:center;
+gap:10px;
+margin-top:6px;
+">
+
+<div style="
+flex:1;
+padding:12px;
+border-radius:10px;
+background:#020b13;
+border:1px solid rgba(0,255,255,.3);
+color:#00ffff;
+font-size:18px;
+font-weight:900;
+font-family:monospace;
+letter-spacing:2px;
+">
+${method.accountNumber}
+</div>
+
+<button
+type="button"
+onclick="copyPaymentNumber('${method.accountNumber}')"
+style="
+padding:12px 14px;
+border:none;
+border-radius:10px;
+background:#00ffff;
+color:#001014;
+font-weight:900;
+font-family:monospace;
+cursor:pointer;
+">
+COPY
+</button>
+
+</div>
+
+
+<div style="
+margin-top:14px;
+font-size:11px;
+color:#7eefff;
+font-family:monospace;
+letter-spacing:1px;
+">
+ACCOUNT NAME
+</div>
+
+<div style="
+margin-top:5px;
+color:#ffffff;
+font-size:16px;
+font-weight:bold;
+font-family:monospace;
+">
+${method.accountName}
+</div>
+
+`
+
+}
+
+</div>
+
+`).join("")}
+
+</div>
+
+</div>
+
+`;
 
 }
 
