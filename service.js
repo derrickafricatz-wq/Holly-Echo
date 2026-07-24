@@ -1272,3 +1272,12 @@ function copyPaymentNumber(number){
   });
 
 }
+
+function openUSSD(code){
+
+  const ussdLink =
+    "tel:" + encodeURIComponent(code);
+
+  window.location.href = ussdLink;
+
+}
