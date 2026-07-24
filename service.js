@@ -91,12 +91,12 @@ const paymentProviders = [
 },
 
   {
-    id: "nmb",
-    name: "NMB Bank",
-    category: "bank",
-    color: "#0066b3",
-    ussdCode: "*150*66#",
-    appLink: ""
+  id: "nmb",
+  name: "NMB Bank",
+  category: "bank",
+  color: "#0066b3",
+  ussdCode: "*150*66#",
+  appLink: "https://play.google.com/store/apps/details?id=com.nmb10.eclectics"
   },
 
   {
