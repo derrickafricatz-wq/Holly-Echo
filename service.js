@@ -515,7 +515,7 @@ ${
   ? `
     <button
       type="button"
-      onclick="openPaymentApp()"
+      onclick="openPaymentApp('${method.appLink}')"
       style="
         padding:12px 14px;
         border:none;
