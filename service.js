@@ -395,6 +395,29 @@ box-shadow:0 0 12px rgba(0,255,255,.3);
 COPY
 </button>
 
+${
+  method.ussdCode
+  ? `
+    <button
+      type="button"
+      onclick="openUSSD('${method.ussdCode}')"
+      style="
+        padding:12px 14px;
+        border:none;
+        border-radius:10px;
+        background:#00ff88;
+        color:#001014;
+        font-weight:900;
+        font-family:monospace;
+        cursor:pointer;
+        box-shadow:0 0 12px rgba(0,255,136,.3);
+      ">
+      OPEN M-PESA
+    </button>
+  `
+  : ""
+}
+
 </div>
 
 
