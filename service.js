@@ -29,27 +29,27 @@ const serviceDatabase = {
       },
 
       airtel: {
-        enabled: false,
-        number: "",
+        enabled: true,
+        number: "07",
         accountName: "SHALOM PRODUCTS"
       },
 
       mixx: {
-        enabled: false,
-        number: "",
+        enabled: true,
+        number: "08",
         accountName: "SHALOM PRODUCTS"
       },
 
       nmb: {
-        enabled: false,
+        enabled: true,
         accountName: "SHALOM PRODUCTS",
-        accountNumber: ""
+        accountNumber: "06"
       },
 
       crdb: {
-        enabled: false,
+        enabled: true,
         accountName: "SHALOM PRODUCTS",
-        accountNumber: ""
+        accountNumber: "09"
       }
 
     }  
