@@ -1232,3 +1232,19 @@ function updateDynamicBookingFields(){
   }
 
 }
+
+function copyPaymentNumber(number){
+
+  navigator.clipboard.writeText(number)
+  .then(()=>{
+
+    alert("Payment number copied successfully.");
+
+  })
+  .catch(()=>{
+
+    alert("Unable to copy. Please copy the number manually.");
+
+  });
+
+}
