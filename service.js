@@ -898,21 +898,6 @@ function updateDynamicBookingFields(){
 
   }
 
-    else if(serviceType === "product"){
-
-  dynamicBookingInfo = `
-Service Type:
-PRODUCT ORDER
-
-Product / Service:
-${product || "Not specified"}
-
-Quantity:
-${quantity || "Not specified"}
-`;
-
-}
-
 
   /* =========================
      GENERAL SERVICE
