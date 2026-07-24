@@ -78,7 +78,7 @@ const paymentProviders = [
     category: "mobile",
     color: "#e60000",
     ussdCode: "*150*60#",
-    appLink: ""
+    appLink: "https://play.google.com/store/apps/details?id=com.airtel.africa"
   },
 
   {
